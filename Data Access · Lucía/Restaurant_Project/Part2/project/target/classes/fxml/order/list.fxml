@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.orders.list.ListController">
+    <TableView fx:id="orderlist" layoutX="14.0" layoutY="100.0" onMouseClicked="#selectedUser" prefHeight="200.0"
+               prefWidth="300.0">
+        <columns>
+            <TableColumn fx:id="orderid" prefWidth="54.199981689453125" text="order_id"/>
+            <TableColumn fx:id="tableid" prefWidth="96.20001220703125" text="table_id"/>
+            <TableColumn fx:id="customerid" prefWidth="75.0" text="customer_id"/>
+            <TableColumn fx:id="orderdate" prefWidth="75.0" text="order_date"/>
+        </columns>
+    </TableView>
+    <TableView fx:id="orderitemlist" layoutX="357.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+            <TableColumn fx:id="order_item_id" prefWidth="75.0" text="order_item_id"/>
+            <TableColumn fx:id="order_id" prefWidth="75.0" text="order_id"/>
+            <TableColumn fx:id="menu_item_id" prefWidth="75.0" text="menu_item_id"/>
+            <TableColumn fx:id="quantity" prefWidth="75.0" text="quantity"/>
+        </columns>
+    </TableView>
+    <TextField fx:id="customertextfield" layoutX="382.0" layoutY="57.0"/>
+    <Label layoutX="382.0" layoutY="31.0" prefHeight="18.0" prefWidth="135.0" text="Customer name:"/>
+    <Label layoutX="147.0" layoutY="1.0" prefHeight="78.0" prefWidth="225.0" text="ORDERS LIST">
+        <font>
+            <Font size="30.0"/>
+        </font>
+    </Label>
+</AnchorPane>

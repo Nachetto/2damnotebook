@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import java.lang.*?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.orders.update.UpdateController">
+    <TableView fx:id="orderlist" layoutX="14.0" layoutY="100.0" onMouseClicked="#selectedUser" prefHeight="200.0"
+               prefWidth="107.0">
+        <columns>
+            <TableColumn fx:id="orderid" prefWidth="54.199981689453125" text="order_id"/>
+            <TableColumn fx:id="tableid" prefWidth="96.20001220703125" text="table_id"/>
+            <TableColumn fx:id="customerid" prefWidth="75.0" text="customer_id"/>
+            <TableColumn fx:id="orderdate" prefWidth="75.0" text="order_date"/>
+        </columns>
+    </TableView>
+    <TableView fx:id="orderitemlist" layoutX="261.0" layoutY="100.0" prefHeight="200.0" prefWidth="247.0">
+        <columns>
+            <TableColumn fx:id="order_item_id" prefWidth="75.0" text="order_item_id"/>
+            <TableColumn fx:id="order_id" prefWidth="75.0" text="order_id"/>
+            <TableColumn fx:id="menu_item_id" prefWidth="75.0" text="menu_item_id"/>
+            <TableColumn fx:id="quantity" prefWidth="75.0" text="quantity"/>
+        </columns>
+    </TableView>
+    <ComboBox fx:id="dropdown1" layoutX="130.0" layoutY="160.0" prefHeight="26.0" prefWidth="117.0"
+              promptText="Customer Id">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="1"/>
+                <String fx:value="2"/>
+                <String fx:value="3"/>
+                <String fx:value="4"/>
+                <String fx:value="5"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+    <ComboBox fx:id="dropdown2" layoutX="130.0" layoutY="126.0" prefHeight="26.0" prefWidth="118.0"
+              promptText="Table Id">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="1"/>
+                <String fx:value="2"/>
+                <String fx:value="3"/>
+                <String fx:value="4"/>
+                <String fx:value="5"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+    <ComboBox fx:id="dropdown3" layoutX="276.0" layoutY="48.0" prefHeight="25.0" prefWidth="174.0"
+              promptText="Menu item">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="1"/>
+                <String fx:value="2"/>
+                <String fx:value="3"/>
+                <String fx:value="4"/>
+                <String fx:value="5"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+    <DatePicker fx:id="entercustomerbirthdate" layoutX="130.0" layoutY="87.0" prefHeight="26.0" prefWidth="118.0"
+                promptText="Date/Time"/>
+    <Button layoutX="151.0" layoutY="342.0" mnemonicParsing="false" onAction="#addOrder" text="Update Order"/>
+    <Button layoutX="523.0" layoutY="113.0" mnemonicParsing="false" onAction="#addOrderItem" prefHeight="26.0"
+            prefWidth="59.0" text="Add"/>
+    <Button layoutX="523.0" layoutY="148.0" mnemonicParsing="false" onAction="#removeOrderItem" text="Remove"/>
+</AnchorPane>
