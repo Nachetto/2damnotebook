@@ -1,0 +1,9 @@
+la ruta base del api se guarda en una constante, la cual podran acceder despues de que hayamos creado la clase configuracion.java que llama a config\config.properties que es donde tienes las variables declaradas por linea
+
+en el dao vas a estar llamando al api para inicializar los objetos
+dentro del dao tienes el paquete retrofit, con los paquetes llamadas y modelos dentro
+	llamadas es una interfaz donde haces un metodo para cada objeto, en este tienes que poner 		@get("url seguida de la base para llamar al objeto que quieras")
+	
+
+37:36
+https://informatica.iesquevedo.es/videos/2dam/PSP/2023-09-29_Retrofit.mp4
