@@ -15,14 +15,14 @@ public class DIJavafx extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
         SeContainerInitializer initializer = SeContainerInitializer.newInstance();
         final SeContainer container = initializer.initialize();
-        primaryStage.setMinWidth(800);
-        primaryStage.setMinHeight(600);
+        primaryStage.setMinWidth(749);
+        primaryStage.setMinHeight(450);
         primaryStage.setResizable(true);
         container.getBeanManager().getEvent().select(new AnnotationLiteral<StartupScene>() {
         }).fire(primaryStage);
     }
+
 
 }

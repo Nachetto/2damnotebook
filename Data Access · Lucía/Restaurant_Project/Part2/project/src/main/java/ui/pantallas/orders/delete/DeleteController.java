@@ -12,12 +12,12 @@ import model.Order;
 import model.OrderItem;
 import service.OrderItemService;
 import service.OrderService;
-import ui.pantallas.common.BasePantallaController;
+import ui.pantallas.common.BaseScreenController;
 import ui.pantallas.orders.common.OrderCommon;
 
 import java.time.LocalDateTime;
 
-public class DeleteController extends BasePantallaController {
+public class DeleteController extends BaseScreenController {
     @FXML
     private TableView<OrderItem> orderitemlist;
     @FXML
@@ -61,11 +61,11 @@ public class DeleteController extends BasePantallaController {
         orderitemlist.getItems().addAll(service2.getAll().get());
     }
 
-    public void deleteOrder(ActionEvent actionEvent) {
+    public void deleteOrder() {
         getPrincipalController().showAlertInfo(Constants.ORDERDELETED);
     }
 
-    public void selectedUser(MouseEvent mouseEvent) {
+    public void selectedUser() {
         Order o = orderlist.getSelectionModel().getSelectedItem();
     }
 }

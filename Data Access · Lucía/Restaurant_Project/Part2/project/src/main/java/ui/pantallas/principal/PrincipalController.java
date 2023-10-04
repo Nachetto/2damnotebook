@@ -14,15 +14,15 @@ import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import model.Credential;
 import service.CustomerService;
-import ui.pantallas.common.BasePantallaController;
+import ui.pantallas.common.BaseScreenController;
 import ui.pantallas.common.Screens;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @Log4j2
 public class PrincipalController {
-    Instance<Object> instance;
-    private final Alert alert;
+    private final Instance<Object> instance;
     @Getter
     private String username, password;
     @FXML
@@ -46,7 +46,6 @@ public class PrincipalController {
     @Inject
     public PrincipalController(Instance<Object> instance) {
         this.instance = instance;
-        alert = new Alert(Alert.AlertType.NONE);
     }
 
 
@@ -55,24 +54,40 @@ public class PrincipalController {
         loadScreen(Screens.LOGIN);
     }
 
-
-    public void showAlertError(String mensaje) {
-        alert.setAlertType(Alert.AlertType.ERROR);
-        alert.setContentText(mensaje);
+    private void showCustomAlert(String message, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setContentText(message);
         alert.getDialogPane().setId("alert");
         alert.getDialogPane().lookupButton(ButtonType.OK).setId("btn-ok");
-        //alert.getDialogPane().lookupButton(ButtonType.CANCEL).setId("btn-cancel");
+        // alert.getDialogPane().lookupButton(ButtonType.CANCEL).setId("btn-cancel");
         alert.showAndWait();
     }
 
-    public void showAlertInfo(String mensaje) {
-        alert.setAlertType(Alert.AlertType.INFORMATION);
-        alert.setContentText(mensaje);
+    public void showAlertError(String message) {
+        showCustomAlert(message, Alert.AlertType.ERROR);
+    }
+
+    public void showAlertInfo(String message) {
+        showCustomAlert(message, Alert.AlertType.INFORMATION);
+    }
+
+    public boolean showConfirmationAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText(message);
         alert.getDialogPane().setId("alert");
         alert.getDialogPane().lookupButton(ButtonType.OK).setId("btn-ok");
-        //alert.getDialogPane().lookupButton(ButtonType.CANCEL).setId("btn-cancel");
-        alert.showAndWait();
+        alert.getDialogPane().lookupButton(ButtonType.CANCEL).setId("btn-cancel");
+        Button cancelButton = (Button) alert.getDialogPane().lookupButton(ButtonType.CANCEL);
+        cancelButton.setDefaultButton(true);
+        Button okButton = (Button) alert.getDialogPane().lookupButton(ButtonType.OK);
+        okButton.setDefaultButton(false);
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.isPresent() && result.get() == ButtonType.OK;
     }
+
+
+
+
 
 
     private void loadScreen(Screens pantalla) {
@@ -85,7 +100,7 @@ public class PrincipalController {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setControllerFactory(controller -> instance.select(controller).get());
             panePantalla = fxmlLoader.load(getClass().getResourceAsStream(ruta));
-            BasePantallaController pantallaController = fxmlLoader.getController();
+            BaseScreenController pantallaController = fxmlLoader.getController();
             pantallaController.setPrincipalController(this);
             pantallaController.principalCargado();
         } catch (IOException e) {
@@ -109,7 +124,6 @@ public class PrincipalController {
             loadScreen(Screens.START);
             menuPrincipal.setVisible(true);
         }
-
     }
 
     public void onLogout() {
@@ -139,6 +153,6 @@ public class PrincipalController {
     }
 
 
-    public void setStage(Stage stage) {
+    public void setStage(Stage stage) {//id have to make this static
     }
 }

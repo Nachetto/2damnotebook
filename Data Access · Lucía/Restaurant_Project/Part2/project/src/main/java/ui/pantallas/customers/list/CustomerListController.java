@@ -6,12 +6,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import model.Customer;
 import service.CustomerService;
-import ui.pantallas.common.BasePantallaController;
+import ui.pantallas.common.BaseScreenController;
 import ui.pantallas.customers.common.CustomerCommon;
 
 import java.time.LocalDate;
 
-public class CustomerListController extends BasePantallaController {
+public class CustomerListController extends BaseScreenController {
     @Inject
     private CustomerCommon common;
     @FXML

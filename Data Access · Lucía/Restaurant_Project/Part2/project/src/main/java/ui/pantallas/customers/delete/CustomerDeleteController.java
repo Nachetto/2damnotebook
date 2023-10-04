@@ -2,19 +2,22 @@ package ui.pantallas.customers.delete;
 
 import common.Constants;
 import jakarta.inject.Inject;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.Customer;
+import model.Order;
 import service.CustomerService;
-import ui.pantallas.common.BasePantallaController;
+import service.OrderService;
+import ui.pantallas.common.BaseScreenController;
 import ui.pantallas.customers.common.CustomerCommon;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
-public class CustomerDeleteController extends BasePantallaController {
+public class CustomerDeleteController extends BaseScreenController {
 
     @Inject
     private CustomerCommon common;
@@ -32,27 +35,65 @@ public class CustomerDeleteController extends BasePantallaController {
     private TableColumn<Customer, LocalDate> customerbirthdate;
     @FXML
     private TableColumn<Customer, Integer> customerid;
+
+    @FXML
+    private TableView<Order> orderlist;
+    @FXML
+    private TableColumn<Order, Integer> orderid;
+    @FXML
+    private TableColumn<Order, Integer> tableid;
+    @FXML
+    private TableColumn<Order, Integer> ordercustomerid;
+    @FXML
+    private TableColumn<Order, LocalDateTime> orderdate;
     private Customer c;
 
     @Inject
-    private CustomerService service;
+    private CustomerService cservice;
+    @Inject
+    private OrderService oservice;
 
     public void initialize() {
         common.initializeCustomerTable(customerid, customerphone, customerbirthdate, customeremail, customersurname, customername);
+
+        orderid.setCellValueFactory(new PropertyValueFactory<>("orderid"));
+        tableid.setCellValueFactory(new PropertyValueFactory<>("tableid"));
+        ordercustomerid.setCellValueFactory(new PropertyValueFactory<>("customerid"));
+        orderdate.setCellValueFactory(new PropertyValueFactory<>("orderdate"));
     }
 
-    public void selectedUser(MouseEvent mouseEvent) {
+    public void selectedUser() {
         c = customerlist.getSelectionModel().getSelectedItem();
+        orderlist.getItems().clear();
+        List<Order>orders= oservice.getAll().get().stream().filter(order -> order.getCustomerid()==c.getId()).toList();
+        orderlist.getItems().addAll(orders);
     }
 
     @Override
     public void principalCargado() {
-        customerlist.getItems().addAll(service.getAll().get());
+        customerlist.getItems().addAll(cservice.getAll().get());
     }
 
-    public void deleteUser(ActionEvent actionEvent) {
-        if (service.getAll().get().remove(c))
-            getPrincipalController().showAlertInfo(Constants.CUSTOMERDELETED);
-        else getPrincipalController().showAlertError(Constants.CUSTOMERNOTDELETED);
+    public void deleteUser() {
+        if (cservice.hasAnyOrders(c)) {
+            if (getPrincipalController().showConfirmationAlert(Constants.CONFIRMUSERDELETION)) {
+                if (cservice.delete(c) != 1) {
+                    getPrincipalController().showAlertError(Constants.CUSTOMERNOTDELETED);
+                } else {
+                    oservice.delete(c);
+                    customerlist.getItems().clear();
+                    principalCargado();
+                    getPrincipalController().showAlertInfo(Constants.CUSTOMERDELETED);
+                }
+            }
+        } else {
+            if (cservice.delete(c) != 1) {
+                getPrincipalController().showAlertError(Constants.CUSTOMERNOTDELETED);
+            } else {
+                customerlist.getItems().clear();
+                principalCargado();
+                getPrincipalController().showAlertInfo(Constants.CUSTOMERDELETED);
+            }
+        }
     }
 }
