@@ -16,5 +16,4 @@ public class ResponseCharacter {
     private final String actor;
     //an arraylist of an ebject episode named episodes
     private final ResponseEpisode[] episodes;
-
 }
