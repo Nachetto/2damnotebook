@@ -27,7 +27,7 @@ module javafx.multipantalla {
     exports common;
     exports domain.modelo;
     exports ui.pantallas.main;
-
+    exports dao.retrofit;
 
     opens  ui.pantallas.main to javafx.fxml;
     opens domain.modelo to javafx.base;

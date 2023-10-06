@@ -24,36 +24,18 @@ public class ProducesRetrofit {
     }
 
     @Produces
-    public OkHttpClient getOK(Configuracion config)
+    public OkHttpClient getOK()
     {
         return new OkHttpClient.Builder()
-                .connectionPool(new okhttp3.ConnectionPool(1, 1, java.util.concurrent.TimeUnit.SECONDS))
-                .addInterceptor(chain -> {
-                    Request original = chain.request();
-
-                    Request.Builder builder1 = original.newBuilder()
-                            .header("X-Auth-Token", "2deee83e549c4a6e9709871d0fd58a0a")
-                            .url(original.url().newBuilder()
-                                    .addQueryParameter("ts","1")
-                                    .addQueryParameter("apikey","a26d34b6ea64ce618360835be5888f91")
-                                    .addQueryParameter("hash","073e520a55d710ef1b77df866349e689")
-                                    .build());
-
-                    Request request = builder1.build();
-                    original.newBuilder().header("Authorization", config.getPathDatos()).build();
-                    return chain.proceed(request);}
-                )
-                .build();
-
+                .connectionPool(new okhttp3.ConnectionPool(1, 1, java.util.concurrent.TimeUnit.SECONDS)).build();
     }
 
     @Produces
     @Singleton
     public Retrofit retrofits(OkHttpClient clientOK,Moshi moshi, Configuracion config ) {
         return new Retrofit.Builder()
-                .baseUrl("https://theofficeapi.dev/api")
+                .baseUrl(config.getBaseUrl())
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
-                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .client(clientOK)
                 .build();
     }

@@ -45,10 +45,8 @@ public class DaoCromosImpl implements DaoCromos {
     public Either<String, MiJokes> llamadaRettrofit() {
         Either<String, MiJokes> respuesta = null;
         Response<ResponseJoke> r = null;
-
         try {
             r = jokeApi.getAnyJoke("aa", "es").execute();
-
             if (r.isSuccessful()) {
                 ResponseJoke rj = r.body();
                 MiJokes joker = null;
@@ -65,15 +63,11 @@ public class DaoCromosImpl implements DaoCromos {
         } catch (IOException e) {
             respuesta = Either.left(e.getMessage());
         }
-
-
         return respuesta;
 
     }
 
     public Single<Either<String, MiJokes>> llamadaRettrofitSingle() {
-
-
         return jokeApi.getAnyJokeAsync("es")
                 .map(rj -> {
                     MiJokes joker = null;
@@ -89,7 +83,6 @@ public class DaoCromosImpl implements DaoCromos {
                     Either<String, MiJokes> error = Either.left("Error de comunicacion");
                     if (throwable instanceof HttpException httpException  ){
                             try (ResponseBody errorBody = Objects.requireNonNull(httpException.response()).errorBody()) {
-
                                 if (Objects.equals(errorBody.contentType(), MediaType.get("application/json"))) {
 //                                Gson g = new Gson();
 //                                dao.modelo.marvel.ApiError apierror = g.fromJson(((HttpException) throwable).response().errorBody().string(), dao.modelo.marvel.ApiError.class);

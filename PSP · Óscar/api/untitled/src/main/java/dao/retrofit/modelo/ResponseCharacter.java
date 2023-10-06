@@ -4,13 +4,13 @@ import lombok.Data;
 
 @Data
 public class ResponseCharacter {
-    private final String id;
+    private final int id;
     private final String name;
     private final String gender;
     private final String marital;
     //an array of strings
     private final String[] job;
-    private final String[] workspace;
+    private final String[] workplace;
     private final String firstAppearance;
     private final String lastAppearance;
     private final String actor;
