@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="javafx11_multipantalla" />
         <module name="untitled" />
+        <module name="NewspaperFX" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
