@@ -3,7 +3,7 @@ package ui.pantallas.common;
 import ui.pantallas.principal.PrincipalController;
 
 
-public abstract class BasePantallaController {
+public abstract class BaseScreenController {
 
     private PrincipalController principalController;
 

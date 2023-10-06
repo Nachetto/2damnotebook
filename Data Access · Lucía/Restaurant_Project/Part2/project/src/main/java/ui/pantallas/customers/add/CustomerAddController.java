@@ -2,18 +2,17 @@ package ui.pantallas.customers.add;
 
 import common.Constants;
 import jakarta.inject.Inject;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import model.Credential;
 import model.Customer;
 import service.CustomerService;
-import ui.pantallas.common.BasePantallaController;
+import ui.pantallas.common.BaseScreenController;
 import ui.pantallas.customers.common.CustomerCommon;
 
 import java.time.LocalDate;
 
-public class CustomerAddController extends BasePantallaController {
+public class CustomerAddController extends BaseScreenController {
 
     @FXML
     private TextField entercustomername;
@@ -53,14 +52,33 @@ public class CustomerAddController extends BasePantallaController {
         common.initializeCustomerTable(customerid, customerphone, customerbirthdate, customeremail, customersurname, customername);
     }
 
-    public void addNewCustomer(ActionEvent actionEvent) {
-        int customerId = Integer.parseInt(entercustomerid.getText());
-        int customerPhone = Integer.parseInt(entercustomerphone.getText());
-        if (service.getAll().get().add(new Customer(customerId, customerPhone, entercustomername.getText(), entercustomersurname.getText(), entercustomeremail.getText(), new Credential("null", "null"), entercustomerbirthdate.getValue())))
-            getPrincipalController().showAlertInfo(Constants.USERADDED);
-        else
-            getPrincipalController().showAlertError(Constants.USERRNOTADDED);
-        principalCargado();
+    public void addNewCustomer() {
+        String customerIdText = entercustomerid.getText();
+        String customerPhoneText = entercustomerphone.getText();
+        LocalDate customerBirthdate = entercustomerbirthdate.getValue();
+
+        if (isNumeric(customerIdText) && isNumeric(customerPhoneText) && customerBirthdate != null) {
+            int customerId = Integer.parseInt(customerIdText);
+            int customerPhone = Integer.parseInt(customerPhoneText);
+
+            if (service.save(new Customer(customerId, customerPhone, entercustomername.getText(), entercustomersurname.getText(), entercustomeremail.getText(), new Credential("null", "null"), customerBirthdate)) == 1)
+                getPrincipalController().showAlertInfo(Constants.USERADDED);
+            else {
+                getPrincipalController().showAlertError(Constants.USERRNOTADDED);
+            }
+            principalCargado();
+        } else {
+            getPrincipalController().showAlertError(Constants.CUSTOMERNOTADDED);
+        }
+    }
+
+    private boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
 

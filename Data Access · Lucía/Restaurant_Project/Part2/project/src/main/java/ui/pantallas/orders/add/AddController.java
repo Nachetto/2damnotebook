@@ -2,26 +2,28 @@ package ui.pantallas.orders.add;
 
 import common.Constants;
 import jakarta.inject.Inject;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.Customer;
+import model.Order;
 import model.OrderItem;
+import service.CustomerService;
 import service.OrderItemService;
-import ui.pantallas.common.BasePantallaController;
+import service.OrderService;
+import ui.pantallas.common.BaseScreenController;
 
-public class AddController extends BasePantallaController {
+import java.time.LocalDateTime;
+
+public class AddController extends BaseScreenController {
     @FXML
-    private DatePicker entercustomerbirthdate;
+    private Spinner<Integer> quantities;
     @FXML
-    private ComboBox dropdown1;
+    private TextField tableid;
     @FXML
-    private ComboBox dropdown2;
+    private ComboBox<Integer> dropdown1;
     @FXML
-    private ComboBox dropdown3;
+    private ComboBox<OrderItem> dropdown3;
     @FXML
     private TableView<OrderItem> orderitemlist;
     @FXML
@@ -33,13 +35,19 @@ public class AddController extends BasePantallaController {
     @FXML
     private TableColumn<OrderItem, Integer> quantity;
     @Inject
+    private CustomerService service1;
+    @Inject
     private OrderItemService service2;
+    @Inject
+    private OrderService service3;
 
     public void initialize() {
         order_item_id.setCellValueFactory(new PropertyValueFactory<>("order_item_id"));
         order_id.setCellValueFactory(new PropertyValueFactory<>("order_id"));
         menu_item_id.setCellValueFactory(new PropertyValueFactory<>("menu_item_id"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
+        quantities.setValueFactory(valueFactory);
     }
 
     @Override
@@ -47,15 +55,26 @@ public class AddController extends BasePantallaController {
         orderitemlist.getItems().addAll(service2.getAll().get());
     }
 
-    public void addOrder(ActionEvent actionEvent) {
-        getPrincipalController().showAlertInfo(Constants.ORDERADDED);
+    public void addOrder() {
+        switch (service3.save(new Order(service3.getLastOrderId() + 1,Integer.parseInt(tableid.getText()), dropdown1.getValue(), LocalDateTime.now()))) {
+            case -1 -> getPrincipalController().showAlertError(Constants.CUSTOMERNOTADDED);
+            case 1 -> getPrincipalController().showAlertInfo(Constants.ORDERADDED);
+        }
     }
 
-    public void addOrderItem(ActionEvent actionEvent) {
+    public void addOrderItem() {
         getPrincipalController().showAlertInfo(Constants.ORDERITEMADDED);
     }
 
-    public void removeOrderItem(ActionEvent actionEvent) {
+    public void removeOrderItem() {
         getPrincipalController().showAlertInfo(Constants.ORDERITEMREMOVED);
     }
+
+    public void showCustomerids() {
+        dropdown1.getItems().clear();
+        for (Customer c : service1.getAll().get()) {
+            dropdown1.getItems().add(c.getId());
+        }
+    }
+
 }

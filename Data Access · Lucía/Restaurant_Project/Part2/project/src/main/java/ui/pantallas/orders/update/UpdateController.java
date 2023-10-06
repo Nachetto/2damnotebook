@@ -9,15 +9,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import model.Order;
 import model.OrderItem;
-import service.CustomerService;
 import service.OrderItemService;
 import service.OrderService;
-import ui.pantallas.common.BasePantallaController;
+import ui.pantallas.common.BaseScreenController;
 import ui.pantallas.orders.common.OrderCommon;
 
 import java.time.LocalDateTime;
 
-public class UpdateController extends BasePantallaController {
+public class UpdateController extends BaseScreenController {
     @FXML
     private TableColumn<Order, Integer> orderid;
     @FXML
@@ -31,11 +30,11 @@ public class UpdateController extends BasePantallaController {
     @FXML
     private DatePicker entercustomerbirthdate;
     @FXML
-    private ComboBox dropdown1;
+    private ComboBox<Integer> dropdown1;
     @FXML
-    private ComboBox dropdown2;
+    private ComboBox<Integer> dropdown2;
     @FXML
-    private ComboBox dropdown3;
+    private ComboBox<Integer> dropdown3;
     @FXML
     private TableView<OrderItem> orderitemlist;
     @FXML
@@ -50,13 +49,8 @@ public class UpdateController extends BasePantallaController {
     private OrderItemService service2;
     @Inject
     private OrderCommon common;
-
-    @FXML
-    private TextField customertextfield;
     @Inject
     private OrderService service;
-    @Inject
-    private OrderService service3;
 
     public void initialize() {
         common.initializeCustomerTable(orderid, tableid, customerid, orderdate);
@@ -73,18 +67,18 @@ public class UpdateController extends BasePantallaController {
         orderitemlist.getItems().addAll(service2.getAll().get());
     }
 
-    public void addOrder(ActionEvent actionEvent) {
+    public void addOrder() {
         getPrincipalController().showAlertInfo(Constants.ORDERUPDATED);
     }
 
-    public void addOrderItem(ActionEvent actionEvent) {
+    public void addOrderItem() {
         getPrincipalController().showAlertInfo(Constants.ORDERITEMADDED);
     }
 
-    public void removeOrderItem(ActionEvent actionEvent) {
+    public void removeOrderItem() {
         getPrincipalController().showAlertInfo(Constants.ORDERITEMREMOVED);
     }
 
-    public void selectedUser(MouseEvent mouseEvent) {
+    public void selectedUser() {//not done yet because not asked to
     }
 }

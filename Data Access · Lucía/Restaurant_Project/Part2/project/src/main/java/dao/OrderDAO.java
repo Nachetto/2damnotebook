@@ -8,7 +8,7 @@ import java.util.List;
 public interface OrderDAO {
     Either<String, List<Order>> getAll();
 
-    Either<String, List<Order>> get(int id);
+    Either<String, Order> get(int id);
 
     int save(Order o);
 

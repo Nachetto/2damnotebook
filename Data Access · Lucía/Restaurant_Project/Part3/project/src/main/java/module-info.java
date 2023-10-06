@@ -41,7 +41,7 @@ module javafx.multipantalla {
     opens ui.pantallas.customers.list;
     opens ui.pantallas.principal;
     opens ui.main;
-    opens config;
+    opens common.config;
     opens fxml;
     opens service;
     opens model to javafx.base;

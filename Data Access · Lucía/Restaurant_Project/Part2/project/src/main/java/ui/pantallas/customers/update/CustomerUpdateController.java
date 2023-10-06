@@ -6,31 +6,32 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import model.Credential;
 import model.Customer;
 import service.CustomerService;
-import ui.pantallas.common.BasePantallaController;
+import ui.pantallas.common.BaseScreenController;
 import ui.pantallas.customers.common.CustomerCommon;
 
 import java.time.LocalDate;
 
-public class CustomerUpdateController extends BasePantallaController {
+public class CustomerUpdateController extends BaseScreenController {
 
     @Inject
     CustomerCommon common;
     @FXML
     private TableView<Customer> customerlist;
     @FXML
-    private TableColumn<Customer,Integer> customerphone;
+    private TableColumn<Customer, Integer> customerphone;
     @FXML
-    private  TableColumn<Customer,String> customername;
+    private TableColumn<Customer, String> customername;
     @FXML
-    private  TableColumn<Customer,String> customersurname;
+    private TableColumn<Customer, String> customersurname;
     @FXML
-    private  TableColumn<Customer,String> customeremail;
+    private TableColumn<Customer, String> customeremail;
     @FXML
-    private  TableColumn<Customer, LocalDate> customerbirthdate;
+    private TableColumn<Customer, LocalDate> customerbirthdate;
     @FXML
-    private TableColumn<Customer,Integer> customerid;
+    private TableColumn<Customer, Integer> customerid;
     @FXML
     private TextField entercustomername;
     @FXML
@@ -48,8 +49,8 @@ public class CustomerUpdateController extends BasePantallaController {
     @Inject
     private CustomerService service;
 
-    public void initialize(){
-        common.initializeCustomerTable(customerid,customerphone,customerbirthdate,customeremail,customersurname,customername);
+    public void initialize() {
+        common.initializeCustomerTable(customerid, customerphone, customerbirthdate, customeremail, customersurname, customername);
     }
 
     @Override
@@ -57,11 +58,16 @@ public class CustomerUpdateController extends BasePantallaController {
         customerlist.getItems().addAll(service.getAll().get());
     }
 
-    public void updateCustomer(ActionEvent actionEvent) {
-        getPrincipalController().showAlertInfo(Constants.CUSTOMERUPDATED);
+    public void updateCustomer() {
+        Customer c = customerlist.getSelectionModel().getSelectedItem();
+        if (c != null) {
+            Customer newc= new Customer(Integer.parseInt(entercustomerid.getText()),Integer.parseInt(entercustomerphone.getText()),entercustomername.getText(),entercustomersurname.getText(),entercustomeremail.getText(),new Credential("null","null"),entercustomerbirthdate.getValue());
+            service.modify(c,newc);
+        }
+        //getPrincipalController().showAlertInfo(Constants.CUSTOMERUPDATED);
     }
 
-    public void selectedUser(MouseEvent mouseEvent) {
+    public void selectedUser() {
         Customer c = customerlist.getSelectionModel().getSelectedItem();
         if (c != null) {
             entercustomerid.setText(Integer.toString(c.getId()));

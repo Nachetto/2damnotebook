@@ -9,11 +9,11 @@ import java.util.List;
 public interface CustomerDAO {
     Either<String, List<Customer>> getAll();
 
-    Either<String, List<Customer>> get(int id);
+    Either<String, Customer> get(int id);
 
     int save(Customer c);
 
-    int modify(Customer c);
+    int modify(Customer c, Customer cu);
 
     int delete(Customer c);
 

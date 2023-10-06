@@ -14,13 +14,13 @@ import model.OrderItem;
 import service.CustomerService;
 import service.OrderItemService;
 import service.OrderService;
-import ui.pantallas.common.BasePantallaController;
+import ui.pantallas.common.BaseScreenController;
 import ui.pantallas.orders.common.OrderCommon;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class ListController extends BasePantallaController {
+public class ListController extends BaseScreenController {
     @FXML
     private TextField customertextfield;
     @FXML
@@ -58,30 +58,36 @@ public class ListController extends BasePantallaController {
         order_id.setCellValueFactory(new PropertyValueFactory<>("order_id"));
         menu_item_id.setCellValueFactory(new PropertyValueFactory<>("menu_item_id"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        // Llena la tabla con datos de OrderItem
-        orderitemlist.getItems().addAll(service2.getAll().get());
     }
 
     @Override
     public void principalCargado() {
-        orderlist.getItems().addAll(service.getAll().get());
-        orderitemlist.getItems().addAll(service2.getAll().get());
+        if (service.getAll().isLeft()) {
+            getPrincipalController().showAlertError(service.getAll().getLeft());
+        } else {
+            orderlist.getItems().addAll(service.getAll().get());
+            customertextfield.setEditable(false);
+        }
     }
 
-    public void selectedUser(MouseEvent mouseEvent) {
-        Order o = orderlist.getSelectionModel().getSelectedItem();
-        int customerId = o.getCustomerid();
+    public void selectedUser() {
+        orderitemlist.getItems().clear();
+        Order selectedOrder = orderlist.getSelectionModel().getSelectedItem();
 
-        Either<String, List<Customer>> result = service3.get(customerId);
+        if (selectedOrder != null) {
+            List<OrderItem> selectedOrderItems = service2.getAll().get().stream().filter(orderItem -> orderItem.getOrder_id() == selectedOrder.getOrderid()).toList();
+            orderitemlist.getItems().addAll(selectedOrderItems);
 
-        if (result.isRight()) {
-            List<Customer> customers = result.get();
-            if (!customers.isEmpty()) {
-                Customer customer = customers.get(0); // Obtén el primer cliente de la lista
-                String username = customer.getName();
-                customertextfield.setText(username);
+            Order o = orderlist.getSelectionModel().getSelectedItem();
+            Either<String, Customer> result = service3.get(o.getCustomerid());
+
+            if (result.isRight()) {
+                Customer customer = result.get();
+                String name = customer.getName();
+                customertextfield.setText(name);
             }
         }
     }
+
 
 }

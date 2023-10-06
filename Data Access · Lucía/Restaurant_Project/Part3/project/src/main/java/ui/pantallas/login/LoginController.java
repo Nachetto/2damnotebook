@@ -1,12 +1,11 @@
 package ui.pantallas.login;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import ui.pantallas.common.BasePantallaController;
+import ui.pantallas.common.BaseScreenController;
 
-public class LoginController extends BasePantallaController {
+public class LoginController extends BaseScreenController {
 
     @FXML
     private TextField username;
@@ -14,7 +13,7 @@ public class LoginController extends BasePantallaController {
     private PasswordField password;
 
     @FXML
-    private void login(ActionEvent actionEvent) {
+    private void login() {
         getPrincipalController().onLogin(username.getText(), password.getText());
     }
 }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.main.MainController">
-   <Label fx:id="bienvenida" layoutX="50.0" layoutY="104.0" prefHeight="243.0" prefWidth="498.0" text="nada">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="450" prefWidth="749" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.main.MainController">
+   <Label fx:id="bienvenida" layoutX="125.0" layoutY="103.0" prefHeight="243.0" prefWidth="498.0" text="nada" textAlignment="CENTER">
       <font>
-         <Font size="36.0"/>
+         <Font size="36.0" />
       </font>
    </Label>
 </AnchorPane>

@@ -20,4 +20,23 @@ public class Customer {
         this.birthdate = birthdate;
         credential = credentials;
     }
+
+
+    public Customer(String fileLine) {
+        String[] elemArray = fileLine.split(";");
+        this.id = Integer.parseInt(elemArray[0]);
+        this.name = elemArray[1];
+        this.surname = elemArray[2];
+        this.email = elemArray[3];
+        this.phone = !elemArray[4].isEmpty() ? Integer.parseInt(elemArray[4]) : 0;
+        this.birthdate = LocalDate.parse(elemArray[5]);
+        this.credential = new Credential("root", "2dam");
+    }
+
+
+
+    public String toStringTextFile() {
+        return id + ";" + name + ";" + surname + ";" + email + ";" + phone + ";" + birthdate;
+    }
+
 }
