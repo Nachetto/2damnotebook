@@ -5,12 +5,9 @@ import com.squareup.moshi.Moshi;
 import common.config.Configuracion;
 import dao.retrofit.llamadas.TheOfficeApi;
 import jakarta.enterprise.inject.Produces;
-import jakarta.inject.Named;
 import jakarta.inject.Singleton;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.moshi.MoshiConverterFactory;
 
 
@@ -18,21 +15,20 @@ public class ProducesRetrofit {
 
     @Produces
     @Singleton
-    public Moshi getMoshi()
-    {
+    public Moshi getMoshi() {
         return new Moshi.Builder().build();
     }
 
+
     @Produces
-    public OkHttpClient getOK()
-    {
+    public OkHttpClient getOK() {
         return new OkHttpClient.Builder()
                 .connectionPool(new okhttp3.ConnectionPool(1, 1, java.util.concurrent.TimeUnit.SECONDS)).build();
     }
 
     @Produces
     @Singleton
-    public Retrofit retrofits(OkHttpClient clientOK,Moshi moshi, Configuracion config ) {
+    public Retrofit retrofits(OkHttpClient clientOK, Moshi moshi, Configuracion config) {
         return new Retrofit.Builder()
                 .baseUrl(config.getBaseUrl())
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
@@ -41,13 +37,9 @@ public class ProducesRetrofit {
     }
 
     @Produces
-    public TheOfficeApi getTheOfficeApi(Retrofit retrofit){
+    public TheOfficeApi getTheOfficeApi(Retrofit retrofit) {
         return retrofit.create(TheOfficeApi.class);
     }
-
-
-
-
 
 
 }

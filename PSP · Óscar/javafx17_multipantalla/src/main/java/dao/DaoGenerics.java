@@ -15,20 +15,18 @@ abstract class DaoGenerics {
 
     public <T> Either<String, T> safeApicall(Call<T> call) {
         Either<String, T> resultado = null;
-
         try {
             Response<T> response = call.execute();
-            if (response.isSuccessful()) {
-                resultado = Either.right(response.body());
-            } else {
+            if (response.isSuccessful()) resultado = Either.right(response.body());
+            else {
 
-                resultado = Either.left(response.errorBody().toString());
+                if (response.errorBody() != null) {
+                    resultado = Either.left(response.errorBody().toString());
+                }
             }
         } catch (Exception e) {
             resultado = Either.left("Error de comunicacion");
-
         }
-
         return resultado;
     }
 
@@ -48,8 +46,5 @@ abstract class DaoGenerics {
                         }
                     }
                     return error;
-                });
-
-
-    }
+                }); }
 }

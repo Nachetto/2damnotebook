@@ -1,19 +1,29 @@
 package dao.retrofit.llamadas;
 
 import dao.retrofit.modelo.*;
-import io.reactivex.rxjava3.core.Single;
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
 import retrofit2.http.Query;
 public interface TheOfficeApi {
     @GET("characters")
     Call<ResponseCharacter> getAllCharacters(@Query("limit") int limit);
-    @GET("Any")
-    Call<ResponseJokeSimple> getAnyJokeSimple(@Query("lang") String lang, @Query("type") String type);
-    @GET("Programming")
-    Call<ResponseJoke> getProgrammingJoke(@Query("lang") String lang);
-    @GET("Any")
-    Single<ResponseJoke> getAnyJokeAsync(@Query("lang") String lang);
+    @GET("characters")
+    Call<ResponseCharacter> getAllCharacters();
+    @GET("characters")
+    Call<ResponseCharacter> getAllCharactersByGender(@Query("gender") String gender);
+    @GET("characters")
+    Call<ResponseCharacter> getNamedCharacter(@Query("name") String CharacterName);
+    @GET("characters")
+    Call<ResponseCharacter> getNamedActor(@Query("actor") String ActorName);
+    @GET("characters")
+    Call<ResponseCharacter> getAllCharactersByJob(@Query("job") String job);
+    @GET("characters")
+    Call<ResponseCharacter> getAllJobTypes();
+
+
+    @GET("seasons")
+    Call<ResponseSeason> getAllSeasons(@Query("limit") int limit);
+    @GET("episodes")
+    Call<ResponseEpisode> getAllEpisodes(@Query("limit") int limit);
 
 }

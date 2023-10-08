@@ -24,7 +24,6 @@ public class Configuracion {
             this.pathDatos = p.getProperty("pathDatos");
             p2.load(getClass().getClassLoader().getResourceAsStream("config/config.properties"));
             this.baseUrl = p2.getProperty("baseUrl");
-
         } catch (IOException e) {
            log.error(e.getMessage(),e);
         }

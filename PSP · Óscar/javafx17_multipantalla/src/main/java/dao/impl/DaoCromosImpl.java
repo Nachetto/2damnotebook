@@ -25,12 +25,13 @@ import java.util.Objects;
 public class DaoCromosImpl implements DaoCromos {
 
     private final JokeApi jokeApi;
+    private final Configuracion configuracion;
 
 
     @Inject
     public DaoCromosImpl(Configuracion configuracion, JokeApi jokeApi) {
         this.jokeApi = jokeApi;
-
+        this.configuracion = configuracion;
     }
 
     @Override
@@ -66,6 +67,47 @@ public class DaoCromosImpl implements DaoCromos {
         return respuesta;
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public Single<Either<String, MiJokes>> llamadaRettrofitSingle() {
         return jokeApi.getAnyJokeAsync("es")
