@@ -7,9 +7,10 @@ import ui.pantallas.common.BasePantallaController;
 
 public class MainController extends BasePantallaController {
     @FXML
-    private Label bienvenida;
+    private Label title;
 
     @Override
     public void principalCargado() {
+        title.setText(Constantes.TITULO_APP);
     }
 }

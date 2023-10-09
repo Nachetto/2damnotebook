@@ -39,7 +39,7 @@ public class PrincipalController {
 
     public void initialize() {
         menuPrincipal.setVisible(true);
-
+        cargarPantalla(Pantallas.INICIO);
     }
 
 

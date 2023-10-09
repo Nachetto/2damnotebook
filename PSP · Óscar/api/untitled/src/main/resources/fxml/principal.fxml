@@ -7,28 +7,26 @@
     <center>
         <StackPane prefHeight="150.0" prefWidth="200.0">
             <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="background" BorderPane.alignment="CENTER">
-                <TextField fx:id="txtNormal" layoutX="209.0" layoutY="174.0"/>
-                <StackPane layoutX="63.0" layoutY="14.0" prefHeight="150.0" prefWidth="200.0"/>
+                <StackPane layoutX="63.0" layoutY="14.0" prefHeight="150.0" prefWidth="200.0" />
             </AnchorPane>
         </StackPane>
     </center>
     <top>
         <MenuBar fx:id="menuPrincipal">
             <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
-                <MenuItem fx:id="menuItemNew" mnemonicParsing="false" text="New"/>
-                <MenuItem fx:id="menuItemPantalla1" mnemonicParsing="false" onAction="#menuClick" text="Pantalla1"/>
-                <MenuItem fx:id="menuItemListado" mnemonicParsing="false" onAction="#menuClick" text="listado"/>
-                <MenuItem fx:id="menuItemPantallaNueva" mnemonicParsing="false" onAction="#menuClick"
-                          text="pantallaNueva"/>
-                <MenuItem fx:id="menuItemLogout" mnemonicParsing="false" onAction="#menuClick" text="Logout"/>
+                <MenuItem fx:id="menuItemNew" mnemonicParsing="false" text="New" />
+                <MenuItem fx:id="menuItemPantalla1" mnemonicParsing="false" onAction="#menuClick" text="Pantalla1" />
+                <MenuItem fx:id="menuItemListado" mnemonicParsing="false" onAction="#menuClick" text="listado" />
+                <MenuItem fx:id="menuItemPantallaNueva" mnemonicParsing="false" onAction="#menuClick" text="pantallaNueva" />
+                <MenuItem fx:id="menuItemLogout" mnemonicParsing="false" onAction="#menuClick" text="Logout" />
             </Menu>
             <Menu fx:id="menuEdit" mnemonicParsing="false" text="Edit">
-                <MenuItem fx:id="menuItemRedo" mnemonicParsing="false" text="Redo"/>
-                <MenuItem fx:id="menuItemCut" mnemonicParsing="false" text="Cut"/>
-                <MenuItem fx:id="menuItemCopy" mnemonicParsing="false" text="Copy"/>
-                <MenuItem fx:id="menuItemPaste" mnemonicParsing="false" text="Paste"/>
-                <MenuItem fx:id="menuItemDelete" mnemonicParsing="false" text="Delete"/>
-                <MenuItem fx:id="menuItemSelectAll" mnemonicParsing="false" text="Select All"/>
+                <MenuItem fx:id="menuItemRedo" mnemonicParsing="false" text="Redo" />
+                <MenuItem fx:id="menuItemCut" mnemonicParsing="false" text="Cut" />
+                <MenuItem fx:id="menuItemCopy" mnemonicParsing="false" text="Copy" />
+                <MenuItem fx:id="menuItemPaste" mnemonicParsing="false" text="Paste" />
+                <MenuItem fx:id="menuItemDelete" mnemonicParsing="false" text="Delete" />
+                <MenuItem fx:id="menuItemSelectAll" mnemonicParsing="false" text="Select All" />
             </Menu>
         </MenuBar>
     </top>
