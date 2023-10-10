@@ -19,7 +19,7 @@ module javafx.multipantalla {
     requires retrofit2.converter.moshi;
     requires io.reactivex.rxjava3;
 
-
+    exports dao.retrofit.modelo;
     exports ui.main to javafx.graphics;
     exports ui.pantallas.principal;
     exports common.config;
@@ -33,6 +33,7 @@ module javafx.multipantalla {
 
     opens  ui.pantallas.main to javafx.fxml;
     opens domain.modelo to javafx.base;
+    opens dao.retrofit.modelo;
 
     opens ui.pantallas.principal;
     opens ui.main;

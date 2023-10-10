@@ -9,7 +9,7 @@ public abstract class DaoGenerico {
         Either<String, T> resultado = null;
         try {
             Response<T> response = call.execute();
-            if (response.isSuccessful()) resultado = Either.right(response.body());
+            if (response.isSuccessful() && response.body() != null) resultado = Either.right(response.body());
             else {
                 resultado = Either.left(response.errorBody().toString());
             }

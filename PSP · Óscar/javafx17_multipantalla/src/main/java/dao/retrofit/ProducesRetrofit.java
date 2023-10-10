@@ -68,9 +68,7 @@ public class ProducesRetrofit {
         return new Retrofit.Builder()
                 .baseUrl("marvel")
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
-                //.addConverterFactory(GsonConverterFactory.create(gson))
                 .client(clientOK)
-
                 .build();
     }
 

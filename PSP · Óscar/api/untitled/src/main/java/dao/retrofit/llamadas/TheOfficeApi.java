@@ -6,9 +6,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 public interface TheOfficeApi {
     @GET("characters")
-    Call<ResponseCharacter> getAllCharacters(@Query("limit") int limit);
+    Call<Response> getAllCharacters(@Query("limit") int limit);
     @GET("characters")
-    Call<ResponseCharacter> getAllCharacters();
+    Call<Response> getAllCharacters();
     @GET("characters")
     Call<ResponseCharacter> getAllCharactersByGender(@Query("gender") String gender);
     @GET("characters")
