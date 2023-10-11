@@ -7,6 +7,7 @@ module javafx.multipantalla {
     requires jakarta.inject;
     requires jakarta.cdi;
     requires io.vavr;
+    requires jakarta.xml.bind;
 
     exports ui.pantallas.customers.add;
     exports ui.pantallas.customers.delete;

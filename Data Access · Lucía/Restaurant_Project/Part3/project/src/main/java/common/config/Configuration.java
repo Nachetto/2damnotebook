@@ -18,19 +18,21 @@ public class Configuration {
     private Configuration() {
         properties = new Properties();
         try {
-            properties.load(Configuration.class.getClassLoader().getResourceAsStream("configFiles/properties.txt"));
+            properties.loadFromXML(Configuration.class.getClassLoader().getResourceAsStream("configFiles/properties.xml"));
+            //  properties.load(Configuration.class.getClassLoader().getResourceAsStream("configFiles/properties.txt"));
         } catch (IOException e) {
             System.out.println(Constants.ERRDB);
         }
     }
 
     public String getCustomerDataFile() {
-        return properties.getProperty("customerDataFile");
+        return getProperty("customerDataFile");
     }
 
     public String getOrderDataFile() {
         return properties.getProperty("orderDataFile");
     }
+
     public static synchronized Configuration getInstance() {
         if (instance == null) {
             instance = new Configuration();

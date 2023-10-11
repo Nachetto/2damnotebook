@@ -11,7 +11,6 @@ public class Order {
     private int orderid, tableid, customerid;
     private LocalDateTime orderdate;
 
-
     public Order(int orderid, int tableid, int customerid, LocalDateTime orderdate) {
         this.orderid = orderid;
         this.tableid = tableid;
@@ -35,10 +34,6 @@ public class Order {
             this.orderdate = LocalDateTime.parse(elemArray[1], formatter2);
         }
     }
-
-    public Order(int lastOrderId) {
-    }
-
 
     public String toStringTextFile() {
         return orderid+ ";" + orderdate  + ";" + customerid + ";" + tableid;

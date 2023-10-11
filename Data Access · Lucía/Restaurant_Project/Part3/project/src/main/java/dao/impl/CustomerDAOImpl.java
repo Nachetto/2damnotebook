@@ -54,7 +54,6 @@ public class CustomerDAOImpl implements CustomerDAO {
         return false;
     }
 
-
     @Override
     public int save(Customer c) {
         try {

@@ -11,14 +11,6 @@ public class Order {
     private int orderid, tableid, customerid;
     private LocalDateTime orderdate;
 
-
-    public Order(int orderid, int tableid, int customerid, LocalDateTime orderdate) {
-        this.orderid = orderid;
-        this.tableid = tableid;
-        this.customerid = customerid;
-        this.orderdate = orderdate;
-    }
-
     public Order(String fileLine) {
         String[] elemArray = fileLine.split(";");
         DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

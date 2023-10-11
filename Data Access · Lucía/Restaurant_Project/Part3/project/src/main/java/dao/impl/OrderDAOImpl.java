@@ -52,7 +52,12 @@ public class OrderDAOImpl implements OrderDAO {
 
     @Override
     public int delete(Order o) {
-        return 0;
+        try {
+            Files.delete(Paths.get(Configuration.getInstance().getOrderDataFile(), o.toStringTextFile()));
+            return 1;
+        } catch (IOException e) {
+            return -1;
+        }
     }
 
 }
