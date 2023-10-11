@@ -2,32 +2,76 @@
 <orders>
     <order>
         <id>1</id>
-        <order_item>
-            <menu_item>Caesar Salad</menu_item>
+        <orderItem>
+            <menuItem>caesar salad</menuItem>
             <quantity>2</quantity>
-        </order_item>
-        <order_item>
-            <menu_item>Pasta</menu_item>
+        </orderItem>
+        <orderItem>
+            <menuItem>pasta</menuItem>
             <quantity>1</quantity>
-        </order_item>
-        <order_item>
-            <menu_item>Salmon</menu_item>
+        </orderItem>
+        <orderItem>
+            <menuItem>salmon</menuItem>
             <quantity>3</quantity>
-        </order_item>
-        <order_item>
-            <menu_item>Apple cake</menu_item>
+        </orderItem>
+        <orderItem>
+            <menuItem>apple cake</menuItem>
             <quantity>2</quantity>
-        </order_item>
+        </orderItem>
     </order>
     <order>
         <id>2</id>
-        <order_item>
-            <menu_item>Hamburger</menu_item>
+        <orderItem>
+            <menuItem>hamburger</menuItem>
             <quantity>2</quantity>
-        </order_item>
-        <order_item>
-            <menu_item>Coffee</menu_item>
+        </orderItem>
+        <orderItem>
+            <menuItem>coffee</menuItem>
             <quantity>2</quantity>
-        </order_item>
+        </orderItem>
+    </order>
+    <order>
+        <id>3</id>
+        <orderItem>
+            <menuItem>pizza</menuItem>
+            <quantity>2</quantity>
+        </orderItem>
+        <orderItem>
+            <menuItem>coke</menuItem>
+            <quantity>1</quantity>
+        </orderItem>
+    </order>
+    <order>
+        <id>4</id>
+        <orderItem>
+            <menuItem>sandwich</menuItem>
+            <quantity>1</quantity>
+        </orderItem>
+        <orderItem>
+            <menuItem>tea</menuItem>
+            <quantity>3</quantity>
+        </orderItem>
+    </order>
+    <order>
+        <id>5</id>
+        <orderItem>
+            <menuItem>pizza</menuItem>
+            <quantity>4</quantity>
+        </orderItem>
+        <orderItem>
+            <menuItem>ice cream</menuItem>
+            <quantity>2</quantity>
+        </orderItem>
+    </order>
+    <order>
+        <id>6</id>
+        <orderItem>
+            <menuItem>lasagna</menuItem>
+            <quantity>2</quantity>
+        </orderItem>
+        <orderItem>
+            <menuItem>salad</menuItem>
+            <quantity>1</quantity>
+        </orderItem>
     </order>
 </orders>
