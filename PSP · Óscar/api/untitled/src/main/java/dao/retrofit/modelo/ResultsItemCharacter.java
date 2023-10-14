@@ -4,7 +4,7 @@ import lombok.Data;
 
 import java.util.List;
 @Data
-public class ResultsItem{
+public class ResultsItemCharacter {
 	private String firstAppearance;
 	private String actor;
 	private Object marital;

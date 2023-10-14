@@ -21,6 +21,10 @@ import java.io.IOException;
 @Log4j2
 public class PrincipalController {
     @FXML
+    private MenuItem menuItemLlamadasEpisodios;
+    @FXML
+    private MenuItem menuItemLlamadasPersonajes;
+    @FXML
     private Menu menuPersonajes;
     @FXML
     private MenuItem menuItemListarPersonajes;
@@ -38,6 +42,9 @@ public class PrincipalController {
     @Getter
     @Setter
     ParametrosBusquedaCharacter parametrosBusquedaCharacter;
+    @Getter
+    @Setter
+    ParametrosBusquedaEpisode parametrosBusquedaEpisode;
 
 
     @FXML
@@ -59,7 +66,6 @@ public class PrincipalController {
         menuPrincipal.setVisible(true);
         cargarPantalla(Pantallas.INICIO);
     }
-
 
     private void showCustomAlert(String message, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
@@ -107,11 +113,29 @@ public class PrincipalController {
     private void menuClick(ActionEvent actionEvent) {
         switch (((MenuItem) actionEvent.getSource()).getId()) {
             case "menuItemListarPersonajes" -> cargarPantalla(Pantallas.LISTAR_PERSONAJES);
+            case "menuItemLlamadasPersonajes" -> cargarPantalla(Pantallas.LLAMADAS_PERSONAJES);
             case "menuItemListarEpisodios" -> cargarPantalla(Pantallas.LISTAR_EPISODIOS);
+            case "menuItemLlamadasEpisodios" -> cargarPantalla(Pantallas.LLAMADAS_EPISODIOS);
             case "menuItemListarTemporadas" -> cargarPantalla(Pantallas.LISTAR_TEMPORADAS);
         }
     }
 
+    public static void cambiandoElPrompText(String newValue, TextField textFieldConArgumentoDeBusqueda) {
+        if (newValue != null) {
+            if (newValue.equalsIgnoreCase("Empty Search")) {
+                textFieldConArgumentoDeBusqueda.setDisable(true);
+                textFieldConArgumentoDeBusqueda.setPromptText("Show all Characters");
+            } else {
+                textFieldConArgumentoDeBusqueda.setDisable(false);
+                textFieldConArgumentoDeBusqueda.setEditable(true);
+                textFieldConArgumentoDeBusqueda.setPromptText("Write " + newValue);
+                textFieldConArgumentoDeBusqueda.requestFocus();
+            }
+        } else {
+            textFieldConArgumentoDeBusqueda.setPromptText("Search By");
+        }
+    }
     public void setStage(Stage stage) {
     }
+
 }

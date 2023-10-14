@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.episode.EpisodeListController">
+    <TableView fx:id="listaEpisodios" layoutX="21.0" layoutY="86.0" prefHeight="228.0" prefWidth="559.0">
+        <columns>
+            <TableColumn fx:id="season" prefWidth="56.0" text="season" />
+            <TableColumn fx:id="episodeNumber" prefWidth="108.0" text="episodeNumber" />
+            <TableColumn fx:id="title" prefWidth="38.0" text="title" />
+            <TableColumn fx:id="summary" prefWidth="346.0" text="summary" />
+        </columns>
+    </TableView>
+    <Label layoutX="198.0" text="Episodios">
+        <font>
+            <Font size="44.0" />
+        </font>
+    </Label>
+    <Label layoutX="62.0" layoutY="348.0" text="Si desea cambiar los filtros de busqueda, dirigase a Episodios/Filtros en el menu de arriba" />
+</AnchorPane>

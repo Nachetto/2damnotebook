@@ -34,6 +34,7 @@ module javafx.multipantalla {
     exports ui.pantallas.episode;
     exports ui.pantallas.season;
 
+    opens ui.pantallas.episode to javafx.fxml;
     opens  ui.pantallas.main to javafx.fxml;
     opens domain.modelo to javafx.base;
     opens dao.retrofit.modelo;

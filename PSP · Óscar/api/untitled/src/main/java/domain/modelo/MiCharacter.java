@@ -2,11 +2,12 @@ package domain.modelo;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class MiCharacter {
     private final String gender;
     private final String characterName;
     private final String actorName;
-    private final MiEpisode[] episodes;
-    private final String[] job;
+    private final List<String> job;
 }

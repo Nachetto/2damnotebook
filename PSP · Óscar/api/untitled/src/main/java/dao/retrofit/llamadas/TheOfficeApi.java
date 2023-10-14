@@ -6,24 +6,17 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 public interface TheOfficeApi {
     @GET("characters")
-    Call<Response> getAllCharacters(@Query("limit") int limit);
+    Call<ResponseCharacter> getAllCharacters(@Query("limit") int limit);
     @GET("characters")
-    Call<Response> getAllCharacters();
-    @GET("characters")
-    Call<ResponseCharacter> getAllCharactersByGender(@Query("gender") String gender);
-    @GET("characters")
-    Call<ResponseCharacter> getNamedCharacter(@Query("name") String CharacterName);
-    @GET("characters")
-    Call<ResponseCharacter> getNamedActor(@Query("actor") String ActorName);
-    @GET("characters")
-    Call<ResponseCharacter> getAllCharactersByJob(@Query("job") String job);
-    @GET("characters")
-    Call<ResponseCharacter> getAllJobTypes();
+    Call<ResponseCharacter> getAllCharacters();
+
+    @GET("episodes")
+    Call<ResponseEpisode> getAllEpisodes(@Query("limit") int limit);
+    @GET("episodes")
+    Call<ResponseEpisode> getEpisodesBySeason(@Query("season") int season);
 
 
     @GET("seasons")
-    Call<ResponseSeason> getAllSeasons(@Query("limit") int limit);
-    @GET("episodes")
-    Call<ResponseEpisode> getAllEpisodes(@Query("limit") int limit);
+    Call<ResponseSeason> getAllSeasons();
 
 }
