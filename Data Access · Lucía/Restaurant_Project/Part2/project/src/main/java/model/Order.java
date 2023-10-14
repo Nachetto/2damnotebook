@@ -28,7 +28,7 @@ public class Order {
         }
     }
 
-    public Order(int lastOrderId) {
+    public Order(int lastOrderId, int i, Integer value, LocalDateTime now) {
     }
 
 

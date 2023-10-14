@@ -15,15 +15,11 @@ public class MainFX {
     @Inject
     FXMLLoader fxmlLoader;
 
-    public void start(@Observes @StartupScene Stage stage) throws IOException {
+    public void start(@Observes @StartupScene Stage stage) {
         try {
-//            ResourceBundle r = ResourceBundle.getBundle("/i18n/textos");
-
-            //fxmlLoader.setResources(r);
             Parent fxmlParent = fxmlLoader.load(getClass().getResourceAsStream("/fxml/principal.fxml"));
             PrincipalController controller = fxmlLoader.getController();
             controller.setStage(stage);
-
             stage.setScene(new Scene(fxmlParent));
             stage.show();
         } catch (IOException e) {

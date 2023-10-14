@@ -6,27 +6,23 @@
 <BorderPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.principal.PrincipalController">
     <center>
         <StackPane prefHeight="150.0" prefWidth="200.0">
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="background" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                 <StackPane layoutX="63.0" layoutY="14.0" prefHeight="150.0" prefWidth="200.0" />
             </AnchorPane>
         </StackPane>
     </center>
     <top>
         <MenuBar fx:id="menuPrincipal">
-            <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
-                <MenuItem fx:id="menuItemNew" mnemonicParsing="false" text="New" />
-                <MenuItem fx:id="menuItemPantalla1" mnemonicParsing="false" onAction="#menuClick" text="Pantalla1" />
-                <MenuItem fx:id="menuItemListado" mnemonicParsing="false" onAction="#menuClick" text="listado" />
-                <MenuItem fx:id="menuItemPantallaNueva" mnemonicParsing="false" onAction="#menuClick" text="pantallaNueva" />
-                <MenuItem fx:id="menuItemLogout" mnemonicParsing="false" onAction="#menuClick" text="Logout" />
+            <Menu fx:id="menuPersonajes" mnemonicParsing="false" text="Personajes">
+                <MenuItem fx:id="menuItemListarPersonajes" mnemonicParsing="false" onAction="#menuClick" text="Listar" />
+                <MenuItem fx:id="menuItemLlamarPersonajes" mnemonicParsing="false" onAction="#menuClick" text="Listar" />
+                <MenuItem fx:id="test" mnemonicParsing="false" onAction="#menuClick" text="Listar" />
             </Menu>
-            <Menu fx:id="menuEdit" mnemonicParsing="false" text="Edit">
-                <MenuItem fx:id="menuItemRedo" mnemonicParsing="false" text="Redo" />
-                <MenuItem fx:id="menuItemCut" mnemonicParsing="false" text="Cut" />
-                <MenuItem fx:id="menuItemCopy" mnemonicParsing="false" text="Copy" />
-                <MenuItem fx:id="menuItemPaste" mnemonicParsing="false" text="Paste" />
-                <MenuItem fx:id="menuItemDelete" mnemonicParsing="false" text="Delete" />
-                <MenuItem fx:id="menuItemSelectAll" mnemonicParsing="false" text="Select All" />
+            <Menu fx:id="menuEpisodios" mnemonicParsing="false" text="Episodios">
+                <MenuItem fx:id="menuItemListarEpisodios" mnemonicParsing="false" onAction="#menuClick" text="Listar" />
+            </Menu>
+            <Menu fx:id="menuTemporada" mnemonicParsing="false" text="Temporadas">
+                <MenuItem fx:id="menuItemListarTemporadas" mnemonicParsing="false" onAction="#menuClick" text="Listar" />
             </Menu>
         </MenuBar>
     </top>

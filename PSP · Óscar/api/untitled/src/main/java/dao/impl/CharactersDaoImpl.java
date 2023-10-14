@@ -6,8 +6,8 @@ import dao.DaoGenerico;
 import dao.retrofit.ProducesRetrofit;
 import dao.retrofit.llamadas.TheOfficeApi;
 import dao.retrofit.modelo.Response;
-import dao.retrofit.modelo.ResultsItem;
 import domain.modelo.MiCharacter;
+import domain.modelo.MiEpisode;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
 import retrofit2.Call;
@@ -33,7 +33,7 @@ public class CharactersDaoImpl extends DaoGenerico implements CharactersDao {
         Call<Response> r = theOfficeApi.getAllCharacters();
 
         if (safeApicall(r).isRight()) {
-            List<MiCharacter> res = safeApicall(r).get().getResults().stream().map(resultsItem -> new MiCharacter(resultsItem.getGender(),resultsItem.getName(),resultsItem.getActor()).toList();
+            List<MiCharacter> res = safeApicall(r).get().getResults().stream().map(resultsItem -> new MiCharacter(resultsItem.getGender(),resultsItem.getName(),resultsItem.getActor(),new MiEpisode[]{},new String[]{})).toList();
             return Either.right(res);
         } else
             return Either.left(safeApicall(r).getLeft());

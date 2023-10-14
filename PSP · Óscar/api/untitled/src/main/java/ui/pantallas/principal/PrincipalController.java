@@ -11,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 import ui.pantallas.common.BasePantallaController;
 import ui.pantallas.common.Pantallas;
@@ -20,8 +21,24 @@ import java.io.IOException;
 @Log4j2
 public class PrincipalController {
     @FXML
+    private Menu menuPersonajes;
+    @FXML
+    private MenuItem menuItemListarPersonajes;
+    @FXML
+    private Menu menuEpisodios;
+    @FXML
+    private MenuItem menuItemListarEpisodios;
+    @FXML
+    private Menu menuTemporada;
+    @FXML
+    private MenuItem menuItemListarTemporadas;
+    @FXML
     private MenuBar menuPrincipal;
     Instance<Object> instance;
+    @Getter
+    @Setter
+    ParametrosBusquedaCharacter parametrosBusquedaCharacter;
+
 
     @FXML
     public BorderPane root;
@@ -31,9 +48,10 @@ public class PrincipalController {
 
     //constructor
     @Inject
-    public PrincipalController(Instance<Object> instance) {
-       this.instance = instance;
-       alert= new Alert(Alert.AlertType.NONE);
+    public PrincipalController(Instance<Object> instance, ParametrosBusquedaCharacter parametrosBusquedaCharacter) {
+        this.instance = instance;
+        this.parametrosBusquedaCharacter = parametrosBusquedaCharacter;
+        alert = new Alert(Alert.AlertType.NONE);
     }
 
 
@@ -43,20 +61,27 @@ public class PrincipalController {
     }
 
 
-    public void sacarAlertError(String mensaje)
-    {
-        alert.setAlertType(Alert.AlertType.ERROR);
-        alert.setContentText(mensaje);
+    private void showCustomAlert(String message, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setContentText(message);
         alert.getDialogPane().setId("alert");
         alert.getDialogPane().lookupButton(ButtonType.OK).setId("btn-ok");
-        //alert.getDialogPane().lookupButton(ButtonType.CANCEL).setId("btn-cancel");
+        // alert.getDialogPane().lookupButton(ButtonType.CANCEL).setId("btn-cancel");
         alert.showAndWait();
     }
 
+    public void sacarAlertError(String message) {
+        showCustomAlert(message, Alert.AlertType.ERROR);
+    }
+
+    public void sacarAlertInfo(String message) {
+        showCustomAlert(message, Alert.AlertType.INFORMATION);
+    }
 
     private void cargarPantalla(Pantallas pantalla) {
         cambioPantalla(cargarPantalla(pantalla.getRuta()));
     }
+
     private void cambioPantalla(Pane pantallaNueva) {
         root.setCenter(pantallaNueva);
     }
@@ -72,7 +97,7 @@ public class PrincipalController {
             pantallaController.setPrincipalController(this);
             pantallaController.principalCargado();
         } catch (IOException e) {
-            log.error(e.getMessage(),e);
+            log.error(e.getMessage(), e);
         }
         return panePantalla;
     }
@@ -80,14 +105,13 @@ public class PrincipalController {
 
     @FXML
     private void menuClick(ActionEvent actionEvent) {
-        switch (((MenuItem)actionEvent.getSource()).getId())
-        {
-            case "menuItemPantalla1"->{}
-            case "menuItemListado"->{}
-            case "menuItemPantallaNueva"->{}
-            case "menuItemLogout"->{}
+        switch (((MenuItem) actionEvent.getSource()).getId()) {
+            case "menuItemListarPersonajes" -> cargarPantalla(Pantallas.LISTAR_PERSONAJES);
+            case "menuItemListarEpisodios" -> cargarPantalla(Pantallas.LISTAR_EPISODIOS);
+            case "menuItemListarTemporadas" -> cargarPantalla(Pantallas.LISTAR_TEMPORADAS);
         }
     }
 
-    public void setStage(Stage stage) {}
+    public void setStage(Stage stage) {
+    }
 }

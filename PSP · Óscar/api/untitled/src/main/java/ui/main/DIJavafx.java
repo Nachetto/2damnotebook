@@ -7,8 +7,6 @@ import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.enterprise.util.AnnotationLiteral;
 
-
-
 public class DIJavafx extends Application {
 
     public static void main(String[] args) {
@@ -16,14 +14,14 @@ public class DIJavafx extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-
+    public void start(Stage primaryStage) {
         SeContainerInitializer initializer = SeContainerInitializer.newInstance();
         final SeContainer container = initializer.initialize();
-        primaryStage.setMinWidth(800);
-        primaryStage.setMinHeight(600);
+        primaryStage.setMinWidth(749);
+        primaryStage.setMinHeight(450);
         primaryStage.setResizable(true);
-        container.getBeanManager().getEvent().select(new AnnotationLiteral<StartupScene>() {}).fire(primaryStage);
+        container.getBeanManager().getEvent().select(new AnnotationLiteral<StartupScene>() {
+        }).fire(primaryStage);
     }
 
 }

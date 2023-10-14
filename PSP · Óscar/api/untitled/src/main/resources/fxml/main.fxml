@@ -10,10 +10,9 @@
          <Font size="36.0" />
       </font>
    </Label>
-   <TableView layoutX="9.0" layoutY="100.0" prefHeight="292.0" prefWidth="582.0">
-     <columns>
-       <TableColumn prefWidth="75.0" text="C1" />
-       <TableColumn prefWidth="75.0" text="C2" />
-     </columns>
-   </TableView>
+   <Label layoutX="5.0" layoutY="181.0" text="Bienvenid@, elije la opcion que desee en el menu">
+      <font>
+         <Font size="27.0" />
+      </font>
+   </Label>
 </AnchorPane>

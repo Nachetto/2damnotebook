@@ -1,9 +1,6 @@
 package service;
 
-import common.config.Configuracion;
 import dao.impl.CharactersDaoImpl;
-import dao.retrofit.llamadas.TheOfficeApi;
-import dao.retrofit.modelo.ResultsItem;
 import domain.modelo.MiCharacter;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
@@ -23,7 +20,7 @@ public class CharactersService {
         //aqui el metodo para pasarlo a mi character
     }
 
-    public Either<String, ResultsItem> getNamedCharacter(String CharacterName) {
+    public Either<String, MiCharacter> getNamedCharacter(String CharacterName) {
         return dao.getNamedCharacter(CharacterName);
         //return dao.getNamedCharacter(CharacterName);
     }
