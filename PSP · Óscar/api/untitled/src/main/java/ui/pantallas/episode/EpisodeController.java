@@ -35,7 +35,7 @@ public class EpisodeController extends BasePantallaController {
     }
 
     private void darValorAlSpinner() {
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 200, 1);
         spinner.setValueFactory(valueFactory);
     }
 
@@ -51,16 +51,22 @@ public class EpisodeController extends BasePantallaController {
 
 
 
-    public void realizarLlamada(ActionEvent actionEvent) {
+    public void realizarLlamada() {
         ParametrosBusquedaEpisode parametros = new ParametrosBusquedaEpisode();
         if (comboBoxOpcionesABuscar.getSelectionModel().getSelectedItem() != null) {
-            parametros.setTipoBusqueda(comboBoxOpcionesABuscar.getSelectionModel().getSelectedItem());
-            if (parametros.getTipoBusqueda().equalsIgnoreCase("Empty Search")) {
+            if (comboBoxOpcionesABuscar.getSelectionModel().getSelectedItem().equalsIgnoreCase("Empty Search")) {
+                if (checkBox.isSelected())
+                    parametros.setLimite(spinner.getValue());
+                else
+                    parametros.setLimite(200);
+                parametros.setTipoBusqueda(comboBoxOpcionesABuscar.getSelectionModel().getSelectedItem());
                 getPrincipalController().sacarAlertInfo(ConstantesPantallas.PARAMETROS_GUARDADOS);
-            } else {
+            }
+            else {
                 if (textFieldConArgumentoDeBusqueda.getText() == null || textFieldConArgumentoDeBusqueda.getText().isEmpty()) {
                     getPrincipalController().sacarAlertError(ConstantesPantallas.SELECCIONE_UNA_OPCION);
                 } else {
+                    parametros.setTipoBusqueda(comboBoxOpcionesABuscar.getSelectionModel().getSelectedItem());
                     parametros.setArgumentoBusqueda(textFieldConArgumentoDeBusqueda.getText());
                     getPrincipalController().sacarAlertInfo(ConstantesPantallas.PARAMETROS_GUARDADOS);
                 }

@@ -9,8 +9,8 @@
         <columns>
             <TableColumn fx:id="season" prefWidth="56.0" text="season" />
             <TableColumn fx:id="episodeNumber" prefWidth="108.0" text="episodeNumber" />
-            <TableColumn fx:id="title" prefWidth="38.0" text="title" />
-            <TableColumn fx:id="summary" prefWidth="346.0" text="summary" />
+            <TableColumn fx:id="title" prefWidth="116.0" text="title" />
+            <TableColumn fx:id="summary" prefWidth="268.0" text="summary" />
         </columns>
     </TableView>
     <Label layoutX="198.0" text="Episodios">

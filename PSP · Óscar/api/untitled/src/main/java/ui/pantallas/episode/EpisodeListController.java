@@ -39,6 +39,7 @@ public class EpisodeListController extends BasePantallaController {
         try {
             borrarTabla();
             String tipoBusqueda = getPrincipalController().getParametrosBusquedaEpisode().getTipoBusqueda();
+            String argumentoBusqueda = getPrincipalController().getParametrosBusquedaEpisode().getArgumentoBusqueda();
             int limite = getPrincipalController().getParametrosBusquedaEpisode().getLimite();
             if (tipoBusqueda.equalsIgnoreCase("Empty Search")) {
                 if (service.getAllEpisodes(limite).isRight())
@@ -46,8 +47,8 @@ public class EpisodeListController extends BasePantallaController {
                 else
                     getPrincipalController().sacarAlertError(service.getAllEpisodes(limite).getLeft());
             } else if (tipoBusqueda.equalsIgnoreCase("Season")) {
-                if (service.getEpisodesBySeason(limite).isRight())
-                    listaEpisodios.getItems().addAll(service.getEpisodesBySeason(limite).get());
+                if (service.getEpisodesBySeason(Integer.parseInt(argumentoBusqueda)).isRight())
+                    listaEpisodios.getItems().addAll(service.getEpisodesBySeason(Integer.parseInt(argumentoBusqueda)).get());
                 else
                     getPrincipalController().sacarAlertError(service.getEpisodesBySeason(limite).getLeft());
             }

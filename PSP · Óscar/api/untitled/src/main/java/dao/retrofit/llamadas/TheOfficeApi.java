@@ -13,6 +13,8 @@ public interface TheOfficeApi {
     @GET("episodes")
     Call<ResponseEpisode> getAllEpisodes(@Query("limit") int limit);
     @GET("episodes")
+    Call<ResponseEpisode> getAllEpisodes();
+    @GET("episodes")
     Call<ResponseEpisode> getEpisodesBySeason(@Query("season") int season);
 
 

@@ -4,6 +4,7 @@ import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.inject.Inject;
 import service.CharactersService;
+import service.EpisodesService;
 
 public class sefsefse {
     private final CharactersService sv;
@@ -16,9 +17,9 @@ public class sefsefse {
     public static void main(String[] args) {
         SeContainerInitializer initializer = SeContainerInitializer.newInstance();
         final SeContainer container = initializer.initialize();
-        CharactersService sv = container.select(CharactersService.class).get();
+        EpisodesService sv = container.select(EpisodesService.class).get();
+        System.out.printf(sv.getAllEpisodes().toString());
 
-        System.out.println(sv.getAllCharacters().toString());
 
     }
 }

@@ -30,6 +30,18 @@ public class EpisodesDAOImpl extends DaoGenerico implements EpisodesDAO {
     }
 
     @Override
+    public Either<String, List<MiEpisode>> getAllEpisodes() {
+        Call<ResponseEpisode> r = theOfficeApi.getAllEpisodes();
+        Either<String, ResponseEpisode> responseEither = safeApicall(r);
+        if (responseEither.isRight()) {
+            List<MiEpisode> res = filtradoAMiEpisode(responseEither.get());
+            return Either.right(res);
+        } else {
+            return Either.left(responseEither.getLeft());
+        }
+    }
+
+    @Override
     public Either<String, List<MiEpisode>> getEpisodesBySeason(int season) {
         Call<ResponseEpisode> r = theOfficeApi.getEpisodesBySeason(season);
         Either<String, ResponseEpisode> responseEither = safeApicall(r);
@@ -46,7 +58,7 @@ public class EpisodesDAOImpl extends DaoGenerico implements EpisodesDAO {
         return responseEpisode.getResults().stream()
                 .map(resultsItem -> {
                     String title = resultsItem.getTitle();
-                    int episodeNumber = Integer.parseInt(resultsItem.getEpisode());
+                    int episodeNumber = resultsItem.getSeriesEpisodeNumber();
                     int season = resultsItem.getSeasonId();
                     String summary = resultsItem.getSummary();
                     return new MiEpisode(title, episodeNumber, season, summary);

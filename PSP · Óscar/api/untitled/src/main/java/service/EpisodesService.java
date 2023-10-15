@@ -23,6 +23,10 @@ public class EpisodesService {
         return dao.getAllEpisodes(limit);
     }
 
+    public Either<String, List<MiEpisode>> getAllEpisodes() {
+        return dao.getAllEpisodes();
+    }
+
     public Either<String, List<MiEpisode>> getEpisodesBySeason(int season) {
         return dao.getEpisodesBySeason(season);
     }
