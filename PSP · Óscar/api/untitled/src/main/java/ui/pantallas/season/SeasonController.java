@@ -20,8 +20,6 @@ public class SeasonController extends BasePantallaController {
     private TableColumn<LocalDate,MiSeason> fecha;
     @FXML
     private TableView<MiSeason> listaEpisodes;
-    @FXML
-    private Spinner<Integer> spinner;
 
     private final SeasonsService service;
 
@@ -31,16 +29,19 @@ public class SeasonController extends BasePantallaController {
     }
     @Override
     public void principalCargado() {
-        spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 6, 1));
         number.setCellValueFactory(new PropertyValueFactory<>("number"));
         fecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        procederALlamada();
     }
 
     private void borrarTabla(){
         listaEpisodes.getItems().clear();
     }
-    public void aplicarCambios() {
-    borrarTabla();
-        listaEpisodes.getItems().addAll(service.getAllSeasons().get());
+    public void procederALlamada() {
+        borrarTabla();
+        if (service.getAllSeasons().isRight())
+            listaEpisodes.getItems().addAll(service.getAllSeasons().get());
+        else
+            getPrincipalController().sacarAlertError("Error al cargar los datos porque ha habido un "+service.getAllSeasons().getLeft());
     }
 }

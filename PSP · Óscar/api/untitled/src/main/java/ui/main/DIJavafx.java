@@ -18,16 +18,12 @@ public class DIJavafx extends Application {
     @Override
     public void start(Stage primaryStage) {
         SeContainerInitializer initializer = SeContainerInitializer.newInstance();
-        try (SeContainer container = initializer.initialize()) {
-            primaryStage.setMinWidth(600);
-            primaryStage.setMinHeight(400);
-            primaryStage.setResizable(true);
-            container.getBeanManager().getEvent().select(new AnnotationLiteral<StartupScene>() {
-            }).fire(primaryStage);
-        }
-        catch (Exception e) {
-            log.error("Error al iniciar la aplicacion"+e.getMessage());
-        }
+        final SeContainer container = initializer.initialize();
+        primaryStage.setMinWidth(600);
+        primaryStage.setMinHeight(400);
+        primaryStage.setResizable(true);
+        container.getBeanManager().getEvent().select(new AnnotationLiteral<StartupScene>() {
+        }).fire(primaryStage);
     }
 
 }

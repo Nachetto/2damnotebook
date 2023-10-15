@@ -4,6 +4,9 @@ import dao.retrofit.modelo.*;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
+
+import java.util.List;
+
 public interface TheOfficeApi {
     @GET("characters")
     Call<ResponseCharacter> getAllCharacters(@Query("limit") int limit);
@@ -17,6 +20,6 @@ public interface TheOfficeApi {
 
 
     @GET("seasons")
-    Call<ResponseSeason> getAllSeasons();
+    Call<List<ResultsItemSeason>> getAllSeasons();
 
 }

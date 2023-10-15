@@ -39,6 +39,7 @@ module javafx.multipantalla {
     opens domain.modelo to javafx.base;
     opens dao.retrofit.modelo;
     opens ui.pantallas.character;
+    opens ui.pantallas.season;
 
     opens ui.pantallas.principal;
     opens ui.main;

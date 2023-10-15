@@ -2,10 +2,18 @@ package dao.retrofit.modelo;
 
 import lombok.Data;
 
+import com.squareup.moshi.Json;
 @Data
 public class ResultsItemSeason {
-    private int number;
-    private String endDate;
-    private int id;
-    private String startDate;
+	@Json(name = "id")
+	private int id;
+	@Json(name = "number")
+	private int number;
+	@Json(name = "startDate")
+	private String startDate;
+	@Json(name = "endDate")
+	private String endDate;
+
+	// Getters y setters
 }
+

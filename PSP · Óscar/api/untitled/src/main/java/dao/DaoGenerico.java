@@ -15,7 +15,7 @@ public abstract class DaoGenerico {
                 resultado = Either.left(response.errorBody().toString());
             }
         } catch (Exception e) {
-            resultado = Either.left(Constantes.ERROR_CONEXION);
+            resultado = Either.left(Constantes.ERROR_CONEXION + e.getMessage());
         }
         return resultado;
     }

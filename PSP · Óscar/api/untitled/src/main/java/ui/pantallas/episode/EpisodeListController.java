@@ -17,11 +17,11 @@ public class EpisodeListController extends BasePantallaController {
     @FXML
     private TableColumn<Integer, MiEpisode> season;
     @FXML
-    private TableColumn<Integer,MiEpisode> episodeNumber;
+    private TableColumn<Integer, MiEpisode> episodeNumber;
     @FXML
-    private TableColumn<String,MiEpisode> title;
+    private TableColumn<String, MiEpisode> title;
     @FXML
-    private TableColumn<String,MiEpisode> summary;
+    private TableColumn<String, MiEpisode> summary;
     @FXML
     private TableView<MiEpisode> listaEpisodios;
 
@@ -38,33 +38,40 @@ public class EpisodeListController extends BasePantallaController {
     private void llamadasSegunParametrosDeBusqueda() {
         try {
             borrarTabla();
-            String tipoBusqueda = getPrincipalController().getParametrosBusquedaEpisode().getTipoBusqueda();
-            String argumentoBusqueda = getPrincipalController().getParametrosBusquedaEpisode().getArgumentoBusqueda();
-            int limite = getPrincipalController().getParametrosBusquedaEpisode().getLimite();
-            if (tipoBusqueda.equalsIgnoreCase("Empty Search")) {
-                if (service.getAllEpisodes(limite).isRight())
-                    listaEpisodios.getItems().addAll(service.getAllEpisodes(limite).get());
+            if (getPrincipalController().getParametrosBusquedaEpisode()== null) {
+                if (service.getAllEpisodes(200).isRight())
+                    listaEpisodios.getItems().addAll(service.getAllEpisodes(200).get());
                 else
-                    getPrincipalController().sacarAlertError(service.getAllEpisodes(limite).getLeft());
-            } else if (tipoBusqueda.equalsIgnoreCase("Season")) {
-                if (service.getEpisodesBySeason(Integer.parseInt(argumentoBusqueda)).isRight())
-                    listaEpisodios.getItems().addAll(service.getEpisodesBySeason(Integer.parseInt(argumentoBusqueda)).get());
-                else
-                    getPrincipalController().sacarAlertError(service.getEpisodesBySeason(limite).getLeft());
+                    getPrincipalController().sacarAlertError(service.getAllEpisodes(200).getLeft());
+            } else {
+                String tipoBusqueda = getPrincipalController().getParametrosBusquedaEpisode().getTipoBusqueda();
+                String argumentoBusqueda = getPrincipalController().getParametrosBusquedaEpisode().getArgumentoBusqueda();
+                int limite = getPrincipalController().getParametrosBusquedaEpisode().getLimite();
+                if (tipoBusqueda.equalsIgnoreCase("Empty Search")) {
+                    if (service.getAllEpisodes(limite).isRight())
+                        listaEpisodios.getItems().addAll(service.getAllEpisodes(limite).get());
+                    else
+                        getPrincipalController().sacarAlertError(service.getAllEpisodes(limite).getLeft());
+                } else if (tipoBusqueda.equalsIgnoreCase("Season")) {
+                    if (service.getEpisodesBySeason(Integer.parseInt(argumentoBusqueda)).isRight())
+                        listaEpisodios.getItems().addAll(service.getEpisodesBySeason(Integer.parseInt(argumentoBusqueda)).get());
+                    else
+                        getPrincipalController().sacarAlertError(service.getEpisodesBySeason(limite).getLeft());
+                }
             }
-        } catch (Exception e) {
-            getPrincipalController().sacarAlertError(ConstantesPantallas.ERROR_BUSQUEDA + " " + e.getMessage());
+            } catch(Exception e){
+                getPrincipalController().sacarAlertError(ConstantesPantallas.ERROR_BUSQUEDA);
+            }
+        }
+
+        private void borrarTabla () {
+            listaEpisodios.getItems().clear();
+        }
+
+        public void initialize () {
+            season.setCellValueFactory(new PropertyValueFactory<>("season"));
+            episodeNumber.setCellValueFactory(new PropertyValueFactory<>("episodeNumber"));
+            title.setCellValueFactory(new PropertyValueFactory<>("title"));
+            summary.setCellValueFactory(new PropertyValueFactory<>("summary"));
         }
     }
-
-    private void borrarTabla() {
-        listaEpisodios.getItems().clear();
-    }
-
-    public void initialize() {
-        season.setCellValueFactory(new PropertyValueFactory<>("season"));
-        episodeNumber.setCellValueFactory(new PropertyValueFactory<>("episodeNumber"));
-        title.setCellValueFactory(new PropertyValueFactory<>("title"));
-        summary.setCellValueFactory(new PropertyValueFactory<>("summary"));
-    }
-}
