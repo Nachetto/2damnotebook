@@ -15,10 +15,6 @@ public class EpisodesService {
         this.dao = dao;
     }
 
-    public <T> Either<String, T> safeApicall(Call<T> call) {
-        return dao.safeApicall(call);
-    }
-
     public Either<String, List<MiEpisode>> getAllEpisodes(int limit) {
         return dao.getAllEpisodes(limit);
     }

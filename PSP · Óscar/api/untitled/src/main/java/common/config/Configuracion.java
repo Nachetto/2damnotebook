@@ -1,6 +1,7 @@
 package common.config;
 
 
+import common.Constantes;
 import jakarta.inject.Singleton;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
@@ -19,11 +20,9 @@ public class Configuracion {
     public Configuracion() {
         try {
             Properties p = new Properties();
-            Properties p2 = new Properties();
-            p.load(getClass().getClassLoader().getResourceAsStream("config/config.properties"));
+            p.load(getClass().getClassLoader().getResourceAsStream(Constantes.CONFIG_PROPERTIES));
             this.pathDatos = p.getProperty("pathDatos");
-            p2.load(getClass().getClassLoader().getResourceAsStream("config/config.properties"));
-            this.baseUrl = p2.getProperty("baseUrl");
+            this.baseUrl = p.getProperty("baseUrl");
         } catch (IOException e) {
            log.error(e.getMessage(),e);
         }

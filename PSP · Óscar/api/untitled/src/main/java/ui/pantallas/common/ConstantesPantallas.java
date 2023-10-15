@@ -8,4 +8,5 @@ public class ConstantesPantallas {
     public static final String PARAMETROS_GUARDADOS = "Parameters saved, you can now search your new parameters";
     public static final String ERROR_BUSQUEDA = "Error en el tipo de busqueda, introduzca los filtros deseados y vuelva a intentarlo";
     public static final String DESCRIPCION_APP = "                              Bienvenid@, \n          elije la opcion que desee en el menu";
+    public static final String PANTALLA_PRINCIPAL = "/fxml/principal.fxml";
 }

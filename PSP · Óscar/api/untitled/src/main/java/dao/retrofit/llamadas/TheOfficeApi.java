@@ -7,8 +7,6 @@ import retrofit2.http.Query;
 public interface TheOfficeApi {
     @GET("characters")
     Call<ResponseCharacter> getAllCharacters(@Query("limit") int limit);
-    @GET("characters")
-    Call<ResponseCharacter> getAllCharacters();
 
     @GET("episodes")
     Call<ResponseEpisode> getAllEpisodes(@Query("limit") int limit);

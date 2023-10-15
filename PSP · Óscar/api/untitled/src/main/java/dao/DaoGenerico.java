@@ -1,5 +1,6 @@
 package dao;
 
+import common.Constantes;
 import io.vavr.control.Either;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -14,7 +15,7 @@ public abstract class DaoGenerico {
                 resultado = Either.left(response.errorBody().toString());
             }
         } catch (Exception e) {
-            resultado = Either.left("Error de comunicacion");
+            resultado = Either.left(Constantes.ERROR_CONEXION);
         }
         return resultado;
     }

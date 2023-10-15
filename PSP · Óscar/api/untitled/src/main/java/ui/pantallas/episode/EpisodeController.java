@@ -1,11 +1,9 @@
 package ui.pantallas.episode;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import ui.pantallas.common.BasePantallaController;
 import ui.pantallas.common.ConstantesPantallas;
-import ui.pantallas.principal.ParametrosBusquedaCharacter;
 import ui.pantallas.principal.PrincipalController;
 import ui.pantallas.principal.ParametrosBusquedaEpisode;
 
@@ -19,8 +17,6 @@ public class EpisodeController extends BasePantallaController {
     private TextField textFieldConArgumentoDeBusqueda;
     @FXML
     private ComboBox<String> comboBoxOpcionesABuscar;
-    @FXML
-    private Label titleLabel;
 
     @Override
     public void principalCargado() {

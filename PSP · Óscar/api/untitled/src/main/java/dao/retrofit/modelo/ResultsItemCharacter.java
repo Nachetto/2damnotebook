@@ -14,19 +14,4 @@ public class ResultsItemCharacter {
 	private int id;
 	private List<Object> job;
 	private List<Object> workplace;
-
-	@Override
-	public String toString() {
-		return "ResultsItem{" +
-				"firstAppearance='" + firstAppearance + '\'' +
-				", actor='" + actor + '\'' +
-				", marital=" + marital +
-				", gender='" + gender + '\'' +
-				", lastAppearance='" + lastAppearance + '\'' +
-				", name='" + name + '\'' +
-				", id=" + id +
-				", job=" + job +
-				", workplace=" + workplace +
-				'}';
-	}
 }

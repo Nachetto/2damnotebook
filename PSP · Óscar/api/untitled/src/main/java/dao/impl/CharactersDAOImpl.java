@@ -27,18 +27,6 @@ public class CharactersDAOImpl extends DaoGenerico implements CharactersDAO {
     }
 
     @Override
-    public Either<String, List<MiCharacter>> getAllCharacters() {
-        Call<ResponseCharacter> r = theOfficeApi.getAllCharacters();
-        Either<String, ResponseCharacter> responseEither = safeApicall(r);
-        if (responseEither.isRight()) {
-            List<MiCharacter> res = filtradoAMiCharacter(responseEither.get());
-            return Either.right(res);
-        } else {
-            return Either.left(responseEither.getLeft());
-        }
-    }
-
-    @Override
     public Either<String, List<MiCharacter>> getAllCharacters(int limit) {
         Call<ResponseCharacter> r = theOfficeApi.getAllCharacters(limit);
         Either<String, ResponseCharacter> responseEither = safeApicall(r);

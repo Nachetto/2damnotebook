@@ -45,12 +45,8 @@ public class PrincipalController {
     @Getter
     @Setter
     ParametrosBusquedaEpisode parametrosBusquedaEpisode;
-
-
     @FXML
     public BorderPane root;
-
-    private final Alert alert;
 
 
     //constructor
@@ -58,7 +54,6 @@ public class PrincipalController {
     public PrincipalController(Instance<Object> instance, ParametrosBusquedaCharacter parametrosBusquedaCharacter) {
         this.instance = instance;
         this.parametrosBusquedaCharacter = parametrosBusquedaCharacter;
-        alert = new Alert(Alert.AlertType.NONE);
     }
 
 
@@ -94,18 +89,18 @@ public class PrincipalController {
 
 
     private Pane cargarPantalla(String ruta) {
-        Pane panePantalla = null;
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setControllerFactory(controller -> instance.select(controller).get());
-            panePantalla = fxmlLoader.load(getClass().getResourceAsStream(ruta));
+            Pane panePantalla = fxmlLoader.load(getClass().getResourceAsStream(ruta));
             BasePantallaController pantallaController = fxmlLoader.getController();
             pantallaController.setPrincipalController(this);
             pantallaController.principalCargado();
+            return panePantalla;
         } catch (IOException e) {
             log.error(e.getMessage(), e);
         }
-        return panePantalla;
+        return null;
     }
 
 

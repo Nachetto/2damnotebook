@@ -15,10 +15,6 @@ public class CharactersService {
         this.dao = dao;
     }
 
-    public Either<String, List<MiCharacter>> getAllCharacters() {
-        return dao.getAllCharacters();
-    }
-
     public Either<String, List<MiCharacter>> getAllCharacters(int limit){
         return dao.getAllCharacters(limit);
     }

@@ -9,7 +9,7 @@ public enum Pantallas {
     LISTAR_PERSONAJES("/fxml/character/characterMain.fxml"),
     LISTAR_EPISODIOS("/fxml/episode/episode.fxml"),
     LLAMADAS_EPISODIOS("/fxml/episode/episodeList.fxml"),
-    LISTAR_TEMPORADAS("/fxml/season.fxml");
+    LISTAR_TEMPORADAS("/fxml/season/seasonMain.fxml");
 
 
     private final String ruta;
