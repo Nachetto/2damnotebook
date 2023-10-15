@@ -38,11 +38,13 @@ public class CharacterLlamadasController extends BasePantallaController {
     private void llamadasSegunParametrosDeBusqueda() {
         try {
             borrarTabla();
-            int limiteBusqueda = getPrincipalController().getParametrosBusquedaCharacter().getLimite();
-            if (limiteBusqueda == 83)
-                listaPersonajes.getItems().addAll(service.getAllCharacters(limiteBusqueda).get());
-            else
-                listaPersonajes.getItems().addAll(service.getAllCharacters(limiteBusqueda).get());
+            switch (getPrincipalController().getParametrosBusquedaCharacter().getLimite()) {
+                case 0 -> listaPersonajes.getItems().addAll(service.getAllCharacters(83).get());
+                default -> {
+                    int limiteBusqueda = getPrincipalController().getParametrosBusquedaCharacter().getLimite();
+                    listaPersonajes.getItems().addAll(service.getAllCharacters(limiteBusqueda).get());
+                }
+            }
         } catch (Exception e) {
             getPrincipalController().sacarAlertError(ConstantesPantallas.ERROR_BUSQUEDA + " " + e.getMessage());
         }
