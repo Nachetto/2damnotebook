@@ -3,8 +3,6 @@ package ui.pantallas.season;
 import domain.modelo.MiSeason;
 import jakarta.inject.Inject;
 import javafx.fxml.FXML;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;

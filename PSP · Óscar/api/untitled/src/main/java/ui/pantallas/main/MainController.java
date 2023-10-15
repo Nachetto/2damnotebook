@@ -1,6 +1,5 @@
 package ui.pantallas.main;
 
-import common.Constantes;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import ui.pantallas.common.BasePantallaController;

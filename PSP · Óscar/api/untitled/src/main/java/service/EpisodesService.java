@@ -4,7 +4,6 @@ import dao.impl.EpisodesDAOImpl;
 import domain.modelo.MiEpisode;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
-import retrofit2.Call;
 
 import java.util.List;
 

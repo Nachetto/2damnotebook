@@ -1,9 +1,7 @@
 package dao.impl;
 
-import common.config.Configuracion;
 import dao.CharactersDAO;
 import dao.DaoGenerico;
-import dao.retrofit.ProducesRetrofit;
 import dao.retrofit.llamadas.TheOfficeApi;
 import dao.retrofit.modelo.ResponseCharacter;
 import domain.modelo.MiCharacter;
@@ -16,13 +14,9 @@ import java.util.stream.Collectors;
 
 public class CharactersDAOImpl extends DaoGenerico implements CharactersDAO {
     private final TheOfficeApi theOfficeApi;
-    private final ProducesRetrofit retrofit;
-    private final Configuracion configuracion;
 
     @Inject
-    public CharactersDAOImpl(Configuracion configuracion, TheOfficeApi theOfficeApi, ProducesRetrofit retrofit) {
-        this.retrofit = retrofit;
-        this.configuracion = configuracion;
+    public CharactersDAOImpl(TheOfficeApi theOfficeApi) {
         this.theOfficeApi = theOfficeApi;
     }
 

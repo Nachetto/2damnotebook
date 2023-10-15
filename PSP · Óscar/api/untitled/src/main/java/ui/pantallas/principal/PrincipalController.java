@@ -21,22 +21,6 @@ import java.io.IOException;
 @Log4j2
 public class PrincipalController {
     @FXML
-    private MenuItem menuItemLlamadasEpisodios;
-    @FXML
-    private MenuItem menuItemLlamadasPersonajes;
-    @FXML
-    private Menu menuPersonajes;
-    @FXML
-    private MenuItem menuItemListarPersonajes;
-    @FXML
-    private Menu menuEpisodios;
-    @FXML
-    private MenuItem menuItemListarEpisodios;
-    @FXML
-    private Menu menuTemporada;
-    @FXML
-    private MenuItem menuItemListarTemporadas;
-    @FXML
     private MenuBar menuPrincipal;
     Instance<Object> instance;
     @Getter
