@@ -32,29 +32,30 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             setContentView(root)
-
-            editTextTextPersonName.setText("Hola")
-            button.setOnClickListener {
-                viewModel.addPersona(Persona(editTextTextPersonName.text.toString()))
-            }
-
-
-
-            viewModel.uiState.observe(this@MainActivity) { state ->
-                state.error?.let { error ->
-                    Toast.makeText(this@MainActivity, error, Toast.LENGTH_SHORT).show()
-                    viewModel.errorMostrado()
-                }
-                if (state.error == null)
-                    editTextTextPersonName.setText(state.persona.nombre)
-
-
-            }
         }
-
     }
 
+    private fun obserbarViewModel(){
+        viewModel.uiState.observe(this@MainActivity) { state ->
+            state.error?.let { error ->
+                Toast.makeText(this@MainActivity, error, Toast.LENGTH_SHORT).show()
+                viewModel.errorMostrado()
+            }
+            if (state.error == null)
+                null
+                //cambiar los valores al nuevo raton
+                //editTextTextPersonName.setText(state.persona.nombre)
+        }
+    }
+
+    private fun eventos(){
+        with(binding){
+            buttonAdd.setOnClickListener {
+                //cuando se clickea el boton add, me crea la persona
+                //viewModel.addRaton(Raton())
+            }
+        }
+    }
 }

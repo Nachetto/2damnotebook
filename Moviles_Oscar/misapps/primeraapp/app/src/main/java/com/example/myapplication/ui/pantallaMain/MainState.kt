@@ -1,8 +1,9 @@
-package com.example.appnobasica.ui.pantallaMain
+package com.example.myapplication.ui.pantallaMain
 
-import com.example.appnobasica.domain.modelo.Persona
+import com.example.myapplication.domain.modelo.Raton
+import java.util.Calendar
 
 data class MainState(
-    val persona: Persona = Persona("null"),
+    val persona: Raton = Raton("null","null","null",0,0,0, Calendar.getInstance()),
     val error: String? = null
 )

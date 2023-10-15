@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.appnobasica.ui.pantallaMain.Constantes
-import com.example.appnobasica.ui.pantallaMain.MainState
 import com.example.myapplication.R
 import com.example.myapplication.domain.modelo.Raton
 import com.example.myapplication.domain.usecases.ratones.AddRatonUseCase
@@ -15,9 +14,9 @@ import com.example.myapplication.domain.usecases.ratones.DeleteRatonUseCase
 import com.example.myapplication.domain.usecases.ratones.GetLastIdFromRatonesListUseCase
 
 class MainViewModel(
-    //todo aqui construyes los usecases que vayas a usar en los metodos de abajo y el Stringprovider que no se lo que es
+    //los usecases que vayas a usar en los metodos de abajo y el Stringprovider que no se lo que es
     private val stringProvider: StringProvider,
-    //todo aqui construyes los usecases
+    //los usecases
     private val addRatonUseCase: AddRatonUseCase,
     private val deleteRatonUseCase: DeleteRatonUseCase,
     private val getRatonUseCase: GetRatonUseCase,
@@ -31,7 +30,7 @@ class MainViewModel(
     fun addRaton(raton: Raton) {
         if (!addRatonUseCase(raton)) {
             _uiState.value = MainState(
-                error = stringProvider.getString(R.string.name),
+                error = "error"//stringProvider.getString(R.string.name),
             )
             _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
         }
@@ -40,7 +39,7 @@ class MainViewModel(
     fun deleteRaton(raton: Raton){
         if (!deleteRatonUseCase(raton)) {
             _uiState.value = MainState(
-                error = stringProvider.getString(R.string.name),
+                error = "error"//stringProvider.getString(R.string.name),
             )
             _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
         }
