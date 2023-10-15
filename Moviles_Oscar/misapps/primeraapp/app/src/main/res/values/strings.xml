@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Butano</string>
+    <string name="validar_flow">Validar Flow</string>
+    <string name="te_gustar_a_un_butanazo_en_la_cara">Te gustaría un butanazo en la cara?</string>
+    <string name="bombona_de_butano">Bombona de butano</string>
+    <string name="invalid">Chaval escribe algo al menos empanao.</string>
+</resources>
