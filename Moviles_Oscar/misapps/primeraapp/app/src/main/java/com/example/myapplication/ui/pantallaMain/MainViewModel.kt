@@ -1,53 +1,77 @@
-package com.example.appnobasica.ui.pantallaMain
+package com.example.myapplication.ui.pantallaMain
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.appnobasica.R
-import com.example.appnobasica.domain.modelo.Persona
-import com.example.appnobasica.domain.usecases.personas.AddPersonaUseCase
-import com.example.appnobasica.domain.usecases.personas.GetPersonas
-import com.example.appnobasica.utils.StringProvider
+import com.example.appnobasica.ui.pantallaMain.Constantes
+import com.example.appnobasica.ui.pantallaMain.MainState
+import com.example.myapplication.R
+import com.example.myapplication.domain.modelo.Raton
+import com.example.myapplication.domain.usecases.ratones.AddRatonUseCase
+import com.example.myapplication.domain.usecases.ratones.GetRatonUseCase
+import com.example.myapplication.utils.StringProvider
+import com.example.myapplication.domain.usecases.ratones.DeleteRatonUseCase
+import com.example.myapplication.domain.usecases.ratones.GetLastIdFromRatonesListUseCase
 
 class MainViewModel(
+    //todo aqui construyes los usecases que vayas a usar en los metodos de abajo y el Stringprovider que no se lo que es
     private val stringProvider: StringProvider,
-    private val addPersonaUseCase: AddPersonaUseCase,
-    private val getPersonas: GetPersonas,
+    //todo aqui construyes los usecases
+    private val addRatonUseCase: AddRatonUseCase,
+    private val deleteRatonUseCase: DeleteRatonUseCase,
+    private val getRatonUseCase: GetRatonUseCase,
+    private val getLastIdFromRatonesListUseCase: GetLastIdFromRatonesListUseCase
 ) : ViewModel() {
-
+    //esto es algo del estado que es inmutable y se hace esto
     private val _uiState = MutableLiveData<MainState>()
     val uiState: LiveData<MainState> get() = _uiState
 
     //todo aqui haces las funciones de anadir editar y eliminar ratones
-
-
-    fun addPersona(persona: Persona) {
-
-        if (!addPersonaUseCase(persona)) {
+    fun addRaton(raton: Raton) {
+        if (!addRatonUseCase(raton)) {
             _uiState.value = MainState(
                 error = stringProvider.getString(R.string.name),
             )
             _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
-
         }
     }
 
-    fun getPersonas(id: Int) {
-        val personas = getPersonas()
+    fun deleteRaton(raton: Raton){
+        if (!deleteRatonUseCase(raton)) {
+            _uiState.value = MainState(
+                error = stringProvider.getString(R.string.name),
+            )
+            _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
+        }
+    }
 
-        if (personas.size < id || id < 0) {
-            _uiState.value = _uiState.value?.copy(error = "error")
 
-        } else
-            _uiState.value = _uiState.value?.copy(persona = personas[id])
+    fun getRaton(id:Int){
+        var raton = getRatonUseCase(id)
+        //lo envias al state?
+    }
 
+//    fun getPersonas(id: Int) {
+//        val personas = getPersonas()
+//
+//        if (personas.size < id || id < 0) {
+//            _uiState.value = _uiState.value?.copy(error = "error")
+//
+//        } else
+//            _uiState.value = _uiState.value?.copy(raton = personas[id])
+//    }
 
+    fun getLastID() {
+        var id =getLastIdFromRatonesListUseCase
+        //lo igualas al state
     }
 
     fun errorMostrado() {
         _uiState.value = _uiState.value?.copy(error = null)
     }
+
+
 
 }
 
@@ -57,8 +81,10 @@ class MainViewModel(
  */
 class MainViewModelFactory(
     private val stringProvider: StringProvider,
-    private val addPersona: AddPersonaUseCase,
-    private val getPersonas: GetPersonas,
+    private val addRatonUseCase: AddRatonUseCase,
+    private val deleteRatonUseCase: DeleteRatonUseCase,
+    private val getRatonUseCase: GetRatonUseCase,
+    private val getLastIdFromRatonesListUseCase: GetLastIdFromRatonesListUseCase
 
     ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -66,8 +92,10 @@ class MainViewModelFactory(
             @Suppress("UNCHECKED_CAST")
             return MainViewModel(
                 stringProvider,
-                addPersona,
-                getPersonas,
+                addRatonUseCase,
+                deleteRatonUseCase,
+                getRatonUseCase,
+                getLastIdFromRatonesListUseCase
             ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")

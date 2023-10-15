@@ -7,12 +7,12 @@ class Repository {
 
     private val ratones = mutableListOf<Raton>()
 
-    fun addRaton(raton: Raton) {
-        ratones.add(raton)
+    fun addRaton(raton: Raton):Boolean {
+        return ratones.add(raton)
     }
 
-    fun deleteRaton(raton:Raton){
-        ratones.remove(raton)
+    fun deleteRaton(raton:Raton):Boolean{
+        return ratones.remove(raton)
     }
 
     fun getRatonById(id: Int): Raton? {

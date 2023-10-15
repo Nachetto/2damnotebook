@@ -1,14 +1,16 @@
-package com.example.appnobasica.ui.pantallaMain
+package com.example.myapplication.ui.pantallaMain
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.appnobasica.databinding.ActivityMainBinding
-import com.example.appnobasica.domain.modelo.Persona
-import com.example.appnobasica.domain.usecases.personas.AddPersonaUseCase
-import com.example.appnobasica.domain.usecases.personas.GetPersonas
-import com.example.appnobasica.utils.StringProvider
+import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.domain.modelo.Raton
+import com.example.myapplication.domain.usecases.ratones.AddRatonUseCase
+import com.example.myapplication.domain.usecases.ratones.DeleteRatonUseCase
+import com.example.myapplication.domain.usecases.ratones.GetLastIdFromRatonesListUseCase
+import com.example.myapplication.domain.usecases.ratones.GetRatonUseCase
+import com.example.myapplication.utils.StringProvider
 
 
 
@@ -20,8 +22,10 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(
             StringProvider.instance(this),
-            AddPersonaUseCase(),
-            GetPersonas(),
+            AddRatonUseCase(),
+            DeleteRatonUseCase(),
+            GetRatonUseCase(),
+            GetLastIdFromRatonesListUseCase()
         )
     }
 

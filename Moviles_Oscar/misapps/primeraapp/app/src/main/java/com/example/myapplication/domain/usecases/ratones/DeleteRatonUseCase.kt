@@ -5,8 +5,8 @@ import com.example.myapplication.data.Repository
 import com.example.myapplication.domain.modelo.Raton
 
 class DeleteRatonUseCase {
-    operator fun invoke(raton: Raton) {
+    operator fun invoke(raton: Raton):Boolean {
         val repository = Repository.getInstance()
-        repository.deleteRaton(raton)
+        return repository.deleteRaton(raton)
     }
 }
