@@ -19,6 +19,8 @@ class MainViewModel(
     private val _uiState = MutableLiveData<MainState>()
     val uiState: LiveData<MainState> get() = _uiState
 
+    //todo aqui haces las funciones de anadir editar y eliminar ratones
+
 
     fun addPersona(persona: Persona) {
 

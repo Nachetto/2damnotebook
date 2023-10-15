@@ -6,45 +6,162 @@
     android:layout_height="match_parent"
     tools:context=".ui.pantallaMain.MainActivityMio">
 
+    <EditText
+        android:id="@+id/editTextText4"
+        android:layout_width="135dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/name"
+        tools:layout_editor_absoluteX="251dp"
+        tools:layout_editor_absoluteY="150dp" />
+
     <TextView
-        android:id="@+id/textInputEditText"
-        android:layout_width="245dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="84dp"
-        android:text="@string/bombona_de_butano"
+        android:id="@+id/labelTituloApp"
+        android:layout_width="217dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/tituloApp"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/metiendotexto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/butaca"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="83dp"
-        android:layout_marginBottom="240dp"
-        android:text="@string/validar_flow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/metiendotexto"
-        tools:ignore="MissingConstraints" />
+        android:text="@string/button"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="656dp" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/metiendotexto"
-        android:layout_width="314dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="118dp"
-        android:layout_marginBottom="142dp"
-        android:hint="@string/te_gustar_a_un_butanazo_en_la_cara"
-        app:layout_constraintBottom_toTopOf="@+id/butaca"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText"
-        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/labelModelo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/modelo"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="124dp" />
+
+    <TextView
+        android:id="@+id/labelMarca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/marca"
+        tools:layout_editor_absoluteX="296dp"
+        tools:layout_editor_absoluteY="124dp" />
+
+    <TextView
+        android:id="@+id/labelId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/id"
+        tools:layout_editor_absoluteX="199dp"
+        tools:layout_editor_absoluteY="584dp" />
+
+    <RadioGroup
+        android:layout_width="148dp"
+        android:layout_height="222dp"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="244dp">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/labelColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/color"
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="216dp" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="166dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:inputType="date"
+        tools:layout_editor_absoluteX="229dp"
+        tools:layout_editor_absoluteY="394dp" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="258dp"
+        tools:layout_editor_absoluteY="235dp" />
+
+    <TextView
+        android:id="@+id/labelFechaFabricacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fecha_de_fabricacion"
+        tools:layout_editor_absoluteX="251dp"
+        tools:layout_editor_absoluteY="356dp" />
+
+    <TextView
+        android:id="@+id/labelDPI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dpi"
+        tools:layout_editor_absoluteX="306dp"
+        tools:layout_editor_absoluteY="289dp" />
+
+    <TextView
+        android:id="@+id/labelPeso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/peso"
+        tools:layout_editor_absoluteX="296dp"
+        tools:layout_editor_absoluteY="208dp" />
+
+    <EditText
+        android:id="@+id/editTextNumber3"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="251dp"
+        tools:layout_editor_absoluteY="308dp" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="135dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/name"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="150dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

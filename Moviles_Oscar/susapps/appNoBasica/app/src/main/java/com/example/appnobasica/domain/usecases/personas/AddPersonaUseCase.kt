@@ -7,5 +7,4 @@ class AddPersonaUseCase {
 
     operator fun invoke(persona: Persona) =
         RespositoryDos.addPersona(persona)
-
 }
