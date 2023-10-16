@@ -11,8 +11,8 @@ import com.example.myapplication.domain.usecases.ratones.AddRatonUseCase
 import com.example.myapplication.domain.usecases.ratones.DeleteRatonUseCase
 import com.example.myapplication.domain.usecases.ratones.GetLastIdFromRatonesListUseCase
 import com.example.myapplication.domain.usecases.ratones.GetRatonUseCase
+import com.example.myapplication.domain.usecases.ratones.ModifyRatonUseCase
 import com.example.myapplication.utils.StringProvider
-import java.util.Calendar
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +26,8 @@ class MainActivity : AppCompatActivity() {
             AddRatonUseCase(),
             DeleteRatonUseCase(),
             GetRatonUseCase(),
-            GetLastIdFromRatonesListUseCase()
+            GetLastIdFromRatonesListUseCase(),
+            ModifyRatonUseCase()
         )
     }
 
@@ -43,32 +44,20 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun cargarPrimerRaton() {
-        val raton = Raton(
-            modelo = "Modelo Ejemplo",
-            marca = "Marca Ejemplo",
-            color = "Negro",
-            peso = 100,
-            DPI = 1600,
-            id = 1,
-            fechaFabricacion = "1/1/1"
-        )
-
-        if (!darValoresAlRaton(raton)) {
+        val raton = viewModel.getRaton(1)
+        if (!darValoresAlRaton(raton!!)) {
             Toast.makeText(this@MainActivity, "error", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun darValoresAlRaton(raton: Raton): Boolean {
         with(binding) {
-            // Asigna los valores del objeto Raton a los campos de entrada
             editTextModelo.setText(raton.modelo)
             editTextMarca.setText(raton.marca)
             editTextPeso.setText(raton.peso.toString())
             editTextDpi.setText(raton.DPI.toString())
-            editTextDId?.setText(raton.id.toString())
+            editTextId.setText(raton.id.toString())
             editTextDate.setText(raton.fechaFabricacion)
-
-            // Asigna el color seleccionado en el objeto Raton a los RadioButtons
             when (raton.color) {
                 getString(R.string.blanco) -> radioGroup2?.check(R.id.radioButton)
                 getString(R.string.negro) -> radioGroup2?.check(R.id.radioButton2)
@@ -87,10 +76,8 @@ class MainActivity : AppCompatActivity() {
             val marca = editTextMarca.text.toString()
             val pesoText = editTextPeso.text.toString()
             val dpiText = editTextDpi.text.toString()
-            val idText = editTextDId?.text.toString()
+            val idText = editTextId.text.toString()
             val fechaText = editTextDate.text.toString()
-
-            // Obtiene el ID del RadioButton seleccionado en el RadioGroup
             val selectedColorId = radioGroup2?.checkedRadioButtonId
             val color = when (selectedColorId) {
                 R.id.radioButton -> getString(R.string.blanco)
@@ -102,25 +89,17 @@ class MainActivity : AppCompatActivity() {
                     return null
                 }
             }
-
-            // Verifica si los campos obligatorios no están vacíos
             if (modelo.isEmpty() || marca.isEmpty() || pesoText.isEmpty() || dpiText.isEmpty() || idText.isEmpty() || fechaText.isEmpty()) {
                 Toast.makeText(this@MainActivity, "Por favor, complete todos los campos obligatorios", Toast.LENGTH_SHORT).show()
                 return null
             }
-
-            // Intenta convertir los valores a los tipos correctos
             val peso = pesoText.toIntOrNull()
             val dpi = dpiText.toIntOrNull()
             val id = idText.toIntOrNull()
-
-            // Verifica si las conversiones fueron exitosas
             if (peso == null || dpi == null || id == null) {
                 Toast.makeText(this@MainActivity, "Los valores ingresados no son válidos", Toast.LENGTH_SHORT).show()
                 return null
             }
-
-            // Crea un nuevo objeto Raton con los valores obtenidos
             return Raton(
                 modelo = modelo,
                 marca = marca,
@@ -141,21 +120,112 @@ class MainActivity : AppCompatActivity() {
                 viewModel.errorMostrado()
             }
             if (state.error == null)
-                null
-                //cambiar los valores al nuevo raton
-                //editTextTextPersonName.setText(state.persona.nombre)
+                if (state.tipoLlamada.equals("add"))
+                    darValoresAlRaton(state.raton)
         }
     }
 
     private fun eventos(){
         with(binding){
             buttonAdd.setOnClickListener {
-                //cuando se clickea el boton add, me crea la persona
-                //viewModel.addRaton(Raton())
+                val raton = nuevoRatonDesdePantalla()
+
+                if (raton != null) {
+                    if (viewModel.getRaton(raton.id) == null) {
+                        viewModel.addRaton(raton)
+                        Toast.makeText(this@MainActivity, "Ratón nuevo creado con el ID " + raton.id, Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this@MainActivity, "Ya existe un ratón con el mismo ID", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this@MainActivity, "Error al crear el ratón", Toast.LENGTH_SHORT).show()
+                }
             }
-            /*buttonUpdate.setOnClickListener{
-                //cuando se clickea el boton update, ,
-            }*/
+
+
+            buttonAnterior.setOnClickListener {
+                val idActualText = binding.editTextId.text.toString()
+                val idActual = idActualText.toIntOrNull()
+
+                if (idActual != null && idActual > 1) {
+                    val raton = viewModel.getRaton(idActual - 1)
+                    if (raton != null) {
+                        darValoresAlRaton(raton)
+                    } else {
+                        Toast.makeText(this@MainActivity, "El ratón no tiene contenido", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this@MainActivity, "Este es el primer ratón", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            buttonSiguiente.setOnClickListener {
+                val idActualText = binding.editTextId.text.toString()
+                val idActual = idActualText.toIntOrNull()
+                val lastId = viewModel.getLastID()
+
+                if (idActual != null && lastId != null) {
+                    if (idActual < lastId) {
+                        val raton = viewModel.getRaton(idActual + 1)
+                        if (raton != null) {
+                            darValoresAlRaton(raton)
+                        } else {
+                            Toast.makeText(this@MainActivity, "El ratón no tiene contenido", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(this@MainActivity, "Este es el último ID", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this@MainActivity, "Error al leer el ID", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            buttonUpdate.setOnClickListener {
+                val raton = nuevoRatonDesdePantalla()
+                if (raton != null) {
+                    val idActual = raton.id
+                    val ratonExistente = viewModel.getRaton(idActual)
+
+                    if (ratonExistente != null) {
+                        if (viewModel.modifyRaton(idActual, raton)) {
+                            Toast.makeText(this@MainActivity, "Ratón actualizado con éxito", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(this@MainActivity, "Error al actualizar el ratón", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(this@MainActivity, "No se encontró un ratón con el ID $idActual", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this@MainActivity, "Error al crear el ratón", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            buttonDelete.setOnClickListener {
+                val idActual = binding.editTextId.text.toString().toIntOrNull()
+
+                if (idActual != null) {
+                    val ratonAEliminar = viewModel.getRaton(idActual)
+                    if (ratonAEliminar != null) {
+                        if (viewModel.deleteRaton(ratonAEliminar)) {
+                            Toast.makeText(this@MainActivity, "Ratón eliminado con éxito", Toast.LENGTH_SHORT).show()
+                            val idAnterior = idActual - 1
+                            val ratonAnterior = viewModel.getRaton(idAnterior)
+                            if (ratonAnterior != null) {
+                                darValoresAlRaton(ratonAnterior)
+                            } else {
+                                Toast.makeText(this@MainActivity, "No se encontró un ratón con el ID $idAnterior", Toast.LENGTH_SHORT).show()
+                            }
+                        } else {
+                            Toast.makeText(this@MainActivity, "Error al eliminar el ratón", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(this@MainActivity, "No se encontró un ratón con el ID $idActual", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this@MainActivity, "ID no válido", Toast.LENGTH_SHORT).show()
+                }
+            }
+
         }
     }
 }

@@ -14,6 +14,21 @@ class Repository {
         return ratones.remove(raton)
     }
 
+    fun modifyRaton(ratonId: Int, newRaton: Raton): Boolean {
+        val existingRaton = ratones.find { it.id == ratonId }
+        if (existingRaton != null) {
+            existingRaton.modelo = newRaton.modelo
+            existingRaton.marca = newRaton.marca
+            existingRaton.color = newRaton.color
+            existingRaton.peso = newRaton.peso
+            existingRaton.DPI = newRaton.DPI
+            existingRaton.fechaFabricacion = newRaton.fechaFabricacion
+            return true
+        }
+        return false
+    }
+
+
     fun getRatonById(id: Int): Raton? {
         return ratones.find { it.id == id }
     }
