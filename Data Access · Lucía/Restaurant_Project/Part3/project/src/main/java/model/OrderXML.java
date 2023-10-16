@@ -14,11 +14,12 @@ import lombok.Getter;
 @XmlAccessorType(XmlAccessType.FIELD)
 @Getter
 public class OrderXML {
+    @XmlElement(name = "id")
     private int id;
     @XmlElement(name = "orderItems")
-    private List<OrderItemXML> orderItems;
+    private OrderItemsXML orderItems;
 
-    public List<OrderItemXML> getOrderItems() {
+    public OrderItemsXML getOrderItems() {
         return orderItems;
     }
 

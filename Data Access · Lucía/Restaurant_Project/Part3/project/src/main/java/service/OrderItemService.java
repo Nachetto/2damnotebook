@@ -1,21 +1,27 @@
 package service;
 
 import dao.OrderItemDAO;
+import dao.impl.OrderItemDAOImpl;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
 import model.OrderItem;
+import model.OrdersXML;
 
 import java.util.List;
 
 public class OrderItemService {
     @Inject
-    private OrderItemDAO dao;
+    private OrderItemDAOImpl dao;
+
+    public OrdersXML readOrdersFromXML() {
+        return dao.readOrdersFromXML();
+    }
 
     public Either<String, List<OrderItem>> getAll() {
         return dao.getAll();
     }
 
-    public Either<String, List<OrderItem>> get(int id) {
+    public Either<String, OrderItem> get(int id) {
         return dao.get(id);
     }
 

@@ -9,7 +9,7 @@ public interface OrderItemDAO {
 
     Either<String, List<OrderItem>> getAll();
 
-    Either<String, List<OrderItem>> get(int id);
+    Either<String, OrderItem> get(int id);
 
     int save(OrderItem o);
 

@@ -1,6 +1,7 @@
 package service;
 
 import dao.OrderDAO;
+import dao.impl.OrderDAOImpl;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
 import model.Customer;
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class OrderService {
     @Inject
-    private OrderDAO dao;
+    private OrderDAOImpl dao;
 
     public Either<String, List<Order>> getAll() {
         return dao.getAll();

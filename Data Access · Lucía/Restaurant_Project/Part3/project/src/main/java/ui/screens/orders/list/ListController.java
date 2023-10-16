@@ -12,12 +12,15 @@ import model.Customer;
 import model.Order;
 import model.OrderItem;
 import service.CustomerService;
+import service.MenuItemService;
 import service.OrderItemService;
 import service.OrderService;
 import ui.screens.common.BaseScreenController;
 import ui.screens.orders.common.OrderCommon;
 
+import model.MenuItem;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListController extends BaseScreenController {
@@ -51,7 +54,9 @@ public class ListController extends BaseScreenController {
     private OrderItemService service2;
     @Inject
     private CustomerService service3;
-
+    @Inject
+    private MenuItemService menuItemService;
+    private final List<MenuItem> menuItems = new ArrayList<>();
     public void initialize() {
         common.initializeCustomerTable(orderid, tableid, customerid, orderdate);
         order_item_id.setCellValueFactory(new PropertyValueFactory<>("order_item_id"));
@@ -68,15 +73,31 @@ public class ListController extends BaseScreenController {
             orderlist.getItems().addAll(service.getAll().get());
             customertextfield.setEditable(false);
         }
+
+        // Carga los detalles de MenuItem en la lista menuItems
+        loadMenuItems();
     }
+
+
 
     public void selectedUser() {
         orderitemlist.getItems().clear();
         Order selectedOrder = orderlist.getSelectionModel().getSelectedItem();
 
         if (selectedOrder != null) {
-            if (service2.getAll().isRight()){
-                List<OrderItem> selectedOrderItems = service2.getAll().get().stream().filter(orderItem -> orderItem.getOrder_id() == selectedOrder.getOrderid()).toList();
+            if (service2.getAll().isRight()) {
+                List<OrderItem> selectedOrderItems = service2.getAll().get().stream()
+                        .filter(orderItem -> orderItem.getOrder_id() == selectedOrder.getOrderid())
+                        .toList();
+
+                // Obtener los detalles de MenuItem y actualizar la lista de OrderItem
+                selectedOrderItems.forEach(orderItem -> {
+                    MenuItem menuItem = findMenuItemById(orderItem.getMenu_item_id());
+                    if (menuItem != null) {
+                        orderItem.setMenu_item_id(menuItem.getId());
+                    }
+                });
+
                 orderitemlist.getItems().addAll(selectedOrderItems);
 
                 Order o = orderlist.getSelectionModel().getSelectedItem();
@@ -87,12 +108,32 @@ public class ListController extends BaseScreenController {
                     String name = customer.getName();
                     customertextfield.setText(name);
                 }
+            } else {
+                getPrincipalController().showAlertError(Constants.ORDERITEMDBERROR + service2.getAll().getLeft());
             }
-            else
-                getPrincipalController().showAlertError(Constants.ORDERITEMDBERROR+service2.getAll().getLeft());
-
         }
     }
+
+    private void loadMenuItems() {
+        // Aquí obtén y carga los detalles de MenuItem en la lista menuItems
+        Either<String, List<MenuItem>> menuItemsResult = menuItemService.getAll();
+        if (menuItemsResult.isRight()) {
+            menuItems.addAll(menuItemsResult.get());
+        } else {
+            // Maneja el caso en el que no se pueden cargar los detalles de MenuItem
+            getPrincipalController().showAlertError(Constants.MENUITEMSXMLREADERROR + menuItemsResult.getLeft());
+        }
+    }
+
+    private MenuItem findMenuItemById(int menuItemId) {
+        for (MenuItem menuItem : menuItems) {
+            if (menuItem.getId() == menuItemId) {
+                return menuItem;
+            }
+        }
+        return null; // Retorna null si no se encuentra el MenuItem
+    }
+
 
 
 }

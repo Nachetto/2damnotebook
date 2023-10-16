@@ -20,4 +20,13 @@ public class Constants {
     public static final String CUSTOMERDBERROR = "Error al leer los datos de los clientes: ";
     public static final String ERRDB = "There was an error while trying to connect to the database supplier\n";
     public static final String ORDERITEMDBERROR = "There was an error while trying to access to the Order items list because ";
+    public static final String MENUITEMSXMLREADERROR = "There was an error while trying to load the menuitem elements from the xml file. ";
+    public static final String XMLLOADERROR = "There was an error while trying to load the XML elements";
+    public static final String IDNOTFOUND = "The requested id has not founded any item";
+    public static final String ORDERNOTFOUND = "The requested id has not founded any order item";
+    public static final String ERRORSAVE = "Error while saving : ";
+    public static final String ERRORMODIFY = "Error while modifying: ";
+    public static final String ERRORDELETE = "Error While deleting: ";
+    public static final String ERRORSAVING = "There was an error while trying to save the elements to the XML : ";
+    public static final String ERROROBTAININGORDER = "There was an error while trying to obtain the order: ";
 }

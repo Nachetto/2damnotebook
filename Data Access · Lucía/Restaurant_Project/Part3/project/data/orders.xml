@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ordersXML>
+
     <order>
         <id>1</id>
         <orderItems>
@@ -110,6 +111,7 @@
             </orderItem>
         </orderItems>
     </order>
+
     <order>
         <id>5</id>
         <orderItems>
@@ -122,10 +124,17 @@
                 </menuItem>
                 <quantity>4</quantity>
             </orderItem>
+
             <orderItem>
-                <menuItem>Ice Cream</menuItem>
+                <menuItem>
+                    <id>12</id>
+                    <name>Ice Cream</name>
+                    <description>Delicious ice cream</description>
+                    <price>3.99</price>
+                </menuItem>
                 <quantity>2</quantity>
             </orderItem>
+
         </orderItems>
     </order>
     <order>

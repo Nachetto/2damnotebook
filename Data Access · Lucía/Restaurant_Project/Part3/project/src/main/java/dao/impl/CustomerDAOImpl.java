@@ -29,7 +29,6 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
     }
 
-    @Override
     public Either<String, Customer> get(int id) {
         List<Customer> list= getAll().get().stream().filter(c -> c.getId() == id).toList();
         if (1 != list.size()) {
@@ -67,7 +66,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public int modify(Customer initialcustomer, Customer modifiedcustomer) {
         delete(initialcustomer);
-        return 1; // Indica éxito
+        return 1;
     }
 
     @Override

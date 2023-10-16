@@ -37,7 +37,6 @@ module javafx.multipantalla {
     opens ui.screens.customers.update;
     opens ui.screens.customers.add;
     opens ui.screens.customers.delete;
-    opens model to jakarta.xml.bind;
     opens ui.screens.main to javafx.fxml;
     opens ui.screens.login to javafx.fxml;
     opens ui.screens.customers.list;
@@ -46,4 +45,5 @@ module javafx.multipantalla {
     opens common.config;
     opens fxml;
     opens service;
+    opens model;
 }

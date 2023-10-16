@@ -7,7 +7,6 @@ import model.MenuItemXML;
 public class MenuItemAdapter extends XmlAdapter<MenuItemXML, MenuItem> {
     @Override
     public MenuItem unmarshal(MenuItemXML menuItemXML) {
-        // Aquí puedes construir un objeto MenuItem a partir de MenuItemXML
         MenuItem menuItem = new MenuItem();
         menuItem.setId(menuItemXML.getId());
         menuItem.setName(menuItemXML.getName());

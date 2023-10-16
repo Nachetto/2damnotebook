@@ -9,8 +9,6 @@ import java.util.List;
 public interface CustomerDAO {
     Either<String, List<Customer>> getAll();
 
-    Either<String, Customer> get(int id);
-
     int save(Customer c);
 
     int modify(Customer c, Customer cu);

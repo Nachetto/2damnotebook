@@ -32,7 +32,17 @@ public class OrderDAOImpl implements OrderDAO {
 
     @Override
     public Either<String, Order> get(int id) {
-        return null;
+        try {
+            List<Order> orders = getAll().get();
+            for (Order order : orders) {
+                if (order.getOrderid() == id) {
+                    return Either.right(order);
+                }
+            }
+            return Either.left(Constants.IDNOTFOUND + id);
+        } catch (Exception e) {
+            return Either.left(Constants.ERROROBTAININGORDER + e.getMessage());
+        }
     }
 
     @Override
@@ -47,7 +57,19 @@ public class OrderDAOImpl implements OrderDAO {
 
     @Override
     public int modify(Order o) {
-        return 0;
+        try {
+            List<Order> orders = getAll().get();
+            for (int i = 0; i < orders.size(); i++) {
+                if (orders.get(i).getOrderid() == o.getOrderid()) {
+                    orders.set(i, o);
+                    orders.forEach(order -> save(order));
+                    return o.getOrderid();
+                }
+            }
+            return -1;
+        } catch (Exception e) {
+            return -1;
+        }
     }
 
     @Override
