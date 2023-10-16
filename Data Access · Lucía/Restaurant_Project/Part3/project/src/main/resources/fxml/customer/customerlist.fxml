@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane prefHeight="450" prefWidth="749" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.customers.list.CustomerListController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.screens.customers.list.CustomerListController">
     <TableView fx:id="customerlist" layoutX="68.0" layoutY="65.0" prefHeight="200.0" prefWidth="463.0">
         <columns>
             <TableColumn fx:id="customerid" prefWidth="54.199981689453125" text="id"/>

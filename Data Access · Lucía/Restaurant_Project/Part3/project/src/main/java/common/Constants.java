@@ -19,4 +19,5 @@ public class Constants {
     public static final String ORDERDBERROR = "There was an error while reading Orders Database: ";
     public static final String CUSTOMERDBERROR = "Error al leer los datos de los clientes: ";
     public static final String ERRDB = "There was an error while trying to connect to the database supplier\n";
+    public static final String ORDERITEMDBERROR = "There was an error while trying to access to the Order items list because ";
 }

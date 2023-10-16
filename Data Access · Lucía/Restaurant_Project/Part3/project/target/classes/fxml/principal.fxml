@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.BorderPane?>
 <BorderPane fx:id="root" prefHeight="450" prefWidth="749" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.principal.PrincipalController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.screens.principal.PrincipalController">
     <top>
         <MenuBar fx:id="menuPrincipal">
             <Menu fx:id="menuOptions" mnemonicParsing="false" text="Options">

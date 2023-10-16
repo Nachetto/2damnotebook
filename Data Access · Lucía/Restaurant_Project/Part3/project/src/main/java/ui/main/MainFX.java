@@ -6,7 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ui.pantallas.principal.PrincipalController;
+import ui.screens.principal.PrincipalController;
 
 import java.io.IOException;
 

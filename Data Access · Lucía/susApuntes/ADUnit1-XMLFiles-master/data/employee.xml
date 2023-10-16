@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employees>
+    <employee>
+        <fName>Mary2</fName>
+        <lastName>Johnson2</lastName>
+        <address>
+            <street>Gran via</street>
+            <number>5</number>
+        </address>
+        <phones>
+            <phone>
+                <country>+34</country>
+                <phoneNr>687234564</phoneNr>
+            </phone>
+            <phone>
+                <country>+44</country>
+                <phoneNr>634239564</phoneNr>
+            </phone>
+        </phones>
+        <startDate>2016-08-16</startDate>
+    </employee>
+    <employee>
+        <fName>Mary2</fName>
+        <lastName>Johnson2</lastName>
+        <address>
+            <street>Gran via</street>
+            <number>5</number>
+        </address>
+        <phones>
+            <phone>
+                <country>+34</country>
+                <phoneNr>687234564</phoneNr>
+            </phone>
+            <phone>
+                <country>+44</country>
+                <phoneNr>634239564</phoneNr>
+            </phone>
+        </phones>
+        <startDate>2016-08-16</startDate>
+    </employee>
+</employees>

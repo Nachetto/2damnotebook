@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="450" prefWidth="749" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.customers.add.CustomerAddController">
+<AnchorPane prefHeight="450" prefWidth="749" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.screens.customers.add.CustomerAddController">
    <children>
       <TextField fx:id="entercustomername" layoutX="39.0" layoutY="60.0" promptText="Name" />
       <TextField fx:id="entercustomersurname" layoutX="40.0" layoutY="106.0" promptText="Surname" />

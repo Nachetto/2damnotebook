@@ -33,12 +33,16 @@ public class Configuration {
         return properties.getProperty("orderDataFile");
     }
 
+    public String getOrderItemsDataFile(){return properties.getProperty("orderItemsDataFile");}
+
     public static synchronized Configuration getInstance() {
         if (instance == null) {
             instance = new Configuration();
         }
         return instance;
     }
+
+
 
     public String getProperty(String key) {
         return properties.getProperty(key);

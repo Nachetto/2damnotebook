@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="450" prefWidth="749" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.orders.update.UpdateController">
+<AnchorPane prefHeight="450" prefWidth="749" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.screens.orders.update.UpdateController">
     <TableView fx:id="orderlist" layoutX="24.0" layoutY="113.0" onMouseClicked="#selectedUser" prefHeight="200.0" prefWidth="247.0">
         <columns>
             <TableColumn fx:id="orderid" prefWidth="54.199981689453125" text="order_id" />
