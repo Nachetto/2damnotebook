@@ -1,13 +1,11 @@
 package com.example.myapplication.domain.modelo
 
-import java.util.Calendar
-
 class Raton(
-    val modelo: String,
-    val marca: String,
-    val color: String,
-    val peso: Int,
-    val DPI: Int,
-    val id: Int,
-    val fechaFabricacion: Calendar
+    var modelo: String,
+    var marca: String,
+    var color: String,
+    var peso: Int,
+    var DPI: Int,
+    var id: Int,
+    var fechaFabricacion: String
 )

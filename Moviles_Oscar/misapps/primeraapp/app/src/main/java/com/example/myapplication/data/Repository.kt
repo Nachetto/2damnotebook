@@ -1,7 +1,6 @@
 package com.example.myapplication.data
 
 import com.example.myapplication.domain.modelo.Raton
-import java.util.Calendar
 
 class Repository {
 
@@ -35,7 +34,7 @@ class Repository {
             peso = 100,
             DPI = 1600,
             id = 1,
-            fechaFabricacion = Calendar.getInstance()
+            fechaFabricacion = "1/1/1"
         )
         addRaton(ratonEjemplo)
     }
