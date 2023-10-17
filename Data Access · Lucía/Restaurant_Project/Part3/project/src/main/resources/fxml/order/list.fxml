@@ -13,12 +13,12 @@
             <TableColumn fx:id="orderdate" prefWidth="75.0" text="order_date" />
         </columns>
     </TableView>
-    <TableView fx:id="orderitemlist" layoutX="370.0" layoutY="111.0" prefHeight="200.0" prefWidth="314.0">
+    <TableView fx:id="menuItemsList" layoutX="370.0" layoutY="111.0" prefHeight="200.0" prefWidth="314.0">
         <columns>
-            <TableColumn fx:id="order_item_id" prefWidth="94.20001220703125" text="order_item_id" />
-            <TableColumn fx:id="order_id" prefWidth="56.20001220703125" text="order_id" />
-            <TableColumn fx:id="menu_item_id" prefWidth="94.20001220703125" text="menu_item_id" />
-            <TableColumn fx:id="quantity" prefWidth="56.20001220703125" text="quantity" />
+            <TableColumn fx:id="id" prefWidth="38.0" text="id" />
+            <TableColumn fx:id="name" prefWidth="119.0" text="name" />
+            <TableColumn fx:id="description" prefWidth="90.0" text="description" />
+            <TableColumn fx:id="price" prefWidth="56.20001220703125" text="price" />
         </columns>
     </TableView>
     <TextField fx:id="customertextfield" layoutX="103.0" layoutY="337.0" />
@@ -28,7 +28,7 @@
             <Font size="30.0" />
         </font>
     </Label>
-   <Label layoutX="399.0" layoutY="33.0" prefHeight="78.0" prefWidth="257.0" text="ORDER ITEMS LIST">
+   <Label layoutX="399.0" layoutY="33.0" prefHeight="78.0" prefWidth="257.0" text="MENU ITEMS LIST">
       <font>
          <Font size="30.0" />
       </font>

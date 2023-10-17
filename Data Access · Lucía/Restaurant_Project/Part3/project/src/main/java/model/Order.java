@@ -36,6 +36,14 @@ public class Order {
     }
 
     public String toStringTextFile() {
-        return orderid+ ";" + orderdate  + ";" + customerid + ";" + tableid;
+        try {
+            return orderid + ";" + orderdate + ";" + customerid + ";" + tableid;
+        }
+        catch (Exception e)
+        {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH_mm_ss_SSS");
+            String formattedDate = orderdate.format(formatter);
+            return orderid + ";" + formattedDate + ";" + customerid + ";" + tableid;
+        }
     }
 }

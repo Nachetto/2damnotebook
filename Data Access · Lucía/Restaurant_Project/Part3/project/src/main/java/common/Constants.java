@@ -29,4 +29,5 @@ public class Constants {
     public static final String ERRORDELETE = "Error While deleting: ";
     public static final String ERRORSAVING = "There was an error while trying to save the elements to the XML : ";
     public static final String ERROROBTAININGORDER = "There was an error while trying to obtain the order: ";
+    public static final String ORDERNOTDELETED = "The Order was now deleted";
 }

@@ -4,17 +4,19 @@ import common.Constants;
 import common.config.Configuration;
 import dao.OrderDAO;
 import io.vavr.control.Either;
+import lombok.extern.log4j.Log4j2;
 import model.Order;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.nio.file.Files.readAllLines;
-
+@Log4j2
 public class OrderDAOImpl implements OrderDAO {
     @Override
     public Either<String, List<Order>> getAll() {
@@ -51,6 +53,7 @@ public class OrderDAOImpl implements OrderDAO {
             Files.write(Paths.get(Configuration.getInstance().getOrderDataFile()), ('\n' + o.toStringTextFile()).getBytes(), StandardOpenOption.APPEND);
             return 1;
         } catch (IOException e) {
+            log.error(e.getMessage());
             return -1;
         }
     }
@@ -75,11 +78,15 @@ public class OrderDAOImpl implements OrderDAO {
     @Override
     public int delete(Order o) {
         try {
-            Files.delete(Paths.get(Configuration.getInstance().getOrderDataFile(), o.toStringTextFile()));
+            String fileName = o.toStringTextFile().replace(":", "_"); // Replace ":" with "_"
+            Path filePath = Paths.get(Configuration.getInstance().getOrderDataFile(), fileName);
+            Files.delete(filePath);
             return 1;
         } catch (IOException e) {
+            log.error(e.getMessage());
             return -1;
         }
     }
+
 
 }

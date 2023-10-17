@@ -60,10 +60,16 @@ public class DeleteController extends BaseScreenController {
     }
 
     public void deleteOrder() {
-        getPrincipalController().showAlertInfo(Constants.ORDERDELETED);
-    }
+        switch (service.delete(selectedOrder())){
+            case 1 -> getPrincipalController().showAlertInfo(Constants.ORDERDELETED);
+            case -1 -> getPrincipalController().showAlertError(Constants.ORDERNOTDELETED);
 
-    public void selectedUser() {
-        Order o = orderlist.getSelectionModel().getSelectedItem();
+        }
+
+    }
+    @FXML
+    private void selectedUser(){}
+    public Order selectedOrder() {
+       return orderlist.getSelectionModel().getSelectedItem();
     }
 }

@@ -22,20 +22,14 @@ import model.MenuItem;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
 public class ListController extends BaseScreenController {
+    public TableView<MenuItem> menuItemsList;
+    public TableColumn<MenuItem, Integer> id;
+    public TableColumn<MenuItem,String> name;
+    public TableColumn<MenuItem,String> description;
+    public TableColumn<MenuItem,Double> price;
     @FXML
     private TextField customertextfield;
-    @FXML
-    private TableView<OrderItem> orderitemlist;
-    @FXML
-    private TableColumn<OrderItem, Integer> order_item_id;
-    @FXML
-    private TableColumn<OrderItem, Integer> order_id;
-    @FXML
-    private TableColumn<OrderItem, Integer> menu_item_id;
-    @FXML
-    private TableColumn<OrderItem, Integer> quantity;
     @FXML
     private TableColumn<Order, Integer> orderid;
     @FXML
@@ -59,10 +53,10 @@ public class ListController extends BaseScreenController {
     private final List<MenuItem> menuItems = new ArrayList<>();
     public void initialize() {
         common.initializeCustomerTable(orderid, tableid, customerid, orderdate);
-        order_item_id.setCellValueFactory(new PropertyValueFactory<>("order_item_id"));
-        order_id.setCellValueFactory(new PropertyValueFactory<>("order_id"));
-        menu_item_id.setCellValueFactory(new PropertyValueFactory<>("menu_item_id"));
-        quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        price.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
 
     @Override
@@ -81,7 +75,7 @@ public class ListController extends BaseScreenController {
 
 
     public void selectedUser() {
-        orderitemlist.getItems().clear();
+        menuItemsList.getItems().clear();
         Order selectedOrder = orderlist.getSelectionModel().getSelectedItem();
 
         if (selectedOrder != null) {
@@ -89,16 +83,12 @@ public class ListController extends BaseScreenController {
                 List<OrderItem> selectedOrderItems = service2.getAll().get().stream()
                         .filter(orderItem -> orderItem.getOrder_id() == selectedOrder.getOrderid())
                         .toList();
-
-                // Obtener los detalles de MenuItem y actualizar la lista de OrderItem
+                List<MenuItem> menuItemsListRestult = new ArrayList<>();
                 selectedOrderItems.forEach(orderItem -> {
                     MenuItem menuItem = findMenuItemById(orderItem.getMenu_item_id());
-                    if (menuItem != null) {
-                        orderItem.setMenu_item_id(menuItem.getId());
-                    }
+                    menuItemsListRestult.add(menuItem);
                 });
-
-                orderitemlist.getItems().addAll(selectedOrderItems);
+                menuItemsList.getItems().addAll(menuItemsListRestult);
 
                 Order o = orderlist.getSelectionModel().getSelectedItem();
                 Either<String, Customer> result = service3.get(o.getCustomerid());
@@ -113,6 +103,7 @@ public class ListController extends BaseScreenController {
             }
         }
     }
+
 
     private void loadMenuItems() {
         // Aquí obtén y carga los detalles de MenuItem en la lista menuItems
