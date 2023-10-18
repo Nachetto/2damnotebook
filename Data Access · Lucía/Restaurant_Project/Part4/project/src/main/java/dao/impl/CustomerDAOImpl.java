@@ -3,7 +3,10 @@ package dao.impl;
 import common.Constants;
 import common.config.Configuration;
 import dao.CustomerDAO;
+import dao.common.SQLConstants;
 import io.vavr.control.Either;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 import model.Credential;
 import model.Customer;
 
@@ -14,20 +17,35 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
+import java.sql.*;
+@Log4j2
 public class CustomerDAOImpl implements CustomerDAO {
+
     public Either<String, List<Customer>> getAll() {
-        List<Customer> customers = new ArrayList<>();
-        try {
-            List<String> lines = Files.readAllLines(Paths.get(Configuration.getInstance().getCustomerDataFile()));
-            for (String line : lines.subList(1, lines.size())) {
-                customers.add(new Customer(line));
+        try(Connection myConnection=DriverManager.getConnection("jdbc:mysql://dam2.mysql.iesquevedo.es: 3335/ignacioLlorente_restaurant","root","quevedo2dam");
+            Statement stmt= myConnection.createStatement()) {
+            ResultSet rs = stmt.executeQuery(SQLConstants.SELECT_customers_QUERY);
+            List<Customer> customers = new ArrayList<>();
+            while (rs.next()) {
+                Customer resultCustomer = new Customer(
+                        rs.getInt("id"),
+                        rs.getInt("phone"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getString("email"),
+                        new Credential("root", "2dam"),
+                        rs.getDate("date_of_birth").toLocalDate()
+                );
+                customers.add(resultCustomer);
             }
             return Either.right(customers);
-        } catch (IOException | NumberFormatException e) {
+        }
+        catch (SQLException e) {
+            log.error(e.getMessage());
             return Either.left(Constants.CUSTOMERDBERROR + e.getMessage());
         }
     }
+
 
     public Either<String, Customer> get(int id) {
         List<Customer> list= getAll().get().stream().filter(c -> c.getId() == id).toList();
