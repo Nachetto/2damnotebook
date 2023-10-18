@@ -3,9 +3,10 @@ package dao.impl;
 import common.Constants;
 import common.config.Configuration;
 import dao.CustomerDAO;
+import dao.common.DBConnection;
 import dao.common.SQLConstants;
 import io.vavr.control.Either;
-import lombok.extern.log4j.Log4j;
+import jakarta.inject.Inject;
 import lombok.extern.log4j.Log4j2;
 import model.Credential;
 import model.Customer;
@@ -18,8 +19,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 @Log4j2
 public class CustomerDAOImpl implements CustomerDAO {
+
+    private final DBConnection db;
+    @Inject
+    public CustomerDAOImpl(DBConnection db) {
+        this.db = db;
+    }
 
     public Either<String, List<Customer>> getAll() {
         try(Connection myConnection=DriverManager.getConnection("jdbc:mysql://dam2.mysql.iesquevedo.es: 3335/ignacioLlorente_restaurant","root","quevedo2dam");
@@ -48,11 +58,25 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 
     public Either<String, Customer> get(int id) {
-        List<Customer> list= getAll().get().stream().filter(c -> c.getId() == id).toList();
-        if (1 != list.size()) {
-            return Either.left(Constants.CUSTOMERDOESNTEXIST);
-        } else {
-            return Either.right(list.get(0));
+        try (Connection con = db.getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_customer_QUERY)){
+            preparedStatement.setInt(1, id);
+
+            // Executing the statement. The result will be stored in the ResultSet object
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            return Either.right(new Customer(
+                    rs.getInt("id"),
+                    rs.getInt("phone"),
+                    rs.getString("first_name"),
+                    rs.getString("last_name"),
+                    rs.getString("email"),
+                    new Credential("root", "2dam"),
+                    rs.getDate("date_of_birth").toLocalDate()
+            ));
+        } catch (SQLException ex) {
+            log.error(ex.getMessage());
+            return Either.left(Constants.CUSTOMERDBERROR + ex.getMessage());
         }
     }
 
@@ -73,12 +97,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public int save(Customer c) {
-        try {
-            Files.write(Paths.get(Configuration.getInstance().getCustomerDataFile()), ('\n' + c.toStringTextFile()).getBytes(), StandardOpenOption.APPEND);
-            return 1;
-        } catch (IOException e) {
-            return -1;
-        }
+
     }
 
     @Override
