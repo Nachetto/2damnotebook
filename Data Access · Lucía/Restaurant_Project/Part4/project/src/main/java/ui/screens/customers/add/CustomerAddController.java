@@ -66,6 +66,7 @@ public class CustomerAddController extends BaseScreenController {
             else {
                 getPrincipalController().showAlertError(Constants.USERRNOTADDED);
             }
+            customerlist.getItems().clear();
             principalCargado();
         } else {
             getPrincipalController().showAlertError(Constants.CUSTOMERNOTADDED);

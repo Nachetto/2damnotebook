@@ -77,10 +77,10 @@ public class CustomerDeleteController extends BaseScreenController {
     public void deleteUser() {
         if (cservice.hasAnyOrders(c)) {
             if (getPrincipalController().showConfirmationAlert(Constants.CONFIRMUSERDELETION)) {
+                cservice.setUserConfirmedDeletion(true);
                 if (cservice.delete(c) != 1) {
                     getPrincipalController().showAlertError(Constants.CUSTOMERNOTDELETED);
                 } else {
-                    oservice.delete(c);
                     customerlist.getItems().clear();
                     principalCargado();
                     getPrincipalController().showAlertInfo(Constants.CUSTOMERDELETED);

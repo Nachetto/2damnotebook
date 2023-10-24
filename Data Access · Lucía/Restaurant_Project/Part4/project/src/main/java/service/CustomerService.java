@@ -19,6 +19,14 @@ public class CustomerService {
         return customerDAO.checkLogin(c);
     }
 
+    public void setUserConfirmedDeletion(boolean userConfirmedDeletion) {
+        customerDAO.setUserConfirmedDeletion(userConfirmedDeletion);
+    }
+
+    public boolean isUserConfirmedDeletion() {
+        return customerDAO.isUserConfirmedDeletion();
+    }
+
     public Either<String, List<Customer>> getAll() {
         return customerDAO.getAll();
     }
@@ -41,13 +49,7 @@ public class CustomerService {
 
 
     public boolean hasAnyOrders(Customer c) {
-        List<Order> orders = orderService.getAll().get();
-        for (Order o : orders) {
-            if (c.getId() == o.getCustomerid()) {
-                return true;
-            }
-        }
-        return false;
+        return customerDAO.hasOrders(c);
     }
 
 }

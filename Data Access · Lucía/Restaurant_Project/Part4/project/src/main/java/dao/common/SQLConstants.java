@@ -7,4 +7,5 @@ public class SQLConstants {
     public static final String DELETE_CUSTOMER_QUERY = "DELETE FROM customers WHERE id = ?";
     public static final String CHECK_ORDERS_BY_CUSTOMER_QUERY = "SELECT COUNT(*) as order_count FROM orders WHERE customer_id = ?;";
     public static String SELECT_customer_QUERY="SELECT * FROM customers WHERE id = ?";
+    public static String Add_customer_QUERY="INSERT INTO customers (id, first_name, last_name, email, phone, date_of_birth) VALUES (?, ?, ?, ?, ?, ?)";
 }

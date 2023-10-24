@@ -1,19 +1,17 @@
 package dao.impl;
 
 import common.Constants;
-import common.config.Configuration;
 import dao.CustomerDAO;
 import dao.common.DBConnection;
 import dao.common.SQLConstants;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 import model.Credential;
 import model.Customer;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +21,9 @@ import java.util.Objects;
 public class CustomerDAOImpl implements CustomerDAO {
 
     private final DBConnection db;
+    @Getter
+    @Setter
+    private boolean userConfirmedDeletion = false;
 
     @Inject
     public CustomerDAOImpl(DBConnection db) {
@@ -58,8 +59,6 @@ public class CustomerDAOImpl implements CustomerDAO {
         try (Connection con = db.getConnection();
              PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_customer_QUERY)) {
             preparedStatement.setInt(1, id);
-
-            // Executing the statement. The result will be stored in the ResultSet object
             ResultSet rs = preparedStatement.executeQuery();
             rs.next();
             return Either.right(new Customer(
@@ -93,14 +92,47 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public int save(Customer c) {
-        return 0;
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.Add_customer_QUERY)) {
+            //(id, first_name, last_name, email, phone, date_of_birth)
+            preparedStatement.setInt(1, c.getId());
+            preparedStatement.setString(2, c.getName());
+            preparedStatement.setString(3, c.getSurname());
+            preparedStatement.setString(4, c.getEmail());
+            preparedStatement.setInt(5, c.getPhone());
+            preparedStatement.setDate(6, Date.valueOf(c.getBirthdate()));
+
+            return preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            log.error(ex.getMessage());
+            return -1;
+        }
     }
 
     @Override
     public int modify(Customer initialcustomer, Customer modifiedcustomer) {
-        delete(initialcustomer);
-        return 1;
+        int deletionResult = delete(initialcustomer);
+        if (deletionResult != -1) {
+            return save(modifiedcustomer);
+        } else {
+            return -1;
+        }
     }
+
+    public boolean hasOrders(Customer c) {
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.CHECK_ORDERS_BY_CUSTOMER_QUERY)) {
+            preparedStatement.setInt(1, c.getId());
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            log.info("the customer named " + c.getName() + " has " + rs.getInt("order_count") + " orders");
+            return rs.getInt("order_count") > 0;
+        } catch (SQLException ex) {
+            log.error(ex.getMessage());
+            return false;
+        }
+    }
+
 
     @Override
     public int delete(Customer c) {
@@ -110,37 +142,21 @@ public class CustomerDAOImpl implements CustomerDAO {
 
         try (Connection con = db.getConnection()) {
             try {
-                // Check if the customer has any associated orders
-                PreparedStatement checkOrders = con.prepareStatement(SQLConstants.CHECK_ORDERS_BY_CUSTOMER_QUERY);
-                checkOrders.setInt(1, c.getId());
-                ResultSet orderCheckResult = checkOrders.executeQuery();
+                if (userConfirmedDeletion) {
+                    try (PreparedStatement deleteOrders = con.prepareStatement(SQLConstants.DELETE_ORDERS_BY_CUSTOMER_QUERY);
+                         PreparedStatement deleteOrderItems = con.prepareStatement(SQLConstants.DELETE_ORDER_ITEMS_BY_CUSTOMER_QUERY)) {
+                        con.setAutoCommit(false); // Start a transaction
+                        deleteOrders.setInt(1, c.getId());
+                        deleteOrderItems.setInt(1, c.getId());
 
-                if (orderCheckResult.next()) {
-                    // Customer has orders, ask the user for confirmation to delete them
-                    System.out.println("This customer has associated orders. Do you want to delete them as well? (Y/N)");
-                    // You can add user interaction here to confirm the deletion of orders
+                        // Execute the delete statements for orders and order items
+                        deleteOrderItems.executeUpdate();
+                        deleteOrders.executeUpdate();
 
-                    // If user confirms, proceed to delete associated orders and order items
-                    if (userConfirmedDeletion) {
-                        try (PreparedStatement deleteOrders = con.prepareStatement(SQLConstants.DELETE_ORDERS_BY_CUSTOMER_QUERY);
-                             PreparedStatement deleteOrderItems = con.prepareStatement(SQLConstants.DELETE_ORDER_ITEMS_BY_CUSTOMER_QUERY)) {
-                            con.setAutoCommit(false); // Start a transaction
-                            deleteOrders.setInt(1, c.getId());
-                            deleteOrderItems.setInt(1, c.getId());
-
-                            // Execute the delete statements for orders and order items
-                            deleteOrderItems.executeUpdate();
-                            deleteOrders.executeUpdate();
-
-                            con.commit(); // Commit the transaction
-                        }
-                    } else {
-                        System.out.println("Deletion of customer and associated orders canceled.");
-                        return 0; // Deletion canceled
+                        con.commit(); // Commit the transaction
                     }
                 }
 
-                // After deleting associated orders and order items (if applicable), you can delete the customer
                 try (PreparedStatement deleteCustomer = con.prepareStatement(SQLConstants.DELETE_CUSTOMER_QUERY)) {
                     deleteCustomer.setInt(1, c.getId());
                     deleteCustomer.executeUpdate();
@@ -160,8 +176,6 @@ public class CustomerDAOImpl implements CustomerDAO {
             return -1;
         }
     }
-
-
 
 
 }

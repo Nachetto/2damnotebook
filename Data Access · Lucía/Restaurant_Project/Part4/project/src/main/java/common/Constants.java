@@ -14,7 +14,7 @@ public class Constants {
     public static final String ORDERITEMREMOVED = "The order item has been succesfully removed";
     public static final String ORDERDELETED = "The order has been deleted succesfully";
     public static final String ORDERUPDATED = "The order has been updated succesfully";
-    public static final String CONFIRMUSERDELETION = "Are you sure that you want to delete this user? Its orders will be deleted as well.";
+    public static final String CONFIRMUSERDELETION = "Are you sure that you want to delete this user? Its orders and order items will be deleted as well.";
     public static final String CUSTOMERDOESNTEXIST = "The id of the customer does not appear on our database.";
     public static final String ORDERDBERROR = "There was an error while reading Orders Database: ";
     public static final String CUSTOMERDBERROR = "Error al leer los datos de los clientes: ";
@@ -30,4 +30,6 @@ public class Constants {
     public static final String ERRORSAVING = "There was an error while trying to save the elements to the XML : ";
     public static final String ERROROBTAININGORDER = "There was an error while trying to obtain the order: ";
     public static final String ORDERNOTDELETED = "The Order was now deleted";
+    public static final String CUSTOMERNOTUPDATED = "The customer has not been updated";
+    public static final String CUSTOMERUPDATED = "The customer has been updated";
 }
