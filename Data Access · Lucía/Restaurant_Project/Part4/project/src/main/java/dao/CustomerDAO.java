@@ -14,6 +14,4 @@ public interface CustomerDAO {
     int modify(Customer c, Customer cu);
 
     int delete(Customer c);
-
-    boolean checkLogin(Credential c);
 }

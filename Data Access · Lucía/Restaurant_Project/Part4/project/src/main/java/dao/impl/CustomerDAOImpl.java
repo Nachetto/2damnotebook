@@ -14,26 +14,24 @@ import model.Customer;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @Log4j2
 public class CustomerDAOImpl implements CustomerDAO {
 
     private final DBConnection db;
+
     @Inject
     public CustomerDAOImpl(DBConnection db) {
         this.db = db;
     }
 
     public Either<String, List<Customer>> getAll() {
-        try(Connection myConnection=DriverManager.getConnection("jdbc:mysql://dam2.mysql.iesquevedo.es: 3335/ignacioLlorente_restaurant","root","quevedo2dam");
-            Statement stmt= myConnection.createStatement()) {
+        try (Connection myConnection = DriverManager.getConnection("jdbc:mysql://dam2.mysql.iesquevedo.es: 3335/ignacioLlorente_restaurant", "root", "quevedo2dam");
+             Statement stmt = myConnection.createStatement()) {
             ResultSet rs = stmt.executeQuery(SQLConstants.SELECT_customers_QUERY);
             List<Customer> customers = new ArrayList<>();
             while (rs.next()) {
@@ -49,8 +47,7 @@ public class CustomerDAOImpl implements CustomerDAO {
                 customers.add(resultCustomer);
             }
             return Either.right(customers);
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             log.error(e.getMessage());
             return Either.left(Constants.CUSTOMERDBERROR + e.getMessage());
         }
@@ -59,7 +56,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     public Either<String, Customer> get(int id) {
         try (Connection con = db.getConnection();
-            PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_customer_QUERY)){
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_customer_QUERY)) {
             preparedStatement.setInt(1, id);
 
             // Executing the statement. The result will be stored in the ResultSet object
@@ -80,7 +77,6 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
     }
 
-    @Override
     public boolean checkLogin(Credential c) {
         Either<String, List<Customer>> result = getAll();
 
@@ -97,7 +93,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public int save(Customer c) {
-
+        return 0;
     }
 
     @Override
@@ -111,17 +107,61 @@ public class CustomerDAOImpl implements CustomerDAO {
         if (c == null) {
             return -1;
         }
-        try {
-            List<Customer> customers = getAll().get();
-            customers.remove(c);
-            Files.write(Paths.get(Configuration.getInstance().getCustomerDataFile()), "id;first_name;last_name;email;phone;date_of_birth".getBytes());
-            for (Customer customer : customers) {
-                save(customer);
+
+        try (Connection con = db.getConnection()) {
+            try {
+                // Check if the customer has any associated orders
+                PreparedStatement checkOrders = con.prepareStatement(SQLConstants.CHECK_ORDERS_BY_CUSTOMER_QUERY);
+                checkOrders.setInt(1, c.getId());
+                ResultSet orderCheckResult = checkOrders.executeQuery();
+
+                if (orderCheckResult.next()) {
+                    // Customer has orders, ask the user for confirmation to delete them
+                    System.out.println("This customer has associated orders. Do you want to delete them as well? (Y/N)");
+                    // You can add user interaction here to confirm the deletion of orders
+
+                    // If user confirms, proceed to delete associated orders and order items
+                    if (userConfirmedDeletion) {
+                        try (PreparedStatement deleteOrders = con.prepareStatement(SQLConstants.DELETE_ORDERS_BY_CUSTOMER_QUERY);
+                             PreparedStatement deleteOrderItems = con.prepareStatement(SQLConstants.DELETE_ORDER_ITEMS_BY_CUSTOMER_QUERY)) {
+                            con.setAutoCommit(false); // Start a transaction
+                            deleteOrders.setInt(1, c.getId());
+                            deleteOrderItems.setInt(1, c.getId());
+
+                            // Execute the delete statements for orders and order items
+                            deleteOrderItems.executeUpdate();
+                            deleteOrders.executeUpdate();
+
+                            con.commit(); // Commit the transaction
+                        }
+                    } else {
+                        System.out.println("Deletion of customer and associated orders canceled.");
+                        return 0; // Deletion canceled
+                    }
+                }
+
+                // After deleting associated orders and order items (if applicable), you can delete the customer
+                try (PreparedStatement deleteCustomer = con.prepareStatement(SQLConstants.DELETE_CUSTOMER_QUERY)) {
+                    deleteCustomer.setInt(1, c.getId());
+                    deleteCustomer.executeUpdate();
+                    return 1; // Deletion successful
+                } catch (SQLException ex) {
+                    log.error("Error deleting customer: " + ex.getMessage());
+                    con.rollback(); // Rollback in case of an exception during customer deletion
+                    return -1;
+                }
+            } catch (SQLException ex) {
+                log.error("Error deleting associated orders and items: " + ex.getMessage());
+                con.rollback(); // Rollback in case of an exception during orders and order items deletion
+                return -1;
             }
-            return 1;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException ex) {
+            log.error("Error connecting to the database: " + ex.getMessage());
+            return -1;
         }
     }
+
+
+
 
 }
