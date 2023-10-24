@@ -1,88 +1,103 @@
 package dao.impl;
 
 import common.Constants;
-import common.config.Configuration;
 import dao.OrderDAO;
+import dao.common.DBConnection;
+import dao.common.SQLConstants;
 import io.vavr.control.Either;
+import jakarta.inject.Inject;
 import lombok.extern.log4j.Log4j2;
 import model.Order;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.nio.file.Files.readAllLines;
 @Log4j2
 public class OrderDAOImpl implements OrderDAO {
+
+    private final DBConnection db;
+    @Inject
+    public OrderDAOImpl(DBConnection db) {
+        this.db = db;
+    }
+
     @Override
     public Either<String, List<Order>> getAll() {
-        List<Order> orders = new ArrayList<>();
-        try {
-            List<String> lines = readAllLines(Paths.get(Configuration.getInstance().getOrderDataFile()));
-            for (String line : lines.subList(1, lines.size())) {
-                orders.add(new Order(line));
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_ORDERS_QUERY)) {
+            ResultSet rs = preparedStatement.executeQuery();
+            List<Order> orders = new ArrayList<>();
+            while (rs.next()) {
+                //(int orderid, int tableid, int customerid, LocalDateTime orderdate)
+                Order resultOrder = new Order(
+                        rs.getInt("order_id"),
+                        rs.getInt("table_id"),
+                        rs.getInt("customer_id"),
+                        rs.getTimestamp("order_date").toLocalDateTime()
+                );
+                orders.add(resultOrder);
             }
             return Either.right(orders);
-        } catch (IOException | NumberFormatException e) {
+        } catch (SQLException e) {
+            log.error(e.getMessage());
             return Either.left(Constants.ORDERDBERROR + e.getMessage());
         }
     }
 
     @Override
     public Either<String, Order> get(int id) {
-        try {
-            List<Order> orders = getAll().get();
-            for (Order order : orders) {
-                if (order.getOrderid() == id) {
-                    return Either.right(order);
-                }
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_ORDER_QUERY)) {
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                Order resultOrder = new Order(
+                        rs.getInt("order_id"),
+                        rs.getInt("table_id"),
+                        rs.getInt("customer_id"),
+                        rs.getTimestamp("order_date").toLocalDateTime()
+                );
+                return Either.right(resultOrder);
             }
             return Either.left(Constants.IDNOTFOUND + id);
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            log.error(e.getMessage());
             return Either.left(Constants.ERROROBTAININGORDER + e.getMessage());
         }
     }
 
     @Override
     public int save(Order o) {
-        try {
-            Files.write(Paths.get(Configuration.getInstance().getOrderDataFile()), ('\n' + o.toStringTextFile()).getBytes(), StandardOpenOption.APPEND);
-            return 1;
-        } catch (IOException e) {
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.INSERT_ORDER_QUERY)) {
+            //(order_id, order_date, customer_id, table_id)
+            preparedStatement.setInt(1, o.getOrderid());
+            preparedStatement.setTimestamp(2, java.sql.Timestamp.valueOf(o.getOrderdate()));
+            preparedStatement.setInt(3, o.getCustomerid());
+            preparedStatement.setInt(4, o.getTableid());
+            return preparedStatement.executeUpdate();
+        } catch (SQLException e) {
             log.error(e.getMessage());
             return -1;
         }
     }
 
     @Override
-    public int modify(Order o) {
-        try {
-            List<Order> orders = getAll().get();
-            for (int i = 0; i < orders.size(); i++) {
-                if (orders.get(i).getOrderid() == o.getOrderid()) {
-                    orders.set(i, o);
-                    orders.forEach(order -> save(order));
-                    return o.getOrderid();
-                }
-            }
-            return -1;
-        } catch (Exception e) {
-            return -1;
-        }
+    public int modify(Order o, Order o2) {
+        if (delete(o)==1)
+            return save(o2);
+        return -1;
     }
 
     @Override
     public int delete(Order o) {
-        try {
-            String fileName = o.toStringTextFile().replace(":", "_"); // Replace ":" with "_"
-            Path filePath = Paths.get(Configuration.getInstance().getOrderDataFile(), fileName);
-            Files.delete(filePath);
-            return 1;
-        } catch (IOException e) {
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.DELETE_ORDER_QUERY)) {
+            preparedStatement.setInt(1, o.getOrderid());
+            return preparedStatement.executeUpdate();
+        } catch (SQLException e) {
             log.error(e.getMessage());
             return -1;
         }

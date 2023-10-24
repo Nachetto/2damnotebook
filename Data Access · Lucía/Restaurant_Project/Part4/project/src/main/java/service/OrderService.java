@@ -25,8 +25,8 @@ public class OrderService {
         return dao.save(o);
     }
 
-    public int modify(Order o) {
-        return dao.modify(o);
+    public int modify(Order o, Order o2) {
+        return dao.modify(o,o2);
     }
 
     public int delete(Order o) {

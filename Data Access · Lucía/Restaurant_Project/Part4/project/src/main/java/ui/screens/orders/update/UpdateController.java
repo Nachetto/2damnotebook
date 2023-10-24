@@ -2,6 +2,7 @@ package ui.screens.orders.update;
 
 import common.Constants;
 import jakarta.inject.Inject;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -65,7 +66,14 @@ public class UpdateController extends BaseScreenController {
         orderitemlist.getItems().addAll(service2.getAll().get());
     }
 
-    public void addOrder() {
+    public void updateOrder() {
+        //(int orderid, int tableid, int customerid, LocalDateTime orderdate)
+        service.modify(orderlist.getSelectionModel().getSelectedItem(), new Order(
+                orderlist.getSelectionModel().getSelectedItem().getOrderid(),
+                dropdown2.getSelectionModel().getSelectedItem(),
+                dropdown1.getSelectionModel().getSelectedItem(),
+                entercustomerbirthdate.getValue().atStartOfDay()
+        ));
         getPrincipalController().showAlertInfo(Constants.ORDERUPDATED);
     }
 
@@ -77,6 +85,21 @@ public class UpdateController extends BaseScreenController {
         getPrincipalController().showAlertInfo(Constants.ORDERITEMREMOVED);
     }
 
-    public void selectedUser() {//not done yet because not asked to
+    public void selectedUser() {
+
+    }
+
+    public void cargarTableIDS() {
+        dropdown2.getItems().clear();
+        for (Order o : orderlist.getItems()) {
+            dropdown1.getItems().add(o.getTableid());
+        }
+    }
+
+    public void cargarCustomerIDS() {
+        dropdown1.getItems().clear();
+        for (Order o : orderlist.getItems()) {
+            dropdown2.getItems().add(o.getCustomerid());
+        }
     }
 }

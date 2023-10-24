@@ -12,7 +12,7 @@ public interface OrderDAO {
 
     int save(Order o);
 
-    int modify(Order o);
+    int modify(Order o, Order o2);
 
     int delete(Order o);
 }
