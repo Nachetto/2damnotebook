@@ -143,11 +143,12 @@ public class CustomerDAOImpl implements CustomerDAO {
         try (Connection con = db.getConnection()) {
             try {
                 if (userConfirmedDeletion) {
-                    try (PreparedStatement deleteOrders = con.prepareStatement(SQLConstants.DELETE_ORDERS_BY_CUSTOMER_QUERY);
-                         PreparedStatement deleteOrderItems = con.prepareStatement(SQLConstants.DELETE_ORDER_ITEMS_BY_CUSTOMER_QUERY)) {
+                    try (
+                            PreparedStatement deleteOrderItems = con.prepareStatement(SQLConstants.DELETE_ORDER_ITEMS_BY_CUSTOMER_QUERY);
+                            PreparedStatement deleteOrders = con.prepareStatement(SQLConstants.DELETE_ORDERS_BY_CUSTOMER_QUERY)) {
                         con.setAutoCommit(false); // Start a transaction
-                        deleteOrders.setInt(1, c.getId());
                         deleteOrderItems.setInt(1, c.getId());
+                        deleteOrders.setInt(1, c.getId());
 
                         // Execute the delete statements for orders and order items
                         deleteOrderItems.executeUpdate();
@@ -157,9 +158,12 @@ public class CustomerDAOImpl implements CustomerDAO {
                     }
                 }
 
-                try (PreparedStatement deleteCustomer = con.prepareStatement(SQLConstants.DELETE_CUSTOMER_QUERY)) {
+                try (PreparedStatement deleteCustomer = con.prepareStatement(SQLConstants.DELETE_CUSTOMER_QUERY);
+                     PreparedStatement deleteCredentials = con.prepareStatement(SQLConstants.DELETE_CREDENTIALS_QUERY)) {
                     deleteCustomer.setInt(1, c.getId());
+                    deleteCredentials.setInt(1, c.getId());
                     deleteCustomer.executeUpdate();
+                    deleteCredentials.executeUpdate();
                     return 1; // Deletion successful
                 } catch (SQLException ex) {
                     log.error("Error deleting customer: " + ex.getMessage());

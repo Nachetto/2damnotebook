@@ -18,9 +18,8 @@ public class DBConnection {
 
     public Connection getConnection() throws SQLException {
 
-        Connection conn = DriverManager
+        return  DriverManager
                 .getConnection(config.getProperty("urlDB"), config.getProperty("user_name"), config.getProperty("password"));
-        System.out.println("Connected to DB");
-        return conn;
+
     }
 }

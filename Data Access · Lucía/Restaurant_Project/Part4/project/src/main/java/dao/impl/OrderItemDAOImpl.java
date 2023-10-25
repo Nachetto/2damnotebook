@@ -39,32 +39,8 @@ public class OrderItemDAOImpl implements OrderItemDAO {
 
     @Override
     public Either<String, List<OrderItem>> getAll() {
-        OrdersXML listxml = readOrdersFromXML();
-        if (listxml != null) {
-            List<OrderItem> orderitems = new ArrayList<>();
-            int orderItemId = 1;
-            for (OrderXML orderXML : listxml.getOrderListXML()) {
-                int orderId = orderXML.getId();
-                List<OrderItemXML> orderItems = orderXML.getOrderItems().getOrderItem();
 
-                if (orderItems != null) { // Comprobar si orderItems es nulo
-                    for (OrderItemXML orderItemXML : orderItems) {
-                        int menuItemId;
-                        try {
-                            menuItemId = orderItemXML.getMenuItem().getId();
-                        } catch (NumberFormatException e) {
-                            menuItemId = -1;
-                        }
-                        int quantity = orderItemXML.getQuantity();
-                        orderitems.add(new OrderItem(orderItemId, orderId, menuItemId, quantity));
-                        orderItemId++;
-                    }
-                }
-            }
-            return Either.right(orderitems);
-        } else {
-            return Either.left(Constants.XMLLOADERROR);
-        }
+        return null;
     }
 
 
