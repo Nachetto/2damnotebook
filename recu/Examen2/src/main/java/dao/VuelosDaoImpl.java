@@ -1,14 +1,38 @@
 package dao;
 
 import common.Constantes;
+import common.ExcepcionFecha;
 import domain.Internacional;
+import domain.Nacional;
 import domain.Vuelo;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.*;
 
 public class VuelosDaoImpl implements VuelosDao {
     private List<Vuelo> vuelos;
+
+
+    public VuelosDaoImpl(){
+        vuelos = new ArrayList<>();
+        try {
+            // internacionales
+            vuelos.add(new Internacional(1, "Madrid", "Londres", LocalDate.of(2021, 7, 7), (int) (100 + Math.random() * 100), 100 + Math.random() * 100, new ArrayList<>(Arrays.asList("Nueva York", "París"))));
+            vuelos.add(new Internacional(2, "Barcelona", "Nueva York", LocalDate.of(2021, 8, 15), (int) (100 + Math.random() * 100), 100 + Math.random() * 100, new ArrayList<>(Arrays.asList("Londres", "Los Ángeles"))));
+            vuelos.add(new Internacional(3, "Sevilla", "París", LocalDate.of(2021, 9, 20), (int) (100 + Math.random() * 100), 100 + Math.random() * 100, new ArrayList<>(Arrays.asList("Roma", "Ámsterdam"))));
+
+            // nacionales
+            vuelos.add(new Nacional(4, "Valencia", "Barcelona", LocalDate.of(2021, 10, 5), (int) (100 + Math.random() * 100), 100 + Math.random() * 100));
+            vuelos.add(new Nacional(5, "Málaga", "Madrid", LocalDate.of(2021, 11, 12), (int) (100 + Math.random() * 100), 100 + Math.random() * 100));
+            vuelos.add(new Nacional(6, "Bilbao", "Sevilla", LocalDate.of(2021, 12, 18), (int) (100 + Math.random() * 100), 100 + Math.random() * 100));
+        } catch (ExcepcionFecha e) {
+            System.out.println("Error al crear los vuelos iniciales");
+        }
+    }
+
+
+
 
     @Override
     public List<Vuelo> getVuelos() {
@@ -16,7 +40,7 @@ public class VuelosDaoImpl implements VuelosDao {
     }
 
     @Override
-    public boolean addVuelo(Vuelo v) {
+    public boolean addVuelo(Vuelo v){
         return vuelos.add(v);
     }
 
@@ -34,9 +58,9 @@ public class VuelosDaoImpl implements VuelosDao {
         return vuelosPorRango;
     }
 
-    public boolean nuevaEscalaPorId(String id, String escala) {
+    public boolean nuevaEscalaPorId(int id, String escala) {
         for (Vuelo v : vuelos) {
-            if (v.getId().equals(id)) {
+            if (v.getId()==id) {
                 if (v instanceof Internacional)
                     return ((Internacional) v).getEscalas().add(escala);
                 else {
@@ -53,24 +77,24 @@ public class VuelosDaoImpl implements VuelosDao {
         boolean result = false;
         for (Vuelo v : vuelos) {
             if (v.getOrigen().equalsIgnoreCase(origen) && v.getDestino().equalsIgnoreCase(destino)) {
-                System.out.println("Desea eliminar el vuelo "+v+"? \n1. Si\n 2. no: ");
+                System.out.println("Confirma si desea eliminar el siguiente vuelo " + v + "\n1. Si\n2. No: ");
                 Scanner sc = new Scanner(System.in);
-                try{
+                try {
                     int opcion = sc.nextInt();
                     sc.nextLine();
                     if (opcion == 1) {
                         vuelos.remove(v);
                         result = true;
                     }
-                } catch (NumberFormatException e) {
+                } catch (Exception e) {
                     sc.nextLine();
-                    System.out.println("Opcion no valida");
+                    System.out.println("Opción no válida");
                 }
-                sc.close();
             }
         }
         return result;
     }
+
 
     public List<Vuelo> vuelosPorPrecio(){
         List<Vuelo> vuelosPorPrecio = new ArrayList<>(vuelos);

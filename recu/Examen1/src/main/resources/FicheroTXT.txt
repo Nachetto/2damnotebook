@@ -6,51 +6,44 @@ Dificultad: azul
 Km: 7
 
 Tipo: SkiAlpino
-Id: 2
-Provincia: Galicia
-Nombre: Diosmio
-Dificultad: verde
-Km: 6
-
-Tipo: SkiAlpino
 Id: 3
 Provincia: Burgos
 Nombre: Quemecaigo
 Dificultad: roja
-Km: 8
+Km: 10
 
 Tipo: SkiAlpino
 Id: 4
 Provincia: Valencia
 Nombre: Auxilio
 Dificultad: azul
-Km: 1
+Km: 2
 
 Tipo: SkiFondo 
 Id: 5
 Provincia: Alicante
 Nombre: Nosalgovivo
 Pueblos: [Pueblo1, Pueblo2, Pueblo3]
-km: 1
+km: 5
 
 Tipo: SkiFondo 
 Id: 6
 Provincia: Granada
 Nombre: Gaviota
 Pueblos: [Pueblo4, Pueblo5]
-km: 7
+km: 6
 
 Tipo: SkiFondo 
 Id: 7
 Provincia: Huelva
 Nombre: Perro
 Pueblos: [Pueblo6, Pueblo7, Pueblo8]
-km: 10
+km: 2
 
 Tipo: SkiFondo 
 Id: 8
 Provincia: Sevilla
 Nombre: Gato
 Pueblos: [Pueblo9, Pueblo10]
-km: 2
+km: 3
 

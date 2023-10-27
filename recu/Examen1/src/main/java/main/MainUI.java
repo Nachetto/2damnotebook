@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class MainUI {
     private final Service service = new Service();
+
     public static void main(String[] args) {
         MainUI mainUI = new MainUI();
         mainUI.menu();
@@ -24,7 +25,7 @@ public class MainUI {
             System.out.println(ConstantesMain.MENUINICIO);
             Scanner sc = new Scanner(System.in);
             try {
-                resultado =  sc.nextInt();
+                resultado = sc.nextInt();
             } catch (Exception e) {
                 System.out.println(ConstantesMain.ERRORMENU);
             } finally {
