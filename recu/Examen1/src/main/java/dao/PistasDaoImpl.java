@@ -6,6 +6,7 @@ import domain.Pista;
 import domain.SkiAlpino;
 import domain.SkiFondo;
 
+import java.io.*;
 import java.util.*;
 
 public class PistasDaoImpl implements PistasDao{
@@ -23,10 +24,10 @@ public class PistasDaoImpl implements PistasDao{
             pistas.add(new SkiAlpino("Quemecaigo","Burgos",3, (int) (Math.random() * 10) + 1,"roja"));
             pistas.add(new SkiAlpino("Auxilio","Valencia",4, (int) (Math.random() * 10) + 1,"azul"));
             pistas.add(new SkiFondo("Nosalgovivo", "Alicante", 5, (int) (Math.random() * 10) + 1, nombresPueblo1));
-            pistas.add(new SkiFondo("Gaviota", "Granada", 5, (int) (Math.random() * 10) + 1, nombresPueblo2));
-            pistas.add(new SkiFondo("Perro", "Huelva", 5, (int) (Math.random() * 10) + 1, nombresPueblo3));
-            pistas.add(new SkiFondo("Gato", "Sevilla", 5, (int) (Math.random() * 10) + 1, nombresPueblo4));
-        }catch (ExcepcionDificultad e){
+            pistas.add(new SkiFondo("Gaviota", "Granada", 6, (int) (Math.random() * 10) + 1, nombresPueblo2));
+            pistas.add(new SkiFondo("Perro", "Huelva", 7, (int) (Math.random() * 10) + 1, nombresPueblo3));
+            pistas.add(new SkiFondo("Gato", "Sevilla", 8, (int) (Math.random() * 10) + 1, nombresPueblo4));
+        }catch (Exception e){
             System.out.println(Constantes.PISTASINICIALES +e.getMessage());
         }
     }
@@ -43,7 +44,7 @@ public class PistasDaoImpl implements PistasDao{
 
     public int kmExtensionPorProvincia(String provincia) {
         return pistas.stream()
-                .filter(pista -> pista.getProvinca().equalsIgnoreCase(provincia))
+                .filter(pista -> pista.getProvincia().equalsIgnoreCase(provincia))
                 .mapToInt(Pista::getKm).sum();
     }
 
@@ -67,7 +68,7 @@ public class PistasDaoImpl implements PistasDao{
             @Override
             public int compare(Pista pista1, Pista pista2) {
                 // Compara por provincia
-                int comparacionPorProvincia = pista1.getProvinca().compareTo(pista2.getProvinca());
+                int comparacionPorProvincia = pista1.getProvincia().compareTo(pista2.getProvincia());
 
                 if (comparacionPorProvincia == 0) {
                     // Si las provincias son iguales, compara por kilómetros
@@ -84,5 +85,61 @@ public class PistasDaoImpl implements PistasDao{
     @Override
     public boolean removePista(Pista p) {
         return pistas.remove(p);
+    }
+
+    public boolean eliminarPistaPorId(int idPista) {
+        for (Pista pista : pistas) {
+            if (pista.getId() == idPista) {
+                return pistas.remove(pista);
+            }
+        }
+        return false;
+    }
+
+    public boolean escribirFichero() {
+        try {
+            FileWriter fichero = new FileWriter("src//main//resources//FicheroTXT.txt");
+            for (Pista pista : pistas) {
+                fichero.write(pista.toString());
+            }
+            fichero.close();
+            return true;
+        } catch (IOException e) {
+            System.out.println(Constantes.ERRORFICHERO+" porque:"+e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean escribirBinario() {
+        try {
+            FileOutputStream archivoBinario = new
+                    FileOutputStream("src//main//resources//FicheroBIN");
+            ObjectOutputStream escribir = new
+                    ObjectOutputStream(archivoBinario);
+            escribir.writeObject(pistas);//un arraylist
+            archivoBinario.close();
+            escribir.close();
+            return true;
+        } catch (IOException e) {
+            System.out.println(Constantes.ERRORBINARIO+" porque:"+e.getMessage());
+            return false;
+        }
+    }
+
+
+    public boolean cargarBinario() {
+        try {
+            FileInputStream archivoEntrada = new
+                    FileInputStream("src//main//resources//FicheroBIN");
+            ObjectInputStream lectorObjeto = new
+                    ObjectInputStream(archivoEntrada);
+            pistas = (ArrayList<Pista>) lectorObjeto.readObject();
+            lectorObjeto.close();
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+
     }
 }
