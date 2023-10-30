@@ -1,4 +1,4 @@
-package com.example.myapplication.utils
+package dam.nacho.utils
 
 import android.content.Context
 import androidx.annotation.StringRes

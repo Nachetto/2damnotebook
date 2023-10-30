@@ -1,16 +1,16 @@
-package com.example.myapplication.ui.pantallaMain
+package dam.nacho.ui.pantallaMain
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.appnobasica.ui.pantallaMain.Constantes
-import com.example.myapplication.domain.modelo.Raton
-import com.example.myapplication.domain.usecases.ratones.AddRatonUseCase
-import com.example.myapplication.domain.usecases.ratones.GetRatonUseCase
-import com.example.myapplication.domain.usecases.ratones.DeleteRatonUseCase
-import com.example.myapplication.domain.usecases.ratones.GetLastIdFromRatonesListUseCase
-import com.example.myapplication.domain.usecases.ratones.ModifyRatonUseCase
+import dam.nacho.ui.pantallaMain.MainState
+import dam.nacho.domain.modelo.Raton
+import dam.nacho.domain.usecases.ratones.AddRatonUseCase
+import dam.nacho.domain.usecases.ratones.GetRatonUseCase
+import dam.nacho.domain.usecases.ratones.DeleteRatonUseCase
+import dam.nacho.domain.usecases.ratones.GetLastIdFromRatonesListUseCase
+import dam.nacho.domain.usecases.ratones.ModifyRatonUseCase
 
 class MainViewModel(
     private val addRatonUseCase: AddRatonUseCase,

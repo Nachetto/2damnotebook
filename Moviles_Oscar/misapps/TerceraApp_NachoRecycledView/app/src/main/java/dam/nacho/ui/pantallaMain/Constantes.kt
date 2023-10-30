@@ -1,4 +1,4 @@
-package com.example.appnobasica.ui.pantallaMain
+package dam.nacho.ui.pantallaMain
 
 object Constantes {
     const val ERROR = "error"

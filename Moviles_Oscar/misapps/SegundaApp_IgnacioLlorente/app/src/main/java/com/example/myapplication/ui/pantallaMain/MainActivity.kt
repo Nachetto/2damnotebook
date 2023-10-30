@@ -12,7 +12,6 @@ import com.example.myapplication.domain.usecases.ratones.DeleteRatonUseCase
 import com.example.myapplication.domain.usecases.ratones.GetLastIdFromRatonesListUseCase
 import com.example.myapplication.domain.usecases.ratones.GetRatonUseCase
 import com.example.myapplication.domain.usecases.ratones.ModifyRatonUseCase
-import com.example.myapplication.utils.StringProvider
 
 
 class MainActivity : AppCompatActivity() {

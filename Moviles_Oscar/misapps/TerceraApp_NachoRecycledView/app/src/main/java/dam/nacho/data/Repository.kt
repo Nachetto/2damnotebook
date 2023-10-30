@@ -1,6 +1,6 @@
-package com.example.myapplication.data
+package dam.nacho.data
 
-import com.example.myapplication.domain.modelo.Raton
+import dam.nacho.domain.modelo.Raton
 
 class Repository {
 
@@ -21,7 +21,7 @@ class Repository {
             existingRaton.marca = newRaton.marca
             existingRaton.color = newRaton.color
             existingRaton.peso = newRaton.peso
-            existingRaton.DPI = newRaton.DPI
+            existingRaton.dpi = newRaton.dpi
             existingRaton.fechaFabricacion = newRaton.fechaFabricacion
             return true
         }
@@ -47,7 +47,7 @@ class Repository {
             marca = "Razer",
             color = "Negro",
             peso = 100,
-            DPI = 1600,
+            dpi = 1600,
             id = 1,
             fechaFabricacion = "1/1/1"
         )

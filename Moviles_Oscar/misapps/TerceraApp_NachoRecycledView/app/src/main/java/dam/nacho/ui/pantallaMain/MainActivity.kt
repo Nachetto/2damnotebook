@@ -1,18 +1,17 @@
-package com.example.myapplication.ui.pantallaMain
+package dam.nacho.ui.pantallaMain
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.R
-import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.domain.modelo.Raton
-import com.example.myapplication.domain.usecases.ratones.AddRatonUseCase
-import com.example.myapplication.domain.usecases.ratones.DeleteRatonUseCase
-import com.example.myapplication.domain.usecases.ratones.GetLastIdFromRatonesListUseCase
-import com.example.myapplication.domain.usecases.ratones.GetRatonUseCase
-import com.example.myapplication.domain.usecases.ratones.ModifyRatonUseCase
-import com.example.myapplication.utils.StringProvider
+import dam.nacho.databinding.ActivityMainBinding
+import dam.nacho.domain.modelo.Raton
+import dam.nacho.domain.usecases.ratones.AddRatonUseCase
+import dam.nacho.domain.usecases.ratones.DeleteRatonUseCase
+import dam.nacho.domain.usecases.ratones.GetLastIdFromRatonesListUseCase
+import dam.nacho.domain.usecases.ratones.GetRatonUseCase
+import dam.nacho.domain.usecases.ratones.ModifyRatonUseCase
+import dam.nacho.R
 
 
 class MainActivity : AppCompatActivity() {
@@ -54,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             editTextModelo.setText(raton.modelo)
             editTextMarca.setText(raton.marca)
             editTextPeso.setText(raton.peso.toString())
-            editTextDpi.setText(raton.DPI.toString())
+            editTextDpi.setText(raton.dpi.toString())
             editTextId.setText(raton.id.toString())
             editTextDate.setText(raton.fechaFabricacion)
             when (raton.color) {
@@ -77,8 +76,7 @@ class MainActivity : AppCompatActivity() {
             val dpiText = editTextDpi.text.toString()
             val idText = editTextId.text.toString()
             val fechaText = editTextDate.text.toString()
-            val selectedColorId = radioGroup2?.checkedRadioButtonId
-            val color = when (selectedColorId) {
+            val color = when (radioGroup2?.checkedRadioButtonId) {
                 R.id.radioButton -> getString(R.string.blanco)
                 R.id.radioButton2 -> getString(R.string.negro)
                 R.id.radioButton3 -> getString(R.string.azul)
@@ -104,7 +102,7 @@ class MainActivity : AppCompatActivity() {
                 marca = marca,
                 color = color,
                 peso = peso,
-                DPI = dpi,
+                dpi = dpi,
                 id = id,
                 fechaFabricacion = fechaText
             )
