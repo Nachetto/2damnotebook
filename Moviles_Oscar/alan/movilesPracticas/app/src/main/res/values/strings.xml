@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ejercicioDataJsonLocal</string>
+    <string name="a">A</string>
+    <string name="d">D</string>
+    <string name="u">U</string>
+    <string name="pokemon_id">Pokemon ID:</string>
+    <string name="nombre_pokemon">Nombre Pokemon:</string>
+    <string name="experiencia_base">Experiencia base:</string>
+    <string name="pokemon_name">Pokemon Name</string>
+    <string name="nulo0">Null</string>
+    <string name="nulo1">Null</string>
+    <string name="nulo2">Null</string>
+    <string name="peso">Peso:</string>
+    <string name="altura">Altura:</string>
+    <string name="imagen_pokemon">Imagen pokemon</string>
+    <string name="emty">Emty</string>
+    <string name="name">Name</string>
+    <string name="show_all">SHOW ALL</string>
+    <string name="pokemon_type">Pokemon Type:</string>
+    <string name="button">Button</string>
+</resources>

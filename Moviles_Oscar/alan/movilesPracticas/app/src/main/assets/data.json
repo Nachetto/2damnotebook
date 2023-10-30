@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "bulbasaur",
+    "base_experience": 64,
+    "height": 7,
+    "weight": 69,
+    "sprites": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+    "types": "grass"
+  },
+  {
+    "id": 2,
+    "name": "ivysaur",
+    "base_experience": 142,
+    "height": 10,
+    "weight": 130,
+    "sprites": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.pn",
+    "types": "grass"
+  },
+  {
+    "id": 3,
+    "name": "Pikachu",
+    "base_experience": 112,
+    "height": 4,
+    "weight": 60,
+    "sprites": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+    "types": "electric"
+  },
+  {
+    "id": 4,
+    "name": "Charmander",
+    "base_experience": 62,
+    "height": 6,
+    "weight": 85,
+    "sprites": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+    "types": "fire"
+  }
+]
