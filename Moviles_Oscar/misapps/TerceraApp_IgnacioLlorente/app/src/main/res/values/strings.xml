@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">AppRatonesNacho</string>
+    <string name="tituloApp">Ratones Gaming</string>
+    <string name="modelo">Modelo</string>
+    <string name="marca">Marca</string>
+    <string name="id">Id</string>
+    <string name="color">Color</string>
+    <string name="fecha_de_fabricacion">Fecha de fabricacion</string>
+    <string name="dpi">DPI</string>
+    <string name="peso">Peso</string>
+    <string name="buttonAdd">Add</string>
+    <string name="rojo">Rojo</string>
+    <string name="azul">Azul</string>
+    <string name="negro">Negro</string>
+    <string name="blanco">Blanco</string>
+</resources>
