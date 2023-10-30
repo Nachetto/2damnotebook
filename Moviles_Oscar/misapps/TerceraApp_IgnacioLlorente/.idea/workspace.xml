@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a2662a78-960d-46d0-8ff6-0db69c7db63f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/myapplication/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/Repository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/domain/modelo/Raton.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/domain/usecases/ratones/AddRatonUseCase.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/domain/usecases/ratones/DeleteRatonUseCase.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/domain/usecases/ratones/GetLastIdFromRatonesListUseCase.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/domain/usecases/ratones/GetRatonUseCase.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/domain/usecases/ratones/ModifyRatonUseCase.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaMain/Constantes.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaMain/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaMain/MainState.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaMain/MainViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/utils/StringProvider.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-land/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/myapplication/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/sonarlint/issuestore/a/e/aed7a10c872cf3deaddd065a772fdc184d78fad1" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/sonarlint/issuestore/a/e/aed7a10c872cf3deaddd065a772fdc184d78fad1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/androidTest/java/com/example/appnobasica/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/androidTest/java/com/example/appnobasica/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/data/Repository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/data/Repository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/data/RespositoryDos.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/data/RespositoryDos.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/domain/modelo/Persona.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/domain/modelo/Persona.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/domain/usecases/personas/AddPersonaUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/domain/usecases/personas/AddPersonaUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/domain/usecases/personas/GetPersonas.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/domain/usecases/personas/GetPersonas.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/ui/pantallaMain/Constantes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/ui/pantallaMain/Constantes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/ui/pantallaMain/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/ui/pantallaMain/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/ui/pantallaMain/MainState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/ui/pantallaMain/MainState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/ui/pantallaMain/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/ui/pantallaMain/MainViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/utils/StringProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/java/com/example/appnobasica/utils/StringProvider.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/drawable/delete_forever.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/drawable/delete_forever.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/drawable/ic_baseline_directions_car_filled_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/drawable/ic_baseline_directions_car_filled_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/layout-land/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/layout-land/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/values-uk-rUA/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/values-uk-rUA/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/xml/backup_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/test/java/com/example/appnobasica/ExampleUnitTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/app/src/test/java/com/example/appnobasica/ExampleUnitTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/appNoBasica/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/appNoBasica/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/0/0/00ed33bb9fa3f2577abe71150520b83c93b6af18" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/0/5/05efc8b1657769a27696d478ded1e95f38737233" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/0/7/0712df971a99ac4d2fccb8e0fb19f377f3374cca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/0/a/0a28f1e072c85bcdbdcfd768fc3c33d3274928e9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/2/5/2534b7ffebad46793fc4d77da07aca83b23dd835" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/2/5/25f6469773b9f3ebb994178c1114a60412389f58" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/2/7/27d9a8e9eb5bd6e6d420379aa49c202e557fa43a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/2/a/2a357145b04aeee0545d8bc616c6d89a975ff771" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/2/e/2e86fb07c772c8a1f877dd80522b653bbbb01e65" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/3/1/31073cf3a12b082ef2fe0f9403916a4db3811c89" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/3/c/3c8c56407c35e5f5ebbd6c7250a79af8128a13a6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/4/1/41b281c57948ff2524af98ff9da00edd5725922c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/5/1/516e730a14e71f02fa73f3acd6dc7cea9a9fe002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/5/2/52114fdaa426e9b83a3c5df4e11c4f0ebbcd814b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/9/b/9b9af03329b517cdd460b1ee115f2bb0ec341883" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/a/8/a8a52112049d840217cfa586a3a399d9502f9b94" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/b/f/bfb9453d49af9bc40f5f7a5f034be3c7ef8fa6bf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/c/8/c83d6e12afe92925eabafcea181bb2a1449d9ce1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/e/1/e110aede2d9b606b5e7c8b653b7e7a4905cf45b6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/f/0/f07866736216be0ee2aba49e392191aeae700a35" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/0/0/00ed33bb9fa3f2577abe71150520b83c93b6af18" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/0/5/05efc8b1657769a27696d478ded1e95f38737233" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/0/7/0712df971a99ac4d2fccb8e0fb19f377f3374cca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/0/a/0a28f1e072c85bcdbdcfd768fc3c33d3274928e9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/2/5/2534b7ffebad46793fc4d77da07aca83b23dd835" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/2/5/25f6469773b9f3ebb994178c1114a60412389f58" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/2/7/27d9a8e9eb5bd6e6d420379aa49c202e557fa43a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/2/a/2a357145b04aeee0545d8bc616c6d89a975ff771" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/2/e/2e86fb07c772c8a1f877dd80522b653bbbb01e65" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/3/1/31073cf3a12b082ef2fe0f9403916a4db3811c89" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/3/c/3c8c56407c35e5f5ebbd6c7250a79af8128a13a6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/4/1/41b281c57948ff2524af98ff9da00edd5725922c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/5/1/516e730a14e71f02fa73f3acd6dc7cea9a9fe002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/5/2/52114fdaa426e9b83a3c5df4e11c4f0ebbcd814b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/9/b/9b9af03329b517cdd460b1ee115f2bb0ec341883" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/a/8/a8a52112049d840217cfa586a3a399d9502f9b94" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/b/f/bfb9453d49af9bc40f5f7a5f034be3c7ef8fa6bf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/c/8/c83d6e12afe92925eabafcea181bb2a1449d9ce1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/e/1/e110aede2d9b606b5e7c8b653b7e7a4905cf45b6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/f/0/f07866736216be0ee2aba49e392191aeae700a35" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/androidTest/java/com/example/myapplication/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/drawable/baseline_child_friendly_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/layout-land/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/mipmap-anydpi/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/values/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/app/src/test/java/com/example/myapplication/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/MyApplication/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/0/1/0105d5a774c76db833eb83cbebde54a8abef1599" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/0/3/03608e193846a9ebdcd55df1f2025debaefb0e94" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/0/5/05efc8b1657769a27696d478ded1e95f38737233" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/0/9/0953762d9389c911f9c526b38b5adaa0a71160b9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/1/1/11245b21c746dfd8ead744995ea5b60493cb952d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/1/6/165d7c47c26ae0fdc9f945aebe6135493f42a69e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/2/c/2c245ecf50033c48e8fa967f8365ec40dd9280d3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/3/1/31073cf3a12b082ef2fe0f9403916a4db3811c89" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/3/1/31752106fd6fe58d0aeb5bdd594122328d38f19a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/3/1/31c4cd19c36ab63325379c8a050c1688b5493ffd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/3/2/32813322c99a6c8a141ab2dc12bc10af3425f1b4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/3/c/3c8c56407c35e5f5ebbd6c7250a79af8128a13a6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/3/d/3d6c092c1d17137bb2bf9cedbe360c6b954029c2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/4/1/413242b3d0c5ccee5f3a75050c332cfa1f9ca993" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/4/b/4b049640161851cd81bb205f6cbb5433f69da70e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/5/0/504392ed452e3c6402197d3997350771279c7f0f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/5/1/516e730a14e71f02fa73f3acd6dc7cea9a9fe002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/5/2/52114fdaa426e9b83a3c5df4e11c4f0ebbcd814b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/5/3/53e92681348732b1ce18ee7b848048afeb50279d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/5/7/571b9ffb030f3ca3530c42006ba38cffd8871aa8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/5/8/584afa73d65ba42944cc28d51967cfa00f99b67a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/6/0/600f9291fefc1bf4e9aa3d4655a3cbeacde5a3b7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/6/8/680ac9ca3b56dd58c90415db2647ff2af9f29440" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/6/8/683fbd4afa993b7b78e0745697b7684b2983c70e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/6/d/6d916134f8d744f6bae3e78001f83f34098b80dd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/7/b/7b9900ba201311a228b0f58df82ce5c0e50ab565" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/7/c/7c8666c330912a84dd5b85a7a1e311804be53ba0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/7/c/7cf8df32c11bc365d8102eb41b43b2afc031916f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/8/5/85f457d4cd0c385ceccd6a5e4327a412a852c6a9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/8/7/875e4e39c6df4e424939d5bfb9529ba0291b61c6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/8/7/879e652c60d1771e002b9b804fd0cb4f2ad4313b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/8/8/889e04fadcd2033cd73e6abaeb113776dad85d99" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/9/4/94bb95feb009fe6ef7670945d389b77f0a56fc15" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/9/5/957f2d896500257ea3f09688ce9e435e75c0fd7a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/9/7/97d221e6c71d18fb402facc25925760a01fd21d4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/9/8/98ebeba10c96914425b86063627ec40375cba539" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/9/a/9aed88f31eac276604c6355c1adcc0bce1f80fd6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/9/f/9f85ee1278286aef37d9b416d1282f39d6b919e6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/a/c/aca5674065d92579e27e67151a4121fce67074ad" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/a/e/aef65241519a7a691c67aba9aa5b973284c579bd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/b/1/b19ecf153672749b371ff5facaff0dce6b85306a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/b/9/b958be4151ac3dfb34c88756964e16cd61cccc63" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/b/e/bebccbe2b4844f56d3dd7804216b2450b6eb264b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/b/f/bfb9453d49af9bc40f5f7a5f034be3c7ef8fa6bf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/d/4/d4f29fd7109dd8fc8bb8f80d4f55728966b12854" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/d/5/d5bc73f676d413f76d5424b01abbd04e33ab25ce" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/d/5/d5cd41bf8698b45d83e63136e355e409323c2ad8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/d/f/dff9f5050de43d1525305d06bdc00082798eebde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/e/7/e7ef21616dda29deed5e3ee9d72c5f81299da9d6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/e/d/ed67eb178d523a4b3f117dcbe0eda5196367ceec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/e/e/ee133154e371b6ce48a924910b9e4b551232abc1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/f/0/f07866736216be0ee2aba49e392191aeae700a35" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/f/0/f0e0f9cec86fe4b939ae22be5264c758801eb28f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/f/2/f265e94e232135dca90d0c4eb1b65437fb42d9a3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/f/3/f3342b969533bc677d8627426296e106a8782a08" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/f/7/f7819ea138c33fec28e7e536cb2de34db38fc121" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/f/b/fb587f16a06615829becc130adbb9a501e9d45f5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/f/b/fbb7f6d488d16e972a28650aff7c279c2e611e05" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/f/e/fef013125d3d6be895965fb8bb5e269cbf886ffb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/0/1/0105d5a774c76db833eb83cbebde54a8abef1599" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/0/3/03608e193846a9ebdcd55df1f2025debaefb0e94" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/0/5/05efc8b1657769a27696d478ded1e95f38737233" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/0/9/0953762d9389c911f9c526b38b5adaa0a71160b9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/1/1/11245b21c746dfd8ead744995ea5b60493cb952d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/1/6/165d7c47c26ae0fdc9f945aebe6135493f42a69e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/2/c/2c245ecf50033c48e8fa967f8365ec40dd9280d3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/3/1/31073cf3a12b082ef2fe0f9403916a4db3811c89" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/3/1/31752106fd6fe58d0aeb5bdd594122328d38f19a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/3/1/31c4cd19c36ab63325379c8a050c1688b5493ffd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/3/2/32813322c99a6c8a141ab2dc12bc10af3425f1b4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/3/c/3c8c56407c35e5f5ebbd6c7250a79af8128a13a6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/3/d/3d6c092c1d17137bb2bf9cedbe360c6b954029c2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/4/1/413242b3d0c5ccee5f3a75050c332cfa1f9ca993" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/4/b/4b049640161851cd81bb205f6cbb5433f69da70e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/5/0/504392ed452e3c6402197d3997350771279c7f0f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/5/1/516e730a14e71f02fa73f3acd6dc7cea9a9fe002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/5/2/52114fdaa426e9b83a3c5df4e11c4f0ebbcd814b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/5/3/53e92681348732b1ce18ee7b848048afeb50279d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/5/7/571b9ffb030f3ca3530c42006ba38cffd8871aa8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/5/8/584afa73d65ba42944cc28d51967cfa00f99b67a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/6/0/600f9291fefc1bf4e9aa3d4655a3cbeacde5a3b7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/6/8/680ac9ca3b56dd58c90415db2647ff2af9f29440" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/6/8/683fbd4afa993b7b78e0745697b7684b2983c70e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/6/d/6d916134f8d744f6bae3e78001f83f34098b80dd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/7/b/7b9900ba201311a228b0f58df82ce5c0e50ab565" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/7/c/7c8666c330912a84dd5b85a7a1e311804be53ba0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/7/c/7cf8df32c11bc365d8102eb41b43b2afc031916f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/8/5/85f457d4cd0c385ceccd6a5e4327a412a852c6a9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/8/7/875e4e39c6df4e424939d5bfb9529ba0291b61c6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/8/8/889e04fadcd2033cd73e6abaeb113776dad85d99" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/9/4/94bb95feb009fe6ef7670945d389b77f0a56fc15" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/9/5/957f2d896500257ea3f09688ce9e435e75c0fd7a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/9/7/97d221e6c71d18fb402facc25925760a01fd21d4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/9/8/98ebeba10c96914425b86063627ec40375cba539" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/9/a/9aed88f31eac276604c6355c1adcc0bce1f80fd6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/9/f/9f85ee1278286aef37d9b416d1282f39d6b919e6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/a/c/aca5674065d92579e27e67151a4121fce67074ad" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/a/e/aef65241519a7a691c67aba9aa5b973284c579bd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/b/1/b19ecf153672749b371ff5facaff0dce6b85306a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/b/9/b958be4151ac3dfb34c88756964e16cd61cccc63" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/b/e/bebccbe2b4844f56d3dd7804216b2450b6eb264b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/b/f/bfb9453d49af9bc40f5f7a5f034be3c7ef8fa6bf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/d/4/d4f29fd7109dd8fc8bb8f80d4f55728966b12854" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/d/5/d5bc73f676d413f76d5424b01abbd04e33ab25ce" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/d/f/dff9f5050de43d1525305d06bdc00082798eebde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/e/7/e7ef21616dda29deed5e3ee9d72c5f81299da9d6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/e/d/ed67eb178d523a4b3f117dcbe0eda5196367ceec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/e/e/ee133154e371b6ce48a924910b9e4b551232abc1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/f/0/f07866736216be0ee2aba49e392191aeae700a35" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/f/0/f0e0f9cec86fe4b939ae22be5264c758801eb28f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/f/2/f265e94e232135dca90d0c4eb1b65437fb42d9a3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/f/3/f3342b969533bc677d8627426296e106a8782a08" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/f/7/f7819ea138c33fec28e7e536cb2de34db38fc121" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/f/b/fb587f16a06615829becc130adbb9a501e9d45f5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/f/b/fbb7f6d488d16e972a28650aff7c279c2e611e05" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/f/e/fef013125d3d6be895965fb8bb5e269cbf886ffb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/androidTest/java/com/example/recyclerview/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/assets/data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/assets/file2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/assets/image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/assets/lion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/assets/marvel.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/App.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/EjemploRepository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/datamappers.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/marvel/Comics.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/marvel/Data.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/marvel/Events.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/marvel/Item.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/marvel/ItemX.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/marvel/ItemXX.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/marvel/ItemXXX.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/marvel/Response.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/marvel/Result.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/marvel/Series.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/marvel/Stories.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/marvel/Thumbnail.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/marvel/Url.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/data/model/Ejemplo.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/domain/model/Persona.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/ui/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/ui/PersonasAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/java/com/example/recyclerview/ui/ReciclerActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/layout/activity_recicler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/layout/item_persona.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/raw/morning_cofee.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/raw/pumpkin_man.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/app/src/test/java/com/example/recyclerview/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/RecyclerView/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/0/1/0105d5a774c76db833eb83cbebde54a8abef1599" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/0/5/056192a56d73d8e70584206715e4a2c72fc253d6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/0/5/05efc8b1657769a27696d478ded1e95f38737233" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/1/6/16612afe2f38815164df6885558f5af79ec8f2d8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/1/6/16f57d9f88ea7dcf13dfa38926482d97372d526a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/1/8/18c761e4bae0a799800da0848233f0baf0074009" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/3/1/31073cf3a12b082ef2fe0f9403916a4db3811c89" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/3/1/31c4cd19c36ab63325379c8a050c1688b5493ffd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/3/2/32813322c99a6c8a141ab2dc12bc10af3425f1b4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/3/9/399a12d088fb84b4e8a235f62b87047f7bf042dd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/3/c/3c359926c67137d5449b0ec77a522a9e8c463ce4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/3/c/3c8c56407c35e5f5ebbd6c7250a79af8128a13a6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/4/3/439e77dc7c9be637ff1b075831d7efc1fd8a8169" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/4/5/4510753c86f1f51686aa190050062c74432ac2fd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/4/5/45d21f185ea5ce9b0e17ca6eda3eaa8d6a7342fd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/4/8/48a8fdaf383e75c7696705c7269dbd31e85c13ec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/5/1/516e730a14e71f02fa73f3acd6dc7cea9a9fe002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/5/2/52114fdaa426e9b83a3c5df4e11c4f0ebbcd814b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/5/3/53a898aca0eec698723a83f90f059d50d3033ee2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/5/5/55252182d0d7ce0f3fb5833dd6354626e95ec8a5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/6/6/6659dffbb4ad78fe462b8ef65769564ad00bc363" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/6/a/6a34dd3174b9b8061c2d8937b9e473e696ca43db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/7/f/7f6787cb1a9918f7be846985353e52d7db566c31" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/8/0/8006a4b9c1b2f9345a25465f67e1c4aa9a0f41ee" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/8/4/84f8c8b9cf20b1e603ad6d1ca9c9099df76fbbd4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/9/a/9aed88f31eac276604c6355c1adcc0bce1f80fd6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/a/6/a6a3368cbc8896c948d40a4edb32ff718a8f25ad" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/a/e/aed7a10c872cf3deaddd065a772fdc184d78fad1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/b/1/b1c133be426d92f01f5802c91e21f9aeef3ff1c4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/b/f/bfb9453d49af9bc40f5f7a5f034be3c7ef8fa6bf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/c/e/ce7977ca063a16ccb821816dd08090fe2ccfc3b7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/e/7/e7fd4a484a85c6ab51c8c97f3e8c049b656dcb4d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/e/d/ed67eb178d523a4b3f117dcbe0eda5196367ceec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/f/0/f07866736216be0ee2aba49e392191aeae700a35" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/f/2/f26b2ca94493b4461e66a467663cc127662061b9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/f/7/f7819ea138c33fec28e7e536cb2de34db38fc121" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/0/1/0105d5a774c76db833eb83cbebde54a8abef1599" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/0/5/056192a56d73d8e70584206715e4a2c72fc253d6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/0/5/05efc8b1657769a27696d478ded1e95f38737233" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/1/6/16612afe2f38815164df6885558f5af79ec8f2d8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/1/6/16f57d9f88ea7dcf13dfa38926482d97372d526a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/1/8/18c761e4bae0a799800da0848233f0baf0074009" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/3/1/31073cf3a12b082ef2fe0f9403916a4db3811c89" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/3/1/31c4cd19c36ab63325379c8a050c1688b5493ffd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/3/2/32813322c99a6c8a141ab2dc12bc10af3425f1b4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/3/9/399a12d088fb84b4e8a235f62b87047f7bf042dd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/3/c/3c359926c67137d5449b0ec77a522a9e8c463ce4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/3/c/3c8c56407c35e5f5ebbd6c7250a79af8128a13a6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/4/3/439e77dc7c9be637ff1b075831d7efc1fd8a8169" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/4/5/4510753c86f1f51686aa190050062c74432ac2fd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/4/5/45d21f185ea5ce9b0e17ca6eda3eaa8d6a7342fd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/4/8/48a8fdaf383e75c7696705c7269dbd31e85c13ec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/5/1/516e730a14e71f02fa73f3acd6dc7cea9a9fe002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/5/2/52114fdaa426e9b83a3c5df4e11c4f0ebbcd814b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/5/3/53a898aca0eec698723a83f90f059d50d3033ee2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/5/5/55252182d0d7ce0f3fb5833dd6354626e95ec8a5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/6/6/6659dffbb4ad78fe462b8ef65769564ad00bc363" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/6/a/6a34dd3174b9b8061c2d8937b9e473e696ca43db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/7/f/7f6787cb1a9918f7be846985353e52d7db566c31" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/8/0/8006a4b9c1b2f9345a25465f67e1c4aa9a0f41ee" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/8/4/84f8c8b9cf20b1e603ad6d1ca9c9099df76fbbd4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/9/a/9aed88f31eac276604c6355c1adcc0bce1f80fd6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/a/6/a6a3368cbc8896c948d40a4edb32ff718a8f25ad" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/a/e/aed7a10c872cf3deaddd065a772fdc184d78fad1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/b/1/b1c133be426d92f01f5802c91e21f9aeef3ff1c4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/b/f/bfb9453d49af9bc40f5f7a5f034be3c7ef8fa6bf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/c/e/ce7977ca063a16ccb821816dd08090fe2ccfc3b7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/e/7/e7fd4a484a85c6ab51c8c97f3e8c049b656dcb4d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/e/d/ed67eb178d523a4b3f117dcbe0eda5196367ceec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/f/0/f07866736216be0ee2aba49e392191aeae700a35" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/f/2/f26b2ca94493b4461e66a467663cc127662061b9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/f/7/f7819ea138c33fec28e7e536cb2de34db38fc121" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/androidTest/java/com/example/appnobasica/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/java/com/example/appnobasica/data/Repository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/java/com/example/appnobasica/data/RespositoryDos.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/java/com/example/appnobasica/domain/modelo/Persona.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/java/com/example/appnobasica/domain/usecases/personas/AddPersonaUseCase.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/java/com/example/appnobasica/domain/usecases/personas/GetPersonas.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/java/com/example/appnobasica/ui/pantallaMain/Constantes.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/java/com/example/appnobasica/ui/pantallaMain/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/java/com/example/appnobasica/ui/pantallaMain/MainState.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/java/com/example/appnobasica/ui/pantallaMain/MainViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/java/com/example/appnobasica/utils/StringProvider.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/drawable/delete_forever.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/drawable/ic_baseline_directions_car_filled_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/layout-land/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/values-uk-rUA/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/app/src/test/java/com/example/appnobasica/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/appNoBasica/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/sonarlint/issuestore/3/9/391b59a45e1b81201f6b43887a401f17ca8addb2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/sonarlint/issuestore/c/5/c5cc4000600033a5c7acfbdf25f15f11603b9be0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/sonarlint/issuestore/f/0/f07866736216be0ee2aba49e392191aeae700a35" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/sonarlint/issuestore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/sonarlint/securityhotspotstore/3/9/391b59a45e1b81201f6b43887a401f17ca8addb2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/sonarlint/securityhotspotstore/c/5/c5cc4000600033a5c7acfbdf25f15f11603b9be0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/sonarlint/securityhotspotstore/f/0/f07866736216be0ee2aba49e392191aeae700a35" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/sonarlint/securityhotspotstore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/androidTest/java/com/example/primeraapp/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/java/com/example/primeraapp/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/java/com/example/primeraapp/data/Data.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/layout-land/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/values/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/app/src/test/java/com/example/primeraapp/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/primeraapp/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/0/5/05efc8b1657769a27696d478ded1e95f38737233" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/4/6/46288277a76f9583a95ae5856298c647334961d0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/4/7/4797f1f94e5c9ae0098110269be539157ae5f3a4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/4/8/48505cde13a41a1f3e1f64a72934131087497e93" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/5/9/5941c7cec6faef433e4dcff7a33433778683cc11" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/5/a/5af3de9197f02eee3c1a512e5991a5719d4fcccb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/a/d/ad2881994ef22baabfcca405d3f2bcb253bca9a9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/f/0/f07866736216be0ee2aba49e392191aeae700a35" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/androidTest/java/com/example/recyclerviewenhanced/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/data/model/BaseApiResponse.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/data/model/DogResponse.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/data/repositories/DogRepository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/data/sources/remote/DogService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/data/sources/remote/RemoteDataSource.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/data/sources/remote/ServiceInterceptor.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/data/sources/remote/di/NetworkModule.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/domain/Cosa.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/domain/Dog.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/domain/Persona.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/framework/HiltApp.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/framework/main/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/framework/main/MainViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/framework/main/PersonaAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/framework/main/SwipeGesture.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/utils/Constants.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/utils/NetworkResultt.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/utils/Utils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/drawable/ic_baseline_favorite_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/drawable/ic_baseline_search_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/drawable/ic_close_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/layout/view_persona.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/menu/context_bar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/menu/menu_app_bar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/app/src/test/java/com/example/recyclerviewenhanced/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/dam2_2324-main/MOVILES/recyclerviewEnhanced/settings.gradle" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Nachetto\.android\avd\Alfonso_7_Pro.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2XTkaNeB7HGaa7M6QoDqOj0YaHJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "android.gradle.sync.needed": "true",
+    "cidr.known.project.marker": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="My_Application.app.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a2662a78-960d-46d0-8ff6-0db69c7db63f" name="Changes" comment="" />
+      <created>1698660526331</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698660526331</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,16 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
 }
 
 android {
-    compileSdk 33
+    namespace 'dam.nacho'
+    compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.appnobasica"
-        minSdk 23
-        targetSdk 33
+        applicationId "dam.nacho"
+        minSdk 34
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -30,32 +30,36 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-    buildFeatures {
-        viewBinding true
-    }
-    namespace 'com.example.appnobasica'
 }
 
 dependencies {
 
-
+    def moshi_version = "1.14.0"
 
     implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     // Lifecycle libraries
-    // by ViewModels delegation extensions for activity
     implementation 'androidx.activity:activity-ktx:1.6.0'
 
     //librerias del viewmodel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
 
+    //Moshi
+    ksp "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+
+    //Timber
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+
+    //Coil
+    implementation 'io.coil-kt:coil:2.3.0'
+
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
