@@ -18,8 +18,9 @@
         app:layout_constraintBottom_toTopOf="@+id/labelPeso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.891"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelTituloApp" />
+        app:layout_constraintStart_toEndOf="@+id/editTextModelo"
+        app:layout_constraintTop_toBottomOf="@+id/labelMarca"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/labelTituloApp"
@@ -27,49 +28,42 @@
         android:layout_height="38dp"
         android:text="@string/tituloApp"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/labelId"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
         android:id="@+id/labelModelo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="44dp"
         android:text="@string/modelo"
-        app:layout_constraintBottom_toTopOf="@+id/editTextMarca"
+        app:layout_constraintBottom_toTopOf="@+id/editTextModelo"
         app:layout_constraintEnd_toStartOf="@+id/labelMarca"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelTituloApp"
-        app:layout_constraintVertical_bias="0.222" />
+        app:layout_constraintTop_toBottomOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/labelMarca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/marca"
         app:layout_constraintBottom_toTopOf="@+id/editTextMarca"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.743"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelTituloApp"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintStart_toEndOf="@+id/labelModelo" />
 
     <TextView
         android:id="@+id/labelId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/id"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAdd"
+        app:layout_constraintBottom_toTopOf="@+id/editTextId"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate"
         app:layout_constraintVertical_bias="0.111" />
@@ -81,7 +75,7 @@
         android:layout_marginTop="160dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labelTituloApp"
         app:layout_constraintVertical_bias="0.0">
@@ -141,10 +135,10 @@
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/labelDPI"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toEndOf="@+id/radioGroup2"
         app:layout_constraintTop_toBottomOf="@+id/labelTituloApp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/labelFechaFabricacion"
@@ -184,10 +178,10 @@
         android:text="@string/dpi"
         app:layout_constraintBottom_toTopOf="@+id/editTextDpi"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toEndOf="@+id/radioGroup2"
         app:layout_constraintTop_toBottomOf="@+id/labelTituloApp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.774" />
 
     <TextView
         android:id="@+id/labelPeso"
@@ -197,10 +191,10 @@
         android:text="@string/peso"
         app:layout_constraintBottom_toTopOf="@+id/editTextPeso"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintHorizontal_bias="0.759"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelTituloApp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextMarca"
+        app:layout_constraintVertical_bias="0.578" />
 
     <EditText
         android:id="@+id/editTextDpi"
@@ -215,7 +209,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/radioGroup2"
         app:layout_constraintTop_toBottomOf="@+id/labelTituloApp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/editTextId"
@@ -227,7 +221,6 @@
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/buttonAdd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labelId"
         app:layout_constraintVertical_bias="0.4" />
@@ -243,70 +236,63 @@
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/labelColor"
         app:layout_constraintEnd_toStartOf="@+id/editTextMarca"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelTituloApp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/labelModelo"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/buttonDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="532dp"
+        android:layout_marginStart="28dp"
         android:text="Delete"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAnterior"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonAdd"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="590dp" />
 
     <Button
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="64dp"
         android:text="@string/buttonAdd"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAnterior"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintEnd_toStartOf="@+id/buttonDelete"
+        app:layout_constraintStart_toEndOf="@+id/buttonUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextId" />
 
     <Button
         android:id="@+id/buttonUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="8dp"
         android:text="Update"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAnterior"
         app:layout_constraintEnd_toStartOf="@+id/buttonAdd"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextId" />
+        tools:layout_editor_absoluteY="590dp" />
 
     <Button
         android:id="@+id/buttonAnterior"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Anterior"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSiguiente"
-        app:layout_constraintHorizontal_bias="0.68"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.998" />
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="659dp" />
 
     <Button
         android:id="@+id/buttonSiguiente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:text="Siguiente"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.793"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonDelete" />
+        tools:layout_editor_absoluteX="246dp"
+        tools:layout_editor_absoluteY="659dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12859097" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

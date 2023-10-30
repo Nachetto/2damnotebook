@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.pantallaMain.MainActivity">
+
     <EditText
         android:id="@+id/editTextId"
         android:layout_width="87dp"
@@ -12,24 +13,16 @@
         android:ems="10"
         android:inputType="number"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.664"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/editTextModelo"
-        app:layout_constraintVertical_bias="0.313" />
+        tools:layout_editor_absoluteX="458dp"
+        tools:layout_editor_absoluteY="233dp" />
 
     <TextView
         android:id="@+id/labelId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/id"
-        app:layout_constraintBottom_toTopOf="@+id/editTextId"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.702"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPeso"
-        app:layout_constraintVertical_bias="0.657" />
+        tools:layout_editor_absoluteX="505dp"
+        tools:layout_editor_absoluteY="198dp" />
 
     <EditText
         android:id="@+id/editTextMarca"
@@ -38,114 +31,82 @@
         android:ems="10"
         android:inputType="text"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37" />
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="140dp" />
 
     <TextView
         android:id="@+id/labelMarca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
         android:text="@string/marca"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.261"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/labelPeso"
+        app:layout_constraintStart_toEndOf="@+id/labelColor"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintVertical_bias="0.7" />
 
     <TextView
         android:id="@+id/labelTituloApp"
         android:layout_width="217dp"
         android:layout_height="36dp"
-        android:layout_marginTop="28dp"
         android:text="@string/tituloApp"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPeso"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.533" />
 
     <Button
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="187dp"
-        android:layout_marginTop="42dp"
         android:text="@string/buttonAdd"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.309"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.811" />
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="302dp" />
 
     <Button
         android:id="@+id/buttonSiguiente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="Siguiente"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.61"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        tools:layout_editor_absoluteX="380dp"
+        tools:layout_editor_absoluteY="363dp" />
 
     <Button
         android:id="@+id/buttonAnterior"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="288dp"
-        android:layout_marginEnd="18dp"
         android:text="Anterior"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSiguiente"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        tools:layout_editor_absoluteX="262dp"
+        tools:layout_editor_absoluteY="363dp" />
 
     <Button
         android:id="@+id/buttonUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="9dp"
         android:text="Update"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.316"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate"
-        app:layout_constraintVertical_bias="0.215" />
+        tools:layout_editor_absoluteX="198dp"
+        tools:layout_editor_absoluteY="272dp" />
 
     <Button
         android:id="@+id/buttonDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:text="Delete"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
-        app:layout_constraintStart_toEndOf="@+id/buttonAdd"
-        app:layout_constraintTop_toBottomOf="@+id/editTextId"
-        app:layout_constraintVertical_bias="0.25" />
+        tools:layout_editor_absoluteX="450dp"
+        tools:layout_editor_absoluteY="296dp" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="74dp"
         android:layout_height="201dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/guideline4">
 
         <RadioButton
             android:id="@+id/radioButton"
@@ -181,41 +142,33 @@
         android:id="@+id/labelColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="28dp"
         android:text="@string/color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/labelMarca"
+        app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24" />
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="159dp"
         android:layout_height="39dp"
-        android:layout_marginTop="208dp"
         android:ems="10"
         android:inputType="date"
         android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAdd"
-        app:layout_constraintEnd_toStartOf="@+id/editTextId"
-        app:layout_constraintHorizontal_bias="0.619"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteX="186dp"
+        tools:layout_editor_absoluteY="208dp" />
 
     <TextView
         android:id="@+id/labelFechaFabricacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
         android:text="@string/fecha_de_fabricacion"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDate"
-        app:layout_constraintEnd_toStartOf="@+id/labelId"
-        app:layout_constraintHorizontal_bias="0.36"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="176dp" />
 
     <EditText
         android:id="@+id/editTextPeso"
@@ -224,24 +177,21 @@
         android:ems="10"
         android:inputType="number"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.362" />
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="138dp" />
 
     <TextView
         android:id="@+id/labelPeso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+
         android:text="@string/peso"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/labelModelo"
+        app:layout_constraintStart_toEndOf="@+id/labelMarca"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextModelo"
@@ -250,12 +200,8 @@
         android:ems="10"
         android:inputType="text"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.698"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.364" />
+        tools:layout_editor_absoluteX="429dp"
+        tools:layout_editor_absoluteY="139dp" />
 
     <EditText
         android:id="@+id/editTextDpi"
@@ -264,35 +210,47 @@
         android:ems="10"
         android:inputType="number"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.94"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.364" />
+        tools:layout_editor_absoluteX="593dp"
+        tools:layout_editor_absoluteY="139dp" />
 
     <TextView
         android:id="@+id/labelDPI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="12dp"
         android:text="@string/dpi"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.896"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24" />
+        app:layout_constraintStart_toEndOf="@+id/labelModelo"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/labelModelo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:text="@string/modelo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.684"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/labelDPI"
+        app:layout_constraintStart_toEndOf="@+id/labelPeso"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="66dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="125dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
