@@ -12,6 +12,7 @@ class MainViewModel(
 
     private val _uiState = MutableLiveData<MainState>()
     val uiState: LiveData<MainState> get() = _uiState
+
     init {
         _uiState.value = MainState(
             pokemons = getAllPokemonUseCase()

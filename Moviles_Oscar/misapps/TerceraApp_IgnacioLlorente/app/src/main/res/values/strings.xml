@@ -13,4 +13,8 @@
     <string name="azul">Azul</string>
     <string name="negro">Negro</string>
     <string name="blanco">Blanco</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
+    <string name="tabla">Tabla</string>
+    <string name="boton">Vamos!</string>
 </resources>
