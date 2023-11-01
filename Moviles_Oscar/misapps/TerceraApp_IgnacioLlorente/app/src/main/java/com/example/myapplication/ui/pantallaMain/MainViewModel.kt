@@ -31,13 +31,13 @@ class MainViewModel(
  * Factory class to instantiate the [ViewModel] instance.
  */
 class MainViewModelFactory(
-
+    private val getAllRatonesUseCase: GetAllRatonesUseCase
     ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return MainViewModel(
-                getAllRatonesUseCase = GetAllRatonesUseCase()
+                getAllRatonesUseCase
             ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")

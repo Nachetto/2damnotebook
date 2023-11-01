@@ -23,13 +23,13 @@ class RatonViewModel(
         if (raton != null) {
             if (!addRatonUseCase(raton)) {
                 _uiState.value = RatonState()
-                _uiState.value = _uiState.value?.copy(mensaje = Constantes.ERROR)
+                _uiState.value = RatonState(mensaje = Constantes.ERROR)
                 _uiState.value = RatonState(
-                    mensaje = "error" // Debe ser "mensaje" en lugar de "message"
+                    mensaje = "error"
                 )
-                _uiState.value = _uiState.value?.copy(mensaje = Constantes.ERROR)
+                _uiState.value = RatonState(mensaje = Constantes.ERROR)
             } else {
-                _uiState.value = _uiState.value?.copy(mensaje = Constantes.RATON_ANADIDO)
+                _uiState.value = RatonState(mensaje = Constantes.RATON_ANADIDO)
             }
         }
     }
@@ -40,28 +40,22 @@ class RatonViewModel(
             _uiState.value = _uiState.value?.copy(mensaje = Constantes.ERROR)
         else {
             if (modifyRatonUseCase(id, nuevoraton))
-                _uiState.value = _uiState.value?.copy(mensaje = Constantes.RATON_MODIFICADO)
+                _uiState.value = RatonState(mensaje = Constantes.RATON_MODIFICADO)
             else
-                _uiState.value = _uiState.value?.copy(mensaje = Constantes.ERROR)
+                _uiState.value = RatonState(mensaje = Constantes.ERROR)
         }
     }
 
     fun deleteRaton(raton: Raton) {
         if (deleteRatonUseCase(raton))
-            _uiState.value = _uiState.value?.copy(mensaje = Constantes.RATON_ELIMINADO)
+            _uiState.value = RatonState(Constantes.RATON_ELIMINADO)
         else
-            _uiState.value = _uiState.value?.copy(mensaje = Constantes.ERROR)
+            _uiState.value = RatonState(mensaje = Constantes.ERROR)
     }
 
     fun getRaton(id: Int): Raton? {
         return getRatonUseCase(id)
     }
-
-    fun errorMostrado() {
-        _uiState.value = _uiState.value?.copy(mensaje = null)
-    }
-
-
 }
 
 /**

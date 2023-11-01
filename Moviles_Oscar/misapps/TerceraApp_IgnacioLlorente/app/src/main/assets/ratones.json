@@ -1,0 +1,92 @@
+[
+  {
+    "modelo": "Viper Ultimate",
+    "marca": "Razer",
+    "color": "Negro",
+    "peso": 100,
+    "DPI": 1600,
+    "id": 1,
+    "fechaFabricacion": "1/1/1"
+  },
+  {
+    "modelo": "MX Master 2",
+    "marca": "Logitech",
+    "color": "Gris",
+    "peso": 150,
+    "DPI": 4000,
+    "id": 2,
+    "fechaFabricacion": "2/2/2"
+  },
+  {
+    "modelo": "DeathAdder Elite",
+    "marca": "Razer",
+    "color": "Negro",
+    "peso": 95,
+    "DPI": 16000,
+    "id": 3,
+    "fechaFabricacion": "3/3/3"
+  },
+  {
+    "modelo": "G Pro Wireless",
+    "marca": "Logitech",
+    "color": "Blanco",
+    "peso": 80,
+    "DPI": 16000,
+    "id": 4,
+    "fechaFabricacion": "4/4/4"
+  },
+  {
+    "modelo": "Mamba Elite",
+    "marca": "Razer",
+    "color": "Negro",
+    "peso": 96,
+    "DPI": 16000,
+    "id": 5,
+    "fechaFabricacion": "5/5/5"
+  },
+  {
+    "modelo": "G403",
+    "marca": "Logitech",
+    "color": "Negro",
+    "peso": 87,
+    "DPI": 12000,
+    "id": 6,
+    "fechaFabricacion": "6/6/6"
+  },
+  {
+    "modelo": "Naga X",
+    "marca": "Razer",
+    "color": "Blanco",
+    "peso": 78,
+    "DPI": 16000,
+    "id": 7,
+    "fechaFabricacion": "7/7/7"
+  },
+  {
+    "modelo": "G502 Hero",
+    "marca": "Logitech",
+    "color": "Negro",
+    "peso": 121,
+    "DPI": 16000,
+    "id": 8,
+    "fechaFabricacion": "8/8/8"
+  },
+  {
+    "modelo": "DeathAdder V2",
+    "marca": "Razer",
+    "color": "Negro",
+    "peso": 82,
+    "DPI": 20000,
+    "id": 9,
+    "fechaFabricacion": "9/9/9"
+  },
+  {
+    "modelo": "G902",
+    "marca": "Logitech",
+    "color": "Blanco",
+    "peso": 110,
+    "DPI": 16000,
+    "id": 10,
+    "fechaFabricacion": "10/10/10"
+  }
+]

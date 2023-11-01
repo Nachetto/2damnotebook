@@ -12,19 +12,23 @@ import java.io.IOException;
 @WebServlet( name = "Servlet", value = "/Servlet")
 public class MiPrimerServlet extends HttpServlet{
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().println("""
-                <html>
-                    <head>
-                        <title>Mi primer servlet</title>
-                    </head>
-                    <body>
-                        <h1>Mi primer servlet</h1>
-                        <p>Este es mi primer servlet</p>
-                    </body>
-                </html>
-                
-                """ 
-        );
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)  {
+        try {
+            resp.getWriter().println("""
+                    <html>
+                        <head>
+                            <title>Mi primer servlet</title>
+                        </head>
+                        <body>
+                            <h1>Mi primer servlet</h1>
+                            <p>Este es mi primer servlet</p>
+                        </body>
+                    </html>
+                    
+                    """
+            );
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

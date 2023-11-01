@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.data.Repository
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.domain.modelo.Raton
+import com.example.myapplication.domain.usecases.ratones.GetAllRatonesUseCase
 import com.example.myapplication.ui.pantallaRaton.RatonActivity
 import com.example.myapplication.ui.pantallaRaton.adapter.RatonAdapter
 
@@ -18,6 +20,9 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(
+            GetAllRatonesUseCase(
+                Repository(assets.open("ratones.json"))
+            ),
         )
     }
 

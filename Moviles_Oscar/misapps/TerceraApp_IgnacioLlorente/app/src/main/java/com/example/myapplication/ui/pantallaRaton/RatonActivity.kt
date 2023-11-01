@@ -136,6 +136,8 @@ class RatonActivity : AppCompatActivity() {
             state.mensaje?.let {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             }
+            if (state.mensaje==null)
+                Toast.makeText(this, "null", Toast.LENGTH_SHORT).show()
         }
     }
 
