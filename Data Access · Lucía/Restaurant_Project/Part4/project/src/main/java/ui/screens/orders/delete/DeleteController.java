@@ -1,6 +1,7 @@
 package ui.screens.orders.delete;
 
 import common.Constants;
+import io.vavr.control.Either;
 import jakarta.inject.Inject;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -14,6 +15,7 @@ import ui.screens.common.BaseScreenController;
 import ui.screens.orders.common.OrderCommon;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class DeleteController extends BaseScreenController {
     @FXML
@@ -49,27 +51,33 @@ public class DeleteController extends BaseScreenController {
         order_id.setCellValueFactory(new PropertyValueFactory<>("order_id"));
         menu_item_id.setCellValueFactory(new PropertyValueFactory<>("menu_item_id"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        // Llena la tabla con datos de OrderItem
-        orderitemlist.getItems().addAll(service2.getAll().get());
     }
 
     @Override
     public void principalCargado() {
-        orderlist.getItems().addAll(service.getAll().get());
-        orderitemlist.getItems().addAll(service2.getAll().get());
+        Either<String, List<Order>> ordersResult = service.getAll();
+        if (ordersResult.isLeft()) {
+            getPrincipalController().showAlertError(ordersResult.getLeft());
+        }
+        else
+            orderlist.getItems().addAll(ordersResult.get());
     }
 
     public void deleteOrder() {
-        switch (service.delete(selectedOrder())){
+        switch (service.delete(selectedOrder())) {
             case 1 -> getPrincipalController().showAlertInfo(Constants.ORDERDELETED);
             case -1 -> getPrincipalController().showAlertError(Constants.ORDERNOTDELETED);
-
         }
 
     }
+
     @FXML
-    private void selectedUser(){}
     public Order selectedOrder() {
-       return orderlist.getSelectionModel().getSelectedItem();
+        Either<String, OrderItem> orderItemFromSelectedOrder = service2.get(orderlist.getSelectionModel().getSelectedItem().getOrderid());
+        orderitemlist.getItems().clear();
+        if (!orderItemFromSelectedOrder.isLeft() && orderItemFromSelectedOrder.get() != null) {
+            orderitemlist.getItems().addAll(orderItemFromSelectedOrder.get());
+        }
+        return orderlist.getSelectionModel().getSelectedItem();
     }
 }

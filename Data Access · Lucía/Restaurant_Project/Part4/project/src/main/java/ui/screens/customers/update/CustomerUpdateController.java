@@ -59,11 +59,14 @@ public class CustomerUpdateController extends BaseScreenController {
     public void updateCustomer() {
         Customer c = customerlist.getSelectionModel().getSelectedItem();
         if (c != null) {
-            Customer newc= new Customer(Integer.parseInt(entercustomerid.getText()),Integer.parseInt(entercustomerphone.getText()),entercustomername.getText(),entercustomersurname.getText(),entercustomeremail.getText(),new Credential("null","null"),entercustomerbirthdate.getValue());
+            Customer newc= new Customer(Integer.parseInt(entercustomerid.getText()),Integer.parseInt(entercustomerphone.getText()),entercustomername.getText(),entercustomersurname.getText(),entercustomeremail.getText(),new Credential(entercustomername.getText().toLowerCase(),entercustomername.getText().toLowerCase()),entercustomerbirthdate.getValue());
             if(service.modify(c,newc)!=1)
                 getPrincipalController().showAlertError(Constants.CUSTOMERNOTUPDATED);
-            else
+            else{
+                customerlist.getItems().clear();
+                principalCargado();
                 getPrincipalController().showAlertInfo(Constants.CUSTOMERUPDATED);
+            }
         }
     }
 

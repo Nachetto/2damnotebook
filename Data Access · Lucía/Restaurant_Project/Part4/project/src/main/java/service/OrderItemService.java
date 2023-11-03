@@ -5,17 +5,12 @@ import dao.impl.OrderItemDAOImpl;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
 import model.OrderItem;
-import model.OrdersXML;
 
 import java.util.List;
 
 public class OrderItemService {
     @Inject
     private OrderItemDAOImpl dao;
-
-    public OrdersXML readOrdersFromXML() {
-        return dao.readOrdersFromXML();
-    }
 
     public Either<String, List<OrderItem>> getAll() {
         return dao.getAll();

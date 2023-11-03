@@ -1,8 +1,8 @@
 package ui.screens.orders.update;
 
 import common.Constants;
+import io.vavr.control.Either;
 import jakarta.inject.Inject;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,8 +14,11 @@ import ui.screens.common.BaseScreenController;
 import ui.screens.orders.common.OrderCommon;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class UpdateController extends BaseScreenController {
+    @FXML
+    private TextField labelCustomerId;
     @FXML
     private TableColumn<Order, Integer> orderid;
     @FXML
@@ -29,9 +32,7 @@ public class UpdateController extends BaseScreenController {
     @FXML
     private DatePicker entercustomerbirthdate;
     @FXML
-    private ComboBox<Integer> dropdown1;
-    @FXML
-    private ComboBox<Integer> dropdown2;
+    private ComboBox<Integer> dropdownTableID;
     @FXML
     private ComboBox<Integer> dropdown3;
     @FXML
@@ -57,27 +58,40 @@ public class UpdateController extends BaseScreenController {
         order_id.setCellValueFactory(new PropertyValueFactory<>("order_id"));
         menu_item_id.setCellValueFactory(new PropertyValueFactory<>("menu_item_id"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        orderitemlist.getItems().addAll(service2.getAll().get());
     }
 
     @Override
     public void principalCargado() {
-        orderlist.getItems().addAll(service.getAll().get());
-        orderitemlist.getItems().addAll(service2.getAll().get());
+
+        String username = getPrincipalController().getUsername();
+        Either<String, List<Order>> ordersResult;
+        // Llama al método getOrdersByUsername para obtener los pedidos del usuario
+        if (!username.equalsIgnoreCase("root")) {
+            ordersResult = service.getOrdersByUsername(username);
+        } else {
+            ordersResult = service.getAll();
+        }
+
+        if (ordersResult.isLeft()) {
+            getPrincipalController().showAlertError(ordersResult.getLeft());
+        } else {
+            orderlist.getItems().addAll(ordersResult.get());
+        }
     }
 
     public void updateOrder() {
         //(int orderid, int tableid, int customerid, LocalDateTime orderdate)
         service.modify(orderlist.getSelectionModel().getSelectedItem(), new Order(
                 orderlist.getSelectionModel().getSelectedItem().getOrderid(),
-                dropdown2.getSelectionModel().getSelectedItem(),
-                dropdown1.getSelectionModel().getSelectedItem(),
+                dropdownTableID.getSelectionModel().getSelectedItem(),
+                orderlist.getSelectionModel().getSelectedItem().getCustomerid(),
                 entercustomerbirthdate.getValue().atStartOfDay()
         ));
         getPrincipalController().showAlertInfo(Constants.ORDERUPDATED);
     }
 
     public void addOrderItem() {
+
         getPrincipalController().showAlertInfo(Constants.ORDERITEMADDED);
     }
 
@@ -85,21 +99,23 @@ public class UpdateController extends BaseScreenController {
         getPrincipalController().showAlertInfo(Constants.ORDERITEMREMOVED);
     }
 
-    public void selectedUser() {
-
-    }
-
     public void cargarTableIDS() {
-        dropdown2.getItems().clear();
+        dropdownTableID.getItems().clear();
         for (Order o : orderlist.getItems()) {
-            dropdown1.getItems().add(o.getTableid());
+            dropdownTableID.getItems().add(o.getCustomerid());
         }
     }
 
-    public void cargarCustomerIDS() {
-        dropdown1.getItems().clear();
-        for (Order o : orderlist.getItems()) {
-            dropdown2.getItems().add(o.getCustomerid());
+    @FXML
+    public Order selectedOrder() {
+        Either<String, OrderItem> orderItemFromSelectedOrder = service2.get(orderlist.getSelectionModel().getSelectedItem().getOrderid());
+        orderitemlist.getItems().clear();
+        if (!orderItemFromSelectedOrder.isLeft() && orderItemFromSelectedOrder.get() != null) {
+            orderitemlist.getItems().addAll(orderItemFromSelectedOrder.get());
+            entercustomerbirthdate.valueProperty().set(orderlist.getSelectionModel().getSelectedItem().getOrderdate().toLocalDate());
+            labelCustomerId.setText(String.valueOf(orderlist.getSelectionModel().getSelectedItem().getCustomerid()));
         }
+
+        return orderlist.getSelectionModel().getSelectedItem();
     }
 }

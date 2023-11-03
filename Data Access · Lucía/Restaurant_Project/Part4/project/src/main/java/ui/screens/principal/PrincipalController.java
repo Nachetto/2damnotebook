@@ -140,19 +140,50 @@ public class PrincipalController {
             case "menuMainScreen" -> loadScreen(Screens.START);
             case "menuItemLogout" -> onLogout();
 
-            case "menuOrderList" -> loadScreen(Screens.ORDERLIST);
-            case "menuOrderAdd" -> loadScreen(Screens.ORDERADD);
-            case "menuOrderUpdate" -> loadScreen(Screens.ORDERUPDATE);
-            case "menuOrderDelete" -> loadScreen(Screens.ORDERDELETE);
 
-            case "menuCustomerList" -> loadScreen(Screens.CUSTOMERLIST);
-            case "menuCustomerAdd" -> loadScreen(Screens.CUSTOMERADD);
-            case "menuCustomerUpdate" -> loadScreen(Screens.CUSTOMERUPDATE);
-            case "menuCustomerDelete" -> loadScreen(Screens.CUSTOMERDELETE);
+            case "menuOrderList" -> loadScreen(Screens.ORDERLIST);
+            case "menuOrderAdd" ->{//ADMIN NO
+                if (username.equalsIgnoreCase("root"))
+                    showAlertError("You can't add orders");
+                else
+                    loadScreen(Screens.ORDERADD);
+            }
+            case "menuOrderUpdate" -> loadScreen(Screens.ORDERUPDATE);
+            case "menuOrderDelete" ->{//CUSTOMER NO
+                if (username.equalsIgnoreCase("root"))
+                    loadScreen(Screens.ORDERDELETE);
+                else
+                    showAlertError("You can't delete orders");
+            }
+
+            case "menuCustomerList" ->{
+                if (username.equalsIgnoreCase("root"))
+                    loadScreen(Screens.CUSTOMERLIST);
+                else
+                    showAlertError("You can't list Customers");
+            }
+            case "menuCustomerAdd" ->{
+                if (username.equalsIgnoreCase("root")||username.equalsIgnoreCase("john"))
+                    loadScreen(Screens.CUSTOMERADD);
+                else
+                    showAlertError("You can't add Customers");
+            }
+            case "menuCustomerUpdate" ->{
+                if (username.equalsIgnoreCase("root"))
+                    loadScreen(Screens.CUSTOMERUPDATE);
+                else
+                    showAlertError("You can't update Customers");
+            }
+            case "menuCustomerDelete" ->{
+                if (username.equalsIgnoreCase("root"))
+                    loadScreen(Screens.CUSTOMERDELETE);
+                else
+                    showAlertError("You can't delete Customers");
+            }
         }
     }
 
 
-    public void setStage(Stage stage) {//id have to make this static
+    public void setStage(Stage stage) {//TODO(MNAKE THIS STATIC)
     }
 }

@@ -9,6 +9,7 @@ module javafx.multipantalla {
     requires io.vavr;
     requires jakarta.xml.bind;
     requires java.sql;
+    requires jakarta.jakartaee.api;
 
     exports dao.common;
     exports ui.screens.customers.add;

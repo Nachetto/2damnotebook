@@ -32,18 +32,29 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     public Either<String, List<Customer>> getAll() {
         try (Connection myConnection = DriverManager.getConnection("jdbc:mysql://dam2.mysql.iesquevedo.es: 3335/ignacioLlorente_restaurant", "root", "quevedo2dam");
-             Statement stmt = myConnection.createStatement()) {
-            ResultSet rs = stmt.executeQuery(SQLConstants.SELECT_customers_QUERY);
+             Statement stmt = myConnection.createStatement();
+             PreparedStatement preparedStatement = myConnection.prepareStatement(SQLConstants.SELECT_CREDS_FROM_CUSTOMER_QUERY)) {
+            ResultSet rs = stmt.executeQuery(SQLConstants.SELECT_CUSTOMERS_QUERY);
             List<Customer> customers = new ArrayList<>();
             while (rs.next()) {
+                preparedStatement.setInt(1, rs.getInt("id"));
+                ResultSet rsCreds = preparedStatement.executeQuery();
+                if (!rsCreds.next()) {
+                    log.error("No credentials found for customer with id " + rs.getInt("id"));
+                    return Either.left(Constants.CUSTOMERDBERROR + "No credentials found for customer with id " + rs.getInt("id"));
+                }
                 Customer resultCustomer = new Customer(
                         rs.getInt("id"),
                         rs.getInt("phone"),
                         rs.getString("first_name"),
                         rs.getString("last_name"),
                         rs.getString("email"),
-                        new Credential("root", "2dam"),
+                        new Credential(
+                                rsCreds.getString("user_name"),
+                                rsCreds.getString("password")
+                        ),
                         rs.getDate("date_of_birth").toLocalDate()
+
                 );
                 customers.add(resultCustomer);
             }
@@ -57,7 +68,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     public Either<String, Customer> get(int id) {
         try (Connection con = db.getConnection();
-             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_customer_QUERY)) {
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_CUSTOMER_QUERY)) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             rs.next();
@@ -93,7 +104,8 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public int save(Customer c) {
         try (Connection con = db.getConnection();
-             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.Add_customer_QUERY)) {
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.ADD_CUSTOMER_QUERY);
+             PreparedStatement credentials = con.prepareStatement(SQLConstants.ADD_CREDENTIALS_QUERY)) {
             //(id, first_name, last_name, email, phone, date_of_birth)
             preparedStatement.setInt(1, c.getId());
             preparedStatement.setString(2, c.getName());
@@ -101,8 +113,13 @@ public class CustomerDAOImpl implements CustomerDAO {
             preparedStatement.setString(4, c.getEmail());
             preparedStatement.setInt(5, c.getPhone());
             preparedStatement.setDate(6, Date.valueOf(c.getBirthdate()));
-
-            return preparedStatement.executeUpdate();
+            credentials.setInt(1, c.getId());
+            credentials.setString(2, c.getCredential().username());
+            credentials.setString(3, c.getCredential().password());
+            if (preparedStatement.executeUpdate()!=-1){
+                return credentials.executeUpdate();
+            }
+            return -1;
         } catch (SQLException ex) {
             log.error(ex.getMessage());
             return -1;
@@ -162,8 +179,8 @@ public class CustomerDAOImpl implements CustomerDAO {
                      PreparedStatement deleteCredentials = con.prepareStatement(SQLConstants.DELETE_CREDENTIALS_QUERY)) {
                     deleteCustomer.setInt(1, c.getId());
                     deleteCredentials.setInt(1, c.getId());
-                    deleteCustomer.executeUpdate();
                     deleteCredentials.executeUpdate();
+                    deleteCustomer.executeUpdate();
                     return 1; // Deletion successful
                 } catch (SQLException ex) {
                     log.error("Error deleting customer: " + ex.getMessage());
@@ -182,4 +199,16 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
 
+    public int findIdFromUsername(String username) {
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_CUSTOMER_ID_FROM_USERNAME_QUERY)) {
+            preparedStatement.setString(1, username);
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            return rs.getInt("customer_id");
+        } catch (SQLException ex) {
+            log.error(ex.getMessage());
+            return -1;
+        }
+    }
 }

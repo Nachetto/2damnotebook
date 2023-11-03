@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="450" prefWidth="749" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.screens.orders.update.UpdateController">
-    <TableView fx:id="orderlist" layoutX="24.0" layoutY="113.0" onMouseClicked="#selectedUser" prefHeight="200.0" prefWidth="247.0">
+    <TableView fx:id="orderlist" layoutX="24.0" layoutY="113.0" onMouseClicked="#selectedOrder" prefHeight="200.0" prefWidth="247.0">
         <columns>
             <TableColumn fx:id="orderid" prefWidth="54.199981689453125" text="order_id" />
             <TableColumn fx:id="tableid" prefWidth="96.20001220703125" text="table_id" />
@@ -23,28 +23,17 @@
             <TableColumn fx:id="quantity" prefWidth="75.0" text="quantity" />
         </columns>
     </TableView>
-    <ComboBox fx:id="dropdown1" layoutX="279.0" layoutY="182.0" prefHeight="26.0" prefWidth="117.0" promptText="Customer Id" onAction="#cargarCustomerIDS">
+    <ComboBox fx:id="dropdownTableID" layoutX="279.0" layoutY="146.0" onAction="#cargarTableIDS" prefHeight="26.0" prefWidth="118.0" promptText="Table Id">
         <items>
             <FXCollections fx:factory="observableArrayList">
-                <String fx:value="1" />
-                <String fx:value="2" />
-                <String fx:value="3" />
-                <String fx:value="4" />
-                <String fx:value="5" />
             </FXCollections>
         </items>
     </ComboBox>
-    <ComboBox fx:id="dropdown2" layoutX="279.0" layoutY="146.0" prefHeight="26.0" prefWidth="118.0" promptText="Table Id" onAction="#cargarTableIDS">
-        <items>
-            <FXCollections fx:factory="observableArrayList">
-                <String fx:value="1" />
-                <String fx:value="2" />
-                <String fx:value="3" />
-                <String fx:value="4" />
-                <String fx:value="5" />
-            </FXCollections>
-        </items>
-    </ComboBox>
+
+
+    <TextField fx:id="labelCustomerId" disable="true" layoutX="299.0" layoutY="213.0" prefHeight="25.0" prefWidth="80.0" promptText="ID" />
+    <Label layoutX="304.0" layoutY="181.0" prefHeight="25.0" prefWidth="69.0" text="Customer ID:" />
+
     <ComboBox fx:id="dropdown3" layoutX="445.0" layoutY="319.0" prefHeight="25.0" prefWidth="174.0" promptText="Menu item">
         <items>
             <FXCollections fx:factory="observableArrayList">

@@ -14,6 +14,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PreDestroy;
+
+// Resto de importaciones y código de la clase
+
+
 @Log4j2
 public class OrderDAOImpl implements OrderDAO {
 
@@ -21,6 +26,17 @@ public class OrderDAOImpl implements OrderDAO {
     @Inject
     public OrderDAOImpl(DBConnection db) {
         this.db = db;
+    }
+
+
+    @PreDestroy
+    public void closePool() {
+        // Cerrar el pool de conexiones
+        try {
+            db.close();
+        } catch (SQLException e) {
+            log.error(e);
+        }
     }
 
     @Override
@@ -59,6 +75,7 @@ public class OrderDAOImpl implements OrderDAO {
                         rs.getInt("customer_id"),
                         rs.getTimestamp("order_date").toLocalDateTime()
                 );
+                System.out.println(resultOrder);
                 return Either.right(resultOrder);
             }
             return Either.left(Constants.IDNOTFOUND + id);
@@ -102,6 +119,4 @@ public class OrderDAOImpl implements OrderDAO {
             return -1;
         }
     }
-
-
 }

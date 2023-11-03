@@ -22,6 +22,8 @@ import model.MenuItem;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 public class ListController extends BaseScreenController {
     public TableView<MenuItem> menuItemsList;
     public TableColumn<MenuItem, Integer> id;
@@ -61,15 +63,25 @@ public class ListController extends BaseScreenController {
 
     @Override
     public void principalCargado() {
-        if (service.getAll().isLeft()) {
-            getPrincipalController().showAlertError(service.getAll().getLeft());
+        String username = getPrincipalController().getUsername();
+        Either<String, List<Order>> ordersResult;
+        // Llama al método getOrdersByUsername para obtener los pedidos del usuario
+        if (!username.equalsIgnoreCase("root")) {
+            ordersResult = service.getOrdersByUsername(username);
         } else {
-            orderlist.getItems().addAll(service.getAll().get());
+            ordersResult = service.getAll();
+        }
+
+        if (ordersResult.isLeft()) {
+            getPrincipalController().showAlertError(ordersResult.getLeft());
+        } else {
+            orderlist.getItems().addAll(ordersResult.get());
             customertextfield.setEditable(false);
         }
 
-        // Carga los detalles de MenuItem en la lista menuItems
-        loadMenuItems();
+//
+//        // Carga los detalles de MenuItem en la lista menuItems
+//        loadMenuItems();
     }
 
 
