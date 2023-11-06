@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Random;
 
@@ -12,42 +13,62 @@ import java.util.Random;
 public class LoteriaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Inicializar el juego en la primera visita
-        if (req.getAttribute("numberToGuess") == null) {
-            int numberToGuess = new Random().nextInt(10) + 1;
-            req.setAttribute("numberToGuess", numberToGuess);
-            req.setAttribute("attempts", 5);
+        HttpSession session = req.getSession();
+
+        Integer attempts = (Integer) session.getAttribute("attempts");
+        Integer numberToGuess = (Integer) session.getAttribute("numberToGuess");
+
+        if (numberToGuess == null) {
+            numberToGuess = new Random().nextInt(10) + 1;
+            session.setAttribute("numberToGuess", numberToGuess);
         }
 
-        req.getRequestDispatcher("/loteria.html").forward(req, resp);
+        if (attempts == null) {
+            attempts = 5;
+            session.setAttribute("attempts", attempts);
+        }
+
+        req.getRequestDispatcher("/WEB-INF/index.html").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int numberToGuess = (int) req.getAttribute("numberToGuess");
-        int attempts = (int) req.getAttribute("attempts");
+        HttpSession session = req.getSession();
 
-        int userGuess = Integer.parseInt(req.getParameter("number"));
+        Integer attempts = (Integer) session.getAttribute("attempts");
+        Integer numberToGuess = (Integer) session.getAttribute("numberToGuess");
 
-        if (userGuess == numberToGuess) {
-            req.setAttribute("message", "¡Felicidades! Adivinaste el número.");
-            req.removeAttribute("numberToGuess"); // Reiniciar el juego
-            req.removeAttribute("attempts");
-        } else {
-            attempts--;
-            if (attempts > 0) {
-                if (userGuess < numberToGuess) {
-                    req.setAttribute("message", "El número es mayor.");
+        String userGuessParam = req.getParameter("number");
+
+        if (userGuessParam != null && !userGuessParam.isEmpty()) {
+            try {
+                int userGuess = Integer.parseInt(userGuessParam);
+
+                if (userGuess == numberToGuess) {
+                    req.setAttribute("message", "¡Felicidades! Adivinaste el número.");
+                    session.removeAttribute("numberToGuess");
+                    session.removeAttribute("attempts");
                 } else {
-                    req.setAttribute("message", "El número es menor.");
+                    attempts--;
+                    if (attempts > 0) {
+                        if (userGuess < numberToGuess) {
+                            req.setAttribute("message", "El número es mayor.");
+                        } else {
+                            req.setAttribute("message", "El número es menor.");
+                        }
+                    } else {
+                        req.setAttribute("message", "¡Perdiste! El número era " + numberToGuess);
+                        session.removeAttribute("numberToGuess");
+                        session.removeAttribute("attempts");
+                    }
                 }
-            } else {
-                req.setAttribute("message", "¡Perdiste! El número era " + numberToGuess);
-                req.removeAttribute("numberToGuess"); // Reiniciar el juego
-                req.removeAttribute("attempts");
+            } catch (NumberFormatException e) {
+                req.setAttribute("message", "Por favor, ingresa un número válido.");
             }
+        } else {
+            req.setAttribute("message", "Por favor, ingresa un número válido.");
         }
 
-        req.getRequestDispatcher("/loteria.html").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/index.html").forward(req, resp);
     }
 }

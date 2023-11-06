@@ -1,17 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Lotería</title>
+  <meta charset="UTF-8">
+  <title>Página de Inicio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    a {
+      text-decoration: none;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-<h1>Juego de Lotería</h1>
-<p>Intentos restantes: <span th:text="${remainingAttempts}">5</span></p>
-<form method="post" th:action="@{/guess}">
-    <label for="number">Adivina el número (1-10):</label>
-    <input type="number" id="number" name="number" min="1" max="10" required>
-    <button type="submit">Adivinar</button>
-</form>
-<p th:text="${message}"></p>
+<h1>Bienvenido a la Página de Inicio</h1>
+<p>Esta es la página de inicio con un enlace a la lotería.</p>
+<a href="/miprimerPayara-1.0-SNAPSHOT/loteria">Ir a Juego de Lotería</a>
 </body>
 </html>

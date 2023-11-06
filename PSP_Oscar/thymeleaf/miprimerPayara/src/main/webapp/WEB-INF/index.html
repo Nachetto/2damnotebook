@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lotería</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1, p {
+            width: 100%;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            width: 30%;
+            margin: 0 auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input[type="number"] {
+            width: 50px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Juego de Lotería</h1>
+<p>Intentos restantes: <span th:text="${attempts}">5</span></p>
+<form method="post" th:action="@{/loteria}">
+    <input type="hidden" name="numberToGuess" th:value="${numberToGuess}">
+    <label for="number">Adivina el número (1-10):</label>
+    <input type="number" id="number" name="number" min="1" max="10" required>
+    <button type="submit">Adivinar</button>
+</form>
+<p th:text="${message}"></p>
+</body>
+</html>
