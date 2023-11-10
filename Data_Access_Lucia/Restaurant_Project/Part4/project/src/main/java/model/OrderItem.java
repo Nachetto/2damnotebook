@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class OrderItem {
-    private int order_item_id, order_id, menu_item_id, quantity;
+    private int order_item_id, order_id, menu_item_id, quantity;//object of menuitem
 }
