@@ -1,4 +1,4 @@
-package domain.modelo.errores;
+package model.errores;
 
 public class NotFoundException extends RuntimeException{
     public NotFoundException(String message) {
