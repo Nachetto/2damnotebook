@@ -1,6 +1,4 @@
 
-[
-+src/main/java/jakarta/rest/RestErrores.java,7\d\7d3ee1ade718853110d62bdfe077a5418c164bed
 Q
 !src/main/java/dao/DaoErrores.java,5\2\5242580ad2d1817e8a3352211bb950a40bfbc7d7
 p
@@ -9,10 +7,6 @@ h
 8src/main/java/jakarta/errores/CustomExceptionMapper.java,5\d\5db715fd1109d2e236096830a1ad4af35f544609
 h
 8src/main/java/domain/modelo/errores/CustomException.java,b\c\bcab2c2a1c1d9c0c0c0ce604d106f37929c2b972
-d
-4src/main/java/domain/servicios/ServiciosErrores.java,2\1\21a3e88f70d19af861c68edad522fecdae13604f
-Q
-!src/main/webapp/WEB-INF/beans.xml,8\3\83008b1a88ba03a2548bb5b9ad0768c6c307d36c
 W
 'src/main/java/jakarta/di/Producers.java,c\8\c823d5df9df3c3fb5cff7cf4f1e8ab3693fd2fee
 S
@@ -21,3 +15,15 @@ L
 test.postman_collection.json,b\9\b9b26e6e4276a035f9cf1301025d857e67f6028c
 p
 @src/main/java/jakarta/errores/BaseDatosCaidaExceptionMapper.java,1\1\111eb54e948d78ad913f59bf3e1f39c3997bb761
+Z
+*src/main/java/jakarta/rest/Constantes.java,a\c\ac7ee479f517063aa76fc5cc4be73f3756ddec39
+`
+0src/main/java/jakarta/rest/JAXRSApplication.java,4\1\418ec6364e498240ce1f0314881a7cd9fc30a7f7
+a
+1src/main/java/jakarta/rest/RestBuenoUsuarios.java,1\d\1d98ea87c4250bc9409ce60a7788170804b983d1
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+j
+:src/main/java/jakarta/errores/NotFoundExceptionMapper.java,b\9\b9dfae07575a2013c0435589619c2e1d22edb120
+[
++src/main/java/jakarta/errores/ApiError.java,1\c\1cc2abdf11332d170c3256ae7b57a8d601f0dd73

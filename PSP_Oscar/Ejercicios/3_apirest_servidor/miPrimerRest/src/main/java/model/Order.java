@@ -8,7 +8,9 @@ import java.time.format.DateTimeParseException;
 
 @Data
 public class Order {
-    private int orderid, tableid, customerid;
+    private int orderid;
+    private int tableid;
+    private int customerid;
     private LocalDateTime orderdate;
 
     public Order(int orderid, int tableid, int customerid, LocalDateTime orderdate) {

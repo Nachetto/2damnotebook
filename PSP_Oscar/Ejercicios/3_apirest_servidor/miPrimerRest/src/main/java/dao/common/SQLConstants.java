@@ -1,6 +1,15 @@
 package dao.common;
 
 public class SQLConstants {
+    public static final String URL = "urlDB";
+    public static final String USERNAME = "user_name";
+    public static final String PASSWORD = "password";
+    public static final String DRIVER_CLASS_NAME = "driver";
+    public static final String CACHE = "cachePrepStmts";
+    public static final String CACHESIZE = "prepStmtCacheSize";
+    public static final String CACHELIMIT = "prepStmtCacheSqlLimit";
+
+    private SQLConstants() {}
     public static final String SELECT_CUSTOMERS_QUERY = "SELECT * FROM customers";
     public static final String DELETE_ORDERS_BY_CUSTOMER_QUERY = "DELETE FROM orders WHERE customer_id = ?";
     public static final String DELETE_ORDER_ITEMS_BY_CUSTOMER_QUERY = "DELETE FROM order_items WHERE order_id IN (SELECT order_id FROM orders WHERE customer_id = ?)";

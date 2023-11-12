@@ -75,10 +75,10 @@ public class RestCustomers {
     @DELETE
     @Path("/{id}")
     public Response delUsuario(@PathParam(Constantes.ID) String id) {
-        if (su.delete(su.get(Integer.parseInt(id)).get()) == 1)
-            return Response.status(Response.Status.NO_CONTENT).build();
+        if (su.delete(getUsuario(id)) == 1)
+            return Response.status(Response.Status.NO_CONTENT).entity("Borrado Correctamente").build();
         else
-            return Response.status(Response.Status.NOT_FOUND).build();
+            return Response.status(Response.Status.NOT_FOUND).entity("No se ha encontrado el usuario").build();
     }
 
 

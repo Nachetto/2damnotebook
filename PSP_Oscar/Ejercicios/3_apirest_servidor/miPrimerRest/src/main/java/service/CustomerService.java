@@ -3,7 +3,6 @@ package service;
 import dao.impl.CustomerDAOImpl;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
-import model.Credential;
 import model.Customer;
 
 import java.util.List;

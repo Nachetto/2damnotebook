@@ -34,10 +34,10 @@ public class OrderDAOImpl implements OrderDAO {
             while (rs.next()) {
                 //(int orderid, int tableid, int customerid, LocalDateTime orderdate)
                 Order resultOrder = new Order(
-                        rs.getInt("order_id"),
-                        rs.getInt("table_id"),
-                        rs.getInt("customer_id"),
-                        rs.getTimestamp("order_date").toLocalDateTime()
+                        rs.getInt(Constants.ORDERID),
+                        rs.getInt(Constants.TABLEID),
+                        rs.getInt(Constants.CUSID),
+                        rs.getTimestamp(Constants.ORDERDATE).toLocalDateTime()
                 );
                 orders.add(resultOrder);
             }
@@ -56,12 +56,11 @@ public class OrderDAOImpl implements OrderDAO {
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
                 Order resultOrder = new Order(
-                        rs.getInt("order_id"),
-                        rs.getInt("table_id"),
-                        rs.getInt("customer_id"),
-                        rs.getTimestamp("order_date").toLocalDateTime()
+                        rs.getInt(Constants.ORDERID),
+                        rs.getInt(Constants.TABLEID),
+                        rs.getInt(Constants.CUSID),
+                        rs.getTimestamp(Constants.ORDERDATE).toLocalDateTime()
                 );
-                System.out.println(resultOrder);
                 return Either.right(resultOrder);
             }
             return Either.left(Constants.IDNOTFOUND + id);

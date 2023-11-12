@@ -10,10 +10,13 @@ import model.Order;
 import java.util.List;
 
 public class OrderService {
+    private final OrderDAOImpl dao;
+    private final CustomerDAOImpl serviceCustomer;
     @Inject
-    private OrderDAOImpl dao;
-    @Inject
-    private CustomerDAOImpl serviceCustomer;
+    public OrderService(OrderDAOImpl dao, CustomerDAOImpl serviceCustomer) {
+        this.dao = dao;
+        this.serviceCustomer = serviceCustomer;
+    }
 
     public Either<String, List<Order>> getAll() {
         return dao.getAll();

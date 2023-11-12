@@ -1,13 +1,20 @@
 package model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Customer {
-    private int id, phone;
-    private String name, surname, email;
+    private int id;
+    private int phone;
+    private String name;
+    private String surname;
+    private String email;
     private LocalDate birthdate;
     private Credential credential;
 
@@ -20,23 +27,4 @@ public class Customer {
         this.birthdate = birthdate;
         credential = credentials;
     }
-
-
-    public Customer(String fileLine) {
-        String[] elemArray = fileLine.split(";");
-        this.id = Integer.parseInt(elemArray[0]);
-        this.name = elemArray[1];
-        this.surname = elemArray[2];
-        this.email = elemArray[3];
-        this.phone = !elemArray[4].isEmpty() ? Integer.parseInt(elemArray[4]) : 0;
-        this.birthdate = LocalDate.parse(elemArray[5]);
-        this.credential = new Credential("root", "2dam");
-    }
-
-
-
-    public String toStringTextFile() {
-        return id + ";" + name + ";" + surname + ";" + email + ";" + phone + ";" + birthdate;
-    }
-
 }

@@ -15,7 +15,6 @@ import model.Customer;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Log4j2
 public class CustomerDAOImpl implements CustomerDAO {
@@ -31,30 +30,18 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     public Either<String, List<Customer>> getAll() {
-        try (Connection myConnection = db.getConnection();
-             Statement stmt = myConnection.createStatement();
-             PreparedStatement preparedStatement = myConnection.prepareStatement(SQLConstants.SELECT_CREDS_FROM_CUSTOMER_QUERY)) {
+        try (Connection myConnection = db.getConnection(); Statement stmt = myConnection.createStatement(); PreparedStatement preparedStatement = myConnection.prepareStatement(SQLConstants.SELECT_CREDS_FROM_CUSTOMER_QUERY)) {
 
             ResultSet rs = stmt.executeQuery(SQLConstants.SELECT_CUSTOMERS_QUERY);
             List<Customer> customers = new ArrayList<>();
             while (rs.next()) {
-                preparedStatement.setInt(1, rs.getInt("id"));
+                preparedStatement.setInt(1, rs.getInt(Constants.ID));
                 ResultSet rsCreds = preparedStatement.executeQuery();
                 if (!rsCreds.next()) {
-                    log.error("No credentials found for customer with id " + rs.getInt("id"));
-                    return Either.left(Constants.CUSTOMERDBERROR + "No credentials found for customer with id " + rs.getInt("id"));
+                    log.error(Constants.CREDENTALSNOTFOUND + rs.getInt(Constants.ID));
+                    return Either.left(Constants.CUSTOMERDBERROR + Constants.CREDENTALSNOTFOUND + rs.getInt(Constants.ID));
                 }
-                Customer resultCustomer = new Customer(
-                        rs.getInt("id"),
-                        rs.getInt("phone"),
-                        rs.getString("first_name"),
-                        rs.getString("last_name"),
-                        rs.getString("email"),
-                        new Credential(
-                                rsCreds.getString("user_name"),
-                                rsCreds.getString("password")
-                        ),
-                        rs.getDate("date_of_birth").toLocalDate()
+                Customer resultCustomer = new Customer(rs.getInt(Constants.ID), rs.getInt(Constants.PHONE), rs.getString(Constants.NAME), rs.getString(Constants.LASTNAME), rs.getString(Constants.EMAIL), new Credential(rsCreds.getString(Constants.USERNAME), rsCreds.getString(Constants.PASSWORD)), rs.getDate(Constants.BIRTHDATE).toLocalDate()
 
                 );
                 customers.add(resultCustomer);
@@ -67,45 +54,20 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     public Either<String, Customer> get(int id) {
-        try (Connection con = db.getConnection();
-             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_CUSTOMER_QUERY)) {
+        try (Connection con = db.getConnection(); PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_CUSTOMER_QUERY)) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             rs.next();
-            return Either.right(new Customer(
-                    rs.getInt("id"),
-                    rs.getInt("phone"),
-                    rs.getString("first_name"),
-                    rs.getString("last_name"),
-                    rs.getString("email"),
-                    new Credential("root", "2dam"),
-                    rs.getDate("date_of_birth").toLocalDate()
-            ));
+            return Either.right(new Customer(rs.getInt(Constants.ID), rs.getInt(Constants.PHONE), rs.getString(Constants.NAME), rs.getString(Constants.LASTNAME), rs.getString(Constants.EMAIL), new Credential("", ""), rs.getDate(Constants.BIRTHDATE).toLocalDate()));
         } catch (SQLException ex) {
             log.error(ex.getMessage());
             return Either.left(Constants.CUSTOMERDBERROR + ex.getMessage());
         }
     }
 
-    public boolean checkLogin(Credential c) {
-        Either<String, List<Customer>> result = getAll();
-
-        if (result.isRight()) {
-            List<Customer> customers = result.get();
-            for (Customer cus : customers) {
-                if (Objects.equals(cus.getCredential(), c)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     @Override
     public int save(Customer c) {
-        try (Connection con = db.getConnection();
-             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.ADD_CUSTOMER_QUERY);
-             PreparedStatement credentials = con.prepareStatement(SQLConstants.ADD_CREDENTIALS_QUERY)) {
+        try (Connection con = db.getConnection(); PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.ADD_CUSTOMER_QUERY); PreparedStatement credentials = con.prepareStatement(SQLConstants.ADD_CREDENTIALS_QUERY)) {
             //(id, first_name, last_name, email, phone, date_of_birth)
             preparedStatement.setInt(1, c.getId());
             preparedStatement.setString(2, c.getName());
@@ -137,13 +99,12 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     public boolean hasOrders(Customer c) {
-        try (Connection con = db.getConnection();
-             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.CHECK_ORDERS_BY_CUSTOMER_QUERY)) {
+        try (Connection con = db.getConnection(); PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.CHECK_ORDERS_BY_CUSTOMER_QUERY)) {
             preparedStatement.setInt(1, c.getId());
             ResultSet rs = preparedStatement.executeQuery();
             rs.next();
             log.info("the customer named " + c.getName() + " has " + rs.getInt("order_count") + " orders");
-            return rs.getInt("order_count") > 0;
+            return rs.getInt(Constants.COUNT) > 0;
         } catch (SQLException ex) {
             log.error(ex.getMessage());
             return false;
@@ -156,52 +117,51 @@ public class CustomerDAOImpl implements CustomerDAO {
         if (c == null) {
             return -1;
         }
-
         try (Connection con = db.getConnection()) {
-            try {
-                try (
-                        PreparedStatement deleteOrderItems = con.prepareStatement(SQLConstants.DELETE_ORDER_ITEMS_BY_CUSTOMER_QUERY);
-                        PreparedStatement deleteOrders = con.prepareStatement(SQLConstants.DELETE_ORDERS_BY_CUSTOMER_QUERY)) {
-                    con.setAutoCommit(false); // Start a transaction
-                    deleteOrderItems.setInt(1, c.getId());
-                    deleteOrders.setInt(1, c.getId());
-
-                    deleteOrderItems.executeUpdate();
-                    deleteOrders.executeUpdate();
-
-                    con.commit();
-                }
-
-                try (PreparedStatement deleteCustomer = con.prepareStatement(SQLConstants.DELETE_CUSTOMER_QUERY);
-                     PreparedStatement deleteCredentials = con.prepareStatement(SQLConstants.DELETE_CREDENTIALS_QUERY)) {
-                    deleteCustomer.setInt(1, c.getId());
-                    deleteCredentials.setInt(1, c.getId());
-                    deleteCredentials.executeUpdate();
-                    deleteCustomer.executeUpdate();
-                    return 1; // Deletion successful
-                } catch (SQLException ex) {
-                    log.error("Error deleting customer: " + ex.getMessage());
-                    con.rollback();
-                    return -1;
-                }
-            } catch (SQLException ex) {
-                log.error("Error deleting associated orders and items: " + ex.getMessage());
-                con.rollback();
-                return -1;
-            }
+            borrarOrderyOrderItems(c, con);
+            return borrarCustomer(c, con);
         } catch (SQLException ex) {
-            log.error("Error connecting to the database: " + ex.getMessage());
+            log.error(Constants.ERRDB + ex.getMessage());
             return -1;
         }
     }
 
+    private int borrarCustomer(Customer c, Connection con) throws SQLException {
+        try (PreparedStatement deleteCustomer = con.prepareStatement(SQLConstants.DELETE_CUSTOMER_QUERY); PreparedStatement deleteCredentials = con.prepareStatement(SQLConstants.DELETE_CREDENTIALS_QUERY)) {
+            deleteCustomer.setInt(1, c.getId());
+            deleteCredentials.setInt(1, c.getId());
+            deleteCredentials.executeUpdate();
+            deleteCustomer.executeUpdate();
+            return 1;
+        } catch (SQLException ex) {
+            log.error(Constants.ERRDELETECUSTOMER + ex.getMessage());
+            con.rollback();
+            return -1;
+        }
+    }
+
+    private void borrarOrderyOrderItems(Customer c, Connection con) throws SQLException {
+        try (PreparedStatement deleteOrderItems = con.prepareStatement(SQLConstants.DELETE_ORDER_ITEMS_BY_CUSTOMER_QUERY); PreparedStatement deleteOrders = con.prepareStatement(SQLConstants.DELETE_ORDERS_BY_CUSTOMER_QUERY)) {
+            con.setAutoCommit(false); // Start a transaction
+            deleteOrderItems.setInt(1, c.getId());
+            deleteOrders.setInt(1, c.getId());
+
+            deleteOrderItems.executeUpdate();
+            deleteOrders.executeUpdate();
+
+            con.commit();
+        } catch (SQLException ex) {
+            log.error(Constants.ERRDELETEVARIOUS + ex.getMessage());
+            con.rollback();
+        }
+    }
+
     public int findIdFromUsername(String username) {
-        try (Connection con = db.getConnection();
-             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_CUSTOMER_ID_FROM_USERNAME_QUERY)) {
+        try (Connection con = db.getConnection(); PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_CUSTOMER_ID_FROM_USERNAME_QUERY)) {
             preparedStatement.setString(1, username);
             ResultSet rs = preparedStatement.executeQuery();
             rs.next();
-            return rs.getInt("customer_id");
+            return rs.getInt(Constants.CUSID);
         } catch (SQLException ex) {
             log.error(ex.getMessage());
             return -1;

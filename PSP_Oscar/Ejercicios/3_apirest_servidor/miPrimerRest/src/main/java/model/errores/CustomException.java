@@ -11,6 +11,6 @@ public class CustomException extends RuntimeException {
     this.codigo = codigo;
   }
 
-  private Response.Status codigo;
+  private final Response.Status codigo;
 
 }
