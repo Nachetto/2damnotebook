@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  web:
+    image: odoo:latest
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - /C/Users/Usuario/Documents/GitHub/2damnotebook/SGE_Dani/odoo/files/odooodoo-web-data:/var/lib/odoo
+      - /C/Users/Usuario/Documents/GitHub/2damnotebook/SGE_Dani/odoo/files/config:/etc/odoo
+      - /C/Users/Usuario/Documents/GitHub/2damnotebook/SGE_Dani/odoo/files/addons:/mnt/extra-addons
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
