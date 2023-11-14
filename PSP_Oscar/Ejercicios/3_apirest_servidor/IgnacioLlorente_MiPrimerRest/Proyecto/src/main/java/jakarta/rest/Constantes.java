@@ -3,7 +3,6 @@ package jakarta.rest;
 public class Constantes {
     public static final String BORRADO = "Borrado Correctamente";
     public static final String USERNOTFOUND = "No se ha encontrado el usuario";
-    public static final String NOTANINT = "ID must be an integer";
     public static final String USERADDED = "Usuario añadido correctamente, sus datos son los siguientes: \n";
     public static final String ORDERADDED = "Pedido añadido correctamente, sus datos son los siguientes: \n";
     public static final String ORDERSPARAM = "/orders";
@@ -12,6 +11,9 @@ public class Constantes {
     public static final String ID_HASANYORDERSPARAM = "/{id}/hasanyorders";
     public static final String ERRORADDINGORDER = "Error al añadir el pedido, puede que el pedido ya exista";
     public static final String ORDERNOTFOUND = "No se ha encontrado el pedido";
+    public static final String GETLASTORDERIDPARAM = "/getlastorderid";
+    public static final String CUSTOMERSPARAM = "/customers";
+    public static final String EL_NUMERO = "El id del ultimo pedido es el numero ";
 
     private Constantes() {}
     public static final String ID = "id";

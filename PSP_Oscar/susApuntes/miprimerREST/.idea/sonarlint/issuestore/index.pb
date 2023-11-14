@@ -27,3 +27,5 @@ j
 :src/main/java/jakarta/errores/NotFoundExceptionMapper.java,b\9\b9dfae07575a2013c0435589619c2e1d22edb120
 [
 +src/main/java/jakarta/errores/ApiError.java,1\c\1cc2abdf11332d170c3256ae7b57a8d601f0dd73
+\
+,src/main/java/jakarta/rest/RestUsuarios.java,4\e\4eecfec4041d6f629530e09b50e9a47027a366c1

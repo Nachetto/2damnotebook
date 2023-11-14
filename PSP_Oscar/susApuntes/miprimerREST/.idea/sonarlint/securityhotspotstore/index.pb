@@ -19,3 +19,5 @@ p
 @src/main/java/jakarta/errores/BaseDatosCaidaExceptionMapper.java,1\1\111eb54e948d78ad913f59bf3e1f39c3997bb761
 [
 +src/main/java/jakarta/errores/ApiError.java,1\c\1cc2abdf11332d170c3256ae7b57a8d601f0dd73
+\
+,src/main/java/jakarta/rest/RestUsuarios.java,4\e\4eecfec4041d6f629530e09b50e9a47027a366c1

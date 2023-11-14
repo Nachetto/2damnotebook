@@ -30,15 +30,15 @@ public class DBConnectionPool {
 
     private DataSource getHikariPool() {
         HikariConfig hikariConfig = new HikariConfig();
-        hikariConfig.setJdbcUrl(config.getProperty(SQLConstants.URL));
-        hikariConfig.setUsername(config.getProperty(SQLConstants.USERNAME));
-        hikariConfig.setPassword(config.getProperty(SQLConstants.PASSWORD));
-        hikariConfig.setDriverClassName(config.getProperty(SQLConstants.DRIVER_CLASS_NAME));
+        hikariConfig.setJdbcUrl(config.getProperty(ConstantesDao.URL));
+        hikariConfig.setUsername(config.getProperty(ConstantesDao.USERNAME));
+        hikariConfig.setPassword(config.getProperty(ConstantesDao.PASSWORD));
+        hikariConfig.setDriverClassName(config.getProperty(ConstantesDao.DRIVER_CLASS_NAME));
         hikariConfig.setMaximumPoolSize(4);
 
-        hikariConfig.addDataSourceProperty(SQLConstants.CACHE, true);
-        hikariConfig.addDataSourceProperty(SQLConstants.CACHESIZE, 250);
-        hikariConfig.addDataSourceProperty(SQLConstants.CACHELIMIT, 2048);
+        hikariConfig.addDataSourceProperty(ConstantesDao.CACHE, true);
+        hikariConfig.addDataSourceProperty(ConstantesDao.CACHESIZE, 250);
+        hikariConfig.addDataSourceProperty(ConstantesDao.CACHELIMIT, 2048);
 
         return new HikariDataSource(hikariConfig);
     }
