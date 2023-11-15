@@ -8,12 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="javafx11_multipantalla" />
+        <module name="Parte5Spring" />
         <module name="untitled" />
-        <module name="NewspaperFX" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="data" target="19" />
+      <module name="NewspaperFX" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>

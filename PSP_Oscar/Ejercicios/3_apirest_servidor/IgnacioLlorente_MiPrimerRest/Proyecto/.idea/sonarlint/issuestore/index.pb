@@ -48,10 +48,6 @@ u
 Esrc/main/java/jakarta/rest/errores/BaseDatosCaidaExceptionMapper.java,1\b\1b30b7fcd88dd1ac35df472f968aefa05d6283fa
 h
 8src/main/java/model/errores/BaseDatosCaidaException.java,d\8\d830802336d93e4b25460dea9efce3b78c2120b3
-m
-=src/main/java/jakarta/rest/errores/CustomExceptionMapper.java,2\d\2d0027d84107ea4f8b0ab63d0ca68b02c312b71d
-`
-0src/main/java/model/errores/CustomException.java,e\4\e433d5e6eb4e1b6558b9eefa7376b1056ab6ff5a
 o
 ?src/main/java/jakarta/rest/errores/NotFoundExceptionMapper.java,9\a\9a668df89de6200cc8268a04241e49a0f2fc2054
 k

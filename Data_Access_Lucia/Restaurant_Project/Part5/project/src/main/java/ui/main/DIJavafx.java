@@ -26,5 +26,7 @@ public class DIJavafx extends Application {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
+
     }
 }

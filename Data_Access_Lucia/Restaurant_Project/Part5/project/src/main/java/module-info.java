@@ -10,6 +10,11 @@ module javafx.multipantalla {
     requires jakarta.xml.bind;
     requires java.sql;
     requires jakarta.jakartaee.api;
+    requires spring.jdbc;
+    requires spring.tx;
+    requires com.zaxxer.hikari;
+    requires jakarta.annotation;
+    requires commons.dbcp2;
 
     exports dao.common;
     exports ui.screens.customers.add;

@@ -23,28 +23,29 @@ public class AddController extends BaseScreenController {
     @FXML
     private ComboBox<Integer> dropdown1;
     @FXML
-    private ComboBox<OrderItem> dropdown3;
-    @FXML
     private TableView<OrderItem> orderitemlist;
     @FXML
-    private TableColumn<OrderItem, Integer> order_item_id;
+    private TableColumn<OrderItem, Integer> orderItemId;
     @FXML
-    private TableColumn<OrderItem, Integer> order_id;
+    private TableColumn<OrderItem, Integer> orderId;
     @FXML
-    private TableColumn<OrderItem, Integer> menu_item_id;
+    private TableColumn<OrderItem, Integer> menuItemId;
     @FXML
     private TableColumn<OrderItem, Integer> quantity;
+    private final CustomerService service1;
+    private final OrderItemService service2;
+    private final OrderService service3;
     @Inject
-    private CustomerService service1;
-    @Inject
-    private OrderItemService service2;
-    @Inject
-    private OrderService service3;
+    public AddController(CustomerService service1, OrderItemService service2, OrderService service3) {
+        this.service1 = service1;
+        this.service2 = service2;
+        this.service3 = service3;
+    }
 
     public void initialize() {
-        order_item_id.setCellValueFactory(new PropertyValueFactory<>("order_item_id"));
-        order_id.setCellValueFactory(new PropertyValueFactory<>("order_id"));
-        menu_item_id.setCellValueFactory(new PropertyValueFactory<>("menu_item_id"));
+        orderItemId.setCellValueFactory(new PropertyValueFactory<>("order_item_id"));
+        orderId.setCellValueFactory(new PropertyValueFactory<>("order_id"));
+        menuItemId.setCellValueFactory(new PropertyValueFactory<>("menu_item_id"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
         quantities.setValueFactory(valueFactory);
@@ -56,9 +57,11 @@ public class AddController extends BaseScreenController {
     }
 
     public void addOrder() {
-        switch (service3.save(new Order(service3.getLastOrderId() + 1,Integer.parseInt(tableid.getText()), dropdown1.getValue(), LocalDateTime.now()))) {
-            case -1 -> getPrincipalController().showAlertError(Constants.CUSTOMERNOTADDED);
-            case 1 -> getPrincipalController().showAlertInfo(Constants.ORDERADDED);
+        int save = service3.save(new Order(service3.getLastOrderId() + 1, Integer.parseInt(tableid.getText()), dropdown1.getValue(), LocalDateTime.now()));
+        if (save == -1) {
+            getPrincipalController().showAlertError(Constants.CUSTOMERNOTADDED);
+        } else if (save == 1) {
+            getPrincipalController().showAlertInfo(Constants.ORDERADDED);
         }
     }
 

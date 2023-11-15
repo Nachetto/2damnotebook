@@ -25,7 +25,10 @@ public class SQLConstants {
     public static final String SELECT_MENU_ITEM_QUERY = "SELECT * FROM menu_items WHERE menu_item_id = ?";
     public static final String SELECT_MENU_ITEMS_QUERY = "SELECT * FROM menu_items";
 
-    public static final String SELECT_CUSTOMER_ID_FROM_USERNAME_QUERY = "SELECT customer_id FROM credentials WHERE user_name = ?";
+    public static final String SELECT_CUSTOMER_ID_FROM_USERNAME_QUERY = "SELECT customer_id FROM credentials WHERE username = ?";
     public static final String SELECT_CREDS_FROM_CUSTOMER_QUERY = "SELECT * FROM credentials WHERE customer_id = ?";
-    public static final String ADD_CREDENTIALS_QUERY =  "INSERT INTO credentials (customer_id, user_name, password) VALUES (?, ?, ?)";
+    public static final String ADD_CREDENTIALS_QUERY =  "INSERT INTO credentials (customer_id, username, password) VALUES (?, ?, ?)";
+    public static final String SELECT_CREDENTIALS_BY_CUSTOMER_ID = "SELECT user_name, password FROM credentials WHERE customer_id = ?";
+
+
 }

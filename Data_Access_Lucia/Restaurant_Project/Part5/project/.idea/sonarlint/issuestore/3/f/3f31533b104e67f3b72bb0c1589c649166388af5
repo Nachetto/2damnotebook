@@ -1,0 +1,10 @@
+
+r	java:S116)"XRename this field "order_item_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡¨Áàúÿÿÿÿ
+m	java:S116+"SRename this field "order_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šèÛÈúÿÿÿÿ
+q	java:S116-"WRename this field "menu_item_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™ÝÒÍüÿÿÿÿ
+]
+java:S68130"BRemove this field injection and use constructor injection instead.(Áº–Žüÿÿÿÿ
+]
+java:S68132"BRemove this field injection and use constructor injection instead.(Áº–Žüÿÿÿÿ
+]
+java:S68134"BRemove this field injection and use constructor injection instead.(Áº–Žüÿÿÿÿ

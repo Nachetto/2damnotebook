@@ -9,11 +9,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="javafx11_multipantalla" />
         <module name="untitled" />
-        <module name="NewspaperFX" />
+        <module name="Parte4JDBC" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="data" target="19" />
+      <module name="NewspaperFX" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>
