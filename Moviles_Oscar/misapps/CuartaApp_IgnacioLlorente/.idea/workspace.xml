@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cbfb87c6-91a1-46ba-8f5b-eef5c9cdd7c4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/sonarlint/issuestore/7/4/749edfcc96398253e5b3416184e95c46621da850" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/sonarlint/issuestore/d/2/d2a4383452aad84a18429a5844d31330a012a9e6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/sonarlint/issuestore/d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/sonarlint/securityhotspotstore/7/4/749edfcc96398253e5b3416184e95c46621da850" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/sonarlint/securityhotspotstore/d/2/d2a4383452aad84a18429a5844d31330a012a9e6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/sonarlint/securityhotspotstore/d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/3/b/3b7e995165913d075b9cf4501168d8c4ac7ac7e6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/7/4/74f4751bfc4eabe5885a306cb3e6c7f3f9288557" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/7/e/7edc5b07782b51c6064cdc7e20f8a1896af1508a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/9/e/9ef0bc418b5c0288de5f5249c7c2ca86cd2a7253" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/c/2/c25c74d2c07f790048cc7d2c5169aff9e9826d35" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/3/b/3b7e995165913d075b9cf4501168d8c4ac7ac7e6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/4/7/4797f1f94e5c9ae0098110269be539157ae5f3a4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/5/a/5af3de9197f02eee3c1a512e5991a5719d4fcccb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/7/4/74f4751bfc4eabe5885a306cb3e6c7f3f9288557" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/7/e/7edc5b07782b51c6064cdc7e20f8a1896af1508a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/9/e/9ef0bc418b5c0288de5f5249c7c2ca86cd2a7253" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/c/2/c25c74d2c07f790048cc7d2c5169aff9e9826d35" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/f/0/f07866736216be0ee2aba49e392191aeae700a35" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/1/d/1d7ebc25ed4fa9c6830db1000c742b2d649295c7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/8/b/8b1a2463e73c0a4537b316837fa76e12ddadf2d9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/b/b/bb5eaa01c04703938a873c622e03f7306940e4d0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/1/d/1d7ebc25ed4fa9c6830db1000c742b2d649295c7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/8/b/8b1a2463e73c0a4537b316837fa76e12ddadf2d9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/b/b/bb5eaa01c04703938a873c622e03f7306940e4d0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/4/7/4797f1f94e5c9ae0098110269be539157ae5f3a4" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/4/7/4797f1f94e5c9ae0098110269be539157ae5f3a4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/5/a/5af3de9197f02eee3c1a512e5991a5719d4fcccb" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/5/a/5af3de9197f02eee3c1a512e5991a5719d4fcccb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/gradlew" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="ProjectId" id="2YMaBTUTa7iVjtwS8e6iVDmha91" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cbfb87c6-91a1-46ba-8f5b-eef5c9cdd7c4" name="Changes" comment="" />
+      <created>1700337767177</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700337767177</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

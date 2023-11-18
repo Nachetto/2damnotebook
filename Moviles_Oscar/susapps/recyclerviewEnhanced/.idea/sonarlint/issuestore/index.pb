@@ -32,3 +32,15 @@ Rapp/src/main/java/com/example/recyclerviewenhanced/framework/main/MainViewModel
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+„
+Tapp/src/main/java/com/example/recyclerviewenhanced/data/sources/remote/DogService.kt,7\4\74f4751bfc4eabe5885a306cb3e6c7f3f9288557
+w
+Gapp/src/main/java/com/example/recyclerviewenhanced/framework/HiltApp.kt,c\2\c25c74d2c07f790048cc7d2c5169aff9e9826d35
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+
+Qapp/src/main/java/com/example/recyclerviewenhanced/framework/main/MainActivity.kt,3\b\3b7e995165913d075b9cf4501168d8c4ac7ac7e6
+ƒ
+Sapp/src/main/java/com/example/recyclerviewenhanced/framework/main/PersonaAdapter.kt,7\e\7edc5b07782b51c6064cdc7e20f8a1896af1508a
+z
+Japp/src/main/java/com/example/recyclerviewenhanced/utils/NetworkResultt.kt,9\e\9ef0bc418b5c0288de5f5249c7c2ca86cd2a7253

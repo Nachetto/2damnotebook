@@ -5,36 +5,111 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54da0fb1-f80d-46d1-bd35-f78dc689f6c7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/ratones.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../alan/movilesPracticas/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../alan/movilesPracticas/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../alan/movilesPracticas/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../alan/movilesPracticas/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/4/749edfcc96398253e5b3416184e95c46621da850" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/2/d2a4383452aad84a18429a5844d31330a012a9e6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/4/749edfcc96398253e5b3416184e95c46621da850" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/2/d2a4383452aad84a18429a5844d31330a012a9e6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/3/b/3b7e995165913d075b9cf4501168d8c4ac7ac7e6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/7/4/74f4751bfc4eabe5885a306cb3e6c7f3f9288557" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/7/e/7edc5b07782b51c6064cdc7e20f8a1896af1508a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/9/e/9ef0bc418b5c0288de5f5249c7c2ca86cd2a7253" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/c/2/c25c74d2c07f790048cc7d2c5169aff9e9826d35" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/3/b/3b7e995165913d075b9cf4501168d8c4ac7ac7e6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/4/7/4797f1f94e5c9ae0098110269be539157ae5f3a4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/5/a/5af3de9197f02eee3c1a512e5991a5719d4fcccb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/7/4/74f4751bfc4eabe5885a306cb3e6c7f3f9288557" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/7/e/7edc5b07782b51c6064cdc7e20f8a1896af1508a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/9/e/9ef0bc418b5c0288de5f5249c7c2ca86cd2a7253" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/c/2/c25c74d2c07f790048cc7d2c5169aff9e9826d35" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/f/0/f07866736216be0ee2aba49e392191aeae700a35" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/1/d/1d7ebc25ed4fa9c6830db1000c742b2d649295c7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/8/b/8b1a2463e73c0a4537b316837fa76e12ddadf2d9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/b/b/bb5eaa01c04703938a873c622e03f7306940e4d0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/1/d/1d7ebc25ed4fa9c6830db1000c742b2d649295c7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/8/b/8b1a2463e73c0a4537b316837fa76e12ddadf2d9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/b/b/bb5eaa01c04703938a873c622e03f7306940e4d0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/Repository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data/Repository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/domain/modelo/Raton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/domain/modelo/Raton.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/domain/usecases/ratones/GetAllRatonesUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/domain/usecases/ratones/GetAllRatonesUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaMain/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaMain/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaMain/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaMain/MainViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaRaton/RatonActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaRaton/RatonActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaRaton/RatonViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaRaton/RatonViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/thymeleaf/miprimerPayara/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PSP · Óscar/thymeleaf/miprimerPayara/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../PSP · Óscar/thymeleaf/miprimerPayara/src/main/java/servlets/MiPrimerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PSP · Óscar/thymeleaf/miprimerPayara/src/main/java/servlets/MiPrimerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/4/7/4797f1f94e5c9ae0098110269be539157ae5f3a4" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/4/7/4797f1f94e5c9ae0098110269be539157ae5f3a4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/5/a/5af3de9197f02eee3c1a512e5991a5719d4fcccb" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/5/a/5af3de9197f02eee3c1a512e5991a5719d4fcccb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/gradlew" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Nachetto\.android\avd\Alfonso_7_Pro.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="My Application" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="My Application" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="My Application" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="My Application" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -48,9 +123,17 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true"
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "C:/Users/Usuario/Documents/GitHub/2damnotebook/Moviles_Oscar/misapps/TerceraApp_IgnacioLlorente",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.general"
   }
 }]]></component>
+  <component name="PsdUISettings">
+    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
+  </component>
   <component name="RunManager">
     <configuration name="Toma Mango" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="My_Application.app.main" />
