@@ -42,8 +42,10 @@ public class ConstantesDao {
     public static final String CHECK_ORDER_EXISTENCE_QUERY = "SELECT COUNT(*) as order_count FROM orders WHERE order_id = ?";
     public static final String CHECK_CUSTOMER_EXISTENCE_QUERY = "SELECT COUNT(*) as customer_count FROM customers WHERE id = ?";
     public static final String SELECT_CUSTOMERS_QUERY = "SELECT * FROM customers";
+
     public static final String DELETE_ORDERS_BY_CUSTOMER_QUERY = "DELETE FROM orders WHERE customer_id = ?";
     public static final String DELETE_ORDER_ITEMS_BY_CUSTOMER_QUERY = "DELETE FROM order_items WHERE order_id IN (SELECT order_id FROM orders WHERE customer_id = ?)";
+
     public static final String DELETE_CUSTOMER_QUERY = "DELETE FROM customers WHERE id = ?";
     public static final String CHECK_ORDERS_BY_CUSTOMER_QUERY = "SELECT COUNT(*) as order_count FROM orders WHERE customer_id = ?";
     public static final String SELECT_ORDERS_QUERY = "SELECT * FROM orders";

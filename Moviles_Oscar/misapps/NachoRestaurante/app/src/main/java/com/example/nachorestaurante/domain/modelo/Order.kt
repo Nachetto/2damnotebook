@@ -2,13 +2,9 @@ package com.example.nachorestaurante.domain.modelo
 
 import java.time.LocalDate
 
-
-
-
-class Order {
-    private val id = 0
-    private val customerId = 0
-    private val orderDate: LocalDate? = null
-    private val tableId = 0
-
-}
+data class Order (
+    val id: Int,
+    val customerId: Int,
+    val orderDate: LocalDate,
+    val tableId: Int
+)

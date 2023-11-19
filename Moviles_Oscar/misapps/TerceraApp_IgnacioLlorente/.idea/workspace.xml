@@ -1,72 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54da0fb1-f80d-46d1-bd35-f78dc689f6c7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/4/749edfcc96398253e5b3416184e95c46621da850" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/2/d2a4383452aad84a18429a5844d31330a012a9e6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/4/749edfcc96398253e5b3416184e95c46621da850" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/2/d2a4383452aad84a18429a5844d31330a012a9e6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/3/b/3b7e995165913d075b9cf4501168d8c4ac7ac7e6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/7/4/74f4751bfc4eabe5885a306cb3e6c7f3f9288557" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/7/e/7edc5b07782b51c6064cdc7e20f8a1896af1508a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/9/e/9ef0bc418b5c0288de5f5249c7c2ca86cd2a7253" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/c/2/c25c74d2c07f790048cc7d2c5169aff9e9826d35" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/3/b/3b7e995165913d075b9cf4501168d8c4ac7ac7e6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/4/7/4797f1f94e5c9ae0098110269be539157ae5f3a4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/5/a/5af3de9197f02eee3c1a512e5991a5719d4fcccb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/7/4/74f4751bfc4eabe5885a306cb3e6c7f3f9288557" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/7/e/7edc5b07782b51c6064cdc7e20f8a1896af1508a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/9/e/9ef0bc418b5c0288de5f5249c7c2ca86cd2a7253" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/c/2/c25c74d2c07f790048cc7d2c5169aff9e9826d35" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/f/0/f07866736216be0ee2aba49e392191aeae700a35" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/1/d/1d7ebc25ed4fa9c6830db1000c742b2d649295c7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/8/b/8b1a2463e73c0a4537b316837fa76e12ddadf2d9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/b/b/bb5eaa01c04703938a873c622e03f7306940e4d0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/1/d/1d7ebc25ed4fa9c6830db1000c742b2d649295c7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/8/b/8b1a2463e73c0a4537b316837fa76e12ddadf2d9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/b/b/bb5eaa01c04703938a873c622e03f7306940e4d0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Desarrollo_de_ interfaces_Mario/Programando/2_CreandoComponentes/FechasNachoVictor/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TerceraApp_IgnacioLlorente.zip" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/data/model/OrderResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/data/repositorios/OrderRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/domain/usecases/AddOrderUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/domain/usecases/DeleteCustomerUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/domain/usecases/DeleteOrderUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/domain/usecases/GetAllCustomersUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/domain/usecases/GetAllOrdersUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantalladetallada/DetailedActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantalladetallada/DetailedAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantalladetallada/DetailedEvent.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantalladetallada/DetailedState.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantalladetallada/DetailedViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/utils/NetworkResult.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/drawable/ic_baseline_favorite_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/drawable/ic_baseline_search_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/drawable/ic_close_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/layout/activity_detailed.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/layout/view_customer.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/menu/context_bar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/menu/menu_app_bar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/04250021949af1f20ae4775df5a591e83f711395" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/e/2e0eebb56728f05ec7d9b91ce470ff358ffa710c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/3/336dc172fdc0a7bf853ef183807146d1522f3682" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/3/33ad01bb6036777ccfdc174c5b86aba29bd3e8ef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/5/95ce57cc024f81fb42f385de9f67283f77c891e0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/7/c786a945a59229f421c993f474b21f8f9f4eff51" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/a/cae0f956ff19dba8fa21d4b1759c90cf3dd6ec34" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/4/04250021949af1f20ae4775df5a591e83f711395" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/e/2e0eebb56728f05ec7d9b91ce470ff358ffa710c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/3/336dc172fdc0a7bf853ef183807146d1522f3682" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/3/33ad01bb6036777ccfdc174c5b86aba29bd3e8ef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/5/95ce57cc024f81fb42f385de9f67283f77c891e0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/7/c786a945a59229f421c993f474b21f8f9f4eff51" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/a/cae0f956ff19dba8fa21d4b1759c90cf3dd6ec34" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/0/e/0e8dbd712e06b8ce971a0e038458212a1f25a3c3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/1/b/1b1a0c846a610f5975ed65adfed80520fe23c837" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/5/5/55d8a59b955261f84fed2a6c0b0cf242148bcd11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/8/2/822f2b09f5a68e560046f7423c4ae04a14d33f50" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/0/e/0e8dbd712e06b8ce971a0e038458212a1f25a3c3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/1/b/1b1a0c846a610f5975ed65adfed80520fe23c837" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/5/5/55d8a59b955261f84fed2a6c0b0cf242148bcd11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/8/2/822f2b09f5a68e560046f7423c4ae04a14d33f50" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/.idea/IgnacioLlorente_MiPrimerRest.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/0/b/0b0c3b6aff77c5bff618e59fb4b9d8a3a3e13c48" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/0/b/0b0c3b6aff77c5bff618e59fb4b9d8a3a3e13c48" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/2/8/285c7f7168671348b56f3fa27db1037f4d912e13" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/2/8/285c7f7168671348b56f3fa27db1037f4d912e13" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/2/f/2f1112319de9ea04ea76aeb84a899a1b32fdb5a5" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/2/f/2f1112319de9ea04ea76aeb84a899a1b32fdb5a5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/a/b/ab86ddf1217a9b280dc227f822865570e302851d" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/a/b/ab86ddf1217a9b280dc227f822865570e302851d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/data/model/CustomerResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/data/model/CustomerResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/data/sources/CustomerRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/data/repositorios/CustomerRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/data/sources/OrderRepository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/data/sources/di/NetworkModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/data/sources/di/NetworkModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/data/sources/service/CustomerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/data/sources/service/CustomerService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/data/sources/service/OrderService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/data/sources/service/OrderService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/domain/modelo/Customer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/domain/modelo/Customer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/domain/modelo/Order.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/domain/modelo/Order.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/CustomerApp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/NachoApp.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantallamain/CustomerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantallamain/CustomerAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantallamain/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantallamain/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantallamain/MainEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantallamain/MainEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantallamain/MainState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantallamain/MainState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantallamain/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantallamain/MainViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantallamain/SwipeGesture.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/framework/pantallamain/SwipeGesture.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/utils/NetworkResultt.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/4/7/4797f1f94e5c9ae0098110269be539157ae5f3a4" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/4/7/4797f1f94e5c9ae0098110269be539157ae5f3a4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/5/a/5af3de9197f02eee3c1a512e5991a5719d4fcccb" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/5/a/5af3de9197f02eee3c1a512e5991a5719d4fcccb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaMain/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ui/pantallaMain/MainViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/7/e/7edc5b07782b51c6064cdc7e20f8a1896af1508a" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/7/e/7edc5b07782b51c6064cdc7e20f8a1896af1508a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/framework/main/PersonaAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../susapps/recyclerviewEnhanced/app/src/main/java/com/example/recyclerviewenhanced/framework/main/PersonaAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/Proyecto/.idea/sonarlint/issuestore/c/2/c286d51b1b3be6ca0f3a3b2f00f51d3152e2814b" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/Proyecto/.idea/sonarlint/issuestore/c/2/c286d51b1b3be6ca0f3a3b2f00f51d3152e2814b" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/Proyecto/src/main/java/dao/common/ConstantesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/Proyecto/src/main/java/dao/common/ConstantesDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/Proyecto/src/main/java/dao/impl/CustomerDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/Proyecto/src/main/java/dao/impl/CustomerDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/Proyecto/src/main/webapp/WEB-INF/beans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/Proyecto/src/main/webapp/WEB-INF/beans.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[617ed0fc]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -118,19 +157,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "C:/Users/Usuario/Documents/GitHub/2damnotebook/Moviles_Oscar/misapps/TerceraApp_IgnacioLlorente",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.general"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Documents/GitHub/2damnotebook/Moviles_Oscar/misapps/TerceraApp_IgnacioLlorente&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
   }
-}]]></component>
+}</component>
   <component name="PsdUISettings">
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>

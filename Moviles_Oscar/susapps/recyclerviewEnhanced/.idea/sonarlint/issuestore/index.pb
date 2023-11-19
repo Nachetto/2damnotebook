@@ -44,3 +44,11 @@ Qapp/src/main/java/com/example/recyclerviewenhanced/framework/main/MainActivity.
 Sapp/src/main/java/com/example/recyclerviewenhanced/framework/main/PersonaAdapter.kt,7\e\7edc5b07782b51c6064cdc7e20f8a1896af1508a
 z
 Japp/src/main/java/com/example/recyclerviewenhanced/utils/NetworkResultt.kt,9\e\9ef0bc418b5c0288de5f5249c7c2ca86cd2a7253
+|
+Lapp/src/main/java/com/example/recyclerviewenhanced/data/model/DogResponse.kt,0\e\0e8dbd712e06b8ce971a0e038458212a1f25a3c3
+€
+Papp/src/main/java/com/example/recyclerviewenhanced/data/model/BaseApiResponse.kt,8\2\822f2b09f5a68e560046f7423c4ae04a14d33f50
+Š
+Zapp/src/main/java/com/example/recyclerviewenhanced/data/sources/remote/di/NetworkModule.kt,5\5\55d8a59b955261f84fed2a6c0b0cf242148bcd11
+…
+Uapp/src/main/java/com/example/recyclerviewenhanced/data/repositories/DogRepository.kt,1\b\1b1a0c846a610f5975ed65adfed80520fe23c837

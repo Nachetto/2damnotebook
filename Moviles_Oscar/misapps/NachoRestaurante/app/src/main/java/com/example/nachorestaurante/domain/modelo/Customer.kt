@@ -2,12 +2,12 @@ package com.example.nachorestaurante.domain.modelo
 
 import java.time.LocalDate
 
-data class Customer (
-val id: Int,
-var name: String,
-val lastName: String,
-val email: String,
-val phone: String,
-val dob: String,
-    var isSelected : Boolean = false,
+data class Customer(
+    val id: Int,
+    val name: String,
+    val surname: String,
+    val email: String,
+    val phone: Int,
+    val birthdate: LocalDate,
+    var isSelected: Boolean = false,
 )

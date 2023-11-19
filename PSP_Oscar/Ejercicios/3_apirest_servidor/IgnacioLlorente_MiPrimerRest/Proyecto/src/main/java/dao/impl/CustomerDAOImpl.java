@@ -159,12 +159,23 @@ public class CustomerDAOImpl implements CustomerDAO {
                 throw new NotFoundException(ConstantesDao.CLIENTE_NO_ENCONTRADO_CON_ID + c.getId());
             }
             borrarOrderyOrderItems(c, con);
-            return borrarCustomer(c, con);
+            try (PreparedStatement deleteCredentials = con.prepareStatement(ConstantesDao.DELETE_CREDENTIALS_QUERY);
+                 PreparedStatement deleteCustomer = con.prepareStatement(ConstantesDao.DELETE_CUSTOMER_QUERY)) {
+
+                deleteCredentials.setInt(1, c.getId());
+                deleteCustomer.setInt(1, c.getId());
+                deleteCredentials.executeUpdate();
+                deleteCustomer.executeUpdate();
+                return 1;
+
+            } catch (SQLException ex) {
+                con.rollback();
+                throw ex;
+            }
         } catch (SQLException ex) {
             throw new OtraException(ConstantesDao.ERROR_AL_ELIMINAR_EL_CLIENTE + ex.getMessage());
         }
     }
-
     private void borrarOrderyOrderItems(Customer c, Connection con) throws SQLException {
         try (PreparedStatement deleteOrderItems = con.prepareStatement(ConstantesDao.DELETE_ORDER_ITEMS_BY_CUSTOMER_QUERY);
              PreparedStatement deleteOrders = con.prepareStatement(ConstantesDao.DELETE_ORDERS_BY_CUSTOMER_QUERY)) {
@@ -182,18 +193,5 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
     }
 
-    private int borrarCustomer(Customer c, Connection con) throws SQLException {
-        try (PreparedStatement deleteCustomer = con.prepareStatement(ConstantesDao.DELETE_CUSTOMER_QUERY);
-             PreparedStatement deleteCredentials = con.prepareStatement(ConstantesDao.DELETE_CREDENTIALS_QUERY)) {
-            deleteCredentials.setInt(1, c.getId());
-            deleteCustomer.setInt(1, c.getId());
-            deleteCredentials.executeUpdate();
-            deleteCustomer.executeUpdate();
-            return 1;
-        } catch (SQLException ex) {
-            con.rollback();
-            throw ex;
-        }
-    }
 
 }

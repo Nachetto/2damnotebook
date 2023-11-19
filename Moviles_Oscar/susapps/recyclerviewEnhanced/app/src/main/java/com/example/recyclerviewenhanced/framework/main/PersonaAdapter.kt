@@ -27,8 +27,6 @@ class PersonaAdapter(
         fun onStartSelectMode()
         fun itemHasClicked(persona:Persona)
         fun isItemSelected(persona:Persona) : Boolean
-
-
     }
 
     private var selectedItem = mutableListOf<Persona>()

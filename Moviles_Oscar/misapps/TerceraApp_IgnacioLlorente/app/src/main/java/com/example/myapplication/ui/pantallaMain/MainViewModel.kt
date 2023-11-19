@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.domain.usecases.ratones.GetAllRatonesUseCase
 
 class MainViewModel(
-
     private val getAllRatonesUseCase: GetAllRatonesUseCase
 ) : ViewModel() {
     private val _uiState = MutableLiveData<MainState>()

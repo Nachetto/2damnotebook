@@ -5,3 +5,19 @@ D
 app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
 @
 build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d
+†
+Vapp/src/main/java/com/example/myapplication/domain/usecases/ratones/AddRatonUseCase.kt,c\a\cae0f956ff19dba8fa21d4b1759c90cf3dd6ec34
+n
+>app/src/main/java/com/example/myapplication/data/Repository.kt,3\3\33ad01bb6036777ccfdc174c5b86aba29bd3e8ef
+x
+Happ/src/main/java/com/example/myapplication/ui/pantallaMain/MainState.kt,2\e\2e0eebb56728f05ec7d9b91ce470ff358ffa710c
+{
+Kapp/src/main/java/com/example/myapplication/ui/pantallaMain/MainActivity.kt,3\3\336dc172fdc0a7bf853ef183807146d1522f3682
+|
+Lapp/src/main/java/com/example/myapplication/ui/pantallaMain/MainViewModel.kt,9\5\95ce57cc024f81fb42f385de9f67283f77c891e0
+‹
+[app/src/main/java/com/example/myapplication/domain/usecases/ratones/GetAllRatonesUseCase.kt,c\7\c786a945a59229f421c993f474b21f8f9f4eff51
+}
+Mapp/src/main/java/com/example/myapplication/ui/pantallaRaton/RatonActivity.kt,0\4\04250021949af1f20ae4775df5a591e83f711395
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
