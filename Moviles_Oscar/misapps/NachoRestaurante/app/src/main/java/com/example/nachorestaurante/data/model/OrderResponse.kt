@@ -6,16 +6,16 @@ import java.time.LocalDate
 
 //recibe los datos de la api  y los convierte en un objeto de tipo Order
 data class OrderResponse(
-    @SerializedName("customerid")
+    @SerializedName("customerId")
     val customerId: Int,
 
-    @SerializedName("orderdate")
+    @SerializedName("orderDate")
     val orderDate: String,
 
-    @SerializedName("orderid")
+    @SerializedName("id")
     val orderId: Int,
 
-    @SerializedName("tableid")
+    @SerializedName("tableId")
     val tableId: Int
 )
 fun OrderResponse.toOrder(): Order {

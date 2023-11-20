@@ -8,7 +8,7 @@ import javax.inject.Inject
 class GetAllOrdersUseCase @Inject constructor(
     private val orderRepository: OrderRepository
 ) {
-    suspend operator fun invoke() :NetworkResult<List<Order>>{
-        return orderRepository.getOrders()
+    suspend operator fun invoke(customerid:Int) :List<Order>{
+        return orderRepository.filterOrders(customerid)
     }
 }

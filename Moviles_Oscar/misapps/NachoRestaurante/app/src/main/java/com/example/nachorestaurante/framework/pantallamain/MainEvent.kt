@@ -8,7 +8,6 @@ sealed class MainEvent {
     class DeletePersona(val persona:Customer) : MainEvent()
     class SeleccionaPersona(val persona: Customer) : MainEvent()
     class GetPersonaFiltradas(val filtro: String) : MainEvent()
-    class StartDetailedMode(val persona: Customer) : MainEvent()
     object GetPersonas : MainEvent()
     object StartSelectMode: MainEvent()
     object ResetSelectMode: MainEvent()

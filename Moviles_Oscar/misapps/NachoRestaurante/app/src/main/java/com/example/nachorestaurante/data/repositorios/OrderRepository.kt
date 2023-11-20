@@ -7,7 +7,7 @@ import com.example.nachorestaurante.utils.NetworkResult
 import java.io.InputStream
 import javax.inject.Inject
 
-class OrderRepository  @Inject constructor(private val orderService: OrderService){
+class OrderRepository @Inject constructor(private val orderService: OrderService) {
     //lo llama el usecase, el cual lo llama el viewmodel, esto llama a la interfaz que hace un Response
 
     //metodo para sacar todos los orders
@@ -37,5 +37,14 @@ class OrderRepository  @Inject constructor(private val orderService: OrderServic
             l = it
         }
         return NetworkResult.Success(l)
+    }
+
+    //metodo para filtrar todos los orders de un customerid especifico
+    suspend fun filterOrders(customerid: Int): List<Order> {
+        var l: List<Order> = getOrders().data ?: emptyList()
+        l = l.filter { order ->
+            order.customerId == customerid
+        }
+        return l
     }
 }

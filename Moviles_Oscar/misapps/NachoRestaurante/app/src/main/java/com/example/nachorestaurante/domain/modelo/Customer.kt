@@ -1,7 +1,6 @@
 package com.example.nachorestaurante.domain.modelo
 
 import java.time.LocalDate
-
 data class Customer(
     val id: Int,
     val name: String,

@@ -14,16 +14,18 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import com.example.hiltmenu.ui.main.PersonaAdapter
 import com.example.recyclerviewenhanced.R
 import com.example.recyclerviewenhanced.databinding.ActivityMainBinding
-import com.example.recyclerviewenhanced.domain.Cosa
 import com.example.recyclerviewenhanced.domain.Persona
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private var primeraVez : Boolean = false
+
+    private var anteriorState: MainState? = null
 
     private lateinit var personasAdapter: PersonaAdapter
 
@@ -35,33 +37,29 @@ class MainActivity : AppCompatActivity() {
         configContextBar()
     }
 
-    private lateinit var actionMode: ActionMode
+    private var actionMode: ActionMode? = null
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        primeraVez = true
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         personasAdapter = PersonaAdapter(this,
             object : PersonaAdapter.PersonaActions {
-                override fun onDelete(persona: Persona) = viewModel.deletePersona(persona)
+                override fun onDelete(persona: Persona) = viewModel.handleEvent(MainEvent.DeletePersona(persona))
 
-                override fun onStartSelectMode() {
-                    startSupportActionMode(callback)?.let {
-                        actionMode = it;
-                        it.title = "1 selected"
-
-                    }
+                override fun onStartSelectMode(persona: Persona) {
+                    viewModel.handleEvent(MainEvent.StartSelectMode)
+                    viewModel.handleEvent(MainEvent.SeleccionaPersona(persona))
                 }
 
                 override fun itemHasClicked(persona: Persona) {
-                    actionMode.title =
-                        "${personasAdapter.getSelectedItems().size.toString()} selected"
-                    viewModel.seleccionaPersona(persona)
-                }
 
-                override fun isItemSelected(persona: Persona): Boolean = viewModel.isSelected(persona)
+                    viewModel.handleEvent(MainEvent.SeleccionaPersona(persona))
+                }
 
 
 
@@ -73,21 +71,46 @@ class MainActivity : AppCompatActivity() {
         touchHelper.attachToRecyclerView(binding.rvPersonas)
 
         binding.button.setOnClickListener {
-            val cosas = listOf(Cosa("cosa1", 22))
-            println(personasAdapter.getSelectedItems().toString())
+//            val cosas = listOf(Cosa("cosa1", 22))
+//            println(personasAdapter.getSelectedItems().toString())
 //            viewModel.insertPersonaWithCosas(Persona(0, "nombre", LocalDate.now(), cosas))
-            viewModel.getPersonas()
+            viewModel.handleEvent(MainEvent.GetPersonas)
         }
 
-        viewModel.personas.observe(this, { personas ->
+        viewModel.uiState.observe(this) { state ->
+            if (state.personas != anteriorState?.personas
+                && state.personas.isNotEmpty())
+                personasAdapter.submitList(state.personas)
 
-            personasAdapter.submitList(personas)
-        })
-        viewModel.error.observe(this, {
+            if (state.personasSeleccionadas != anteriorState?.personasSeleccionadas) {
+                personasAdapter.setSelectedItems(state.personasSeleccionadas)
+                actionMode?.title =
+                    "${state.personasSeleccionadas.size} selected"
+            }
 
-            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            if (state.selectMode != anteriorState?.selectMode) {
+                if (state.selectMode) {
+                    personasAdapter.startSelectMode()
+                    if (primeraVez) {
+                        startSupportActionMode(callback)?.let {
+                            actionMode = it;
+                        }
+                        primeraVez = false
+                    }
 
-        })
+                } else {
+                    personasAdapter.resetSelectMode()
+                    primeraVez = true
+                    actionMode?.finish()
+                }
+            }
+            state.error?.let {
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+                viewModel.handleEvent(MainEvent.ErrorVisto)
+            }
+
+            anteriorState = state
+        }
 
         val context = this
         lifecycleScope.launch {
@@ -97,7 +120,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        viewModel.getPersonas();
+        //viewModel.handleEvent(MainEvent.GetPersonas)
         configAppBar();
 
     }
@@ -126,7 +149,7 @@ class MainActivity : AppCompatActivity() {
                         true
                     }
                     R.id.more -> {
-                        viewModel.deletePersona(personasAdapter.getSelectedItems())
+                        viewModel.handleEvent(MainEvent.DeletePersonasSeleccionadas())
                         true
                     }
                     else -> false
@@ -134,7 +157,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onDestroyActionMode(mode: ActionMode?) {
-                personasAdapter.resetSelectMode()
+                viewModel.handleEvent(MainEvent.ResetSelectMode)
 
             }
 
@@ -155,8 +178,8 @@ class MainActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
 
-                newText?.let {
-                    viewModel.getPersonas(it)
+                newText?.let {filtro ->
+                    viewModel.handleEvent(MainEvent.GetPersonaFiltradas(filtro))
                 }
 
                 return false

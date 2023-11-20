@@ -1,5 +1,6 @@
 package com.example.nachorestaurante.data.sources.di
 import com.example.nachorestaurante.data.sources.service.CustomerService
+import com.example.nachorestaurante.data.sources.service.OrderService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -54,5 +55,10 @@ object NetworkModule {
     @Provides
     fun provideCurrencyService(retrofit: Retrofit): CustomerService =
         retrofit.create(CustomerService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideOrderService(retrofit: Retrofit): OrderService =
+        retrofit.create(OrderService::class.java)
 
 }

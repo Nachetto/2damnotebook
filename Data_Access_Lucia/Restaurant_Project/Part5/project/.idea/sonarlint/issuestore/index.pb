@@ -56,8 +56,6 @@ R
 Q
 !src/main/java/model/Customer.java,d\8\d809aaf69069b4e367322db0008755f08edcc9a2
 N
-src/main/java/model/Table.java,3\5\35070f720f546ae66ec856f1b4ffaa35cccf4c67
-N
 src/main/java/model/Order.java,d\a\da40720aeeaaed55b9015b87ce0ba9418140ed2f
 S
 #src/main/java/model/Credential.java,6\8\68d39015010349188c785512b71dfb08d2e37972

@@ -1,6 +1,7 @@
 package com.example.nachorestaurante.framework.pantallamain
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nachorestaurante.R
 import com.example.nachorestaurante.databinding.ViewCustomerBinding
 import com.example.nachorestaurante.domain.modelo.Customer
+import com.example.nachorestaurante.framework.pantalladetallada.DetailedActivity
 
 
 class CustomerAdapter(
@@ -81,11 +83,13 @@ class CustomerAdapter(
                 true
             }
 
-            itemView.setOnClickListener {
-                if (!selectedMode) {
-                    actions.onStartDetailedMode(item)
-                }
+            itemView.setOnClickListener{
+                val context = it.context
+                val intent = Intent(context, DetailedActivity::class.java)
+                intent.putExtra("CustomerDetailed", item.id)
+                context.startActivity(intent)
             }
+
             with(binding) {
                 selected.setOnClickListener {
                     if (selectedMode) {

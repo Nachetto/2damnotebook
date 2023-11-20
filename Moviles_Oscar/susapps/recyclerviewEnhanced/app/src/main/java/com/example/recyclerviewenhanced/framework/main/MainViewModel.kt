@@ -15,13 +15,12 @@ import java.time.LocalDate
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(val dogRepository: DogRepository) : ViewModel() {
+class MainViewModel @Inject constructor(private val dogRepository: DogRepository) : ViewModel() {
 
 
     private val listaPersonas = mutableListOf<Persona>()
 
-    private val _personas = MutableLiveData<List<Persona>>()
-    val personas: LiveData<List<Persona>> get() = _personas
+
 
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
@@ -29,43 +28,85 @@ class MainViewModel @Inject constructor(val dogRepository: DogRepository) : View
     private val _sharedFlow = MutableSharedFlow<String>()
     val sharedFlow = _sharedFlow.asSharedFlow()
 
-    private var selectedItem = mutableListOf<Persona>()
+    private var selectedPersonas = mutableListOf<Persona>()
+
+
+    private val _uiState = MutableLiveData(MainState())
+    val uiState: LiveData<MainState> get() = _uiState
 
 
     init {
-        //listaPersonas.addAll((1..20).map{Persona(it,"nombre$it", LocalDate.now(),null)})
-
+        listaPersonas.addAll((1..20).map{Persona(it,"nombre$it", LocalDate.now(),null)})
+        getPersonas()
         //(1..20).map(transform = {Persona(it,"nombre$it", LocalDate.now(),null)})
 //        (1..20).forEach {
 //            listaPersonas.add(Persona(it,"nombre$it", LocalDate.now(),null))
 //        }
-        listaPersonas.addAll(
-            listOf<Persona>(
-                Persona(1, "nombre", LocalDate.now(), null),
-                Persona(2, "nombre1", LocalDate.now(), null),
-                Persona(3, "nombre2", LocalDate.now(), null),
-                Persona(4, "nombre3", LocalDate.now(), null),
-                Persona(5, "nombre41", LocalDate.now(), null),
-                Persona(6, "nombre52", LocalDate.now(), null),
-                Persona(7, "nombre6", LocalDate.now(), null),
-                Persona(8, "nombre71", LocalDate.now(), null),
-                Persona(9, "nombre82", LocalDate.now(), null),
-                Persona(10, "nombre9", LocalDate.now(), null),
-                Persona(21, "nombre91", LocalDate.now(), null),
-                Persona(31, "nombre92", LocalDate.now(), null),
-                Persona(11, "nombre76", LocalDate.now(), null),
-                Persona(21, "nombre134", LocalDate.now(), null),
-                Persona(31, "nombre24545", LocalDate.now(), null),
-                Persona(131, "1nombre92", LocalDate.now(), null),
-                Persona(111, "1nombre76", LocalDate.now(), null),
-                Persona(121, "1nombre134", LocalDate.now(), null),
-                Persona(131, "1nombre24545", LocalDate.now(), null),
-            )
-        )
+//        listaPersonas.addAll(
+//            listOf<Persona>(
+//                Persona(1, "nombre", LocalDate.now(), null),
+//                Persona(2, "nombre1", LocalDate.now(), null),
+//                Persona(3, "nombre2", LocalDate.now(), null),
+//                Persona(4, "nombre3", LocalDate.now(), null),
+//                Persona(5, "nombre41", LocalDate.now(), null),
+//                Persona(6, "nombre52", LocalDate.now(), null),
+//                Persona(7, "nombre6", LocalDate.now(), null),
+//                Persona(8, "nombre71", LocalDate.now(), null),
+//                Persona(9, "nombre82", LocalDate.now(), null),
+//                Persona(10, "nombre9", LocalDate.now(), null),
+//                Persona(21, "nombre91", LocalDate.now(), null),
+//                Persona(31, "nombre92", LocalDate.now(), null),
+//                Persona(11, "nombre76", LocalDate.now(), null),
+//                Persona(21, "nombre134", LocalDate.now(), null),
+//                Persona(31, "nombre24545", LocalDate.now(), null),
+//                Persona(131, "1nombre92", LocalDate.now(), null),
+//                Persona(111, "1nombre76", LocalDate.now(), null),
+//                Persona(121, "1nombre134", LocalDate.now(), null),
+//                Persona(131, "1nombre24545", LocalDate.now(), null),
+//            )
+//        )
 
     }
 
-    fun getPersonas() {
+    fun handleEvent(event: MainEvent) {
+        when (event) {
+            MainEvent.GetPersonas -> {
+                getPersonas()
+            }
+            is MainEvent.InsertPersona -> {
+                //insertPersonaWithCosas(event.persona!!)
+                getPersonas()
+            }
+            MainEvent.ErrorVisto -> _uiState.value = _uiState.value?.copy(error = null)
+            is MainEvent.GetPersonaPorId -> {
+            }
+
+            is MainEvent.DeletePersonasSeleccionadas -> {
+                _uiState.value?.let {
+                    deletePersona(it.personasSeleccionadas)
+                    resetSelectMode()
+                }
+            }
+            is MainEvent.SeleccionaPersona -> seleccionaPersona(event.persona)
+            is MainEvent.GetPersonaFiltradas -> getPersonas(event.filtro)
+            is MainEvent.DeletePersona -> {
+                deletePersona(event.persona)
+            }
+
+            MainEvent.ResetSelectMode -> resetSelectMode()
+
+            MainEvent.StartSelectMode -> _uiState.value = _uiState.value?.copy(selectMode = true)
+        }
+    }
+
+    private fun resetSelectMode()
+    {
+        selectedPersonas.clear()
+        _uiState.value = _uiState.value?.copy(selectMode = false, personasSeleccionadas = selectedPersonas)
+
+    }
+
+    private fun getPersonas() {
 
         viewModelScope.launch {
 
@@ -87,18 +128,19 @@ class MainViewModel @Inject constructor(val dogRepository: DogRepository) : View
             }
 
 
-            _personas.value = listaPersonas.toList()
+            _uiState.value = _uiState.value?.copy(personas = listaPersonas.toList())
 //            _personas.value = getPersonas.invoke()
 
         }
 
     }
 
-    fun getPersonas(filtro: String) {
+    private fun getPersonas(filtro: String) {
 
         viewModelScope.launch {
 
-            _personas.value = listaPersonas.filter { it.nombre.startsWith(filtro) }.toList()
+            _uiState.value =  _uiState.value?.copy (
+                personas = listaPersonas.filter { it.nombre.startsWith(filtro) }.toList())
 //            _personas.value = getPersonas.invoke()
 
         }
@@ -106,45 +148,40 @@ class MainViewModel @Inject constructor(val dogRepository: DogRepository) : View
     }
 
 
-    fun deletePersona(persona: List<Persona>) {
+    private fun deletePersona(personas: List<Persona>) {
 
         viewModelScope.launch {
-            _sharedFlow.emit("error")
-//            listaPersonas.removeAll(persona)
-//            _personas.value = listaPersonas.toList()
-//            _personas.value = getPersonas.invoke()
-
+//            _sharedFlow.emit("error")
+            listaPersonas.removeAll(personas)
+            selectedPersonas.removeAll(personas)
+            _uiState.value = _uiState.value?.copy(personasSeleccionadas = selectedPersonas.toList())
+            getPersonas()
         }
 
     }
 
-    fun deletePersona(persona: Persona) {
+    private fun deletePersona(persona: Persona) {
 
-        viewModelScope.launch {
-            _sharedFlow.emit("error")
-//            listaPersonas.remove(persona)
-//            _personas.value = listaPersonas.toList()
-//            _personas.value = getPersonas.invoke()
-
-        }
+        deletePersona(listOf(persona))
 
     }
 
 
-    fun seleccionaPersona(persona: Persona) {
+    private fun seleccionaPersona(persona: Persona) {
 
         if (isSelected(persona)) {
-            selectedItem.remove(persona)
+            selectedPersonas.remove(persona)
 
         }
         else {
-            selectedItem.add(persona)
+            selectedPersonas.add(persona)
         }
+        _uiState.value = _uiState.value?.copy(personasSeleccionadas = selectedPersonas)
 
     }
 
-    fun isSelected(persona: Persona): Boolean {
-        return selectedItem.contains(persona)
+    private fun isSelected(persona: Persona): Boolean {
+        return selectedPersonas.contains(persona)
     }
 
 

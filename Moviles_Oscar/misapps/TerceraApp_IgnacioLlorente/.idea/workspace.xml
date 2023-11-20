@@ -60,6 +60,7 @@
       <change afterPath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../PSP_Oscar/Ejercicios/3_apirest_servidor/IgnacioLlorente_MiPrimerRest/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NachoRestaurante/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/0/b/0b0c3b6aff77c5bff618e59fb4b9d8a3a3e13c48" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/0/b/0b0c3b6aff77c5bff618e59fb4b9d8a3a3e13c48" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/2/8/285c7f7168671348b56f3fa27db1037f4d912e13" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/2/8/285c7f7168671348b56f3fa27db1037f4d912e13" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/2/f/2f1112319de9ea04ea76aeb84a899a1b32fdb5a5" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/.idea/sonarlint/issuestore/2/f/2f1112319de9ea04ea76aeb84a899a1b32fdb5a5" afterDir="false" />
@@ -86,6 +87,7 @@
       <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/java/com/example/nachorestaurante/utils/NetworkResultt.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NachoRestaurante/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
@@ -105,7 +107,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[617ed0fc]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Nachetto\.android\avd\Alfonso_7_Pro.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -157,19 +159,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Documents/GitHub/2damnotebook/Moviles_Oscar/misapps/TerceraApp_IgnacioLlorente&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "C:/Users/Nachetto/Documents/GitHub/2damnotebook/Moviles_Oscar/misapps/NachoRestaurante",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.general"
   }
-}</component>
+}]]></component>
   <component name="PsdUISettings">
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>

@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".framework.pantallamdetallada.DetailedActivity"
+            android:name=".framework.pantalladetallada.DetailedActivity"
             android:exported="true">
         </activity>
 

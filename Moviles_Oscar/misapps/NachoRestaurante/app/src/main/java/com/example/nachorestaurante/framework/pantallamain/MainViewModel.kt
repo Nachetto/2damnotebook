@@ -2,6 +2,7 @@ package com.example.nachorestaurante.framework.pantallamain
 
 import android.content.Intent
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,6 +11,7 @@ import com.example.nachorestaurante.data.repositorios.CustomerRepository
 import com.example.nachorestaurante.domain.modelo.Customer
 import com.example.nachorestaurante.domain.usecases.DeleteCustomerUseCase
 import com.example.nachorestaurante.domain.usecases.GetAllCustomersUseCase
+import com.example.nachorestaurante.framework.pantalladetallada.DetailedActivity
 import com.example.nachorestaurante.utils.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -62,11 +64,6 @@ class MainViewModel @Inject constructor(
             MainEvent.StartSelectMode -> _uiState.value =
                 _uiState.value?.copy(selectMode = true)
 
-            is MainEvent.StartDetailedMode -> {
-                val intent = Intent(this, DetailedActivity::class.java)
-                intent.putExtra("DetailedActivity:persona", event.persona)
-                startActivity(intent)
-            }
         }
     }
 

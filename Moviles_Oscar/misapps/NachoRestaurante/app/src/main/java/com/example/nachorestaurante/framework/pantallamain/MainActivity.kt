@@ -1,5 +1,6 @@
 package com.example.nachorestaurante.framework.pantallamain
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -8,15 +9,13 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.GravityCompat
-import androidx.lifecycle.lifecycleScope
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
-import com.example.nachorestaurante.framework.pantallamain.MainViewModel
 import com.example.nachorestaurante.R
 import com.example.nachorestaurante.databinding.ActivityMainBinding
 import com.example.nachorestaurante.domain.modelo.Customer
+import com.example.nachorestaurante.framework.pantalladetallada.DetailedActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -49,13 +48,13 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun itemHasClicked(customer: Customer) {
-
                     viewModel.handleEvent(MainEvent.SeleccionaPersona(customer))
                 }
 
                 override fun onStartDetailedMode(customer: Customer) {
-                    viewModel.handleEvent(MainEvent.StartDetailedMode(customer))
+
                 }
+
             })
 
         //configurar el recyclerview
@@ -115,7 +114,6 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             }
         }
-        configAppBar();
     }
 
     private fun configContextBar() = object : ActionMode.Callback {

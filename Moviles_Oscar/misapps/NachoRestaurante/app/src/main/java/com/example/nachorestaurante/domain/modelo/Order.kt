@@ -6,5 +6,6 @@ data class Order (
     val id: Int,
     val customerId: Int,
     val orderDate: LocalDate,
-    val tableId: Int
+    val tableId: Int,
+    var isSelected: Boolean = false,
 )
