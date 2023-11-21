@@ -1,17 +1,13 @@
 package com.example.nachorestaurante.data.repositorios
 
-import com.example.nachorestaurante.data.model.toOrder
-import com.example.nachorestaurante.data.sources.service.OrderService
 import com.example.nachorestaurante.domain.modelo.Order
 import com.example.nachorestaurante.utils.NetworkResult
-import java.io.InputStream
+import com.example.nachorestaurante.data.model.toOrder
+import com.example.nachorestaurante.data.sources.service.OrderService
 import javax.inject.Inject
 
 class OrderRepository @Inject constructor(private val orderService: OrderService) {
-    //lo llama el usecase, el cual lo llama el viewmodel, esto llama a la interfaz que hace un Response
-
-    //metodo para sacar todos los orders
-    suspend fun getOrders(): NetworkResult<List<Order>> {
+    suspend private fun getOrders(): NetworkResult<List<Order>> {
         var l: List<Order> = emptyList()
         orderService.getOrders().body()?.let {
             l = it.map { orderResponse ->
@@ -23,11 +19,21 @@ class OrderRepository @Inject constructor(private val orderService: OrderService
 
     //metodo para borrar un order
     suspend fun deleteOrder(id: Int): NetworkResult<String> {
-        var l: String = ""
-        orderService.deleteOrder(id).body()?.let {
-            l = it
+
+        return try {
+            val response = orderService.deleteOrder(id)
+            if (response.isSuccessful) {
+                // Utilizar el cuerpo de la respuesta directamente como un String
+                val responseBodyString = response.body()?.string() ?: "Deleted successfully"
+                NetworkResult.Success(responseBodyString)
+            } else {
+                // Intentar obtener el mensaje del cuerpo de error si existe
+                val errorBodyString = response.errorBody()?.string() ?: "Unknown error"
+                NetworkResult.Error(errorBodyString)
+            }
+        } catch (e: Exception) {
+            NetworkResult.Error(e.message ?: "An error occurred")
         }
-        return NetworkResult.Success(l)
     }
 
     //metodo para crear un order
@@ -47,4 +53,5 @@ class OrderRepository @Inject constructor(private val orderService: OrderService
         }
         return l
     }
+
 }

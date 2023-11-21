@@ -22,31 +22,7 @@ class OrderAdapter(
 
     interface OrderActions {
         fun onDelete(order: Order)
-        fun onStartSelectMode(order: Order)
-        fun itemHasClicked(order: Order)
-
     }
-
-    private var selectedPersonas = mutableSetOf<Order>()
-
-    fun startSelectMode() {
-        selectedMode = true
-        notifyDataSetChanged()
-    }
-
-
-    fun resetSelectMode() {
-        selectedMode = false
-        selectedPersonas.clear()
-        notifyDataSetChanged()
-    }
-
-    fun setSelectedItems(personasSeleccionadas: List<Order>){
-        selectedPersonas.clear()
-        selectedPersonas.addAll(personasSeleccionadas)
-    }
-
-    private var selectedMode: Boolean = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewholder {
         return ItemViewholder(
@@ -66,58 +42,10 @@ class OrderAdapter(
         private val binding = ViewOrderBinding.bind(itemView)
 
         fun bind(item: Order) {
-
-            itemView.setOnLongClickListener {
-                if (!selectedMode) {
-//                    selectedMode = true
-                    actions.onStartSelectMode(item)
-//                    item.isSelected = true
-//                    binding.selected.isChecked = true
-                    //selectedPersonas.add(item)
-//                    notifyDataSetChanged()
-                    //notifyItemChanged(adapterPosition)
-                }
-                true
-            }
             with(binding) {
-                selected.setOnClickListener {
-                    if (selectedMode) {
-
-                        if (binding.selected.isChecked ) {
-                            item.isSelected = true
-                            itemView.setBackgroundColor(Color.DKGRAY)
-                            //binding.selected.isChecked = true
-                            //notifyItemChanged(adapterPosition)
-                            selectedPersonas.add(item)
-                        } else {
-                            item.isSelected = false
-                            itemView.setBackgroundColor(Color.argb(255, 0, 255, 255))
-                            selectedPersonas.remove(item)
-                            //binding.selected.isChecked = false
-                            //notifyItemChanged(adapterPosition)
-
-                        }
-                        actions.itemHasClicked(item)
-                    }
-                }
-
                 tvNombre.text = item.orderDate.toString()
                 tvId.text = item.id.toString()
-                if (selectedMode)
-                    selected.visibility = View.VISIBLE
-                else{
-                    item.isSelected = false
-                    selected.visibility = View.GONE
-                }
-
-                if (selectedPersonas.contains(item)) {
-                    itemView.setBackgroundColor(Color.DKGRAY)
-                    binding.selected.isChecked = true
-                    //selected.visibility = View.VISIBLE
-                } else {
-                    itemView.setBackgroundColor(Color.argb(255, 0, 62, 48))
-                    binding.selected.isChecked = false
-                }
+                itemView.setBackgroundColor(Color.argb(255, 0, 62, 48))
             }
         }
     }
@@ -137,10 +65,7 @@ class OrderAdapter(
             when (direction) {
                 ItemTouchHelper.LEFT -> {
                     val position = viewHolder.bindingAdapterPosition
-                    selectedPersonas.remove(currentList[position])
                     actions.onDelete(currentList[position])
-                    if (selectedMode)
-                        actions.itemHasClicked(currentList[position])
                 }
             }
         }

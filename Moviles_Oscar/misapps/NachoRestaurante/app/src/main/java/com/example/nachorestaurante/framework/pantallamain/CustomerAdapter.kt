@@ -44,7 +44,7 @@ class CustomerAdapter(
         notifyDataSetChanged()
     }
 
-    fun setSelectedItems(personasSeleccionadas: List<Customer>){
+    fun setSelectedItems(personasSeleccionadas: List<Customer>) {
         selectedPersonas.clear()
         selectedPersonas.addAll(personasSeleccionadas)
     }
@@ -72,41 +72,39 @@ class CustomerAdapter(
 
             itemView.setOnLongClickListener {
                 if (!selectedMode) {
-//                    selectedMode = true
                     actions.onStartSelectMode(item)
-//                    item.isSelected = true
-//                    binding.selected.isChecked = true
-                    //selectedPersonas.add(item)
-//                    notifyDataSetChanged()
-                    //notifyItemChanged(adapterPosition)
                 }
                 true
             }
 
-            itemView.setOnClickListener{
-                val context = it.context
-                val intent = Intent(context, DetailedActivity::class.java)
-                intent.putExtra("CustomerDetailed", item.id)
-                context.startActivity(intent)
+            itemView.setOnClickListener {
+                if (selectedMode)
+                {
+                    item.isSelected=!item.isSelected
+                    selectedMode = item.isSelected
+                    actions.itemHasClicked(item)
+
+                }
+                else{
+                    val context = it.context
+                    val intent = Intent(context, DetailedActivity::class.java)
+                    intent.putExtra("CustomerDetailed", item.id)
+                    context.startActivity(intent)
+                }
             }
 
             with(binding) {
                 selected.setOnClickListener {
                     if (selectedMode) {
 
-                        if (binding.selected.isChecked ) {
+                        if (binding.selected.isChecked) {
                             item.isSelected = true
                             itemView.setBackgroundColor(Color.DKGRAY)
-                            //binding.selected.isChecked = true
-                            //notifyItemChanged(adapterPosition)
                             selectedPersonas.add(item)
                         } else {
                             item.isSelected = false
                             itemView.setBackgroundColor(Color.argb(255, 0, 255, 255))
                             selectedPersonas.remove(item)
-                            //binding.selected.isChecked = false
-                            //notifyItemChanged(adapterPosition)
-
                         }
                         actions.itemHasClicked(item)
                     }
@@ -116,7 +114,7 @@ class CustomerAdapter(
                 tvId.text = item.id.toString()
                 if (selectedMode)
                     selected.visibility = View.VISIBLE
-                else{
+                else {
                     item.isSelected = false
                     selected.visibility = View.GONE
                 }
@@ -124,7 +122,6 @@ class CustomerAdapter(
                 if (selectedPersonas.contains(item)) {
                     itemView.setBackgroundColor(Color.DKGRAY)
                     binding.selected.isChecked = true
-                    //selected.visibility = View.VISIBLE
                 } else {
                     itemView.setBackgroundColor(Color.argb(255, 0, 62, 48))
                     binding.selected.isChecked = false

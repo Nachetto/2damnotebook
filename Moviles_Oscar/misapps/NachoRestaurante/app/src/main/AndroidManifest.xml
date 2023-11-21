@@ -22,15 +22,19 @@
         <activity
             android:name=".framework.pantallamain.MainActivity"
             android:exported="true">
+        </activity>
+        <activity
+            android:name=".framework.pantalladetallada.DetailedActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".framework.LoadActivity" android:theme="@style/SpashLogo"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".framework.pantalladetallada.DetailedActivity"
-            android:exported="true">
         </activity>
 
     </application>

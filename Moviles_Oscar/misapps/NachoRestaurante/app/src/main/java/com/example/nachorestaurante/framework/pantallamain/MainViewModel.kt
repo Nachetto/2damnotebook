@@ -93,14 +93,16 @@ class MainViewModel @Inject constructor(
             _uiState.value = _uiState.value?.copy(personas = listaPersonas)
         }
     }
-
     private fun getPersonas(filtro: String) {
         viewModelScope.launch {
             _uiState.value = _uiState.value?.copy(
-                personas = listaPersonas.filter { it.name.startsWith(filtro) }.toList()
+                personas = listaPersonas.filter { persona ->
+                    persona.name.contains(filtro, ignoreCase = true)
+                }.toList()
             )
         }
     }
+
 
     private fun deletePersona(personas: List<Customer>) {
         viewModelScope.launch {

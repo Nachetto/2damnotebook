@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                     viewModel.handleEvent(MainEvent.SeleccionaPersona(customer))
                 }
 
-                override fun itemHasClicked(customer: Customer) {
+                override fun itemHasClicked(customer: Customer) {W
                     viewModel.handleEvent(MainEvent.SeleccionaPersona(customer))
                 }
 
@@ -61,11 +61,6 @@ class MainActivity : AppCompatActivity() {
         binding.rvPersonas.adapter = customAdapter
         val touchHelper = ItemTouchHelper(customAdapter.swipeGesture)
         touchHelper.attachToRecyclerView(binding.rvPersonas)
-
-        //configurar el boton de recargar personas
-        binding.button.setOnClickListener {
-            viewModel.handleEvent(MainEvent.GetPersonas)
-        }
 
         //observar los cambios en el estado del viewmodel
         viewModel.uiState.observe(this) { state ->
@@ -98,8 +93,7 @@ class MainActivity : AppCompatActivity() {
                             actionMode = it;
                         }
                         primeraVez = false
-                    }
-                    else{
+                    } else {
                         customAdapter.startSelectMode()
                     }
                 } else {//si se sale del modo seleccion, se llama al adapter para que cambie el modo seleccion
@@ -114,46 +108,40 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             }
         }
+        configAppBar()
     }
 
     private fun configContextBar() = object : ActionMode.Callback {
-            // esto es para el menu contextual que se muestra cuando se pulsa un elemento de la lista durante un tiempo
-            // largo. Se muestra en la parte superior de la pantalla y tiene tres opciones: favoritos, buscar y mas.
-            // La opcion favoritos no hace nada, la opcion buscar no hace nada y la opcion mas borra los elementos
-            // seleccionados de la lista y sale del modo seleccion
-            override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
-                menuInflater.inflate(R.menu.context_bar, menu)
-                return true
-            }
+        // esto es para el menu contextual que se muestra cuando se pulsa un elemento de la lista durante un tiempo
+        // largo. Se muestra en la parte superior de la pantalla y tiene tres opciones: favoritos, buscar y mas.
+        // La opcion favoritos no hace nada, la opcion buscar no hace nada y la opcion mas borra los elementos
+        // seleccionados de la lista y sale del modo seleccion
+        override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
+            menuInflater.inflate(R.menu.context_bar, menu)
+            binding.topAppBar.visibility = android.view.View.GONE
+            return true
+        }
 
-            override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean {
-                return false
-            }
+        override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean {
+            return false
+        }
 
-            override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
-                return when (item?.itemId) {
-                    R.id.favorite -> {
-                        // Handle share icon press
-                        true
-                    }
-
-                    R.id.search -> {
-                        // Handle delete icon press
-                        true
-                    }
-
-                    R.id.more -> {
-                        viewModel.handleEvent(MainEvent.DeletePersonasSeleccionadas())
-                        true
-                    }
-
-                    else -> false
+        override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
+            return when (item?.itemId) {
+                R.id.more -> {
+                    viewModel.handleEvent(MainEvent.DeletePersonasSeleccionadas())
+                    true
                 }
-            }
 
-            override fun onDestroyActionMode(mode: ActionMode?) {
-                viewModel.handleEvent(MainEvent.ResetSelectMode)
+                else -> false
             }
+        }
+
+        override fun onDestroyActionMode(mode: ActionMode?) {
+            viewModel.handleEvent(MainEvent.ResetSelectMode)
+            binding.topAppBar.visibility = android.view.View.VISIBLE
+            customAdapter.resetSelectMode()
+        }
     }
 
     private fun configAppBar() {
@@ -175,17 +163,12 @@ class MainActivity : AppCompatActivity() {
                 newText?.let { filtro ->
                     viewModel.handleEvent(MainEvent.GetPersonaFiltradas(filtro))
                 }
-
-                return false
+                return true
             }
         })
 
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.favorite -> {
-                    // Handle favorite icon press
-                    true
-                }
 
                 R.id.search -> {
                     // Handle search icon press

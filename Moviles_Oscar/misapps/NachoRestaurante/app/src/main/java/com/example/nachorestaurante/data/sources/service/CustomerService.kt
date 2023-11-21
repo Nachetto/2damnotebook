@@ -13,5 +13,6 @@ interface CustomerService {
     suspend fun getCustomers(): Response<List<CustomerResponse>>
     @DELETE("customers/{id}")
     suspend fun deleteCustomer(@Path("id") id: Int): Response<ResponseBody>
-
+    @GET("customers/{id}")
+    suspend fun getCustomer(@Path("id") id: Int ): Response<CustomerResponse>
 }

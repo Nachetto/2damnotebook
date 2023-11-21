@@ -4,21 +4,23 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.nachorestaurante.domain.usecases.AddOrderUseCase
-import com.example.nachorestaurante.domain.usecases.GetAllOrdersUseCase
+import com.example.nachorestaurante.domain.usecases.GetAllFilteredOrdersUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import androidx.lifecycle.viewModelScope
 import com.example.nachorestaurante.domain.modelo.Order
 import com.example.nachorestaurante.domain.usecases.DeleteOrderUseCase
+import com.example.nachorestaurante.domain.usecases.GetCustomerFromIdUseCase
 import com.example.nachorestaurante.utils.NetworkResult
 import kotlinx.coroutines.launch
 
 
 @HiltViewModel
 class DetailedViewModel @Inject constructor(
-    private val getAllOrdersUseCase: GetAllOrdersUseCase,
+    private val getAllFilteredOrdersUseCase: GetAllFilteredOrdersUseCase,
     private val deleteOrderUseCase: DeleteOrderUseCase,
-    private val addorderusecase: AddOrderUseCase
+    private val addorderusecase: AddOrderUseCase,
+    private val getCustomerFromIdUseCase: GetCustomerFromIdUseCase
 ) : ViewModel() {
     private val listaOrders = mutableListOf<Order>()
     private val _error = MutableLiveData<String>()
@@ -30,16 +32,14 @@ class DetailedViewModel @Inject constructor(
 
     init {
         _uiState.value = DetailedState(
+            persona = null,
             orders = emptyList(),
-            ordersSeleccionados = emptyList(),
-            selectMode = false
+            ordersSeleccionados = emptyList()
         )
     }
 
     fun handleEvent(event: DetailedEvent) {
         when (event) {
-            is DetailedEvent.SeleccionaOrder -> seleccionaOrder(event.pedido)
-
             is DetailedEvent.GetOrders -> {
                 getOrders(event.id)
             }
@@ -47,7 +47,6 @@ class DetailedViewModel @Inject constructor(
             is DetailedEvent.DeleteOrdersSeleccionados -> {
                 _uiState.value?.let {
                     deleteOrder(it.ordersSeleccionados)
-                    resetSelectMode()
                 }
             }
 
@@ -55,43 +54,22 @@ class DetailedViewModel @Inject constructor(
                 deleteOrder(event.pedido)
             }
 
-            DetailedEvent.ResetSelectMode -> resetSelectMode()
-            DetailedEvent.StartSelectMode -> _uiState.value =
-                _uiState.value?.copy(selectMode = true)
-
-            is DetailedEvent.obtainCustomers -> obtainCustomers(event.id)
+            is DetailedEvent.GetCustomer -> getCustomer(event.id)
         }
     }
 
-    private fun obtainCustomers(id: Int) {
+    //obtiene un order
+    private fun getCustomer(id: Int) {
         viewModelScope.launch {
-            getAllOrdersUseCase.invoke(id)
+            val result = getCustomerFromIdUseCase.invoke(id)
+            _uiState.value= _uiState.value?.copy(persona = result)
         }
-    }
-
-    private fun seleccionaOrder(order: Order) {
-        if (isSelected(order)) {
-            selectedOrders.remove(order)
-        } else {
-            selectedOrders.add(order)
-        }
-        _uiState.value = _uiState.value?.copy(ordersSeleccionados = selectedOrders)
     }
 
     private fun getOrders(id: Int) {
         viewModelScope.launch {
-            val result = getAllOrdersUseCase.invoke(id)
-            when (result) {
-                is NetworkResult.Error<*> -> _error.value = result.message ?: "mal"
-                is NetworkResult.Loading<*> -> TODO()
-                is NetworkResult.Success<*> -> {
-                    // Asegúrate de que los datos son de tipo List<Order>
-                    if (result.data is List<*>) {
-                        listaOrders.clear()
-                        listaOrders.addAll(result.data as Collection<Order>)
-                    }
-                }
-            }
+            listaOrders.clear()
+            listaOrders.addAll(getAllFilteredOrdersUseCase.invoke(id))
             _uiState.value = _uiState.value?.copy(orders = listaOrders)
         }
     }
@@ -132,25 +110,14 @@ class DetailedViewModel @Inject constructor(
 
     private fun deleteOrder(order: Order) {
         viewModelScope.launch {
+
             if (deleteOrderUseCase.invoke(order) is NetworkResult.Error<*>) {
                 _error.value = "Error al borrar"
             } else {
                 listaOrders.remove(order)
-                selectedOrders.remove(order)
                 _uiState.value =
-                    _uiState.value?.copy(ordersSeleccionados = selectedOrders.toList())
+                    _uiState.value?.copy(orders = listaOrders.toList())
             }
         }
     }
-
-    private fun resetSelectMode() {
-        selectedOrders.clear()
-        _uiState.value =
-            _uiState.value?.copy(selectMode = false, ordersSeleccionados = selectedOrders)
-    }
-
-    private fun isSelected(order: Order): Boolean {
-        return selectedOrders.contains(order)
-    }
-
 }

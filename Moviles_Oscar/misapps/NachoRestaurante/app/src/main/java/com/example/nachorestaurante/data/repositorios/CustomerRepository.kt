@@ -40,6 +40,24 @@ class CustomerRepository @Inject constructor(private val customerService: Custom
 
 
 
+    suspend fun getCustomerFromId(customerId: Int): NetworkResult<Customer> {
+        return try {
+            val response = customerService.getCustomer(customerId)
+            if (response.isSuccessful) {
+                // Asegúrate de que la respuesta es un OrderResponse antes de llamar a toOrder
+                response.body()?.let { customerResponse ->
+                    NetworkResult.Success(customerResponse.toCustomer())
+                } ?: NetworkResult.Error("No customer found")
+            } else {
+                // Intentar obtener el mensaje del cuerpo de error si existe
+                val errorBodyString = response.errorBody()?.string() ?: "Unknown error"
+                NetworkResult.Error(errorBodyString)
+            }
+        } catch (e: Exception) {
+            NetworkResult.Error(e.message ?: "An error occurred")
+        }
+    }
+
 
 
 }
