@@ -83,7 +83,6 @@ class MainViewModel @Inject constructor(
                 is NetworkResult.Error<*> -> _error.value = result.message ?: "mal"
                 is NetworkResult.Loading<*> -> TODO()
                 is NetworkResult.Success<*> -> {
-                    // Asegúrate de que los datos son de tipo List<Customer>
                     if (result.data is List<*>) {
                         listaPersonas.clear()
                         listaPersonas.addAll(result.data as Collection<Customer>)
@@ -106,22 +105,19 @@ class MainViewModel @Inject constructor(
 
     private fun deletePersona(personas: List<Customer>) {
         viewModelScope.launch {
-            // Hacemos una copia de la lista original para iterar sobre ella
             val copiaPersonas = personas.toList()
 
-            // Lista para rastrear los elementos que se eliminarán.
             val personasParaEliminar = mutableListOf<Customer>()
 
-            // Bucle que intenta borrar cada persona de la copia y si hay error, rompe el bucle.
             var isSuccessful = true
             for (persona in copiaPersonas) {
                 val result = deleteCustomerUseCase.invoke(persona)
                 if (result is NetworkResult.Error<*>) {
                     _error.value = "Error al borrar"
                     isSuccessful = false
-                    break // Sale del bucle si hay un error.
+                    break
                 } else {
-                    personasParaEliminar.add(persona) // Agrega a la lista temporal si el borrado fue exitoso.
+                    personasParaEliminar.add(persona)
                 }
             }
 

@@ -4,7 +4,6 @@ import com.example.nachorestaurante.domain.modelo.Order
 import com.google.gson.annotations.SerializedName
 import java.time.LocalDate
 
-//recibe los datos de la api  y los convierte en un objeto de tipo Order
 data class OrderResponse(
     @SerializedName("customerId")
     val customerId: Int,

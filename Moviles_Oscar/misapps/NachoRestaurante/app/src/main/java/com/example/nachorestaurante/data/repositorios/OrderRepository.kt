@@ -1,5 +1,6 @@
 package com.example.nachorestaurante.data.repositorios
 
+import com.example.nachorestaurante.data.model.OrderResponse
 import com.example.nachorestaurante.domain.modelo.Order
 import com.example.nachorestaurante.utils.NetworkResult
 import com.example.nachorestaurante.data.model.toOrder
@@ -17,17 +18,14 @@ class OrderRepository @Inject constructor(private val orderService: OrderService
         return NetworkResult.Success(l)
     }
 
-    //metodo para borrar un order
     suspend fun deleteOrder(id: Int): NetworkResult<String> {
 
         return try {
             val response = orderService.deleteOrder(id)
             if (response.isSuccessful) {
-                // Utilizar el cuerpo de la respuesta directamente como un String
                 val responseBodyString = response.body()?.string() ?: "Deleted successfully"
                 NetworkResult.Success(responseBodyString)
             } else {
-                // Intentar obtener el mensaje del cuerpo de error si existe
                 val errorBodyString = response.errorBody()?.string() ?: "Unknown error"
                 NetworkResult.Error(errorBodyString)
             }
@@ -36,16 +34,27 @@ class OrderRepository @Inject constructor(private val orderService: OrderService
         }
     }
 
-    //metodo para crear un order
-    suspend fun createOrder(order: Order): NetworkResult<String> {
-        var l: String = ""
-        orderService.createOrder(order).body()?.let {
-            l = it
+    suspend fun createOrder(order: Order): NetworkResult<Order> {
+        return try {
+            val orderResponse = order.toOrderResponse()
+            val response = orderService.createOrder(orderResponse)
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    NetworkResult.Success(it.toOrder())
+                } ?: NetworkResult.Error("No order returned")
+            } else {
+                val errorBodyString = response.errorBody()?.string() ?: "Unknown error"
+                NetworkResult.Error(errorBodyString)
+            }
+        } catch (e: Exception) {
+            NetworkResult.Error(e.message ?: "An error occurred")
         }
-        return NetworkResult.Success(l)
     }
 
-    //metodo para filtrar todos los orders de un customerid especifico
+
+
+
+
     suspend fun filterOrders(customerid: Int): List<Order> {
         var l: List<Order> = getOrders().data ?: emptyList()
         l = l.filter { order ->

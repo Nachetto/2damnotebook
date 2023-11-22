@@ -6,7 +6,7 @@ import com.example.nachorestaurante.utils.NetworkResult
 import javax.inject.Inject
 
 class AddOrderUseCase @Inject constructor(private val repository: OrderRepository) {
-    suspend operator fun invoke(order: Order): NetworkResult<String> {
+    suspend operator fun invoke(order: Order): NetworkResult<Order> {
         return repository.createOrder(order)
     }
 }

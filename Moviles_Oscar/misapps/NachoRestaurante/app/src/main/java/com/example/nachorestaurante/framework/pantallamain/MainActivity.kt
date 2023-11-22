@@ -1,6 +1,5 @@
 package com.example.nachorestaurante.framework.pantallamain
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -9,12 +8,10 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.example.nachorestaurante.R
 import com.example.nachorestaurante.databinding.ActivityMainBinding
 import com.example.nachorestaurante.domain.modelo.Customer
-import com.example.nachorestaurante.framework.pantalladetallada.DetailedActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private var primeraVez: Boolean = false
     private lateinit var customAdapter: CustomerAdapter
     private val viewModel: MainViewModel by viewModels()
+    private var isInActionMode: Boolean = false
     private val callback by lazy {
         configContextBar()
     }
@@ -36,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //manejar los gestos de deslizamiento y longclick enviandolos al viewmodel
         customAdapter = CustomerAdapter(this,
             object : CustomerAdapter.PersonaActions {
                 override fun onDelete(customer: Customer) =
@@ -47,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                     viewModel.handleEvent(MainEvent.SeleccionaPersona(customer))
                 }
 
-                override fun itemHasClicked(customer: Customer) {W
+                override fun itemHasClicked(customer: Customer) {
                     viewModel.handleEvent(MainEvent.SeleccionaPersona(customer))
                 }
 
@@ -89,9 +86,12 @@ class MainActivity : AppCompatActivity() {
                     if (primeraVez) {
                         customAdapter.startSelectMode()
                         //si es la primera vez que se entra en modo seleccion, se crea el actionmode, que es el menu contextual
-                        startSupportActionMode(callback)?.let {
-                            actionMode = it;
+                        if (isInActionMode) {
+                            startSupportActionMode(callback)?.let {
+                                actionMode = it
+                            }
                         }
+
                         primeraVez = false
                     } else {
                         customAdapter.startSelectMode()
@@ -100,6 +100,7 @@ class MainActivity : AppCompatActivity() {
                     customAdapter.resetSelectMode()
                     primeraVez = true
                     actionMode?.finish()//se cierra el actionmode
+
                 }
             }
 
@@ -117,6 +118,7 @@ class MainActivity : AppCompatActivity() {
         // La opcion favoritos no hace nada, la opcion buscar no hace nada y la opcion mas borra los elementos
         // seleccionados de la lista y sale del modo seleccion
         override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
+            isInActionMode = true
             menuInflater.inflate(R.menu.context_bar, menu)
             binding.topAppBar.visibility = android.view.View.GONE
             return true
@@ -138,6 +140,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onDestroyActionMode(mode: ActionMode?) {
+            isInActionMode = false
             viewModel.handleEvent(MainEvent.ResetSelectMode)
             binding.topAppBar.visibility = android.view.View.VISIBLE
             customAdapter.resetSelectMode()

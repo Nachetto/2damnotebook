@@ -13,6 +13,7 @@ import com.example.nachorestaurante.domain.usecases.DeleteOrderUseCase
 import com.example.nachorestaurante.domain.usecases.GetCustomerFromIdUseCase
 import com.example.nachorestaurante.utils.NetworkResult
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 
 
 @HiltViewModel
@@ -24,19 +25,8 @@ class DetailedViewModel @Inject constructor(
 ) : ViewModel() {
     private val listaOrders = mutableListOf<Order>()
     private val _error = MutableLiveData<String>()
-    val error: LiveData<String> get() = _error
-
-    private var selectedOrders = mutableListOf<Order>()
     private val _uiState = MutableLiveData(DetailedState())
     val uiState: LiveData<DetailedState> get() = _uiState
-
-    init {
-        _uiState.value = DetailedState(
-            persona = null,
-            orders = emptyList(),
-            ordersSeleccionados = emptyList()
-        )
-    }
 
     fun handleEvent(event: DetailedEvent) {
         when (event) {
@@ -44,21 +34,28 @@ class DetailedViewModel @Inject constructor(
                 getOrders(event.id)
             }
 
-            is DetailedEvent.DeleteOrdersSeleccionados -> {
-                _uiState.value?.let {
-                    deleteOrder(it.ordersSeleccionados)
-                }
-            }
-
             is DetailedEvent.DeleteOrder -> {
                 deleteOrder(event.pedido)
             }
 
             is DetailedEvent.GetCustomer -> getCustomer(event.id)
+            is DetailedEvent.AddOrder -> addOrder(event.tableid)
         }
     }
 
-    //obtiene un order
+    private fun addOrder(tableid: Int) {
+        viewModelScope.launch {
+            val order = Order(0, _uiState.value?.persona?.id?: 0, LocalDate.now(), tableid)
+
+            if (addorderusecase.invoke(order) is NetworkResult.Error<*> || order.customerId == 0) {
+                _error.value = "Error al añadir"
+            } else {
+                listaOrders.add(order)
+                _uiState.value = _uiState.value?.copy(orders = listaOrders)
+            }
+        }
+    }
+
     private fun getCustomer(id: Int) {
         viewModelScope.launch {
             val result = getCustomerFromIdUseCase.invoke(id)
@@ -74,40 +71,6 @@ class DetailedViewModel @Inject constructor(
         }
     }
 
-    private fun deleteOrder(orders: List<Order>) {
-        viewModelScope.launch {
-            // Hacemos una copia de la lista original para iterar sobre ella
-            val copiaOrders = orders.toList()
-
-            // Lista para rastrear los elementos que se eliminarán.
-            val ordersParaEliminar = mutableListOf<Order>()
-
-            // Bucle que intenta borrar cada order de la copia y si hay error, rompe el bucle.
-            var isSuccessful = true
-            for (order in copiaOrders) {
-                val result = deleteOrderUseCase.invoke(order)
-                if (result is NetworkResult.Error<*>) {
-                    _error.value = "Error al borrar"
-                    isSuccessful = false
-                    break // Sale del bucle si hay un error.
-                } else {
-                    ordersParaEliminar.add(order) // Agrega a la lista temporal si el borrado fue exitoso.
-                }
-            }
-
-            // Si todas las orders se borraron exitosamente, actualiza la lista original.
-            if (isSuccessful) {
-                listaOrders.removeAll(ordersParaEliminar)
-                selectedOrders.removeAll(ordersParaEliminar)
-                _uiState.value =
-                    _uiState.value?.copy(ordersSeleccionados = selectedOrders.toList())
-            }
-
-            // Vuelve a cargar la lista de orders, independientemente del resultado del borrado.
-        }
-    }
-
-
     private fun deleteOrder(order: Order) {
         viewModelScope.launch {
 
@@ -116,7 +79,7 @@ class DetailedViewModel @Inject constructor(
             } else {
                 listaOrders.remove(order)
                 _uiState.value =
-                    _uiState.value?.copy(orders = listaOrders.toList())
+                    _uiState.value?.copy(orders = listaOrders)
             }
         }
     }

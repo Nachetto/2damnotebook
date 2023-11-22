@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_baseline_search_24"
         android:title="SEARCH"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
-        android:contentDescription="des2"
+        android:contentDescription="search icon"
         app:showAsAction="ifRoom" />
 
 </menu>

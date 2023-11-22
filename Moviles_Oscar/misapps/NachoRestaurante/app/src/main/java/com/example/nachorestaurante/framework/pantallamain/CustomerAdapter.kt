@@ -120,12 +120,13 @@ class CustomerAdapter(
                 }
 
                 if (selectedPersonas.contains(item)) {
-                    itemView.setBackgroundColor(Color.DKGRAY)
-                    binding.selected.isChecked = true
+                    itemView.setBackgroundResource(R.drawable.item_background_selected);
+                    binding.selected.isChecked = true;
                 } else {
-                    itemView.setBackgroundColor(Color.argb(255, 0, 62, 48))
-                    binding.selected.isChecked = false
+                    itemView.setBackgroundResource(R.drawable.item_background);
+                    binding.selected.isChecked = false;
                 }
+
             }
         }
     }

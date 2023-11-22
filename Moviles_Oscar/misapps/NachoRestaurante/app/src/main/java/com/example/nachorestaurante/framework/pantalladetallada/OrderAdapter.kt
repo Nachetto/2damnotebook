@@ -43,9 +43,9 @@ class OrderAdapter(
 
         fun bind(item: Order) {
             with(binding) {
-                tvNombre.text = item.orderDate.toString()
-                tvId.text = item.id.toString()
-                itemView.setBackgroundColor(Color.argb(255, 0, 62, 48))
+                tvId.text = "id: "+item.id.toString()
+                tvFecha.text = "fecha: "+item.orderDate.toString()
+                tvTableId.text = "mesa: "+item.tableId.toString()
             }
         }
     }
@@ -62,11 +62,10 @@ class OrderAdapter(
 
     val swipeGesture = object : SwipeGesture(context) {
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-            when (direction) {
-                ItemTouchHelper.LEFT -> {
-                    val position = viewHolder.bindingAdapterPosition
-                    actions.onDelete(currentList[position])
-                }
+            val position = viewHolder.bindingAdapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                val order = getItem(position)
+                actions.onDelete(order)
             }
         }
     }

@@ -1,4 +1,5 @@
 package com.example.nachorestaurante.data.sources.di
+import com.example.nachorestaurante.data.common.Constants
 import com.example.nachorestaurante.data.sources.service.CustomerService
 import com.example.nachorestaurante.data.sources.service.OrderService
 import dagger.Module
@@ -12,7 +13,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-//esto es para que el retrofit funcione
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
@@ -44,8 +44,7 @@ object NetworkModule {
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            //ESTO TIENE QUE IR EN UNA VARIABLE
-            .baseUrl("http://informatica.iesquevedo.es:2326/IgnacioLlorente_RestaurantRest-OscarApruebame/api/")
+            .baseUrl(Constants.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .build()
