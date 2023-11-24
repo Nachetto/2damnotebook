@@ -26,8 +26,6 @@ class CustomerAdapter(
         fun onDelete(customer: Customer)
         fun onStartSelectMode(customer: Customer)
         fun itemHasClicked(customer: Customer)
-        fun onStartDetailedMode(customer: Customer)
-
     }
 
     private var selectedPersonas = mutableSetOf<Customer>()
@@ -69,7 +67,6 @@ class CustomerAdapter(
         private val binding = ViewCustomerBinding.bind(itemView)
 
         fun bind(item: Customer) {
-
             itemView.setOnLongClickListener {
                 if (!selectedMode) {
                     actions.onStartSelectMode(item)
@@ -80,9 +77,10 @@ class CustomerAdapter(
             itemView.setOnClickListener {
                 if (selectedMode)
                 {
-                    item.isSelected=!item.isSelected
-                    selectedMode = item.isSelected
+                    val seleccionado = !item.isSelected
+                    selectedMode = seleccionado
                     actions.itemHasClicked(item)
+
 
                 }
                 else{
@@ -96,7 +94,6 @@ class CustomerAdapter(
             with(binding) {
                 selected.setOnClickListener {
                     if (selectedMode) {
-
                         if (binding.selected.isChecked) {
                             item.isSelected = true
                             itemView.setBackgroundColor(Color.DKGRAY)
@@ -110,23 +107,18 @@ class CustomerAdapter(
                     }
                 }
 
+
+
                 tvNombre.text = item.name
                 tvId.text = item.id.toString()
+
+
                 if (selectedMode)
                     selected.visibility = View.VISIBLE
                 else {
                     item.isSelected = false
                     selected.visibility = View.GONE
                 }
-
-                if (selectedPersonas.contains(item)) {
-                    itemView.setBackgroundResource(R.drawable.item_background_selected);
-                    binding.selected.isChecked = true;
-                } else {
-                    itemView.setBackgroundResource(R.drawable.item_background);
-                    binding.selected.isChecked = false;
-                }
-
             }
         }
     }

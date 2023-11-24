@@ -47,11 +47,6 @@ class MainActivity : AppCompatActivity() {
                 override fun itemHasClicked(customer: Customer) {
                     viewModel.handleEvent(MainEvent.SeleccionaPersona(customer))
                 }
-
-                override fun onStartDetailedMode(customer: Customer) {
-
-                }
-
             })
 
         //configurar el recyclerview
@@ -104,7 +99,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            //si hay un error, se muestra en pantalla y se resetea el estado del viewmodel
             state.error?.let {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             }
@@ -113,10 +107,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configContextBar() = object : ActionMode.Callback {
-        // esto es para el menu contextual que se muestra cuando se pulsa un elemento de la lista durante un tiempo
-        // largo. Se muestra en la parte superior de la pantalla y tiene tres opciones: favoritos, buscar y mas.
-        // La opcion favoritos no hace nada, la opcion buscar no hace nada y la opcion mas borra los elementos
-        // seleccionados de la lista y sale del modo seleccion
         override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
             isInActionMode = true
             menuInflater.inflate(R.menu.context_bar, menu)
@@ -134,7 +124,6 @@ class MainActivity : AppCompatActivity() {
                     viewModel.handleEvent(MainEvent.DeletePersonasSeleccionadas())
                     true
                 }
-
                 else -> false
             }
         }
@@ -148,44 +137,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configAppBar() {
-        //configurar la appbar para que tenga un menu de busqueda y un menu de opciones en la esquina
-        // superior derecha de la pantalla y un menu de navegacion en la esquina superior izquierda de
-        // la pantalla que no hace nada al pulsarlo (no hay navegacion) y que se pueda cerrar el menu
-        // de navegacion pulsando en cualquier parte de la pantalla que no sea el menu de navegacion
-        // o el menu de opciones o el menu de busqueda o el actionmode
 
         val actionSearch = binding.topAppBar.menu.findItem(R.id.search).actionView as SearchView
 
         actionSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(p0: String?): Boolean {
-                return false
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                //TODO filtro final sin el contains
+                return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-
                 newText?.let { filtro ->
                     viewModel.handleEvent(MainEvent.GetPersonaFiltradas(filtro))
                 }
                 return true
             }
         })
-
-        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
-            when (menuItem.itemId) {
-
-                R.id.search -> {
-                    // Handle search icon press
-                    true
-                }
-
-                R.id.more -> {
-                    // Handle more item (inside overflow menu) press
-                    true
-                }
-
-                else -> false
-            }
-        }
     }
 
 }
