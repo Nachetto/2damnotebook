@@ -33,35 +33,30 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvOrders"
-        android:layout_width="394dp"
-
-        android:layout_height="304dp"
+        android:layout_width="392dp"
+        android:layout_height="197dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="1dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.927" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="48dp"
-        android:text="Add!"
+        android:text="@string/addbtn"
         app:layout_constraintBottom_toTopOf="@+id/rvOrders"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/tableId"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.3" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -74,7 +69,7 @@
         android:id="@+id/NameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:text="@string/name"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/tvName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/textviewemail"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/phoneLabel"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Email"
+        android:text="@string/email"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/tvEmail"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="TextView"
+        android:text="@string/textviewName"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/emailLabel"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,21 +118,21 @@
         android:id="@+id/tvPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/textview"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneLabel"
-        app:layout_constraintVertical_bias="0.105"
-        android:textSize="16sp" />
+        app:layout_constraintVertical_bias="0.105" />
 
     <TextView
         android:id="@+id/phoneLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Phone"
+        android:text="@string/phone"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/tvPhone"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,34 +140,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
-    <EditText
-        android:id="@+id/tableId"
-        android:layout_width="109dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="9dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/rvOrders"
-        app:layout_constraintStart_toEndOf="@+id/inputTableId"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.952"
-        app:layout_constraintRight_toLeftOf="@id/button"
-        />
-
     <TextView
         android:id="@+id/inputTableId"
-        android:layout_width="63dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="6dp"
-        android:text="Table id:"
+        android:layout_marginStart="108dp"
+        android:text="@string/table_id"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/rvOrders"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintRight_toLeftOf="@id/tableId"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.952"
-        app:layout_constraintRight_toLeftOf="@id/tableId"
-        />
+        app:layout_constraintVertical_bias="0.554" />
+
+    <EditText
+        android:id="@+id/tableId"
+        android:layout_width="54dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintRight_toLeftOf="@id/button"
+        app:layout_constraintStart_toEndOf="@+id/inputTableId"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.552"
+        tools:ignore="LabelFor" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="457dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

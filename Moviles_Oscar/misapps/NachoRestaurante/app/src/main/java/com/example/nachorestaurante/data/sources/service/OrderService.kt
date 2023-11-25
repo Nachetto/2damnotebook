@@ -2,7 +2,6 @@ package com.example.nachorestaurante.data.sources.service
 
 import com.example.nachorestaurante.data.common.Constants
 import com.example.nachorestaurante.data.model.OrderResponse
-import com.example.nachorestaurante.domain.modelo.Order
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.Body
@@ -16,7 +15,7 @@ interface OrderService {
     suspend fun getOrders(): Response<List<OrderResponse>>
 
     @DELETE(Constants.ORDERSID)
-    suspend fun deleteOrder(@Path("id") id: Int): Response<ResponseBody>
+    suspend fun deleteOrder(@Path(Constants.ID) id: Int): Response<ResponseBody>
 
     @POST("orders")
     suspend fun createOrder(@Body orderResponse: OrderResponse): Response<OrderResponse>

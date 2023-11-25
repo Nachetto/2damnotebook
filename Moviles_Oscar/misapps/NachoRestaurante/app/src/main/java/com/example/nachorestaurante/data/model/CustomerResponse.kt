@@ -1,26 +1,27 @@
 package com.example.nachorestaurante.data.model
 
+import com.example.nachorestaurante.data.common.Constants
 import com.example.nachorestaurante.domain.modelo.Customer
 import com.google.gson.annotations.SerializedName
 import java.time.LocalDate
 
 data class CustomerResponse(
-    @SerializedName("id")
+    @SerializedName(Constants.ID)
     val id: Int,
 
-    @SerializedName("name")
+    @SerializedName(Constants.NAME)
     val name: String,
 
-    @SerializedName("surname")
+    @SerializedName(Constants.SURNAME)
     val surname: String,
 
-    @SerializedName("email")
+    @SerializedName(Constants.EMAIL)
     val email: String,
 
-    @SerializedName("phone")
+    @SerializedName(Constants.PHONE)
     val phone: Int,
 
-    @SerializedName("birthdate")
+    @SerializedName(Constants.BIRTHDATE)
     val birthdate: String
 )
 

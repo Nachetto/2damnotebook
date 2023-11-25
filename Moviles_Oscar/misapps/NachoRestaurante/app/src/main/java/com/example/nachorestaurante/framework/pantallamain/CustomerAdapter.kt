@@ -2,7 +2,6 @@ package com.example.nachorestaurante.framework.pantallamain
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,43 +12,40 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nachorestaurante.R
 import com.example.nachorestaurante.databinding.ViewCustomerBinding
 import com.example.nachorestaurante.domain.modelo.Customer
+import com.example.nachorestaurante.framework.common.ConstantesFramework
 import com.example.nachorestaurante.framework.pantalladetallada.DetailedActivity
 
 
 class CustomerAdapter(
     val context: Context,
-    val actions: PersonaActions
+    val actions: CustomerActions
 ) :
     ListAdapter<Customer, CustomerAdapter.ItemViewholder>(DiffCallback()) {
+    private var selectedCustomers = mutableSetOf<Customer>()
+    private var selectedMode: Boolean = false
 
-    interface PersonaActions {
+    interface CustomerActions {
         fun onDelete(customer: Customer)
         fun onStartSelectMode(customer: Customer)
         fun itemHasClicked(customer: Customer)
-        fun onStartDetailedMode(customer: Customer)
 
     }
 
-    private var selectedPersonas = mutableSetOf<Customer>()
 
     fun startSelectMode() {
         selectedMode = true
         notifyDataSetChanged()
     }
-
-
     fun resetSelectMode() {
         selectedMode = false
-        selectedPersonas.clear()
+        selectedCustomers.clear()
         notifyDataSetChanged()
     }
-
-    fun setSelectedItems(personasSeleccionadas: List<Customer>) {
-        selectedPersonas.clear()
-        selectedPersonas.addAll(personasSeleccionadas)
+    fun setSelectedItems(customersSeleccionadas: List<Customer>) {
+        selectedCustomers.clear()
+        selectedCustomers.addAll(customersSeleccionadas)
     }
 
-    private var selectedMode: Boolean = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewholder {
         return ItemViewholder(
@@ -65,52 +61,12 @@ class CustomerAdapter(
 
 
     inner class ItemViewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         private val binding = ViewCustomerBinding.bind(itemView)
 
         fun bind(item: Customer) {
-
-            itemView.setOnLongClickListener {
-                if (!selectedMode) {
-                    actions.onStartSelectMode(item)
-                }
-                true
-            }
-
-            itemView.setOnClickListener {
-                if (selectedMode)
-                {
-                    item.isSelected=!item.isSelected
-                    selectedMode = item.isSelected
-                    actions.itemHasClicked(item)
-
-                }
-                else{
-                    val context = it.context
-                    val intent = Intent(context, DetailedActivity::class.java)
-                    intent.putExtra("CustomerDetailed", item.id)
-                    context.startActivity(intent)
-                }
-            }
-
+            listemers(item, itemView, binding)
             with(binding) {
-                selected.setOnClickListener {
-                    if (selectedMode) {
-
-                        if (binding.selected.isChecked) {
-                            item.isSelected = true
-                            itemView.setBackgroundColor(Color.DKGRAY)
-                            selectedPersonas.add(item)
-                        } else {
-                            item.isSelected = false
-                            itemView.setBackgroundColor(Color.argb(255, 0, 255, 255))
-                            selectedPersonas.remove(item)
-                        }
-                        actions.itemHasClicked(item)
-                    }
-                }
-
-                tvNombre.text = item.name
+                tvNombre.text = item.name + " " + item.surname
                 tvId.text = item.id.toString()
                 if (selectedMode)
                     selected.visibility = View.VISIBLE
@@ -119,7 +75,7 @@ class CustomerAdapter(
                     selected.visibility = View.GONE
                 }
 
-                if (selectedPersonas.contains(item)) {
+                if (selectedCustomers.contains(item)) {
                     itemView.setBackgroundResource(R.drawable.item_background_selected);
                     binding.selected.isChecked = true;
                 } else {
@@ -127,6 +83,49 @@ class CustomerAdapter(
                     binding.selected.isChecked = false;
                 }
 
+            }
+        }
+    }
+
+    private fun listemers(item: Customer, itemView: View, binding: ViewCustomerBinding) {
+        itemView.setOnLongClickListener {
+            if (!selectedMode) {
+                actions.onStartSelectMode(item)
+            }
+            true
+        }
+
+        itemView.setOnClickListener {
+            if (selectedMode)
+            {
+                item.isSelected=!item.isSelected
+                selectedMode = item.isSelected
+                actions.itemHasClicked(item)
+
+            }
+            else{
+                val context = it.context
+                val intent = Intent(context, DetailedActivity::class.java)
+                intent.putExtra(ConstantesFramework.CUSTOMERDETAILED, item.id)
+                context.startActivity(intent)
+            }
+        }
+
+        with(binding){
+            selected.setOnClickListener {
+                if (selectedMode) {
+
+                    if (binding.selected.isChecked) {
+                        item.isSelected = true
+                        itemView.setBackgroundColor(android.graphics.Color.DKGRAY)
+                        selectedCustomers.add(item)
+                    } else {
+                        item.isSelected = false
+                        itemView.setBackgroundColor(android.graphics.Color.argb(255, 0, 255, 255))
+                        selectedCustomers.remove(item)
+                    }
+                    actions.itemHasClicked(item)
+                }
             }
         }
     }
@@ -146,7 +145,7 @@ class CustomerAdapter(
             when (direction) {
                 ItemTouchHelper.LEFT -> {
                     val position = viewHolder.bindingAdapterPosition
-                    selectedPersonas.remove(currentList[position])
+                    selectedCustomers.remove(currentList[position])
                     actions.onDelete(currentList[position])
                     if (selectedMode)
                         actions.itemHasClicked(currentList[position])

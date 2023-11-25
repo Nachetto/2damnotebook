@@ -12,20 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NachoRestaurante"
         tools:targetApi="31"
-
+        android:label="Nacho Restaurante"
         android:name="com.example.nachorestaurante.framework.NachoApp"
-        android:label="@string/app_name"
         android:icon="@drawable/logofinal"
         android:roundIcon="@drawable/logofinal"
         >
 
         <activity
             android:name=".framework.pantallamain.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:permission="android.permission.INTERNET">
         </activity>
         <activity
             android:name=".framework.pantalladetallada.DetailedActivity"
-            android:exported="true">
+            android:exported="true"
+            android:permission="android.permission.INTERNET">
         </activity>
         <activity
             android:name=".framework.LoadActivity"

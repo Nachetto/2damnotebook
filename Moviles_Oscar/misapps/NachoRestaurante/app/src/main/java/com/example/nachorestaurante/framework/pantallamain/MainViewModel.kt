@@ -1,21 +1,15 @@
 package com.example.nachorestaurante.framework.pantallamain
 
-import android.content.Intent
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.nachorestaurante.data.repositorios.CustomerRepository
 import com.example.nachorestaurante.domain.modelo.Customer
 import com.example.nachorestaurante.domain.usecases.DeleteCustomerUseCase
 import com.example.nachorestaurante.domain.usecases.GetAllCustomersUseCase
-import com.example.nachorestaurante.framework.pantalladetallada.DetailedActivity
+import com.example.nachorestaurante.framework.common.ConstantesFramework
 import com.example.nachorestaurante.utils.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,40 +18,42 @@ class MainViewModel @Inject constructor(
     private val getAllCustomersUseCase: GetAllCustomersUseCase,
     private val deleteCustomerUseCase: DeleteCustomerUseCase,
 ) : ViewModel() {
-    private val listaPersonas = mutableListOf<Customer>()
+    private val listaCustomers = mutableListOf<Customer>()
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
 
-    private var selectedPersonas = mutableListOf<Customer>()
+    private var selectedCustomers = mutableListOf<Customer>()
     private val _uiState = MutableLiveData(MainState())
     val uiState: LiveData<MainState> get() = _uiState
 
     init {
         _uiState.value = MainState(
-            personas = emptyList(),
-            personasSeleccionadas = emptyList(),
-            selectMode = false
+            customers = emptyList(),
+            customersSeleccionadas = emptyList(),
+            selectMode = false,
+            error = this.error.value
         )
-        getPersonas()
+        _error.value = ""
+        getCustomers()
     }
 
     fun handleEvent(event: MainEvent) {
         when (event) {
-            is MainEvent.SeleccionaPersona -> seleccionaPersona(event.persona)
+            is MainEvent.SeleccionaCustomer -> seleccionaCustomer(event.customer)
 
-            MainEvent.GetPersonas -> {
-                getPersonas()
+            MainEvent.GetCustomers -> {
+                getCustomers()
             }
-            is MainEvent.GetPersonaFiltradas -> getPersonas(event.filtro)
+            is MainEvent.GetCustomersFiltrados -> getCustomers(event.filtro)
 
-            is MainEvent.DeletePersonasSeleccionadas -> {
+            is MainEvent.DeleteCustomersSeleccionados -> {
                 _uiState.value?.let {
-                    deletePersona(it.personasSeleccionadas)
+                    deleteCustomer(it.customersSeleccionadas)
                     resetSelectMode()
                 }
             }
-            is MainEvent.DeletePersona -> {
-                deletePersona(event.persona)
+            is MainEvent.DeleteCustomer -> {
+                deleteCustomer(event.customer)
             }
 
             MainEvent.ResetSelectMode -> resetSelectMode()
@@ -67,94 +63,92 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private fun seleccionaPersona(persona: Customer) {
-        if (isSelected(persona)) {
-            selectedPersonas.remove(persona)
+    private fun seleccionaCustomer(customer: Customer) {
+        if (isSelected(customer)) {
+            selectedCustomers.remove(customer)
         } else {
-            selectedPersonas.add(persona)
+            selectedCustomers.add(customer)
         }
-        _uiState.value = _uiState.value?.copy(personasSeleccionadas = selectedPersonas)
+        _uiState.value = _uiState.value?.copy(customersSeleccionadas = selectedCustomers)
     }
 
-    private fun getPersonas() {
+    private fun getCustomers() {
         viewModelScope.launch {
             val result = getAllCustomersUseCase.invoke()
             when (result) {
-                is NetworkResult.Error<*> -> _error.value = result.message ?: "mal"
-                is NetworkResult.Loading<*> -> TODO()
+                is NetworkResult.Error<*> -> _error.value = result.message ?: ConstantesFramework.ERRORRED
                 is NetworkResult.Success<*> -> {
                     if (result.data is List<*>) {
-                        listaPersonas.clear()
-                        listaPersonas.addAll(result.data as Collection<Customer>)
+                        listaCustomers.clear()
+                        listaCustomers.addAll(result.data as Collection<Customer>)
                     }
                 }
             }
-            _uiState.value = _uiState.value?.copy(personas = listaPersonas)
+            _uiState.value = _uiState.value?.copy(customers = listaCustomers)
         }
     }
-    private fun getPersonas(filtro: String) {
+
+    private fun getCustomers(filtro: String) {
         viewModelScope.launch {
             _uiState.value = _uiState.value?.copy(
-                personas = listaPersonas.filter { persona ->
-                    persona.name.contains(filtro, ignoreCase = true)
+                customers = listaCustomers.filter { customer ->
+                    customer.name.contains(filtro, ignoreCase = true)
                 }.toList()
             )
         }
     }
 
 
-    private fun deletePersona(personas: List<Customer>) {
+    private fun deleteCustomer(customers: List<Customer>) {
         viewModelScope.launch {
-            val copiaPersonas = personas.toList()
+            val copiaCustomers = customers.toList()
 
-            val personasParaEliminar = mutableListOf<Customer>()
+            val customersParaEliminar = mutableListOf<Customer>()
 
             var isSuccessful = true
-            for (persona in copiaPersonas) {
-                val result = deleteCustomerUseCase.invoke(persona)
+            for (customer in copiaCustomers) {
+                val result = deleteCustomerUseCase.invoke(customer)
                 if (result is NetworkResult.Error<*>) {
-                    _error.value = "Error al borrar"
+                    _error.value = ConstantesFramework.ERRORBORRAR
                     isSuccessful = false
                     break
                 } else {
-                    personasParaEliminar.add(persona)
+                    customersParaEliminar.add(customer)
                 }
             }
 
-            // Si todas las personas se borraron exitosamente, actualiza la lista original.
             if (isSuccessful) {
-                listaPersonas.removeAll(personasParaEliminar)
-                selectedPersonas.removeAll(personasParaEliminar)
+                listaCustomers.removeAll(customersParaEliminar)
+                selectedCustomers.removeAll(customersParaEliminar)
                 _uiState.value =
-                    _uiState.value?.copy(personasSeleccionadas = selectedPersonas.toList())
+                    _uiState.value?.copy(customersSeleccionadas = selectedCustomers.toList())
             }
 
-            // Vuelve a cargar la lista de personas, independientemente del resultado del borrado.
-            getPersonas()
+            getCustomers()
         }
     }
 
 
-    private fun deletePersona(persona: Customer) {
+    private fun deleteCustomer(customer: Customer) {
         viewModelScope.launch {
-            if (deleteCustomerUseCase.invoke(persona) is NetworkResult.Error<*>) {
-                _error.value = "Error al borrar"
+            if (deleteCustomerUseCase.invoke(customer) is NetworkResult.Error<*>) {
+                _error.value = ConstantesFramework.ERRORBORRAR
             } else {
-                listaPersonas.remove(persona)
-                selectedPersonas.remove(persona)
+                listaCustomers.remove(customer)
+                selectedCustomers.remove(customer)
                 _uiState.value =
-                    _uiState.value?.copy(personasSeleccionadas = selectedPersonas.toList())
+                    _uiState.value?.copy(customersSeleccionadas = selectedCustomers.toList())
             }
         }
     }
 
     private fun resetSelectMode() {
-        selectedPersonas.clear()
+        selectedCustomers.clear()
         _uiState.value =
-            _uiState.value?.copy(selectMode = false, personasSeleccionadas = selectedPersonas)
+            _uiState.value?.copy(selectMode = false, customersSeleccionadas = selectedCustomers)
     }
 
-    private fun isSelected(persona: Customer): Boolean {
-        return selectedPersonas.contains(persona)
+    private fun isSelected(customer: Customer): Boolean {
+        return selectedCustomers.contains(customer)
     }
 }

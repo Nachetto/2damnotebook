@@ -2,12 +2,10 @@ package com.example.nachorestaurante.framework.pantalladetallada
 
 import com.example.nachorestaurante.framework.pantallamain.SwipeGesture
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nachorestaurante.R
@@ -31,6 +29,18 @@ class OrderAdapter(
         )
     }
 
+    fun deleteItem(position: Int) {
+        val order = currentList[position]
+        actions.onDelete(order)
+
+        val updatedList = currentList.toMutableList().apply {
+            removeAt(position)
+        }
+
+        submitList(updatedList)
+        notifyItemRemoved(position)
+    }
+
     override fun onBindViewHolder(holder: ItemViewholder, position: Int) = with(holder) {
         val item = getItem(position)
         bind(item)
@@ -38,7 +48,6 @@ class OrderAdapter(
 
 
     inner class ItemViewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         private val binding = ViewOrderBinding.bind(itemView)
 
         fun bind(item: Order) {
@@ -64,8 +73,7 @@ class OrderAdapter(
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             val position = viewHolder.bindingAdapterPosition
             if (position != RecyclerView.NO_POSITION) {
-                val order = getItem(position)
-                actions.onDelete(order)
+                deleteItem(position)
             }
         }
     }

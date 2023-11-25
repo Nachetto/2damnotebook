@@ -12,9 +12,9 @@ interface CustomerService {
     @GET(Constants.CUSTOMERS)
     suspend fun getCustomers(): Response<List<CustomerResponse>>
     @DELETE(Constants.CUSTOMERSID)
-    suspend fun deleteCustomer(@Path("id") id: Int): Response<ResponseBody>
+    suspend fun deleteCustomer(@Path(Constants.ID) id: Int): Response<ResponseBody>
     @GET(Constants.CUSTOMERSID)
-    suspend fun getCustomer(@Path("id") id: Int ): Response<CustomerResponse>
+    suspend fun getCustomer(@Path(Constants.ID) id: Int ): Response<CustomerResponse>
 
 
 }

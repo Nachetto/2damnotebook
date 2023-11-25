@@ -1,7 +1,6 @@
 package com.example.nachorestaurante.domain.usecases
 
 import com.example.nachorestaurante.data.repositorios.CustomerRepository
-import com.example.nachorestaurante.data.repositorios.OrderRepository
 import com.example.nachorestaurante.domain.modelo.Customer
 import java.time.LocalDate
 import javax.inject.Inject

@@ -1,20 +1,21 @@
 package com.example.nachorestaurante.data.model
 
+import com.example.nachorestaurante.data.common.Constants
 import com.example.nachorestaurante.domain.modelo.Order
 import com.google.gson.annotations.SerializedName
 import java.time.LocalDate
 
 data class OrderResponse(
-    @SerializedName("customerId")
+    @SerializedName(Constants.CUSTOMERID)
     val customerId: Int,
 
-    @SerializedName("orderDate")
+    @SerializedName(Constants.ORDERDATE)
     val orderDate: String,
 
-    @SerializedName("id")
+    @SerializedName(Constants.ID)
     val orderId: Int,
 
-    @SerializedName("tableId")
+    @SerializedName(Constants.TABLEID)
     val tableId: Int
 )
 fun OrderResponse.toOrder(): Order {
