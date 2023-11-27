@@ -1,5 +1,5 @@
 
 h
-java:S6204,"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
+java:S6204+"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
 S
-java:S1612+"=Replace this lambda with method reference 'Object::toString'.(úÔ¤Ë
+java:S1612*"=Replace this lambda with method reference 'Object::toString'.(úÔ¤Ë

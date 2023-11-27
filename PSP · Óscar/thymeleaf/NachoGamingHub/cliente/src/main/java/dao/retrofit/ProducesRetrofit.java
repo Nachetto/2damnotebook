@@ -3,7 +3,7 @@ package dao.retrofit;
 
 import com.squareup.moshi.Moshi;
 import common.config.Configuracion;
-import dao.retrofit.llamadas.TheOfficeApi;
+import dao.retrofit.llamadas.*;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Singleton;
 import okhttp3.OkHttpClient;
@@ -37,9 +37,27 @@ public class ProducesRetrofit {
     }
 
     @Produces
-    public TheOfficeApi getTheOfficeApi(Retrofit retrofit) {
-        return retrofit.create(TheOfficeApi.class);
+    public ArticulosApi getArticulosApi(Retrofit retrofit) {
+        return retrofit.create(ArticulosApi.class);
     }
 
+    @Produces
+    public UsuariosApi getUsuariosApi(Retrofit retrofit) {
+        return retrofit.create(UsuariosApi.class);
+    }
 
+    @Produces
+    public JuegosApi getJuegosApi(Retrofit retrofit) {
+        return retrofit.create(JuegosApi.class);
+    }
+
+    @Produces
+    public LoginApi getLoginApi(Retrofit retrofit) {
+        return retrofit.create(LoginApi.class);
+    }
+
+    @Produces
+    public SuscripcionesApi getSuscripcionesApi(Retrofit retrofit) {
+        return retrofit.create(SuscripcionesApi.class);
+    }
 }

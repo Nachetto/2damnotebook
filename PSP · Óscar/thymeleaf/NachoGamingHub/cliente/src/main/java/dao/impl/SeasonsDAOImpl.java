@@ -2,7 +2,6 @@ package dao.impl;
 
 import dao.DaoGenerico;
 import dao.SeasonsDAO;
-import dao.retrofit.llamadas.TheOfficeApi;
 import dao.retrofit.modelo.ResultsItemSeason;
 import domain.modelo.MiSeason;
 import io.vavr.control.Either;

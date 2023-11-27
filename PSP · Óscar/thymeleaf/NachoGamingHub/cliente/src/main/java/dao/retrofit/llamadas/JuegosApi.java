@@ -1,24 +1,24 @@
 package dao.retrofit.llamadas;
 
 import domain.modelo.Juego;
-import retrofit2.Call;
+import io.reactivex.rxjava3.core.Single;
 import retrofit2.http.*;
 
 import java.util.List;
 
 public interface JuegosApi {
     @GET("juegos")
-    Call<List<Juego>> getAllJuegos();
+    Single<List<Juego>> getAllJuegos();
 
     @GET("juegos/{id}")
-    Call<Juego> getJuego(@Path("id") String id);
+    Single<Juego> getJuego(@Path("id") String id);
 
     @POST("juegos")
-    Call<Juego> addJuego(@Body Juego juego);
+    Single<Juego> addJuego(@Body Juego juego);
 
     @PUT("juegos/{id}")
-    Call<Juego> updateJuego(@Path("id") String id, @Body Juego juegoModificado);
+    Single<Juego> updateJuego(@Path("id") String id, @Body Juego juegoModificado);
 
     @DELETE("juegos/{id}")
-    Call<Void> deleteJuego(@Path("id") String id);
+    Single<Void> deleteJuego(@Path("id") String id);
 }

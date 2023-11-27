@@ -2,7 +2,6 @@ package dao.impl;
 
 import dao.CharactersDAO;
 import dao.DaoGenerico;
-import dao.retrofit.llamadas.TheOfficeApi;
 import dao.retrofit.modelo.ResponseCharacter;
 import domain.modelo.MiCharacter;
 import io.vavr.control.Either;
