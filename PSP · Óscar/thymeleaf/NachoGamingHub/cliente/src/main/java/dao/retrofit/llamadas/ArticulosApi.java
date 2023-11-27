@@ -2,6 +2,7 @@ package dao.retrofit.llamadas;
 
 import domain.modelo.Articulo;
 import io.reactivex.rxjava3.core.Single;
+import retrofit2.Response;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -29,7 +30,7 @@ public interface ArticulosApi {
     Single<Articulo> updateArticulo(String uuid, Articulo articuloModificado);
 
     @DELETE("articulos/{uuid}")
-    Single<String> deleteArticulo(String uuid);
+    Single<Response<Void>> deleteArticulo(String uuid);
 
 
 }

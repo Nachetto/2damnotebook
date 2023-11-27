@@ -16,4 +16,4 @@ public class LoginController extends BaseScreenController {
     private void login() {
         getPrincipalController().onLogin(username.getText(), password.getText());
     }
-}
+}[{\[{\[{}]}]}]

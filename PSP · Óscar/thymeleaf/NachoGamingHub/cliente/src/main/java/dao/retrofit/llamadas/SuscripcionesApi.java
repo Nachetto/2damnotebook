@@ -2,6 +2,7 @@ package dao.retrofit.llamadas;
 
 import domain.modelo.Suscripcion;
 import io.reactivex.rxjava3.core.Single;
+import retrofit2.Response;
 import retrofit2.http.*;
 
 import java.util.List;
@@ -24,6 +25,6 @@ public interface SuscripcionesApi {
     Single<Suscripcion> updateSuscripcion(@Path("uuid") String uuid, @Body Suscripcion suscripcionModificada);
 
     @DELETE("suscripciones/{uuid}")
-    Single<Void> deleteSuscripcion(@Path("uuid") String uuid);
+    Single<Response<Void>> deleteSuscripcion(@Path("uuid") String uuid);
 
 }

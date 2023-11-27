@@ -32,6 +32,8 @@ public class PrincipalController {
     @FXML
     public BorderPane root;
 
+    public String username ="";
+
 
     //constructor
     @Inject
@@ -117,4 +119,10 @@ public class PrincipalController {
     public void setStage(Stage stage) {
     }
 
+    public void onLogin(TextField username) {
+
+        cargarPantalla(Pantallas.INICIO);
+        this.username = username.getText();
+
+    }
 }

@@ -2,6 +2,7 @@ package dao.retrofit.llamadas;
 
 import domain.modelo.Usuario;
 import io.reactivex.rxjava3.core.Single;
+import retrofit2.Response;
 import retrofit2.http.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public interface UsuariosApi {
     Single<Usuario> updateUsuario(@Path("id") String id, @Body Usuario modifiedUsuario);
 
     @DELETE("usuarios/{id}")
-    Single<Void> deleteUsuario(@Path("id") String id);
+    Single<Response<Void>> deleteUsuario(@Path("id") String id);
+
 
 }
