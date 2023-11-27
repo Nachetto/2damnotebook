@@ -25,8 +25,16 @@ class DetailedViewModel @Inject constructor(
 ) : ViewModel() {
     private val listaOrders = mutableListOf<Order>()
     private val _error = MutableLiveData<String>()
+    val error: LiveData<String> get() = _error
     private val _uiState = MutableLiveData(DetailedState())
     val uiState: LiveData<DetailedState> get() = _uiState
+
+    init {
+        _uiState.value = DetailedState(
+            orders = emptyList(),
+            error = this.error.value
+        )
+    }
 
     fun handleEvent(event: DetailedEvent) {
         when (event) {
@@ -45,7 +53,7 @@ class DetailedViewModel @Inject constructor(
 
     private fun addOrder(tableid: Int) {
         viewModelScope.launch {
-            val order = Order(0, _uiState.value?.persona?.id?: 0, LocalDate.now(), tableid)
+            val order = Order(0, _uiState.value?.customer?.id?: 0, LocalDate.now(), tableid)
 
             if (addorderusecase.invoke(order) is NetworkResult.Error<*> || order.customerId == 0) {
                 _error.value = "Error al añadir"
@@ -59,14 +67,15 @@ class DetailedViewModel @Inject constructor(
     private fun getCustomer(id: Int) {
         viewModelScope.launch {
             val result = getCustomerFromIdUseCase.invoke(id)
-            _uiState.value= _uiState.value?.copy(persona = result)
+            _uiState.value= _uiState.value?.copy(customer = result)
         }
     }
 
     private fun getOrders(id: Int) {
         viewModelScope.launch {
+            val result = getAllFilteredOrdersUseCase.invoke(id)
             listaOrders.clear()
-            listaOrders.addAll(getAllFilteredOrdersUseCase.invoke(id))
+            listaOrders.addAll(result)
             _uiState.value = _uiState.value?.copy(orders = listaOrders)
         }
     }

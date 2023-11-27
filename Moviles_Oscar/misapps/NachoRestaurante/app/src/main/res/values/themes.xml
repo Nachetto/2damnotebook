@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme for Light Mode. -->
-    <style name="Theme.NachoRestaurante" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="Theme.NachoRestaurante" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/orange_500</item>
         <item name="colorPrimaryVariant">@color/orange_700</item>

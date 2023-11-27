@@ -1,4 +1,5 @@
 package com.example.nachorestaurante.data.repositorios
+import com.example.nachorestaurante.data.common.Constants
 import com.example.nachorestaurante.data.model.toCustomer
 import com.example.nachorestaurante.data.sources.service.CustomerService
 import com.example.nachorestaurante.domain.modelo.Customer
@@ -22,14 +23,14 @@ class CustomerRepository @Inject constructor(private val customerService: Custom
         return try {
             val response = customerService.deleteCustomer(id)
             if (response.isSuccessful) {
-                val responseBodyString = response.body()?.string() ?: "Deleted successfully"
+                val responseBodyString = response.body()?.string() ?: Constants.DELETEOK
                 NetworkResult.Success(responseBodyString)
             } else {
-                val errorBodyString = response.errorBody()?.string() ?: "Unknown error"
+                val errorBodyString = response.errorBody()?.string() ?: Constants.UNKNOWNERROR
                 NetworkResult.Error(errorBodyString)
             }
         } catch (e: Exception) {
-            NetworkResult.Error(e.message ?: "An error occurred")
+            NetworkResult.Error(e.message ?: Constants.UNKNOWNERROR)
         }
     }
 
@@ -41,13 +42,13 @@ class CustomerRepository @Inject constructor(private val customerService: Custom
             if (response.isSuccessful) {
                 response.body()?.let { customerResponse ->
                     NetworkResult.Success(customerResponse.toCustomer())
-                } ?: NetworkResult.Error("No customer found")
+                } ?: NetworkResult.Error(Constants.CUSTOMERNOTFOUND)
             } else {
-                val errorBodyString = response.errorBody()?.string() ?: "Unknown error"
+                val errorBodyString = response.errorBody()?.string() ?: Constants.UNKNOWNERROR
                 NetworkResult.Error(errorBodyString)
             }
         } catch (e: Exception) {
-            NetworkResult.Error(e.message ?: "An error occurred")
+            NetworkResult.Error(e.message ?: Constants.UNKNOWNERROR)
         }
     }
 

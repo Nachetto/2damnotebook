@@ -5,6 +5,6 @@ import com.example.nachorestaurante.domain.modelo.Order
 
 data class DetailedState (
     val orders: List<Order> = emptyList(),
-    val persona: Customer? = null,
+    val customer: Customer? = null,
     val error: String? = null
 )

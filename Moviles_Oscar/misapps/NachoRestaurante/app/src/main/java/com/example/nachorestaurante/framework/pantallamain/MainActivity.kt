@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import com.example.nachorestaurante.R
 import com.example.nachorestaurante.databinding.ActivityMainBinding
 import com.example.nachorestaurante.domain.modelo.Customer
+import com.example.nachorestaurante.framework.common.ConstantesFramework
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     private var primeraVez: Boolean = false
     private lateinit var customAdapter: CustomerAdapter
     private val viewModel: MainViewModel by viewModels()
-    private var isInActionMode: Boolean = false
     private val callback by lazy {
         configContextBar()
     }
@@ -34,81 +34,85 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupAdapter()
+        obserbarViewModel()
+        configAppBar()
+    }
+
+    private fun setupAdapter() {
         customAdapter = CustomerAdapter(this,
-            object : CustomerAdapter.PersonaActions {
+            object : CustomerAdapter.CustomerActions {
                 override fun onDelete(customer: Customer) =
-                    viewModel.handleEvent(MainEvent.DeletePersona(customer))
+                    viewModel.handleEvent(MainEvent.DeleteCustomer(customer))
 
                 override fun onStartSelectMode(customer: Customer) {
                     viewModel.handleEvent(MainEvent.StartSelectMode)
-                    viewModel.handleEvent(MainEvent.SeleccionaPersona(customer))
+                    viewModel.handleEvent(MainEvent.SeleccionaCustomer(customer))
                 }
 
                 override fun itemHasClicked(customer: Customer) {
-                    viewModel.handleEvent(MainEvent.SeleccionaPersona(customer))
+                    viewModel.handleEvent(MainEvent.SeleccionaCustomer(customer))
                 }
             })
-
-        //configurar el recyclerview
-        binding.rvPersonas.adapter = customAdapter
+        binding.rvCustomers.adapter = customAdapter
         val touchHelper = ItemTouchHelper(customAdapter.swipeGesture)
-        touchHelper.attachToRecyclerView(binding.rvPersonas)
+        touchHelper.attachToRecyclerView(binding.rvCustomers)
+    }
 
-        //observar los cambios en el estado del viewmodel
-        viewModel.uiState.observe(this) { state ->
-            //si la lista de personas cambia, se actualiza el adapter y se cambia en pantalla
-            state.personas.let {
+
+    private fun obserbarViewModel() {
+        viewModel.uiState.observe(this) { estado ->
+            estado.customers.let {
                 if (it.isNotEmpty()) {
                     customAdapter.submitList(it)
                 }
             }
-
-            //si la lista de personas seleccionadas cambia, se actualiza el adapter y se cambia en pantalla junto al titulo del actionmode
-            state.personasSeleccionadas.let {
-                if (it.isNotEmpty()) {
-                    customAdapter.setSelectedItems(it)
-                    actionMode?.title = "${it.size} selected"
-                } else {
-                    customAdapter.resetSelectMode()
-                    primeraVez = true
-                    actionMode?.finish()
-                }
-            }
-
-            //si el modo seleccion cambia, se llama al adapter para que cambie el modo seleccion
-            state.selectMode.let { seleccionado ->
-                if (seleccionado) {
-                    if (primeraVez) {
-                        customAdapter.startSelectMode()
-                        //si es la primera vez que se entra en modo seleccion, se crea el actionmode, que es el menu contextual
-                        if (isInActionMode) {
-                            startSupportActionMode(callback)?.let {
-                                actionMode = it
-                            }
-                        }
-
-                        primeraVez = false
-                    } else {
-                        customAdapter.startSelectMode()
-                    }
-                } else {//si se sale del modo seleccion, se llama al adapter para que cambie el modo seleccion
-                    customAdapter.resetSelectMode()
-                    primeraVez = true
-                    actionMode?.finish()//se cierra el actionmode
-
-                }
-            }
-
-            state.error?.let {
+            cambiosModoSeleccion(estado)
+            estado.error?.let {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             }
         }
-        configAppBar()
+    }
+
+    private fun cambiosModoSeleccion(estado: MainState) {
+        estado.customersSeleccionadas.let { customersSeleccionados ->
+            if (customersSeleccionados.isNotEmpty()) {
+                customAdapter.setSelectedItems(customersSeleccionados)
+                if (customersSeleccionados.size == 1)
+                    actionMode?.title = "1 usuario seleccionado"
+                else
+                    actionMode?.title =
+                        "${customersSeleccionados.size} " + ConstantesFramework.SELECTED
+            } else {
+                customAdapter.resetSelectMode()
+                primeraVez = true
+                actionMode?.finish()
+            }
+        }
+        estado.selectMode.let { seleccionado ->
+            if (seleccionado) {
+                if (primeraVez) {
+                    customAdapter.startSelectMode()
+                    startSupportActionMode(callback)?.let {
+                        actionMode = it
+                    }
+
+                    primeraVez = false
+                } else {
+                    customAdapter.startSelectMode()
+                }
+            } else {
+                customAdapter.resetSelectMode()
+                primeraVez = true
+                actionMode?.finish()
+            }
+        }
+
+
     }
 
     private fun configContextBar() = object : ActionMode.Callback {
         override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
-            isInActionMode = true
             menuInflater.inflate(R.menu.context_bar, menu)
             binding.topAppBar.visibility = android.view.View.GONE
             return true
@@ -121,15 +125,15 @@ class MainActivity : AppCompatActivity() {
         override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
             return when (item?.itemId) {
                 R.id.more -> {
-                    viewModel.handleEvent(MainEvent.DeletePersonasSeleccionadas())
+                    viewModel.handleEvent(MainEvent.DeleteCustomersSeleccionados())
                     true
                 }
+
                 else -> false
             }
         }
 
         override fun onDestroyActionMode(mode: ActionMode?) {
-            isInActionMode = false
             viewModel.handleEvent(MainEvent.ResetSelectMode)
             binding.topAppBar.visibility = android.view.View.VISIBLE
             customAdapter.resetSelectMode()
@@ -137,18 +141,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configAppBar() {
-
         val actionSearch = binding.topAppBar.menu.findItem(R.id.search).actionView as SearchView
-
         actionSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                //TODO filtro final sin el contains
-                return true
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 newText?.let { filtro ->
-                    viewModel.handleEvent(MainEvent.GetPersonaFiltradas(filtro))
+                    viewModel.handleEvent(MainEvent.GetCustomersFiltrados(filtro))
                 }
                 return true
             }
