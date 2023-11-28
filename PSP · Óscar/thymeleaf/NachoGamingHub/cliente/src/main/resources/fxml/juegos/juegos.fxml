@@ -5,7 +5,7 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.juegos.JuegosController">
-    <TableView fx:id="listaEpisodios" layoutX="21.0" layoutY="98.0" prefHeight="228.0" prefWidth="559.0">
+    <TableView fx:id="listaEpisodios" layoutX="21.0" layoutY="98.0" prefHeight="228.0" prefWidth="559.0" onMouseClicked="#seleccionarJuego">
         <columns>
             <TableColumn fx:id="titulo" prefWidth="78.0" text="titulo" />
             <TableColumn fx:id="genero" prefWidth="55.0" text="genero" />
@@ -19,6 +19,6 @@
             <Font size="44.0" />
         </font>
     </Label>
-   <Button layoutX="264.0" layoutY="334.0" mnemonicParsing="false" text="suscribirse" fx:id="butonSuscribe"/>
-   <Button layoutX="272.0" layoutY="364.0" mnemonicParsing="false" text="guardar" fx:id="butonSave"/>
+   <Button layoutX="264.0" layoutY="334.0" mnemonicParsing="false" text="suscribirse" fx:id="butonSuscribe" onMouseClicked="#actionSuscribe"/>
+   <Button layoutX="272.0" layoutY="364.0" mnemonicParsing="false" text="guardar" fx:id="butonSave" onMouseClicked="#actionSave"/>
 </AnchorPane>

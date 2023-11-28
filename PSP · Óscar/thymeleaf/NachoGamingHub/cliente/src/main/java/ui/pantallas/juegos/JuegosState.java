@@ -10,15 +10,14 @@ import ui.pantallas.common.BaseState;
 import java.util.List;
 
 @Getter
-@Setter
 public class JuegosState extends BaseState {
-    private Juego juegoSeleccionado;
-    private String mensaje;
-    private List<Juego> juegos;
-    private List<Suscripcion> suscripciones;
+    private final Juego juegoSeleccionado;
+    private final List<Juego> juegos;
+    private final List<Suscripcion> suscripciones;
 
-    public JuegosState(boolean loading, ClienteError error, Juego juegoSeleccionado, List<Suscripcion> suscripciones) {
-        super(loading, error);
+    public JuegosState(ClienteError error, int idUsuarioLogueado, Juego juegoSeleccionado, List<Suscripcion> suscripciones, List<Juego> juegos) {
+        super(error, idUsuarioLogueado);
+        this.juegos = juegos;
         this.juegoSeleccionado = juegoSeleccionado;
         this.suscripciones = suscripciones;
     }

@@ -15,7 +15,7 @@ public class LoginController extends BasePantallaController {
     @FXML
     public PasswordField password;
 
-    private LoginUseCase loginUseCase;
+    private final LoginUseCase loginUseCase;
     @Inject
     public LoginController(LoginUseCase loginUseCase) {
         this.loginUseCase = loginUseCase;

@@ -7,11 +7,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public abstract class BaseState {
-    private final boolean loading;
     private final ClienteError error;
-
-    protected BaseState(boolean loading, ClienteError error) {
-        this.loading = loading;
+    private final int idUsuarioLogueado;
+    protected BaseState(ClienteError error, int idUsuarioLogueado) {
         this.error = error;
+        this.idUsuarioLogueado = idUsuarioLogueado;
     }
 }

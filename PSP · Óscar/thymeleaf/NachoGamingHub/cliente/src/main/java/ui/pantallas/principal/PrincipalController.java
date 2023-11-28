@@ -32,6 +32,7 @@ public class PrincipalController {
     @FXML
     public BorderPane root;
 
+    @Getter
     public String username ="";
 
 
