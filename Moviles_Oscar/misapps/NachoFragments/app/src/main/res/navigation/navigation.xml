@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/fragmentUno">>
+
+    <fragment
+        android:id="@+id/fragmentUno"
+        android:name="com.example.nachofragments.ui.pantallas.FragmentUno"
+        android:label="PRIMERO"
+        tools:layout="@layout/fragment_uno">
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""/>
+        <action
+            android:id="@+id/action_fragmentUno_to_FragmentTres"
+            app:destination="@id/fragmentTres" />
+        <action
+            android:id="@+id/action_fragmentUno_to_FragmentDos"
+            app:destination="@id/fragmentDos" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentDos"
+        android:name="com.example.nachofragments.ui.pantallas.FragmentDos"
+        android:label="SEGUNDO"
+        tools:layout="@layout/fragment_dos">
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""/>
+        <action
+            android:id="@+id/action_fragmentDos_to_fragmentUno"
+            app:destination="@id/fragmentUno" />
+        <action
+            android:id="@+id/action_fragmentDos_to_fragmentTres"
+            app:destination="@id/fragmentTres" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/fragmentTres"
+        android:name="com.example.nachofragments.ui.pantallas.FragmentTres"
+        android:label="TERCERO"
+        tools:layout="@layout/fragment_tres">
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""
+            />
+        <action
+            android:id="@+id/action_fragmentTres_to_fragmentUno"
+            app:destination="@id/fragmentUno" />
+        <action
+            android:id="@+id/action_fragmentTres_to_fragmentDos"
+            app:destination="@id/fragmentDos" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentCuatro"
+        android:name="com.example.nachofragments.ui.pantallas.FragmentCuatro"
+        android:label="TERCERO"
+        tools:layout="@layout/fragment_cuatro">
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""
+            />
+        <action
+            android:id="@+id/action_fragmentCuatro_to_fragmentCinco"
+            app:destination="@id/fragmentCinco" />
+        <action
+            android:id="@+id/action_fragmentCuatro_to_fragmentSeis"
+            app:destination="@id/fragmentSeis" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentCinco"
+        android:name="com.example.nachofragments.ui.pantallas.FragmentCinco"
+        android:label="QUINTO"
+        tools:layout="@layout/fragment_cinco">
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""
+            />
+        <action
+            android:id="@+id/action_fragmentCinco_to_fragmentCuatro"
+            app:destination="@id/fragmentCuatro" />
+        <action
+            android:id="@+id/action_fragmentCinco_to_fragmentSeis"
+            app:destination="@id/fragmentSeis" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentSeis"
+        android:name="com.example.nachofragments.ui.pantallas.FragmentSeis"
+        android:label="SEXTO"
+        tools:layout="@layout/fragment_seis">
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""
+            />
+        <action
+            android:id="@+id/action_fragmentSeis_to_fragmentCuatro"
+            app:destination="@id/fragmentCuatro" />
+        <action
+            android:id="@+id/action_fragmentSeis_to_fragmentCinco"
+            app:destination="@id/fragmentCinco" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSiete"
+        android:name="com.example.nachofragments.ui.pantallas.FragmentSiete"
+        android:label="SEXTO"
+        tools:layout="@layout/fragment_siete">
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""
+            />
+        <action
+            android:id="@+id/action_fragmentSiete_to_fragmentOcho"
+            app:destination="@id/fragmentOcho" />
+        <action
+            android:id="@+id/action_fragmentSiete_to_fragmentNueve"
+            app:destination="@id/fragmentNueve" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentOcho"
+        android:name="com.example.nachofragments.ui.pantallas.FragmentOcho"
+        android:label="OCTAVO"
+        tools:layout="@layout/fragment_ocho">
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""
+            />
+        <action
+            android:id="@+id/action_fragmentOcho_to_fragmentSiete"
+            app:destination="@id/fragmentSiete" />
+        <action
+            android:id="@+id/action_fragmentOcho_to_fragmentNueve"
+            app:destination="@id/fragmentNueve" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentNueve"
+        android:name="com.example.nachofragments.ui.pantallas.FragmentNueve"
+        android:label="OCTAVO"
+        tools:layout="@layout/fragment_nueve">
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""
+            />
+        <action
+            android:id="@+id/action_fragmentNueve_to_fragmentSiete"
+            app:destination="@id/fragmentSiete" />
+        <action
+            android:id="@+id/action_fragmentNueve_to_fragmentOcho"
+            app:destination="@id/fragmentOcho" />
+    </fragment>
+</navigation>
