@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface UsuariosDao {
     Single<Either<ClienteError, List<Usuario>>> getUsuarios();
+    Single<Either<ClienteError, Usuario>> getUsuarioFromUserName(String name);
+
     Single<Either<ClienteError, Usuario>> getUsuario(String id);
     Single<Either<ClienteError, Usuario>> postUsuario(Usuario usuario);
     Single<Either<ClienteError, Usuario>> putUsuario(Usuario usuario);

@@ -51,15 +51,14 @@ public class SuscripcionDaoImpl implements SuscripcionDao {
     }
 
 
-    //listar todas las suscripciones de un usuario
     public List<Suscripcion> getAll(String uuid) throws BaseDatosCaidaException, OtraException {
-        if (uuid == null || uuid.length() != 36) { // Un UUID típico tiene 36 caracteres, incluyendo los guiones
+        if (uuid == null || uuid.length() != 36) {
             throw new OtraException(ConstantesDao.INVALIDUUID + uuid);
         }
 
         try (Connection myConnection = db.getConnection();
              PreparedStatement pstmt = myConnection.prepareStatement(ConstantesDao.SELECT_SUBSCRIPCIONES_POR_USUARIO_QUERY)) {
-            pstmt.setString(1, uuid); // Establecer el UUID del usuario como parámetro
+            pstmt.setString(1, uuid);
 
             ResultSet rs = pstmt.executeQuery();
             List<Suscripcion> suscripciones = new ArrayList<>();
@@ -76,12 +75,12 @@ public class SuscripcionDaoImpl implements SuscripcionDao {
 
     @Override
     public Suscripcion get(String uuid) throws BaseDatosCaidaException, NotFoundException, OtraException {
-        if (uuid == null || uuid.length() != 36) { // Un UUID típico tiene 36 caracteres, incluyendo los guiones
+        if (uuid == null || uuid.length() != 36) {
             throw new OtraException(ConstantesDao.INVALIDUUID + uuid);
         }
         try (Connection con = db.getConnection();
              PreparedStatement pstmt = con.prepareStatement(ConstantesDao.SELECT_SUSCRIPCION_POR_UUID_QUERY)) {
-            pstmt.setString(1, uuid); // Establecer el UUID como parámetro
+            pstmt.setString(1, uuid);
 
             ResultSet rs = pstmt.executeQuery();
             if (!rs.next()) {
@@ -106,7 +105,7 @@ public class SuscripcionDaoImpl implements SuscripcionDao {
         try(Connection con = db.getConnection();
             PreparedStatement preparedStatement = con.prepareStatement(ConstantesDao.ADD_SUSCRIPCION_QUERY))
         {
-            // Set parameters
+
             if (preparedStatement.executeUpdate() != -1) {
                 return s;
             } else {

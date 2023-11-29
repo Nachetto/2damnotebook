@@ -1,11 +1,14 @@
 package jakarta.rest;
 
+import domain.modelo.Usuario;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.inject.Inject;
+import model.errores.BaseDatosCaidaException;
+import model.errores.OtraException;
 import service.UsuarioService;
 
 @Path("/login")
@@ -28,7 +31,6 @@ public class RestLogin {
         if (user == null || password == null) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
-
         try {
             boolean isAuthenticated = usuarioService.authenticate(user, password);
             if (isAuthenticated) {
@@ -38,8 +40,15 @@ public class RestLogin {
                 return Response.status(Response.Status.UNAUTHORIZED).build();
             }
         } catch (Exception e) {
-            // Manejar excepciones específicas según sea necesario
+
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
+    }
+
+    @GET
+    @Path("/{Name}")
+    public Response getUsuarioFromName(@PathParam("Name") String name) throws BaseDatosCaidaException, NotFoundException, OtraException {
+        Usuario usuario = usuarioService.getFromName(name);
+        return Response.status(Response.Status.OK).entity(usuario).build();
     }
 }

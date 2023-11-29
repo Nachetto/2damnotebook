@@ -1,6 +1,9 @@
 package service;
 
+import dao.impl.HasheoConstrasenas;
 import dao.impl.UsuarioDaoImpl;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import domain.modelo.Usuario;
 import jakarta.inject.Inject;
 import model.errores.BaseDatosCaidaException;
@@ -26,6 +29,8 @@ public class UsuarioService {
     }
 
     public Usuario save(Usuario c) throws BaseDatosCaidaException, OtraException {
+        HasheoConstrasenas hasheoConstrasenas = new HasheoConstrasenas();
+        c.setContrasena(hasheoConstrasenas.hashPassword(c.getContrasena()));
         return dao.save(c);
     }
 
@@ -38,6 +43,19 @@ public class UsuarioService {
     }
 
     public boolean authenticate(String user, String password) {
-        return dao.authenticate(user, password);
+        String storedPassword = dao.authenticate(user);
+        if (storedPassword == null) {
+            return false;
+        }
+        Argon2 argon2 = Argon2Factory.create();
+        try {
+            return argon2.verify(storedPassword, password.toCharArray());
+        } finally {
+            argon2.wipeArray(password.toCharArray());
+        }
+    }
+
+    public Usuario getFromName(String name) {
+        return dao.getFromName(name);
     }
 }

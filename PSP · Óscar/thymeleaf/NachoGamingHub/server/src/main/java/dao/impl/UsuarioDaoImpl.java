@@ -85,11 +85,10 @@ public class UsuarioDaoImpl implements UsuarioDao {
         try(Connection con = db.getConnection();
             PreparedStatement preparedStatement = con.prepareStatement(ConstantesDao.ADD_USUARIO_QUERY))
         {
-            HasheoConstrasenas hasheoConstrasenas = new HasheoConstrasenas();
             preparedStatement.setString(1, c.getUuid().toString());
             preparedStatement.setString(2, c.getNombre());
             preparedStatement.setString(4, c.getCorreoElectronico());
-            preparedStatement.setString(5, hasheoConstrasenas.hashPassword(c.getContrasena()));
+            preparedStatement.setString(5, c.getContrasena());
             preparedStatement.setDate(6, Date.valueOf(c.getFechaNacimiento()));
             if (preparedStatement.executeUpdate() != -1) {
                 return c;
@@ -168,31 +167,41 @@ public class UsuarioDaoImpl implements UsuarioDao {
         }
     }
 
-    public boolean authenticate(String user, String password) {
+    public String authenticate(String user) {
         try (Connection con = db.getConnection();
              PreparedStatement preparedStatement = con.prepareStatement(ConstantesDao.SELECT_USUARIO_POR_NOMBRE_QUERY)) {
             preparedStatement.setString(1, user);
             ResultSet rs = preparedStatement.executeQuery();
 
             if (rs.next()) {
-                String storedHash = rs.getString("contrasena");
-                return verifyPassword(password, storedHash);
+                return rs.getString("contrasena");
             }
 
-            return false;
+            return null;
         } catch (SQLException ex) {
             log.error(ex.getMessage());
-            return false;
+            throw new BaseDatosCaidaException(ConstantesDao.ERROR_AL_OBTENER_EL_USUARIO_CON_NOMBRE + user + ", " + ex.getMessage());
         }
     }
 
-
-    public boolean verifyPassword(String providedPassword, String storedHash) {
-        Argon2 argon2 = Argon2Factory.create();
-        try {
-            return argon2.verify(storedHash, providedPassword.toCharArray());
-        } finally {
-            argon2.wipeArray(providedPassword.toCharArray());
+    public Usuario getFromName(String name) {
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(ConstantesDao.SELECT_USUARIO_POR_NOMBRE_QUERY)) {
+            preparedStatement.setString(1, name);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (!rs.next()) {
+                throw new NotFoundException(ConstantesDao.USUARIO_NO_ENCONTRADO);
+            }
+            return new Usuario(
+                    UUID.fromString(rs.getString("UUID")),
+                    rs.getString("nombre"),
+                    rs.getString("correoElectronico"),
+                    rs.getString("contrasena"),
+                    rs.getDate("fechaNacimiento").toLocalDate()
+            );
+        } catch (SQLException ex) {
+            log.error(ex.getMessage());
+            throw new BaseDatosCaidaException(ConstantesDao.ERROR_AL_OBTENER_EL_USUARIO_CON_NOMBRE + name + ", " + ex.getMessage());
         }
     }
 }

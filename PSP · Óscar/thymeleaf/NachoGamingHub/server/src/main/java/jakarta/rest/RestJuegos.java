@@ -9,7 +9,6 @@ import domain.modelo.Juego;
 import service.JuegoService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
@@ -49,7 +48,6 @@ public class RestJuegos {
     @PUT
     @Path("/{id}")
     public Response updateJuego(@PathParam("id") String id, Juego juegoModificado) {
-        UUID uuid = UUID.fromString(id);
         Juego juegoOriginal = juegoService.get(id);
         Juego juegoActualizado = juegoService.modify(juegoOriginal, juegoModificado);
         return Response.status(Response.Status.OK).entity(juegoActualizado).build();

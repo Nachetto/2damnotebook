@@ -33,10 +33,9 @@ public class PrincipalController {
     public BorderPane root;
 
     @Getter
-    public String username ="";
+    public String username = "";
 
 
-    //constructor
     @Inject
     public PrincipalController(Instance<Object> instance, ParametrosBusquedaCharacter parametrosBusquedaCharacter) {
         this.instance = instance;
@@ -45,8 +44,31 @@ public class PrincipalController {
 
 
     public void initialize() {
-        menuPrincipal.setVisible(true);
-        cargarPantalla(Pantallas.INICIO);
+        menuPrincipal.setVisible(false);
+        cargarPantalla(Pantallas.LOGIN);
+    }
+
+    public void cargarPantalla(Pantallas pantalla) {
+        cambioPantalla(cargarPantalla(pantalla.getRuta()));
+    }
+
+    private Pane cargarPantalla(String ruta) {
+        Pane panePantalla = null;
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(controller -> instance.select(controller).get());
+            panePantalla = fxmlLoader.load(getClass().getResourceAsStream(ruta));
+            BasePantallaController pantallaController = fxmlLoader.getController();
+            pantallaController.setPrincipalController(this);
+            pantallaController.principalCargado();
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
+        return panePantalla;
+    }
+
+    private void cambioPantalla(Pane pantallaNueva) {
+        root.setCenter(pantallaNueva);
     }
 
     private void showCustomAlert(String message, Alert.AlertType alertType) {
@@ -54,7 +76,6 @@ public class PrincipalController {
         alert.setContentText(message);
         alert.getDialogPane().setId("alert");
         alert.getDialogPane().lookupButton(ButtonType.OK).setId("btn-ok");
-        // alert.getDialogPane().lookupButton(ButtonType.CANCEL).setId("btn-cancel");
         alert.showAndWait();
     }
 
@@ -66,64 +87,24 @@ public class PrincipalController {
         showCustomAlert(message, Alert.AlertType.INFORMATION);
     }
 
-    private void cargarPantalla(Pantallas pantalla) {
-        cambioPantalla(cargarPantalla(pantalla.getRuta()));
-    }
-
-    private void cambioPantalla(Pane pantallaNueva) {
-        root.setCenter(pantallaNueva);
-    }
-
-
-    private Pane cargarPantalla(String ruta) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setControllerFactory(controller -> instance.select(controller).get());
-            Pane panePantalla = fxmlLoader.load(getClass().getResourceAsStream(ruta));
-            BasePantallaController pantallaController = fxmlLoader.getController();
-            pantallaController.setPrincipalController(this);
-            pantallaController.principalCargado();
-            return panePantalla;
-        } catch (IOException e) {
-            log.error(e.getMessage(), e);
-        }
-        return null;
-    }
-
-
     @FXML
     private void menuClick(ActionEvent actionEvent) {
         switch (((MenuItem) actionEvent.getSource()).getId()) {
-            case "menuItemListarPersonajes" -> cargarPantalla(Pantallas.LISTAR_PERSONAJES);
-            case "menuItemLlamadasPersonajes" -> cargarPantalla(Pantallas.LLAMADAS_PERSONAJES);
-            case "menuItemListarEpisodios" -> cargarPantalla(Pantallas.LISTAR_EPISODIOS);
-            case "menuItemLlamadasEpisodios" -> cargarPantalla(Pantallas.LLAMADAS_EPISODIOS);
-            case "menuItemListarTemporadas" -> cargarPantalla(Pantallas.LISTAR_TEMPORADAS);
-        }
-    }
 
-    public static void cambiandoElPrompText(String newValue, TextField textFieldConArgumentoDeBusqueda) {
-        if (newValue != null) {
-            if (newValue.equalsIgnoreCase("Empty Search")) {
-                textFieldConArgumentoDeBusqueda.setDisable(true);
-                textFieldConArgumentoDeBusqueda.setPromptText("Show all Characters");
-            } else {
-                textFieldConArgumentoDeBusqueda.setDisable(false);
-                textFieldConArgumentoDeBusqueda.setEditable(true);
-                textFieldConArgumentoDeBusqueda.setPromptText("Write " + newValue);
-                textFieldConArgumentoDeBusqueda.requestFocus();
-            }
-        } else {
-            textFieldConArgumentoDeBusqueda.setPromptText("Search By");
+            case "menuItemListarJuegos" -> cargarPantalla(Pantallas.LISTAR_JUEGOS);
+            case "menuItemListarSuscripciones" -> cargarPantalla(Pantallas.LISTAR_SUSCRIPCIONES);
+            case "menuItemListarUsuarios" -> cargarPantalla(Pantallas.LISTAR_USUARIOS);
+            default -> sacarAlertError("Error al cargar la pantalla");
         }
-    }
-    public void setStage(Stage stage) {
     }
 
     public void onLogin(TextField username) {
-
+        menuPrincipal.setVisible(true);
         cargarPantalla(Pantallas.INICIO);
         this.username = username.getText();
+    }
 
+    public void setStage(Stage stage) {
+        //habria que hacer esto abstracto
     }
 }

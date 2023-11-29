@@ -13,16 +13,14 @@
     </center>
     <top>
         <MenuBar fx:id="menuPrincipal">
-            <Menu fx:id="menuPersonajes" mnemonicParsing="false" text="Personajes">
-                <MenuItem fx:id="menuItemListarPersonajes" mnemonicParsing="false" onAction="#menuClick" text="Filtros" />
-                <MenuItem fx:id="menuItemLlamadasPersonajes" mnemonicParsing="false" onAction="#menuClick" text="Llamar" />
+            <Menu fx:id="menuJuegos" mnemonicParsing="false" text="Juegos">
+                <MenuItem fx:id="menuItemListarJuegos" mnemonicParsing="false" onAction="#menuClick" text="Listar todos los Juegos!" />
             </Menu>
-            <Menu fx:id="menuTemporada" mnemonicParsing="false" text="Temporadas">
-                <MenuItem fx:id="menuItemListarTemporadas" mnemonicParsing="false" onAction="#menuClick" text="Listar" />
+            <Menu fx:id="menuSuscripciones" mnemonicParsing="false" text="Suscripciones">
+                <MenuItem fx:id="menuItemListarSuscripciones" mnemonicParsing="false" onAction="#menuClick" text="Ver Mis Suscripciones!" />
             </Menu>
-            <Menu fx:id="menuEpisodios" mnemonicParsing="false" text="Episodios">
-                <MenuItem fx:id="menuItemListarEpisodios" mnemonicParsing="false" onAction="#menuClick" text="Filtros" />
-                <MenuItem fx:id="menuItemLlamadasEpisodios" mnemonicParsing="false" onAction="#menuClick" text="Llamar" />
+            <Menu fx:id="menuUsuarios" mnemonicParsing="false" text="Usuarios">
+                <MenuItem fx:id="menuItemListarUsuarios" mnemonicParsing="false" onAction="#menuClick" text="Ver todos los Usuarios!" />
             </Menu>
         </MenuBar>
     </top>

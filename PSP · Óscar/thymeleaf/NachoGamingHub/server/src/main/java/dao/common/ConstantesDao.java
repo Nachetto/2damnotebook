@@ -1,6 +1,9 @@
 package dao.common;
 
 public class ConstantesDao {
+    public static final String USUARIO_NO_ENCONTRADO = "Usuario no encontrado";
+    public static final String ERROR_AL_OBTENER_EL_USUARIO_CON_NOMBRE = "Error al obtener el usuario con nombre: ";
+
     private ConstantesDao() {
     }
     public static final String CLIENTE_ELIMINAR_ES_NULO = "Cliente a eliminar es nulo";

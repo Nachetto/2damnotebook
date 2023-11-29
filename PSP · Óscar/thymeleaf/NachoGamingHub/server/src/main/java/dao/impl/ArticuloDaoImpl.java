@@ -133,7 +133,6 @@ public class ArticuloDaoImpl implements ArticuloDao {
 
         try (Connection con = db.getConnection();
              PreparedStatement preparedStatement = con.prepareStatement(ConstantesDao.ADD_ARTICULO_QUERY)) {
-            // Set parameters and execute
             if (preparedStatement.executeUpdate() != -1) {
                 return o;
             } else {

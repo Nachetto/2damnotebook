@@ -1,7 +1,6 @@
 package ui.pantallas.juegos;
 
 import domain.modelo.Juego;
-import domain.modelo.Suscripcion;
 import jakarta.inject.Inject;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -13,7 +12,6 @@ import javafx.scene.input.MouseEvent;
 import ui.pantallas.common.BasePantallaController;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class JuegosController extends BasePantallaController {
     JuegosViewModel viewmodel;
@@ -32,7 +30,7 @@ public class JuegosController extends BasePantallaController {
     @FXML
     private TableColumn<LocalDate, Juego> fechaLanzamiento;
     @FXML
-    private TableView<Juego> listaEpisodios;
+    private TableView<Juego> listaJuegos;
 
     @Inject
     public JuegosController(JuegosViewModel viewmodel) {
@@ -41,64 +39,79 @@ public class JuegosController extends BasePantallaController {
 
     @Override
     public void principalCargado() {
-        //dar valores a la tabla
         titulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
         genero.setCellValueFactory(new PropertyValueFactory<>("genero"));
-        description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        description.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         desarrollador.setCellValueFactory(new PropertyValueFactory<>("desarrollador"));
         fechaLanzamiento.setCellValueFactory(new PropertyValueFactory<>("fechaLanzamiento"));
 
         viewmodel.setIdUsuarioLogueado(getPrincipalController().getUsername());
-        //cargar todos los juegos
         viewmodel.cargarJuegos();
-        //cargar suscripciones del usuario a la lista del state, gestionar listeners del tableview para que cuando se suscriba a un juego se actualice la lista de suscripciones en el viewmodel
         viewmodel.cargarSuscripciones();
-        //observar el state
         observarState();
-    }
+        listaJuegos.setOnMouseClicked(mouseEvent -> {
+            Juego juegoSeleccionado = listaJuegos.getSelectionModel().getSelectedItem();
+            if (juegoSeleccionado != null)
+                seleccionarJuego(juegoSeleccionado);
 
-    private void observarState() {
-        viewmodel.getState().addListener((observable, oldValue, newValue) -> {
-            Platform.runLater(() ->{//cambiar el boton de suscribirse a suscrito y viceversa
-                if (newValue.getSuscripciones()!=null){
-                    //iteras sobre la lista de suscripciones y si el juego seleccionado esta en la lista cambias el boton a suscrito
-                    for (Suscripcion sub : newValue.getSuscripciones()){
-                        if (sub.getUuid().equals(newValue.getJuegoSeleccionado().getUuid())){
-                            butonSuscribe.setText("Suscrito");
-                        }
-                    }
-                    butonSuscribe.setText("Suscrito");
-                } else{
-                    butonSuscribe.setText("Suscribirse");
-                }
-            });
 
         });
     }
 
-    public void seleccionarJuego(MouseEvent mouseEvent) {
-        viewmodel.seleccionarJuego(listaEpisodios.getSelectionModel().getSelectedItem());
-        if (viewmodel.verificarSuscripcion()){
-            butonSuscribe.setText("Suscrito");
-        } else{
-            butonSuscribe.setText("Suscribirse");
+    private void seleccionarJuego(Juego juegoSeleccionado) {
+        if (juegoSeleccionado != null) {
+            butonSuscribe.setDisable(false);
+            if (viewmodel.verificarSuscripcion(juegoSeleccionado)) {
+                butonSuscribe.setText("Suscrito");
+            } else {
+                butonSuscribe.setText("Suscribirse");
+            }
+        } else {
+            butonSuscribe.setDisable(true);
         }
     }
 
-    public void actionSuscribe(MouseEvent mouseEvent) {
+    private void observarState() {
+        viewmodel.getState().addListener((observable, oldValue, newValue) ->
+                Platform.runLater(() -> {
+                    if (newValue.getError() != null) {
+                        getPrincipalController().sacarAlertError(newValue.getError().getMensaje());
+                    }
+
+                    if (newValue.getJuegos() != null) {
+                        listaJuegos.getItems().clear();
+                        listaJuegos.getItems().addAll(newValue.getJuegos());
+                    }
+
+                    if (newValue.getSuscripciones() != null) {
+                        butonSuscribe.setDisable(false);
+                        if (newValue.getJuegoSeleccionado() != null) {
+                            if (viewmodel.verificarSuscripcion(newValue.getJuegoSeleccionado())) {
+                                butonSuscribe.setText("Suscrito");
+                                getPrincipalController().sacarAlertInfo("Se ha suscrito al juego " + newValue.getJuegoSeleccionado().getTitulo() + " con exito");
+                            } else {
+                                butonSuscribe.setText("Suscribirse");
+                                getPrincipalController().sacarAlertInfo("Se ha desuscrito del juego " + newValue.getJuegoSeleccionado().getTitulo() + " con exito");
+                            }
+                        }
+
+                    } else {
+                        butonSuscribe.setDisable(true);
+                    }
+                }));
+
     }
 
-    public void actionSave(MouseEvent mouseEvent) {
-
+    public void actionSuscribe() {
+        if (butonSuscribe.getText().equals("Suscribirse")) {
+            viewmodel.suscribirse(listaJuegos.getSelectionModel().getSelectedItem());
+        } else {
+            viewmodel.desuscribirse(listaJuegos.getSelectionModel().getSelectedItem());
+        }
     }
 
-//cargar todos los juegos
-
-
-//cargar suscripciones del usuario a la lista del state, gestionar listeners del tableview para que cuando se suscriba a un juego se actualice la lista de suscripciones en el viewmodel
-
-//cambiar el boton de suscribirse a suscrito y viceversa basandote en cuando observas el state
-
-//cambiar el boton de suscribirse a suscrito y viceversa
+    public void actionSave() {
+        viewmodel.saveSubscripcions();
+    }
 
 }

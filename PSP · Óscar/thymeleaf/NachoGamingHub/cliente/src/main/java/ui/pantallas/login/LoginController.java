@@ -2,7 +2,6 @@ package ui.pantallas.login;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import jakarta.inject.Inject;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ui.pantallas.common.BasePantallaController;
@@ -27,7 +26,6 @@ public class LoginController extends BasePantallaController {
                 .subscribeOn(Schedulers.io())
                 .blockingSubscribe(either -> {
                     if (either.isRight()) {
-                        System.out.println(either.get());
                         getPrincipalController().onLogin(username);
                     } else if (either.isLeft()) {
                         getPrincipalController().sacarAlertError(either.getLeft().getMensaje());

@@ -14,9 +14,12 @@ import java.io.IOException;
 @Log4j2
 public class MainFX {
 
-    @Inject
     FXMLLoader fxmlLoader;
 
+    @Inject
+    public MainFX(FXMLLoader fxmlLoader) {
+        this.fxmlLoader = fxmlLoader;
+    }
     public void start(@Observes @StartupScene Stage stage) {
         try {
             Parent fxmlParent = fxmlLoader.load(getClass().getResourceAsStream(ConstantesPantallas.PANTALLA_PRINCIPAL));
@@ -26,6 +29,7 @@ public class MainFX {
             stage.show();
         } catch (IOException e) {
             log.error("Error al cargar la pantalla principal"+e.getMessage());
+            e.printStackTrace();
             System.exit(0);
         }
     }

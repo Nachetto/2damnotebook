@@ -1,17 +1,7 @@
 
-Q
-java:S3740"/Provide the parametrized type for this generic.(œ§Êïÿÿÿÿÿ8¨ÖÕ–Á1
-L
-java:S3740"/Provide the parametrized type for this generic.(ÄÂº 8¨ÖÕ–Á1
-L
-java:S3740"/Provide the parametrized type for this generic.(—º§Å8¨ÖÕ–Á1
-L
-java:S3740"/Provide the parametrized type for this generic.(†õ·¹8¨ÖÕ–Á1
-L
-java:S3740"/Provide the parametrized type for this generic.(ü½8¨ÖÕ–Á1
-L
-java:S3740"/Provide the parametrized type for this generic.(áı„8¨ÖÕ–Á1
-{
-java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8®ÖÕ–Á1
-N
-java:S1602>",Remove useless curly braces around statement(ü§İªúÿÿÿÿ8²ÖÕ–Á1
+i
+java:S1192C"LDefine a constant instead of duplicating this literal "Suscribirse" 3 times.(±ãçÈ8ĞÀÛ¶Á1
+t
+java:S3776J"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(Ó¿öúÿÿÿÿ8çÀÛ¶Á1
+\
+java:S1128":Remove this unused import 'javafx.scene.input.MouseEvent'.(˜¬‹æÿÿÿÿÿ8êÀÛ¶Á1

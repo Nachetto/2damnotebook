@@ -40,8 +40,15 @@ public class SuscripcionesDaoImpl extends DaoGenerico implements SuscripcionesDa
     }
 
     @Override
-    public Single<Either<ClienteError, Suscripcion>> updateSuscripcion(String uuid, Suscripcion suscripcionModificada) {
-        return safeSingleApicall(suscripcionesApi.updateSuscripcion(uuid, suscripcionModificada));
+    public Single<Either<ClienteError, Suscripcion>> updateSuscripcion(Suscripcion suscripcionModificada) {
+        return safeSingleApicall(suscripcionesApi.updateSuscripcion(suscripcionModificada.getUuid().toString(), suscripcionModificada));
+    }
+
+    public Single<Either<ClienteError, List<Suscripcion>>> updateSuscripciones(List<Suscripcion> suscripcionModificada) {
+        for (Suscripcion suscripcion : suscripcionModificada) {
+            safeSingleApicall(suscripcionesApi.updateSuscripcion(suscripcion.getUuid().toString(), suscripcion));
+        }
+        return safeSingleApicall(suscripcionesApi.getAllSuscripciones());
     }
 
     @Override

@@ -10,27 +10,39 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import usecases.juegos.GetAllJuegosUseCase;
 import usecases.suscripciones.GetAllSuscripcionesUseCase;
+import usecases.suscripciones.UpdateSuscripcionesUseCase;
+import usecases.usuarios.GetIdFromUserNameUseCase;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 public class JuegosViewModel {
     private final ObjectProperty<JuegosState> state;
-    private int idUsuarioLogueado;
     private final GetAllJuegosUseCase juegosUseCase;
     private final GetAllSuscripcionesUseCase suscripcionesUseCase;
+    private final GetIdFromUserNameUseCase getIdFromUserNameUseCase;
+    private final UpdateSuscripcionesUseCase updateSuscripcionesUseCase;
 
     @Inject
-    public JuegosViewModel(GetAllJuegosUseCase juegosUseCase, GetAllSuscripcionesUseCase suscripcionesUseCase, int idUsuarioLogueado) {
+    public JuegosViewModel(UpdateSuscripcionesUseCase updateSuscripcionesUseCase, GetIdFromUserNameUseCase getIdFromUserNameUseCase, GetAllJuegosUseCase juegosUseCase, GetAllSuscripcionesUseCase suscripcionesUseCase) {
+        this.updateSuscripcionesUseCase = updateSuscripcionesUseCase;
+        this.getIdFromUserNameUseCase = getIdFromUserNameUseCase;
         this.suscripcionesUseCase = suscripcionesUseCase;
         this.juegosUseCase = juegosUseCase;
-        this.idUsuarioLogueado = idUsuarioLogueado;
-        //ClienteError error, Juego juegoSeleccionado, List<Suscripcion> suscripciones, List<Juego> juegos
-        this.state = new SimpleObjectProperty<>(new JuegosState(null, null, null, null));
+        this.state = new SimpleObjectProperty<>(new JuegosState(null, null, null, null, null));
     }
 
     public void setIdUsuarioLogueado(String username) {
-
-        this.idUsuarioLogueado = idUsuarioLogueado;
+        getIdFromUserNameUseCase.getUsuarioFromUserName(username)
+                .subscribeOn(Schedulers.io())
+                .blockingSubscribe(either -> {
+                    if (either.isRight()) {
+                        Platform.runLater(() -> state.setValue(new JuegosState(null, either.get().getUuid(), null, null, null)));
+                    } else if (either.isLeft()) {
+                        Platform.runLater(() -> state.setValue(new JuegosState(either.getLeft(), null, null, null, null)));
+                    }
+                });
     }
 
     public ReadOnlyObjectProperty<JuegosState> getState() {
@@ -38,58 +50,70 @@ public class JuegosViewModel {
     }
 
     public void cargarJuegos() {
-        //llamar al usecase de cargar juegos y cambiar el state con los juegos
         juegosUseCase.getAllJuegos()
                 .subscribeOn(Schedulers.io())
                 .blockingSubscribe(either -> {
                     if (either.isRight()) {
-                        Platform.runLater(() -> {
-                            //new JuegosState(null, null, null, null)
-                            state.setValue(new JuegosState(null, null, null, either.get()));
-                        });
+                        Platform.runLater(() -> state.setValue(new JuegosState(null, state.get().getIdUsuarioLogueado(), null, null, either.get())));
                     } else if (either.isLeft()) {
-                        Platform.runLater(() -> {
-                            state.setValue(new JuegosState(either.getLeft(),null, null, null));
-                        });
+                        Platform.runLater(() ->
+                                state.setValue(new JuegosState(either.getLeft(), state.get().getIdUsuarioLogueado(), null, null, null)));
+
                     }
                 });
     }
 
     public void cargarSuscripciones() {
-        //llamar al usecase de cargar suscripciones y cambiar el state con las suscripciones del usuario logueado
         suscripcionesUseCase.getAllSuscripciones()
                 .subscribeOn(Schedulers.io())
                 .blockingSubscribe(either -> {
                     if (either.isRight()) {
-                        Platform.runLater(() -> {
-                            List<Suscripcion> suscripciones = either.get()
-                                    .stream()
-                                    .filter(suscripcion -> suscripcion
-                                            .getUsuarioID()
-                                            .equals(state.get().getUsuario().getUuid())).toList();
-                            state.setValue(new JuegosState(null, null, either.get(), state.get().getJuegos()));
-                        });
+                        Platform.runLater(() -> state.setValue(new JuegosState(null, state.get().getIdUsuarioLogueado(), null, either.get(), state.get().getJuegos())));
                     } else if (either.isLeft()) {
-                        Platform.runLater(() -> {
-                            state.setValue(new JuegosState(either.getLeft(),null, null, state.get().getJuegos()));
-                        });
+                        Platform.runLater(() ->
+                                state.setValue(new JuegosState(either.getLeft(), state.get().getIdUsuarioLogueado(), null, null, state.get().getJuegos())));
+
                     }
                 });
     }
 
-    public void seleccionarJuego(Juego selectedItem) {
-        state.setValue(new JuegosState(null, selectedItem, state.get().getSuscripciones(), state.get().getJuegos()));
-    }
-
-    public boolean verificarSuscripcion() {
-        //verificar si el juego seleccionado esta en la lista de suscripciones del usuario logueado
+    public boolean verificarSuscripcion(Juego juegoSeleccionado) {
         if (state.get().getSuscripciones() != null) {
             for (Juego juego : state.get().getJuegos()) {
-                if (juego.getUuid().equals(state.get().getJuegoSeleccionado().getUuid())) {
+                if (juegoSeleccionado != null && juego.getUuid().equals(juegoSeleccionado.getUuid()) &&
+                        state.get().getSuscripciones().stream().anyMatch(suscripcion -> suscripcion.getJuegoID().equals(juegoSeleccionado.getUuid()))) {
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    public void suscribirse(Juego selectedItem) {
+        List<Suscripcion> suscripciones = state.get().getSuscripciones();
+        suscripciones.add(new Suscripcion(UUID.randomUUID(), state.get().getIdUsuarioLogueado(), selectedItem.getUuid(), LocalDate.now()));
+        state.setValue(new JuegosState(null, state.get().getIdUsuarioLogueado(), selectedItem, suscripciones, state.get().getJuegos()));
+
+    }
+
+    public void desuscribirse(Juego selectedItem) {
+        List<Suscripcion> suscripciones = state.get().getSuscripciones();
+        if (suscripciones.removeIf(suscripcion -> suscripcion.getUsuarioID().equals(state.get().getIdUsuarioLogueado()) && suscripcion.getJuegoID().equals(selectedItem.getUuid()))) {
+            state.setValue(new JuegosState(null, state.get().getIdUsuarioLogueado(), selectedItem, suscripciones, state.get().getJuegos()));
+        }
+    }
+
+    public void saveSubscripcions() {
+        updateSuscripcionesUseCase.updateSuscripciones(state.get().getSuscripciones())
+                .subscribeOn(Schedulers.io())
+                .blockingSubscribe(either -> {
+                    if (either.isRight()) {
+                        Platform.runLater(() ->
+                                state.setValue(new JuegosState(null, state.get().getIdUsuarioLogueado(), state.get().getJuegoSeleccionado(), state.get().getSuscripciones(), state.get().getJuegos())));
+                    } else if (either.isLeft()) {
+                        Platform.runLater(() ->
+                                state.setValue(new JuegosState(either.getLeft(), state.get().getIdUsuarioLogueado(), state.get().getJuegoSeleccionado(), state.get().getSuscripciones(), state.get().getJuegos())));
+                    }
+                });
     }
 }

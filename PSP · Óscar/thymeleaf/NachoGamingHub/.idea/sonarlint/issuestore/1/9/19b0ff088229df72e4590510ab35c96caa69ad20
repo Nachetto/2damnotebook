@@ -1,7 +1,0 @@
-
-q
-java:S1104#"TMake username a static final constant or non-public and provide accessors if needed.(ýá³Ê8žØœ”Á1
-ž
-java:S1186w"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(›¬ÿÓ8ºØœ”Á1
-X	java:S1258"<This block of commented-out lines of code should be removed.(‘Ç±8¾Øœ”Á1
->	java:S131_""Add a default case to this switch.(Ø•ƒ»8ÆØœ”Á1

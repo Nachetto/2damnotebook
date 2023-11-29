@@ -16,7 +16,7 @@ public interface SuscripcionesDao {
 
     Single<Either<ClienteError, Suscripcion>> addSuscripcion(Suscripcion suscripcion);
 
-    Single<Either<ClienteError, Suscripcion>> updateSuscripcion(String uuid, Suscripcion suscripcionModificada);
+    Single<Either<ClienteError, Suscripcion>> updateSuscripcion(Suscripcion suscripcionModificada);
 
     Single<Either<ClienteError, String>> deleteSuscripcion(String uuid);
 }

@@ -7,17 +7,13 @@ import dao.retrofit.llamadas.UsuariosApi;
 import domain.errores.ClienteError;
 import domain.modelo.Usuario;
 import io.reactivex.rxjava3.core.Single;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
-import javafx.application.Platform;
 
 import java.util.List;
-import java.util.UUID;
 
 public class UsuariosDaoImpl extends DaoGenerico implements UsuariosDao {
 
-    //inyectamos el API de usuarios
     private final LoginApi loginApi;
     private final UsuariosApi usuariosApi;
 
@@ -29,8 +25,6 @@ public class UsuariosDaoImpl extends DaoGenerico implements UsuariosDao {
 
     @Override
     public Single<Either<ClienteError, List<Usuario>>> getUsuarios() {
-        if ()
-
         return safeSingleApicall(usuariosApi.getAllUsuarios());
     }
 
@@ -64,7 +58,8 @@ public class UsuariosDaoImpl extends DaoGenerico implements UsuariosDao {
         return safeSingleVoidApicall(loginApi.register(u));
     }
 
-    public Single<Either<ClienteError, UUID>> getIdFromUserName(String userName) {
+    @Override
+    public Single<Either<ClienteError, Usuario>> getUsuarioFromUserName(String userName) {
         return safeSingleApicall(usuariosApi.getUsuarioFromUserName(userName));
     }
 }

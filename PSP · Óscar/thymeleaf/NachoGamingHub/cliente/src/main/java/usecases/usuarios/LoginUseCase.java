@@ -9,6 +9,7 @@ import jakarta.inject.Inject;
 public class LoginUseCase {
 
     private final UsuariosDaoImpl dao;
+
     @Inject
     public LoginUseCase(UsuariosDaoImpl dao) {
         this.dao = dao;

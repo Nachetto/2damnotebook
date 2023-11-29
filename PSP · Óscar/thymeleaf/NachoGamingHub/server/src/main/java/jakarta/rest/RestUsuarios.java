@@ -35,6 +35,9 @@ public class RestUsuarios {
         return Response.status(Response.Status.OK).entity(usuario).build();
     }
 
+
+
+
     @POST
     public Response addUsuario(Usuario usuario) throws BaseDatosCaidaException, OtraException {
         Usuario result = usuarioService.save(usuario);
@@ -44,7 +47,6 @@ public class RestUsuarios {
     @PUT
     @Path("/{id}")
     public Response updateUsuario(@PathParam("id") String id, Usuario modifiedUsuario) throws BaseDatosCaidaException, OtraException, NotFoundException {
-        UUID uuid = UUID.fromString(id);
         Usuario initialUsuario = usuarioService.get(id);
         Usuario result = usuarioService.modify(initialUsuario, modifiedUsuario);
         return Response.status(Response.Status.OK).entity(result).build();
