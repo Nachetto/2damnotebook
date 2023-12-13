@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/fragmentUno">>
+
+    <fragment
+        android:id="@+id/fragmentUno"
+        android:name="com.example.nachofragments.ui.pantallas.FragmentUno"
+        android:label="PRIMERO"
+        tools:layout="@layout/fragment_uno">
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""/>
+        <action
+            android:id="@+id/action_fragmentUno_to_FragmentDos"
+            app:destination="@id/fragmentDos" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentDos"
+        android:name="com.example.nachofragments.ui.pantallas.FragmentDos"
+        android:label="SEGUNDO"
+        tools:layout="@layout/fragment_dos">
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""/>
+        <action
+            android:id="@+id/action_fragmentDos_to_fragmentTres"
+            app:destination="@id/fragmentTres" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/fragmentTres"
+        android:name="com.example.nachofragments.ui.pantallas.FragmentTres"
+        android:label="TERCERO"
+        tools:layout="@layout/fragment_tres">
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""
+            />
+        <action
+            android:id="@+id/action_fragmentTres_to_fragmentDos"
+            app:destination="@id/fragmentDos" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentCuatro"
+        android:name="com.example.nachofragments.ui.pantallas.FragmentCuatro"
+        android:label="TERCERO"
+        tools:layout="@layout/fragment_cuatro">
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""
+            />
+    </fragment>
+
+
+</navigation>

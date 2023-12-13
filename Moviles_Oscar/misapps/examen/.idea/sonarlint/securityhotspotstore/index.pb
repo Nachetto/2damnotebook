@@ -1,0 +1,25 @@
+
+`
+0app/src/main/java/nacho/llorente/MainActivity.kt,f\1\f1e8993cf72a48952c2de42929c168aa44438154
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+g
+7app/src/main/java/nacho/llorente/utils/NetworkResult.kt,1\0\10b1da516d7ed0450a396c4939e1127fd5d657e3
+@
+build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d
+D
+app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
+q
+Aapp/src/main/java/nacho/llorente/data/sources/di/NetworkModule.kt,e\8\e8e4d022bc2b85d5b5ad00d9e47d066c1b6c39a9
+i
+9app/src/main/java/nacho/llorente/data/common/Constants.kt,d\a\daf11bbebccfd68050950a211b44ed2a67aa2148
+o
+?app/src/main/java/nacho/llorente/data/model/CustomerResponse.kt,e\a\eadf51551380e4046da3cca887a5c0cecf523b0f
+l
+<app/src/main/java/nacho/llorente/data/model/OrderResponse.kt,d\e\de40c561a451f46dba5a8e193a2a2b7c7742ae2c
+s
+Capp/src/main/java/nacho/llorente/domain/usecases/AddOrderUseCase.kt,f\7\f7653623187e34be12758ee2fc5b4d728eca98dd
+g
+7app/src/main/java/nacho/llorente/domain/modelo/Order.kt,a\5\a5e8b9fe4f88199607901c19c52573b7062db575
+j
+:app/src/main/java/nacho/llorente/domain/modelo/Customer.kt,c\5\c58a29912251a799d8d9e02b682d40eddcca653e

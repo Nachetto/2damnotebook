@@ -1,0 +1,27 @@
+
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+D
+app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
+@
+build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d
+y
+Iapp/src/main/java/com/example/nachofragments/ui/pantallas/MainActivity.kt,2\6\26ae07a1753eaa07dad50f3c23dfae4faedd906c
+x
+Happ/src/main/java/com/example/nachofragments/ui/pantallas/FragmentUno.kt,1\9\19d24e10ef230a8b6a5086dbadfa0852cbbc1324
+x
+Happ/src/main/java/com/example/nachofragments/ui/pantallas/FragmentDos.kt,2\5\25958a8a5b08753c37b1f236c1daa9a1cbf0b6f1
+y
+Iapp/src/main/java/com/example/nachofragments/ui/pantallas/FragmentTres.kt,9\8\9828089d9bfacbe1c5f2907ae9351339079154b5
+{
+Kapp/src/main/java/com/example/nachofragments/ui/pantallas/FragmentCuatro.kt,1\6\1691a5bc52727d3b381d74fb5cb7385a3c6f23ba
+z
+Japp/src/main/java/com/example/nachofragments/ui/pantallas/FragmentCinco.kt,9\3\93dcd52ff9a7399f629d9efda028cfe84d266802
+y
+Iapp/src/main/java/com/example/nachofragments/ui/pantallas/FragmentSeis.kt,c\4\c43dfaf4483778bd2b8cc9bbe39df699f34ce2f1
+z
+Japp/src/main/java/com/example/nachofragments/ui/pantallas/FragmentSiete.kt,2\4\24ec1302c31a1e250bec31c141f4150c51d72477
+y
+Iapp/src/main/java/com/example/nachofragments/ui/pantallas/FragmentOcho.kt,e\6\e65d581f6279d7fb4b5ff378499b1093aac800e8
+z
+Japp/src/main/java/com/example/nachofragments/ui/pantallas/FragmentNueve.kt,5\c\5c99576279e9cf0ee674b53b238bf0146a317b3f

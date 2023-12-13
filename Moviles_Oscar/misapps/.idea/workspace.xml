@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="042769ef-661e-4ff8-8562-e85371eb84da" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/examen/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/.idea/sonarlint/issuestore/f/1/f1e8993cf72a48952c2de42929c168aa44438154" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/.idea/sonarlint/securityhotspotstore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/.idea/sonarlint/securityhotspotstore/f/1/f1e8993cf72a48952c2de42929c168aa44438154" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/androidTest/java/nacho/llorente/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/data/common/Constants.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/data/model/CustomerResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/data/model/OrderResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/data/repositorios/CustomerRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/data/repositorios/OrderRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/data/sources/di/NetworkModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/data/sources/service/CustomerService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/data/sources/service/OrderService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/domain/modelo/Customer.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/domain/modelo/Order.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/domain/usecases/AddOrderUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/domain/usecases/DeleteCustomerUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/domain/usecases/DeleteOrderUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/domain/usecases/GetAllCustomersUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/domain/usecases/GetAllFilteredOrdersUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/domain/usecases/GetCustomerFromIdUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/mipmap-anydpi/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/app/src/test/java/nacho/llorente/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examen/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Data_Access_Lucia/Restaurant_Project/Part4/project/src/main/java/ui/screens/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Data_Access_Lucia/Restaurant_Project/Part4/project/src/main/java/ui/screens/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CuartaApp_IgnacioLlorente/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NachoRestaurante/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NachoRestaurante/app/src/main/java/com/example/nachorestaurante/utils/NetworkResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/examen/app/src/main/java/nacho/llorente/utils/NetworkResult.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SGE_Dani/python/jupyter.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../../SGE_Dani/python/jupyter.bat" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="2Z5laSCPWyu1IcxZU4qyot71E2S" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "C:/Users/Nachetto/Documents/GitHub/2damnotebook/Moviles_Oscar/misapps/NachoFragments"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="042769ef-661e-4ff8-8562-e85371eb84da" name="Changes" comment="" />
+      <created>1701719884133</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701719884133</updated>
+    </task>
+    <servers />
+  </component>
+</project>
