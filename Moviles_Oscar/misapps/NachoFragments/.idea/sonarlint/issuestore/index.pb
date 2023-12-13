@@ -17,8 +17,6 @@ Iapp/src/main/java/com/example/nachofragments/ui/pantallas/FragmentTres.kt,9\8\
 Kapp/src/main/java/com/example/nachofragments/ui/pantallas/FragmentCuatro.kt,1\6\1691a5bc52727d3b381d74fb5cb7385a3c6f23ba
 z
 Japp/src/main/java/com/example/nachofragments/ui/pantallas/FragmentCinco.kt,9\3\93dcd52ff9a7399f629d9efda028cfe84d266802
-{
-Kapp/src/main/java/com/example/nachofragments/ui/pantallas/FragmentSeis.java,d\f\df4d0435752f9df9010854521e183e5262f6666e
 y
 Iapp/src/main/java/com/example/nachofragments/ui/pantallas/FragmentSeis.kt,c\4\c43dfaf4483778bd2b8cc9bbe39df699f34ce2f1
 z
