@@ -1,26 +1,38 @@
 package model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Customer {
-    private int id, phone;
-    private String name, surname, email;
+
+    @Id
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "phone")
+    private int phone;
+
+    @Column(name = "first_name")
+    private String name;
+
+    @Column(name = "last_name")
+    private String surname;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "date_of_birth")
     private LocalDate birthdate;
+
     private Credential credential;
-
-    public Customer(int id, int phone, String name, String surname, String email, Credential credentials, LocalDate birthdate) {
-        this.id = id;
-        this.phone = phone;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.birthdate = birthdate;
-        credential = credentials;
-    }
-
 
     public Customer(String fileLine) {
         String[] elemArray = fileLine.split(";");
@@ -32,7 +44,6 @@ public class Customer {
         this.birthdate = LocalDate.parse(elemArray[5]);
         this.credential = new Credential("root", "2dam");
     }
-
 
 
     public String toStringTextFile() {

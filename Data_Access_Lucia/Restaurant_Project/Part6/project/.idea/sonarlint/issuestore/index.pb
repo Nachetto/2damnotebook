@@ -11,7 +11,11 @@ c
 3src/main/java/ui/screens/login/LoginController.java,d\3\d31a9f12ac475e8a39ceb69663c6063f796579c2
 q
 Asrc/main/java/ui/screens/customers/add/CustomerAddController.java,e\c\ecfcbfe3a356f715c22f5880939bd19505adc1af
->
-Parte4JDBC.iml,5\a\5ad5dbb7d7f59999c8ec15ba0856da498f13e2de
 Z
 *src/main/java/dao/common/DBConnection.java,f\6\f6d43a6781e0c747760a7adcefce556596b74654
+[
++src/main/java/dao/impl/CustomerDAOImpl.java,c\2\c286d51b1b3be6ca0f3a3b2f00f51d3152e2814b
+Z
+*src/main/java/service/CustomerService.java,0\0\00a0a98e77662f269a6e0f4e6f2f323c3f643cf5
+Q
+!src/main/java/model/Customer.java,d\8\d809aaf69069b4e367322db0008755f08edcc9a2
