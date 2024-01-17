@@ -11,7 +11,10 @@ import org.hibernate.TransientPropertyValueException;
 import java.util.List;
 
 @Log4j2
-public class CoffeeHibDAO {
+public class
+
+
+CoffeeHibDAO {
     private final JPAUtil jpautil;
     private EntityManager em;
 

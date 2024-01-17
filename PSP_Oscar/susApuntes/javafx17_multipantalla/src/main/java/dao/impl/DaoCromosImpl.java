@@ -2,6 +2,7 @@ package dao.impl;
 
 import common.config.Configuracion;
 import dao.DaoCromos;
+import dao.DaoGenerics;
 import dao.retrofit.llamadas.JokeApi;
 import dao.retrofit.modelo.ResponseJoke;
 import domain.modelo.Cromo;
@@ -22,10 +23,9 @@ import java.util.List;
 import java.util.Objects;
 
 @Log4j2
-public class DaoCromosImpl implements DaoCromos {
+public class DaoCromosImpl extends DaoGenerics implements DaoCromos {
 
     private final Configuracion configuracion;
-
     private final JokeApi jokeApi;
 
 
@@ -78,6 +78,8 @@ public class DaoCromosImpl implements DaoCromos {
             }
 
         } catch (IOException e) {
+            log.debug("he pasado por aqui");
+            log.error(e.getMessage(), e);
             respuesta = Either.left(e.getMessage());
         }
 
