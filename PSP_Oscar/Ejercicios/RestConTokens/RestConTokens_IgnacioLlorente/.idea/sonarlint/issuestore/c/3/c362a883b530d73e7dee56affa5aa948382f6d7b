@@ -1,0 +1,18 @@
+
+]	java:S125"<This block of commented-out lines of code should be removed.(ìşı˜şÿÿÿÿ8î×ÆÉÑ1
+O
+java:S1128"2Remove this unused import 'domain.modelo.Usuario'.( ½ÄÉ8öÈÉÑ1
+T
+java:S1128"2Remove this unused import 'jakarta.inject.Inject'.(‘ø”şÿÿÿÿ8öÈÉÑ1
+`
+java:S1128"DRemove this unused import 'jakarta.servlet.http.HttpServletRequest'.(õ38öÈÉÑ1
+Y
+java:S1128"7Remove this unused import 'jakarta.ws.rs.core.Context'.(îÊ†Íüÿÿÿÿ8÷ÈÉÑ1
+d
+java:S1128"BRemove this unused import 'model.errores.BaseDatosCaidaException'.(¤°°€úÿÿÿÿ8÷ÈÉÑ1
+Z
+java:S1128"8Remove this unused import 'model.errores.OtraException'.(ùÔêşÿÿÿÿ8÷ÈÉÑ1
+U
+java:S1128"3Remove this unused import 'service.UsuarioService'.(Îñš‚ÿÿÿÿÿ8÷ÈÉÑ1
+R
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8÷ÈÉÑ1

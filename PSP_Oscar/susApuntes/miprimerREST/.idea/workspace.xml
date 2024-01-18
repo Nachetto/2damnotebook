@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a35d281b-081b-4006-b324-dd2d17517a47" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/susApuntes/LuciaHybernate/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/susApuntes/LuciaHybernate/.idea/sonarlint/issuestore/b/b/bb6fb32bee3bf5b9febec3426173df8526fb197e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/susApuntes/LuciaHybernate/.idea/sonarlint/issuestore/d/6/d626fefa863733fe37a9fa343c97fd84782072f4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/susApuntes/LuciaHybernate/.idea/sonarlint/securityhotspotstore/b/b/bb6fb32bee3bf5b9febec3426173df8526fb197e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/susApuntes/LuciaHybernate/.idea/sonarlint/securityhotspotstore/d/6/d626fefa863733fe37a9fa343c97fd84782072f4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/.idea/sonarlint/issuestore/4/6/46c48adc72fde138e682ef7f502263b85cffcdbc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/.idea/sonarlint/issuestore/9/2/92dc1408057141aac810bb1c3e3c7eaab4cb2c37" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/.idea/sonarlint/issuestore/c/3/c362a883b530d73e7dee56affa5aa948382f6d7b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/.idea/sonarlint/securityhotspotstore/4/6/46c48adc72fde138e682ef7f502263b85cffcdbc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/.idea/sonarlint/securityhotspotstore/9/2/92dc1408057141aac810bb1c3e3c7eaab4cb2c37" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/.idea/sonarlint/securityhotspotstore/c/3/c362a883b530d73e7dee56affa5aa948382f6d7b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/src/main/java/dao/MandarMail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/src/main/java/dao/UsuarioDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/src/main/java/dao/impl/UsuarioDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/src/main/java/domain/modelo/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/src/main/java/jakarta/rest/RestLogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/src/main/java/jakarta/rest/RestRegister.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/src/main/java/service/UsuarioService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/8/8825eebe93da78065071a4f3025a6560c287ad2b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/3/b3809916cb162bf51563def81f528018e241abcd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/8/8825eebe93da78065071a4f3025a6560c287ad2b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/3/b3809916cb162bf51563def81f528018e241abcd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/1/1/11ce538a5983c4b0284694ecca0665cb6a5dfeb2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/5/b/5b1d7df68baa5356497739854a24fdcdb0c1dbcc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/6/4/6459a4e430f2f89789232fcef047552382eac539" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/7/d/7d814d951a25deca286e289cee14fd2640e3a50a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/9/5/95853a3f31ee3cc56a20aa695a2bb1f8e9b375fe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/b/c/bcd16dc10c3bcde42ba415c5d3418ab497615e9a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/d/c/dcbb17b0e2dcd695f143c3d9f8d789a5e9cb7f06" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/f/f/ffc3335fdf26b18c96a5defa5150390e79e2501f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/securityhotspotstore/1/1/11ce538a5983c4b0284694ecca0665cb6a5dfeb2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/securityhotspotstore/5/b/5b1d7df68baa5356497739854a24fdcdb0c1dbcc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/securityhotspotstore/6/4/6459a4e430f2f89789232fcef047552382eac539" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/securityhotspotstore/7/d/7d814d951a25deca286e289cee14fd2640e3a50a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/securityhotspotstore/9/5/95853a3f31ee3cc56a20aa695a2bb1f8e9b375fe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/securityhotspotstore/b/c/bcd16dc10c3bcde42ba415c5d3418ab497615e9a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/securityhotspotstore/d/c/dcbb17b0e2dcd695f143c3d9f8d789a5e9cb7f06" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/securityhotspotstore/f/f/ffc3335fdf26b18c96a5defa5150390e79e2501f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Data_Access_Lucia/susApuntes/LuciaHybernate/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/susApuntes/LuciaHybernate/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Data_Access_Lucia/susApuntes/LuciaHybernate/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/susApuntes/LuciaHybernate/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Data_Access_Lucia/susApuntes/LuciaHybernate/unit2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/susApuntes/LuciaHybernate/unit2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Data_Access_Lucia/~$untes3erTrimestre.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ejercicios/4_NachoModular/NachoGamingHub/.idea/sonarlint/issuestore/7/1/71b6f49283d86bf54de0d35ea37c074f4e06da57" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercicios/4_NachoModular/NachoGamingHub/.idea/sonarlint/issuestore/7/1/71b6f49283d86bf54de0d35ea37c074f4e06da57" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ejercicios/4_NachoModular/NachoGamingHub/server/src/main/java/dao/impl/HasheoConstrasenas.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercicios/4_NachoModular/NachoGamingHub/server/src/main/java/dao/impl/HasheoConstrasenas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercicios/RestConTokens/RestConTokens_IgnacioLlorente/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multimoduloRest/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multimoduloRest/.idea/multimoduloRest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/multimoduloRest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/0/1/01f7fd317df4c4624ee4b937b8a68be1686bc570" beforeDir="false" afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/0/1/01f7fd317df4c4624ee4b937b8a68be1686bc570" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/c/9/c98e34269a93fedfe04ec4f47e1298bab68b387f" beforeDir="false" afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/c/9/c98e34269a93fedfe04ec4f47e1298bab68b387f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multimoduloRest/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../multimoduloRest/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multimoduloRest/cliente/cliente.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../multimoduloRest/cliente/cliente.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multimoduloRest/domain/domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../multimoduloRest/domain/domain.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multimoduloRest/seguridad/seguridad.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../multimoduloRest/seguridad/seguridad.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multimoduloRest/servidor/miprimerREST.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../multimoduloRest/servidor/miprimerREST.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multimoduloRest/servidor/src/main/java/dao/DaoUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/../multimoduloRest/servidor/src/main/java/dao/DaoUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multimoduloRest/servidor/src/main/java/miprimerRest/jakarta/security/JWTAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/../multimoduloRest/servidor/src/main/java/miprimerRest/jakarta/security/JWTAuth.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2b5c2s4dTD8UV1aD0M9G3HW89jW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a35d281b-081b-4006-b324-dd2d17517a47" name="Changes" comment="" />
+      <created>1705508176175</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705508176175</updated>
+      <workItem from="1705508177339" duration="521000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

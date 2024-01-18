@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import jakarta.inject.Singleton;
+
 import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.Random;
@@ -12,6 +14,7 @@ import java.util.Random;
  *
  * @author oscar
  */
+@Singleton
 public class Utils {
 
     private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

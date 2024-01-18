@@ -15,7 +15,6 @@ import jakarta.ws.rs.core.HttpHeaders;
 
 
 @ApplicationScoped
-@WebFilter("regex(/api/((?!login).)*)")
 public class JWTAuth implements HttpAuthenticationMechanism {
 
     @Inject

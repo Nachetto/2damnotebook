@@ -20,7 +20,7 @@ import java.util.List;
  *
  */
 
-public class DaoUsuario {
+public class    DaoUsuario {
 
     private static List<Usuario> usuarios = new ArrayList<>();
 

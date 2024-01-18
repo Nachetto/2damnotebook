@@ -1,0 +1,15 @@
+
+J
+java:S37408"/Provide the parametrized type for this generic.(‘Ææ´üÿÿÿÿ
+J
+java:S3740S"/Provide the parametrized type for this generic.(‘Ææ´üÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‹ºÂ°
+Q	java:S125&"<This block of commented-out lines of code should be removed.(âë¡
+Q	java:S125,"<This block of commented-out lines of code should be removed.(ãªš¬
+L
+java:S1854D"6Remove this useless assignment to local variable "r1".(«ïä”
+V	java:S1250"<This block of commented-out lines of code should be removed.(ÖÒÂ‘ýÿÿÿÿ
+B
+java:S1481@"'Remove this unused "r1" local variable.(Î›´½ùÿÿÿÿ
+E
+java:S1068""*Remove this unused "mapper" private field.(„¶¹˜ÿÿÿÿÿ
