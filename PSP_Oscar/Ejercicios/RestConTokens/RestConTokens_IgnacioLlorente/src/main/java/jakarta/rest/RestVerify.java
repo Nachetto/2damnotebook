@@ -6,12 +6,11 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import service.UsuarioService;
 
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
-
 @Path("/verify")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+//esta clase es solo para verificar el codigo de activacion del correo, no para verificar el token,
+//eso lo hace la clase TokenVerifier en el paquete security
 public class RestVerify {
     private final UsuarioService usuarioService;
 

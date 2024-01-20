@@ -8,7 +8,6 @@ import jakarta.security.enterprise.authentication.mechanism.http.HttpAuthenticat
 import jakarta.security.enterprise.authentication.mechanism.http.HttpMessageContext;
 import jakarta.security.enterprise.credential.BasicAuthenticationCredential;
 import jakarta.security.enterprise.identitystore.CredentialValidationResult;
-import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.ws.rs.core.HttpHeaders;
@@ -26,10 +25,9 @@ public class JWTAuth implements HttpAuthenticationMechanism {
                                                 HttpServletResponse httpServletResponse
             , HttpMessageContext httpMessageContext) throws AuthenticationException {
         CredentialValidationResult c = CredentialValidationResult.INVALID_RESULT;
-        if (!httpMessageContext.isProtected())
-            return httpMessageContext.doNothing();
 
         String header = httpServletRequest.getHeader(HttpHeaders.AUTHORIZATION);
+
         if (header != null) {
             String[] valores = header.split(" ");
 
@@ -52,6 +50,13 @@ public class JWTAuth implements HttpAuthenticationMechanism {
 
                 }
             } else if (valores[0].equalsIgnoreCase("Bearer")) {
+
+
+                if (c.getStatus() == CredentialValidationResult.Status.VALID) {}
+                //coges los datos del token y miras el usuario, los roles que tiene y los metes eb el security context
+
+
+
 
 
             } else if (valores[0].equalsIgnoreCase("Logout")) {

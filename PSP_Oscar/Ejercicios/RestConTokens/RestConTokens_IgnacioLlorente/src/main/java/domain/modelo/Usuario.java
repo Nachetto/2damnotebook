@@ -3,14 +3,14 @@ package domain.modelo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 public class Usuario {
     private String username;
     private String password;
-    private boolean activated = false;
-    private LocalDate lastLifeSignal; //ultima vez que se conecto
+    private boolean activated;
+    private LocalDateTime lastLifeSignal; //ultima vez que se conecto
     private String activationCode;
 }

@@ -5,7 +5,9 @@ import dao.impl.UsuarioDaoImpl;
 import domain.modelo.Usuario;
 import jakarta.inject.Inject;
 
-import java.time.LocalDate;
+import javax.crypto.SecretKey;
+import java.security.NoSuchAlgorithmException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class UsuarioService {
@@ -28,7 +30,7 @@ public class UsuarioService {
         HasheoConstrasenas hasheoConstrasenas = new HasheoConstrasenas();
         String passwordHasheada = hasheoConstrasenas.hashPassword(password);
 
-        Usuario o = new Usuario(email, passwordHasheada, false, LocalDate.now(), token);
+        Usuario o = new Usuario(email, passwordHasheada, false, LocalDateTime.now(), token);
         return dao.save(o);
     }
 
@@ -46,5 +48,42 @@ public class UsuarioService {
 
     public boolean delete(String username) {
         return dao.delete(username);
+    }
+
+    public boolean isActivated(String email) {
+        return dao.isActivated(email);
+    }
+
+    public boolean login(String email, String password) {
+        HasheoConstrasenas hasheoConstrasenas = new HasheoConstrasenas();
+        String passwordHasheada = hasheoConstrasenas.hashPassword(password);
+        return dao.login(email, passwordHasheada);
+    }
+
+    public String generateToken(String email, String tipo) {
+        //verificar que el usuario está activado
+        if (isActivated(email)) {
+            //generar token
+            return dao.generateToken(tipo,
+                    email.split("@")[0]);
+        }
+        return null;
+    }
+    public String generateToken(String email, String tipo, String rolExtra) {
+        //verificar que el usuario está activado
+        if (isActivated(email)) {
+            //generar token
+            return dao.generateToken(tipo,
+                    email.split("@")[0], rolExtra);
+        }
+        return null;
+    }
+
+    public SecretKey getSecretKey() throws NoSuchAlgorithmException {
+        return dao.getSecretKey();
+    }
+
+    public String getUsernameFromEmail(String email) {
+        return dao.getUsernameFromEmail(email);
     }
 }

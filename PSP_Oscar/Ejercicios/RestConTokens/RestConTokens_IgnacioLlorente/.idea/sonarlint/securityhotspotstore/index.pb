@@ -43,3 +43,11 @@ V
 &src/main/java/dao/impl/MandarMail.java,1\c\1c334d378b0f061f646e138a502e1ec1acaa2023
 Z
 *src/main/java/jakarta/rest/RestVerify.java,2\9\2938f4a79afc74f989467765729806077997d09d
+a
+1src/main/java/jakarta/security/TokenVerifier.java,8\5\859e75c542c1408f2478516bb38fa41abfda634f
+_
+/src/main/java/jakarta/rest/RestAccessToken.java,3\5\3550327368522e96a814f02a13eecf528f29e95e
+i
+9src/main/java/jakarta/security/InMemoryIdentityStore.java,6\d\6d97913429001725280ec173a2d0c3f6a81ff072
+^
+.src/main/java/domain/modelo/JwtCredential.java,0\b\0b3f82de2d0abe022641224069bec62ec574df85

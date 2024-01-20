@@ -2,9 +2,7 @@ package jakarta.rest;
 
 import dao.impl.MandarMail;
 import jakarta.inject.Inject;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import service.UsuarioService;
@@ -30,12 +28,10 @@ public class RestRegister {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
         try {
-            String usuario = String.valueOf(Arrays.stream(email.split("@")).findFirst());
-
-            //enviar correo con el codigo de activacion generado
+            String usuario = usuarioService.getUsernameFromEmail(email);
 
             String code = usuarioService.generateActivationCode();
-            String encodedToken = URLEncoder.encode(code, StandardCharsets.UTF_8.toString());//si no no funciona porque contendría caracteres invalidos
+            String encodedToken = URLEncoder.encode(code, StandardCharsets.UTF_8);//si no no funciona porque contendría caracteres invalidos
 
             MandarMail emailSender = new MandarMail();
             emailSender.generateAndSendEmail(email, "Sigue este enlace para activar tu cuenta: " +
