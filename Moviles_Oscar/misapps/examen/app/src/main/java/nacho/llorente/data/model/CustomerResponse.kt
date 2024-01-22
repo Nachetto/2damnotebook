@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName
 import java.time.LocalDate
 
 data class CustomerResponse(
+    //ESTE ES EL OBJETO QUE RECIBES DEL API, EL SERIALIZED INDICA EL NOMBRE DEL CAMPO EN EL JSON
     @SerializedName(Constants.ID)
     val id: Int,
 
@@ -25,6 +26,7 @@ data class CustomerResponse(
     val birthdate: String
 )
 
+//ESTA FUNCIÓN CONVIERTE EL OBJETO QUE RECIBES DEL API A UN OBJETO DE DOMINIO
 fun CustomerResponse.toCustomer(): Customer {
     return Customer(
         id = id,

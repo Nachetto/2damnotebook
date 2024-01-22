@@ -1,7 +1,7 @@
-package com.example.nachorestaurante.domain.usecases
+package nacho.llorente.domain.usecases
 
-import com.example.nachorestaurante.data.repositorios.CustomerRepository
-import com.example.nachorestaurante.domain.modelo.Customer
+import nacho.llorente.data.repositorios.CustomerRepository
+import nacho.llorente.domain.modelo.Customer
 import java.time.LocalDate
 import javax.inject.Inject
 

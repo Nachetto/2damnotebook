@@ -1,8 +1,8 @@
-package com.example.nachorestaurante.domain.usecases
+package nacho.llorente.domain.usecases
 
-import com.example.nachorestaurante.data.repositorios.CustomerRepository
-import com.example.nachorestaurante.domain.modelo.Customer
-import com.example.nachorestaurante.utils.NetworkResult
+import nacho.llorente.data.repositorios.CustomerRepository
+import nacho.llorente.domain.modelo.Customer
+import nacho.llorente.utils.NetworkResult
 import javax.inject.Inject
 
 class DeleteCustomerUseCase @Inject constructor(

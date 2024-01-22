@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="server:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b761b77a-7ee2-4865-a557-b5260320102f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/Restaurant_Project/Part4/project/.idea/sonarlint/issuestore/d/3/d31a9f12ac475e8a39ceb69663c6063f796579c2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/Restaurant_Project/Part4/project/.idea/sonarlint/issuestore/e/c/ecfcbfe3a356f715c22f5880939bd19505adc1af" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/Restaurant_Project/Part4/project/.idea/sonarlint/securityhotspotstore/d/3/d31a9f12ac475e8a39ceb69663c6063f796579c2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/Restaurant_Project/Part4/project/.idea/sonarlint/securityhotspotstore/e/c/ecfcbfe3a356f715c22f5880939bd19505adc1af" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/impl/ArticulosDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/impl/JuegosDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/impl/SuscripcionesDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/impl/UsuariosDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/java/ui/pantallas/common/BaseState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/java/ui/pantallas/juegos/JuegosController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/java/ui/pantallas/juegos/JuegosState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/java/ui/pantallas/juegos/JuegosViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/java/ui/pantallas/login/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/java/usecases/juegos/GetAllJuegosUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/java/usecases/suscripciones/GetAllSuscripcionesUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/java/usecases/usuarios/LoginUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/resources/fxml/juegos/juegos.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cliente/src/main/resources/fxml/login/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Data_Access_Lucia/Restaurant_Project/Part4/project/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/Restaurant_Project/Part4/project/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Data_Access_Lucia/Restaurant_Project/Part4/project/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/Restaurant_Project/Part4/project/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Data_Access_Lucia/Restaurant_Project/Part4/project/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/Restaurant_Project/Part4/project/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Data_Access_Lucia/Restaurant_Project/Part4/project/src/main/java/ui/screens/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Data_Access_Lucia/Restaurant_Project/Part4/project/src/main/java/ui/screens/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/3/3307a341ebdd099637b56c63ba9927b5c3bd1136" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/8/d88d4e207caec075ec2b1deae14fa79069bddfd7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/7/e75a1e6261f4574f595d3025e66846bc85ea4fdd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/3/3307a341ebdd099637b56c63ba9927b5c3bd1136" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/8/d88d4e207caec075ec2b1deae14fa79069bddfd7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/7/e75a1e6261f4574f595d3025e66846bc85ea4fdd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/ArticulosDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/ArticulosDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/CharactersDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/DaoGenerico.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/DaoGenerico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/EpisodesDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/JuegosDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/JuegosDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/SeasonsDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/SuscripcionesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/SuscripcionesDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/UsuariosDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/UsuariosDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/impl/CharactersDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/impl/EpisodesDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/impl/SeasonsDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/retrofit/llamadas/ArticulosApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/retrofit/llamadas/ArticulosApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/retrofit/llamadas/JuegosApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/retrofit/llamadas/JuegosApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/retrofit/llamadas/LoginApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/retrofit/llamadas/LoginApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/retrofit/llamadas/SuscripcionesApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/retrofit/llamadas/SuscripcionesApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/dao/retrofit/llamadas/UsuariosApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/dao/retrofit/llamadas/UsuariosApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/domain/modelo/MiCharacter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/domain/modelo/MiEpisode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/domain/modelo/MiSeason.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/service/CharactersService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/service/EpisodesService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/service/SeasonsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/ui/pantallas/character/CharacterLlamadasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/ui/pantallas/character/CharacterLlamadasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/ui/pantallas/episode/EpisodeListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/ui/pantallas/episode/EpisodeListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/ui/pantallas/principal/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/ui/pantallas/principal/PrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/java/ui/pantallas/season/SeasonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/java/ui/pantallas/season/SeasonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/resources/config/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/resources/config/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/resources/fxml/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/resources/fxml/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/src/main/resources/fxml/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/src/main/resources/fxml/principal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../../.." value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2YgEpzONhqbwVByW5J4kXXeYOMR" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "PC-Principal",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/Nachetto/Documents/GitHub/2damnotebook/Data_Access_Lucia/Restaurant_Project/Part4/project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Nachetto\Documents\GitHub\2damnotebook\PSP · Óscar\thymeleaf\NachoGamingHub\cliente\src\main\resources\fxml\login" />
+      <recent name="C:\Users\Nachetto\Documents\GitHub\2damnotebook\PSP · Óscar\thymeleaf\NachoGamingHub\server" />
+      <recent name="C:\Users\Nachetto\Documents\GitHub\2damnotebook\PSP · Óscar\thymeleaf\NachoGamingHub\cliente" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="GlassFish 6.8.0" type="GlassfishConfiguration" factoryName="Remote" APPLICATION_SERVER_NAME="GlassFish 6.8.0" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="HOST" value="192.168.1.137" />
+      <option name="LOCAL" value="false" />
+      <option name="UPDATING_POLICY" value="hot-swap-classes" />
+      <deployment>
+        <artifact name="server:war">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <data>
+          <option name="adminServerHost" value="" />
+          <option name="clusterName" value="" />
+          <option name="credentialAlias" value="b5f91d73-66df-420f-a7df-c26a96e09c41" />
+          <option name="secured" value="true" />
+          <option name="stagingRemotePath" value="" />
+          <option name="transportHostId" />
+          <option name="transportStagingTarget">
+            <TransportTarget>
+              <option name="id" value="83fabee3-fe6c-4a51-9baa-1e364ab48c15" />
+              <id>83fabee3-fe6c-4a51-9baa-1e364ab48c15</id>
+            </TransportTarget>
+          </option>
+          <credential-alias>b5f91d73-66df-420f-a7df-c26a96e09c41</credential-alias>
+          <secured>true</secured>
+          <admin-server-host />
+          <cluster-name />
+          <transport-target>
+            <TransportTarget>
+              <option name="id" value="83fabee3-fe6c-4a51-9baa-1e364ab48c15" />
+              <id>83fabee3-fe6c-4a51-9baa-1e364ab48c15</id>
+            </TransportTarget>
+          </transport-target>
+          <staging-path />
+        </data>
+      </server-settings>
+      <predefined_log_file enabled="true" id="GlassFish" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9009" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="server:war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b761b77a-7ee2-4865-a557-b5260320102f" name="Changes" comment="" />
+      <created>1700939008536</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700939008536</updated>
+      <workItem from="1700939010056" duration="3518000" />
+      <workItem from="1700997701407" duration="30431000" />
+      <workItem from="1701034380556" duration="9724000" />
+      <workItem from="1701110415347" duration="13502000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

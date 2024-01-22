@@ -1,8 +1,8 @@
-package com.example.nachorestaurante.domain.usecases
+package nacho.llorente.domain.usecases
 
-import com.example.nachorestaurante.data.repositorios.OrderRepository
-import com.example.nachorestaurante.domain.modelo.Order
-import com.example.nachorestaurante.utils.NetworkResult
+import nacho.llorente.data.repositorios.OrderRepository
+import nacho.llorente.domain.modelo.Order
+import nacho.llorente.utils.NetworkResult
 import javax.inject.Inject
 
 class DeleteOrderUseCase @Inject constructor(private val repository: OrderRepository) {

@@ -47,8 +47,6 @@ Wapp/src/main/java/com/example/nachorestaurante/domain/usecases/DeleteCustomerUs
 Tapp/src/main/java/com/example/nachorestaurante/domain/usecases/DeleteOrderUseCase.kt,f\4\f4782244883c888568329d88f2b6bd92780412c8
 Å
 Qapp/src/main/java/com/example/nachorestaurante/domain/usecases/AddOrderUseCase.kt,f\d\fd5bdc5d275f3c4ee2bccf540d6574fe673b08e2
-u
-Eapp/src/main/java/com/example/nachorestaurante/utils/NetworkResult.kt,d\c\dcb9a630d73662196ae6ccdc1ddf8f856bb8442d
 è
 _app/src/main/java/com/example/nachorestaurante/framework/pantalladetallada/DetailedViewModel.kt,e\3\e3d4dbc28947773fb4f7d6965c47eab71ed8ea5b
 ã

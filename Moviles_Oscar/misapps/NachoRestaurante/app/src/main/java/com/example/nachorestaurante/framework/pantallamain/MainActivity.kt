@@ -107,8 +107,6 @@ class MainActivity : AppCompatActivity() {
                 actionMode?.finish()
             }
         }
-
-
     }
 
     private fun configContextBar() = object : ActionMode.Callback {

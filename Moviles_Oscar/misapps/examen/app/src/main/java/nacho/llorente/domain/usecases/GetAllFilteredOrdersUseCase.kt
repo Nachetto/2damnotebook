@@ -1,7 +1,7 @@
-package com.example.nachorestaurante.domain.usecases
+package nacho.llorente.domain.usecases
 
-import com.example.nachorestaurante.data.repositorios.OrderRepository
-import com.example.nachorestaurante.domain.modelo.Order
+import nacho.llorente.data.repositorios.OrderRepository
+import nacho.llorente.domain.modelo.Order
 import javax.inject.Inject
 
 class GetAllFilteredOrdersUseCase @Inject constructor(

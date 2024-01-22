@@ -16,6 +16,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+    //ESTO ES AUTOMATICO, DECLARAS LA URL DEL API
 
     @Singleton
     @Provides

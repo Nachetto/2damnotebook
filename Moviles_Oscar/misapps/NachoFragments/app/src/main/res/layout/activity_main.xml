@@ -17,10 +17,9 @@
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-       
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".ui.pantallas.MainActivity">
@@ -33,8 +32,10 @@
                 app:defaultNavHost="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
                 app:navGraph="@navigation/navigation" />
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -42,14 +43,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:backgroundTint="@color/design_default_color_primary"
+                app:itemActiveIndicatorStyle="@color/custom"
                 app:itemIconTint="@color/design_default_color_on_primary"
                 app:itemTextColor="@color/design_default_color_on_primary"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:itemActiveIndicatorStyle="@color/custom"
-                app:menu="@menu/menu_navigation"
-                />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:menu="@menu/menu_navigation" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

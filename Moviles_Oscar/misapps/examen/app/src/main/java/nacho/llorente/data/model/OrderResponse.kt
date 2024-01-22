@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName
 import java.time.LocalDate
 
 data class OrderResponse(
+    //ESTE ES EL OBJETO QUE RECIBES DEL API, EL SERIALIZED INDICA EL NOMBRE DEL CAMPO EN EL JSON
     @SerializedName(Constants.CUSTOMERID)
     val customerId: Int,
 
@@ -18,6 +19,7 @@ data class OrderResponse(
     @SerializedName(Constants.TABLEID)
     val tableId: Int
 )
+//ESTA FUNCIÓN CONVIERTE EL OBJETO QUE RECIBES DEL API A UN OBJETO DE DOMINIO
 fun OrderResponse.toOrder(): Order {
     return Order(
         customerId = customerId,

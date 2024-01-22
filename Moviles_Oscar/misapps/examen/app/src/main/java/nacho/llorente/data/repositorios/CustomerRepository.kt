@@ -8,7 +8,7 @@ import dagger.hilt.android.scopes.ActivityRetainedScoped
 import javax.inject.Inject
 @ActivityRetainedScoped
 class CustomerRepository @Inject constructor(private val customerService: CustomerService) {
-
+    //ESTA FUNCIÓN DEVUELVE UNA LISTA DE CUSTOMERS DEL DOMINIO
     suspend fun getCustomers(): NetworkResult<List<Customer>> {
         var l: List<Customer> = emptyList()
         customerService.getCustomers().body()?.let {
@@ -19,11 +19,14 @@ class CustomerRepository @Inject constructor(private val customerService: Custom
         return NetworkResult.Success(l)
     }
 
+
     suspend fun deleteCustomer(id: Int): NetworkResult<String> {
         return try {
+            //ESTA FUNCIÓN DEVUELVE UN STRING CON EL RESULTADO DE LA OPERACIÓN
             val response = customerService.deleteCustomer(id)
             if (response.isSuccessful) {
                 val responseBodyString = response.body()?.string() ?: Constants.DELETEOK
+                // CAMBIA EL CUERPO A LA CONSTANTE DELETEOK SI EL RESPONSE ES EXITOSO
                 NetworkResult.Success(responseBodyString)
             } else {
                 val errorBodyString = response.errorBody()?.string() ?: Constants.UNKNOWNERROR

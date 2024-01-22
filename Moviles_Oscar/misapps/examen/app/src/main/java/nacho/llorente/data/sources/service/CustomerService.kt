@@ -9,8 +9,10 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface CustomerService {
+    //ESTE ES EL ENDPOINT QUE LLAMAS PARA OBTENER LOS CUSTOMERS
     @GET(Constants.CUSTOMERS)
     suspend fun getCustomers(): Response<List<CustomerResponse>>
+    //EN ESTE EL RESPONSEBODY ES EL CUERPO DE LA RESPUESTA, EN ESTE CASO ES UN STRING
     @DELETE(Constants.CUSTOMERSID)
     suspend fun deleteCustomer(@Path(Constants.ID) id: Int): Response<ResponseBody>
     @GET(Constants.CUSTOMERSID)
