@@ -19,7 +19,9 @@ import java.util.List;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 public class UsuarioDaoImpl implements UsuarioDao {
     private static List<Usuario> usuarios = new ArrayList<>();
 
@@ -81,7 +83,9 @@ public class UsuarioDaoImpl implements UsuarioDao {
         Usuario u = usuarios.stream()
                 .filter(usuario -> usuario.getUsername().equals(email))
                 .findFirst().orElse(null);
-        return (u != null && u.getPassword().equals(passwordHasheada));
+        assert u != null;
+        log.error("passwordHasheada: "+passwordHasheada +"\n password: "+u.getPassword());
+        return (u.getPassword().equals(passwordHasheada));
     }
 
     public boolean isActivated(String email) {
@@ -96,7 +100,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
         try {
             Date date;
             if (tipo.equalsIgnoreCase("access"))
-                date= Date.from(LocalDateTime.now().plusSeconds(60).atZone(ZoneId.systemDefault())
+                date= Date.from(LocalDateTime.now().plusSeconds(20).atZone(ZoneId.systemDefault())
                         .toInstant());
             else if (tipo.equalsIgnoreCase("refresh"))
                 date= Date.from(LocalDateTime.now().plusHours(1).atZone(ZoneId.systemDefault())

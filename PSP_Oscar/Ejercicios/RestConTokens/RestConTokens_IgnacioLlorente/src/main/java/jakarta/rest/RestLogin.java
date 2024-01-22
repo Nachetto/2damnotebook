@@ -41,7 +41,6 @@ public class RestLogin {
                     refreshToken = service.generateToken(email,"refresh");
                 }
 
-
                 JsonObject tokens = Json.createObjectBuilder()
                         .add("accessToken", accessToken)
                         .add("refreshToken", refreshToken)

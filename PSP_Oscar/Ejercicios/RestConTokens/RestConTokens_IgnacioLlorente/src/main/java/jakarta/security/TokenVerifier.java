@@ -33,7 +33,8 @@ public class TokenVerifier implements HttpAuthenticationMechanism {
         String requestURI = httpServletRequest.getRequestURI();
 
         // para login no mires la cabecera
-        if (requestURI.equals("/login")||requestURI.equals("/registro")||requestURI.equals("/verify")||requestURI.equals("/accesstoken")) {
+        String baseURL = "/RestConTokens-IgnacioLlorente/api";
+        if (requestURI.equals(baseURL+"/login")||requestURI.equals(baseURL+"/register")||requestURI.equals(baseURL+"/verify")||requestURI.equals(baseURL+"/accesstoken")) {
             return httpMessageContext.doNothing();
         }
 
