@@ -1,6 +1,5 @@
 package service;
 
-import dao.OrderItemDAO;
 import dao.impl.OrderItemDAOImpl;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;

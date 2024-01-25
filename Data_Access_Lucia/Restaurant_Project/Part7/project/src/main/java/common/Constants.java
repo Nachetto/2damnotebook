@@ -33,4 +33,5 @@ public class Constants {
     public static final String CUSTOMERUPDATED = "The customer has been updated";
     public static final String MENUITEMDBERROR = "There was an error while reading Menu Items Database: ";
     public static final String ERROROBTAININGMENUITEM = "There was an error while trying to obtain the menu item: ";
+    public static final String ERROR_FILE_NOT_FOUND = "The file has not been found";
 }

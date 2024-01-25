@@ -7,16 +7,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="javafx11_multipantalla" />
         <module name="untitled" />
         <module name="Parte7Hybernate" />
+        <module name="javafx11_multipantalla" />
+        <module name="Parte5Spring" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="data" target="19" />
       <module name="NewspaperFX" target="16" />
-      <module name="Parte4JDBC" target="16" />
-      <module name="Parte6JDBC" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>

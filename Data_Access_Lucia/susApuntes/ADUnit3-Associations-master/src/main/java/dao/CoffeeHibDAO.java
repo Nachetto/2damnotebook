@@ -4,6 +4,7 @@ import jakarta.inject.Inject;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.PersistenceException;
 import lombok.extern.log4j.Log4j2;
 import model.Coffee;
 import model.EncriptedCode;
@@ -11,10 +12,7 @@ import org.hibernate.TransientPropertyValueException;
 import java.util.List;
 
 @Log4j2
-public class
-
-
-CoffeeHibDAO {
+public class CoffeeHibDAO {
     private final JPAUtil jpautil;
     private EntityManager em;
 
@@ -77,24 +75,25 @@ CoffeeHibDAO {
 
     public void add(Coffee coffee) {
 
-        //With cascade.PERSIST
-
         em = jpautil.getEntityManager();
         EntityTransaction tx = null;
 
         try {
             tx = em.getTransaction();
             tx.begin();
-            EncriptedCode ec=coffee.getEncriptedCode();
+            EncriptedCode ec = coffee.getEncriptedCode();
             em.persist(ec);
             coffee.setId(ec.getIdCoffee());
             em.persist(coffee);
             tx.commit();
+        }catch (PersistenceException pe) {
+            if (tx != null && tx.isActive()) tx.rollback();
+            System.out.println("Supplier does not exist");
         }   catch (Exception e) {
                 if (tx != null && tx.isActive()) tx.rollback();
-                if (e.getCause() instanceof TransientPropertyValueException)  //Supplier does not exist
-                    System.out.println("Supplier does not exist");
-                else
+ //               if (e.getCause() instanceof TransientPropertyValueException)  //Supplier does not exist
+ //                   System.out.println("Supplier does not exist");
+ //               else
                     log.error("Undefined error", e);
         } finally {
             if (em != null) em.close();
