@@ -58,7 +58,6 @@
             <version>1.18.22</version>
         </dependency>
 
-
         <!-- JUNIT -->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
@@ -77,7 +76,6 @@
             <artifactId>weld-se-core</artifactId>
             <version>4.0.3.Final</version>
         </dependency>
-
 
         <!-- JAKARTA -->
         <dependency>
@@ -169,5 +167,6 @@
                 </configuration>
             </plugin>
         </plugins>
+
     </build>
 </project>

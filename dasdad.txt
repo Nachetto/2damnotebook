@@ -1,3 +1,4 @@
+
 la ruta base del api se guarda en una constante, la cual podran acceder despues de que hayamos creado la clase configuracion.java que llama a config\config.properties que es donde tienes las variables declaradas por linea
 
 en el dao vas a estar llamando al api para inicializar los objetos
