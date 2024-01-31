@@ -6,9 +6,7 @@ import javafx.stage.Stage;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.enterprise.util.AnnotationLiteral;
-import lombok.extern.log4j.Log4j2;
 
-@Log4j2
 public class DIJavafx extends Application {
 
     public static void main(String[] args) {

@@ -1,0 +1,26 @@
+
+_
+java:S1192"IDefine a constant instead of duplicating this literal ".privada" 3 times.(·Ì¼
+f	java:S117‰"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’ì6
+d
+java:S2095„"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(îï¾Ã
+h
+java:S20956"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(¸óùÿÿÿÿ
+i
+java:S2095-"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(®ñ¯½şÿÿÿÿ
+h
+java:S2095\"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(§è´Ìúÿÿÿÿ
+i
+java:S2095{"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ì±Ì¯üÿÿÿÿ
+d
+java:S2095S"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(“©şÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(ÒÆ°ó
+@	java:S106"+Replace this use of System.out by a logger.(¶Ê¾¸
+E	java:S1060"+Replace this use of System.out by a logger.(é´¼Ëıÿÿÿÿ
+E	java:S106H"+Replace this use of System.out by a logger.(¡ÄµØşÿÿÿÿ
+E	java:S106V"+Replace this use of System.out by a logger.(‡“¥áüÿÿÿÿ
+@	java:S106h"+Replace this use of System.out by a logger.(¶¼ã¦
+A	java:S106"+Replace this use of System.out by a logger.(Å™Ÿ
+F	java:S106’"+Replace this use of System.out by a logger.(”äÄûÿÿÿÿ
+A	java:S106“"+Replace this use of System.out by a logger.(ıÛ–
+F	java:S106”"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ

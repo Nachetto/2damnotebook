@@ -1,3 +1,27 @@
 
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+m
+=src/main/java/ui/pantallas/articulos/ArticulosController.java,2\c\2c1a37ead41caef004e10e9b974036b4d2cec187
+h
+8src/main/java/ui/pantallas/articulos/ArticulosState.java,e\2\e28c2f45aeb10bfd13b9f97fc9b7b810f1e32026
+`
+0src/main/java/ui/pantallas/common/BaseState.java,1\9\197816e6a7f0c5bd2e9df087eee5bd36185a5dd3
+l
+<src/main/java/ui/pantallas/articulos/ArticulosViewModel.java,f\2\f24ffef5e3d97275761b0b249ac16b81bc3fc3f5
+j
+:src/main/java/ui/pantallas/common/ConstantesPantallas.java,9\0\90187b5f683490564245f2c17b964b6c9340357a
+m
+=src/main/java/ui/pantallas/common/BasePantallaController.java,c\c\cc1ae912583ea46a90bdbcb27df07083ec460f34
+e
+5src/main/java/ui/pantallas/login/LoginController.java,0\0\00a168197ce395305c37a33f896012577da7634b
+Q
+!src/main/java/ui/main/MainFX.java,2\e\2e7801e75bc7d7b888b07031d0746a50f31ff377
+]
+-src/main/java/ui/main/FXMLLoaderProducer.java,8\8\889e8b07e827237e9db61a8b268bc7b0c770ff00
+W
+'src/main/java/ui/main/StartupScene.java,6\7\67e2e8cd1ccdf2df73312c03c460f4b3fbed5ef4
+S
+#src/main/java/ui/main/DIJavafx.java,5\3\535169814ef8dd70f8f23c95a2032d8268f48d6d
+\
+,src/main/java/ui/main/KeystoreGenerator.java,8\5\859371b201d168650ab49752c9a4f562d2a02421
