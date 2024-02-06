@@ -1,0 +1,28 @@
+
+o
+java:S1104"YMake menuItemsList a static final constant or non-public and provide accessors if needed.(İ‚Ø
+d
+java:S1104"NMake id a static final constant or non-public and provide accessors if needed.(±‡áƒ
+k
+java:S1104"PMake name a static final constant or non-public and provide accessors if needed.(ƒ÷„ıÿÿÿÿ
+r
+java:S1104"WMake description a static final constant or non-public and provide accessors if needed.(¿•±âøÿÿÿÿ
+g
+java:S1104 "QMake price a static final constant or non-public and provide accessors if needed.(£‹Á”
+]
+java:S6813+"BRemove this field injection and use constructor injection instead.(Áº–üÿÿÿÿ
+]
+java:S6813/"BRemove this field injection and use constructor injection instead.(Áº–üÿÿÿÿ
+]
+java:S68131"BRemove this field injection and use constructor injection instead.(Áº–üÿÿÿÿ
+]
+java:S68133"BRemove this field injection and use constructor injection instead.(Áº–üÿÿÿÿ
+]
+java:S68135"BRemove this field injection and use constructor injection instead.(Áº–üÿÿÿÿ
+V	java:S125T"<This block of commented-out lines of code should be removed.(ˆ‘èùÿÿÿÿ
+N
+java:S1117n"8Rename "name" which hides the field declared at line 30.(Ãì‡¿
+S
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ
+H
+java:S1144x"2Remove this unused private "loadMenuItems" method.(ÂªĞÜ

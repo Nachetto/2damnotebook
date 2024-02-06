@@ -29,7 +29,6 @@ public class PrincipalController {
     private MenuBar menuPrincipal;
     @FXML
     public BorderPane root;
-
     @FXML
     private MenuItem menuMainScreen;
     @FXML
@@ -38,8 +37,6 @@ public class PrincipalController {
     private Menu menuOptions;
     @FXML
     private MenuItem menuItemPantallaNueva;
-
-
     @Inject
     private CustomerService customerService;
 

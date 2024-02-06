@@ -1,7 +1,7 @@
 
-Q
-java:S1141¡"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
-Q
-java:S1141²"5Extract this nested try block into a separate method.(»€íÛıÿÿÿÿ
-L
-java:S6437""6Revoke and change this password, as it is compromised.(¥¨±½
+g
+java:S2259{"EA "NullPointerException" could be thrown; "getKey()" can return null.(­öéòúÿÿÿÿ8‹ãê¾Ó1
+O
+java:S1874<"-Remove this use of "query"; it is deprecated.(—†Èıÿÿÿÿ8›ãê¾Ó1
+X
+java:S1874T"6Remove this use of "queryForObject"; it is deprecated.(‚ãÎøÿÿÿÿ8ãê¾Ó1

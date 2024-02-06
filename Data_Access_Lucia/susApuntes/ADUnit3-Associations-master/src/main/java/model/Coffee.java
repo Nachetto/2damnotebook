@@ -27,9 +27,9 @@ public class Coffee {
     private String cofName;
 
 
-//    @ToString.Exclude
+    @ToString.Exclude
     @ManyToOne  //(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "SUPP_ID", nullable = false)
+    @JoinColumn(name = "SUPP_ID")
     private Supplier supplier1;
 
     @Column(name = "PRICE", nullable = false, precision = 10, scale = 2)

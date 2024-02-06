@@ -1,53 +1,29 @@
 package model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
-
-    @Id
-    @Column(name = "id")
     private int id;
-
-    @Column(name = "phone")
-    private int phone;
-
-    @Column(name = "first_name")
-    private String name;
-
-    @Column(name = "last_name")
-    private String surname;
-
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "date_of_birth")
+    private Integer phone; // Change from 'int' to 'Integer'
+    private String name, surname, email;
     private LocalDate birthdate;
-
     private Credential credential;
 
-    public Customer(String fileLine) {
-        String[] elemArray = fileLine.split(";");
-        this.id = Integer.parseInt(elemArray[0]);
-        this.name = elemArray[1];
-        this.surname = elemArray[2];
-        this.email = elemArray[3];
-        this.phone = !elemArray[4].isEmpty() ? Integer.parseInt(elemArray[4]) : 0;
-        this.birthdate = LocalDate.parse(elemArray[5]);
-        this.credential = new Credential("root", "2dam");
+    // Your constructors and other methods should now use Integer for phone
+    public Customer(int id, Integer phone, String name, String surname, String email, Credential credentials, LocalDate birthdate) {
+        this.id = id;
+        this.phone = phone; // This can now be null
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.birthdate = birthdate;
+        this.credential = credentials;
     }
 
-
-    public String toStringTextFile() {
-        return id + ";" + name + ";" + surname + ";" + email + ";" + phone + ";" + birthdate;
-    }
-
+    // ... other constructors and methods
 }

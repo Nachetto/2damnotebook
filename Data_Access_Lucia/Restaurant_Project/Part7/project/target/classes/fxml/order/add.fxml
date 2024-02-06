@@ -9,9 +9,9 @@
 <AnchorPane prefHeight="450" prefWidth="749" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.screens.orders.add.AddController">
     <TableView fx:id="orderitemlist" layoutX="285.0" layoutY="127.0" prefHeight="272.0" prefWidth="305.0">
         <columns>
-            <TableColumn fx:id="order_item_id" prefWidth="88.19998168945312" text="order_item_id" />
-            <TableColumn fx:id="order_id" prefWidth="62.199981689453125" text="order_id" />
-            <TableColumn fx:id="menu_item_id" prefWidth="87.199951171875" text="menu_item_id" />
+            <TableColumn fx:id="orderItemId" prefWidth="88.19998168945312" text="order_item_id" />
+            <TableColumn fx:id="orderId" prefWidth="62.199981689453125" text="order_id" />
+            <TableColumn fx:id="menuItemId" prefWidth="87.199951171875" text="menu_item_id" />
             <TableColumn fx:id="quantity" prefWidth="63.20001220703125" text="quantity" />
         </columns>
     </TableView>

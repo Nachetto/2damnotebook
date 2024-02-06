@@ -86,10 +86,11 @@ public class Supplier {
         this.pcode = pcode;
     }
 
-//    @OneToMany(mappedBy = "supplier1" /*, fetch = FetchType.EAGER*/)
-//    public List<Coffee> getCoffees() {
-//        return coffees;
-//    }
+    @OneToMany(mappedBy = "supplier1" /*, fetch = FetchType.EAGER*/)
+    //I have a one to many because when I add suppliers I want to add coffees
+    public List<Coffee> getCoffees() {
+        return coffees;
+    }
 
     public void setCoffees(List<Coffee> coffees) {
         this.coffees = coffees;

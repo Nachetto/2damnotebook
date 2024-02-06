@@ -24,8 +24,8 @@ public class SupplierHibDAO {
             list = em.createQuery("from Supplier", Supplier.class).getResultList();
 
             // To fetch the list of coffees
-             //list.forEach(e -> System.out.println("This is a list"+e.getCoffees()));
-             //list.forEach(e -> e.getCoffees().size());
+            // list.forEach(e -> System.out.println("This is a list"+e.getCoffees()));
+             list.forEach(e -> e.getCoffees().size());
         } finally {
             em.close();
         }
