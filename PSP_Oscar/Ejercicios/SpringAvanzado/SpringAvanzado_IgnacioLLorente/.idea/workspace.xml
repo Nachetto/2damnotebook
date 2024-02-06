@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2e079371-a960-4c5b-9d70-de2e6890f0fc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/main/DIJavafx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/main/FXMLLoaderProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/main/KeystoreGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/main/MainFX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/main/StartupScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/pantallas/common/BasePantallaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/pantallas/common/BaseState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/pantallas/common/ConstantesPantallas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/pantallas/common/Pantallas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/pantallas/login/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/pantallas/main/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/pantallas/principal/ParametrosBusquedaCharacter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/pantallas/principal/ParametrosBusquedaEpisode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/pantallas/principal/PrincipalController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/login/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/main.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/principal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/NachoGamingHub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/NachoGamingHub.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/sonarlint/issuestore/a/e/ae7fc65f4d90c64e7c5b40ffb3388d5f1fde493f" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/sonarlint/issuestore/a/e/ae7fc65f4d90c64e7c5b40ffb3388d5f1fde493f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/sonarlint/issuestore/b/9/b9997aa9b64a9af922e725c378d9dedc3dd40e40" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/sonarlint/issuestore/b/9/b9997aa9b64a9af922e725c378d9dedc3dd40e40" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/sonarlint/issuestore/b/f/bf2e24d758c75eea94fec2bfe12737cd9539a518" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/sonarlint/issuestore/d/8/d8971ef8fef6378434d5f5b5b95f6ff307085c6d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/sonarlint/securityhotspotstore/b/f/bf2e24d758c75eea94fec2bfe12737cd9539a518" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/sonarlint/securityhotspotstore/d/8/d8971ef8fef6378434d5f5b5b95f6ff307085c6d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/cliente.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/cliente.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/src/main/java/common/Constantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Constantes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/src/main/java/common/config/Configuracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/config/Configuracion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/src/main/java/dao/DaoGenerico.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/src/main/java/dao/DaoGenerico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/src/main/java/ui/main/DIJavafx.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/src/main/java/ui/main/DIJavafx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/common/Constantes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/common/config/Configuracion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/DaoGenerico.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/DaoGenerico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/impl/ArticulosDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/impl/ArticulosDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/impl/JuegosDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/impl/JuegosDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/impl/SuscripcionesDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/impl/SuscripcionesDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/impl/UsuariosDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/impl/UsuariosDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/retrofit/JavaNetCookieJar.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/retrofit/JavaNetCookieJar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/retrofit/LocalDateJsonAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/retrofit/LocalDateJsonAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/retrofit/ProducesRetrofit.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/retrofit/ProducesRetrofit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/retrofit/UUIDJsonAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/dao/retrofit/UUIDJsonAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/domain/errores/ClienteError.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/domain/errores/ClienteError.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/main/DIJavafx$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/main/DIJavafx$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/main/DIJavafx.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/main/DIJavafx.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/main/FXMLLoaderProducer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/main/FXMLLoaderProducer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/main/MainFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/main/MainFX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/articulos/ArticulosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/articulos/ArticulosController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/articulos/ArticulosState.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/articulos/ArticulosState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/articulos/ArticulosViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/articulos/ArticulosViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/common/BasePantallaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/common/BasePantallaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/common/BaseState.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/common/BaseState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/common/ConstantesPantallas.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/common/ConstantesPantallas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/common/Pantallas.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/common/Pantallas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/juegos/JuegosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/juegos/JuegosController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/juegos/JuegosState.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/juegos/JuegosState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/juegos/JuegosViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/juegos/JuegosViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/login/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/login/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/main/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/main/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/principal/ParametrosBusquedaCharacter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/principal/ParametrosBusquedaCharacter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/principal/ParametrosBusquedaEpisode.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/principal/ParametrosBusquedaEpisode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/principal/PrincipalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/principal/PrincipalController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/usuarios/UsuariosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/usuarios/UsuariosController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/usuarios/UsuariosState.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/usuarios/UsuariosState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/usuarios/UsuariosViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/ui/pantallas/usuarios/UsuariosViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/articulos/GetAllArticulosUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/articulos/GetAllArticulosUseCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/juegos/GetAllJuegosUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/juegos/GetAllJuegosUseCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/suscripciones/GetAllSuscripcionesUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/suscripciones/GetAllSuscripcionesUseCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/suscripciones/UpdateSuscripcionesUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/suscripciones/UpdateSuscripcionesUseCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/usuarios/GetAllUsuariosUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/usuarios/GetAllUsuariosUseCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/usuarios/GetIdFromUserNameUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/usuarios/GetIdFromUserNameUseCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/usuarios/LoginUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/cliente/target/classes/usecases/usuarios/LoginUseCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/domain/domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/domain/domain.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/domain/target/classes/domain/modelo/Articulo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/domain/target/classes/domain/modelo/Articulo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/domain/target/classes/domain/modelo/Juego.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/domain/target/classes/domain/modelo/Juego.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/domain/target/classes/domain/modelo/Suscripcion.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/domain/target/classes/domain/modelo/Suscripcion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/domain/target/classes/domain/modelo/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/domain/target/classes/domain/modelo/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/domain/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/domain/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/common/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/common/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/common/config/Configuration.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/common/config/Configuration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/common/ConstantesDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/common/ConstantesDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/common/DBConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/common/DBConnectionPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/impl/ArticuloDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/impl/ArticuloDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/impl/HasheoConstrasenas.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/impl/HasheoConstrasenas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/impl/JuegoDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/impl/JuegoDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/impl/SuscripcionDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/impl/SuscripcionDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/impl/UsuarioDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/dao/impl/UsuarioDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/di/Producers.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/di/Producers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/filtros/AuthFiltro.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/filtros/AuthFiltro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/Constantes.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/Constantes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/JAXRSApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/JAXRSApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/RestArticulos.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/RestArticulos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/RestJuegos.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/RestJuegos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/RestLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/RestLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/RestSuscripciones.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/RestSuscripciones.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/RestUsuarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/RestUsuarios.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/errores/ApiError$ApiErrorBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/errores/ApiError$ApiErrorBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/errores/ApiError.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/errores/ApiError.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/errores/BaseDatosCaidaExceptionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/errores/BaseDatosCaidaExceptionMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/errores/NotFoundExceptionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/errores/NotFoundExceptionMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/errores/OtraExceptionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/jakarta/rest/errores/OtraExceptionMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/model/errores/BaseDatosCaidaException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/model/errores/BaseDatosCaidaException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/model/errores/NotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/model/errores/NotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/model/errores/OtraException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/model/errores/OtraException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/service/ArticuloService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/service/ArticuloService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/service/JuegoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/service/JuegoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/service/SuscripcionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/service/SuscripcionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/service/UsuarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../4_NachoModular/NachoGamingHub/server/target/classes/service/UsuarioService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2bU3LfvkQqbYuM4e78RBY7S4RWe" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.KeystoreGenerator.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Usuario/Documents/GitHub/2damnotebook/PSP_Oscar/Ejercicios/SpringAvanzado/SpringAvanzado_IgnacioLLorente/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\Documents\GitHub\2damnotebook\PSP_Oscar\Ejercicios\SpringAvanzado\SpringAvanzado_IgnacioLLorente\src\main\resources" />
+      <recent name="C:\Users\Usuario\Documents\GitHub\2damnotebook\PSP_Oscar\Ejercicios\SpringAvanzado\SpringAvanzado_IgnacioLLorente\src\main\java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="KeystoreGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.main.KeystoreGenerator" />
+      <module name="SpringAvanzado_IgnacioLLorente" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.KeystoreGenerator" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2e079371-a960-4c5b-9d70-de2e6890f0fc" name="Changes" comment="" />
+      <created>1706255775463</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706255775463</updated>
+      <workItem from="1706255777331" duration="4542000" />
+      <workItem from="1706612015984" duration="1369000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

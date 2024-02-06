@@ -7,8 +7,6 @@ import io.vavr.control.Either;
 import retrofit2.HttpException;
 import retrofit2.Response;
 
-import java.io.IOException;
-
 public abstract class DaoGenerico {
     public <T> Single<Either<ClienteError, T>> safeSingleApicall(Single<T> call) {
         return call

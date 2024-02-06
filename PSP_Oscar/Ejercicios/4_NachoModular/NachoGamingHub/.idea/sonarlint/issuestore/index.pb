@@ -7,10 +7,6 @@
 cliente/pom.xml,3\9\39b7bb94550bae4f8daf8f661fec48c5523f693b
 >
 domain/pom.xml,8\b\8b11330a6810846535e4b5ba2024ccfcee112862
-f
-6cliente/src/main/java/common/config/Configuracion.java,d\8\d8971ef8fef6378434d5f5b5b95f6ff307085c6d
-\
-,cliente/src/main/java/common/Constantes.java,b\f\bf2e24d758c75eea94fec2bfe12737cd9539a518
 X
 (server/src/main/webapp/WEB-INF/beans.xml,b\7\b79fbfca3dcf153bf16649ad4a95a94c9f9c674a
 _
