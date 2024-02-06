@@ -85,3 +85,7 @@ W
 'src/main/java/ui/main/StartupScene.java,6\7\67e2e8cd1ccdf2df73312c03c460f4b3fbed5ef4
 Q
 !src/main/java/ui/main/MainFX.java,2\e\2e7801e75bc7d7b888b07031d0746a50f31ff377
+?
+NewspaperFX.iml,e\a\ea310e4dee8e6d546079926892a5c438d6361e26
+@
+Parte5Spring.iml,e\f\efb94f99f13fc76ebbdde6a03c6f99c080a55be7
