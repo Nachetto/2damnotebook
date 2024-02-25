@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7a113075-f168-4ee8-8c34-6c490a63cb73" name="Changes" comment="Junit y Log4j" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="rama.*" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2OosBH3qgEpm2pa7201tD6RCW0O" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "C:/Users/prog1exa/Desktop/Ordinaria",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.idesettings.debugger.capture"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.service" />
+      <recent name="org.example.domain" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alvar\IdeaProjects\junitEntornos\EjemploUsoMockitoAlojamientos\src\main\resources" />
+      <recent name="C:\Users\alvar\IdeaProjects\junitEntornos\EjemploUsoMockitoAlojamientos\src\main\java\org\example\service" />
+      <recent name="C:\Users\alvar\IdeaProjects\junitEntornos\EjemploUsoMockitoAlojamientos\src\main\java\org\example\domain" />
+      <recent name="C:\Users\alvar\IdeaProjects\junitEntornos\EjemploUsoMockitoAlojamientos\src\main\java\org\example\dao" />
+      <recent name="C:\Users\alvar\IdeaProjects\junitEntornos\EjemploUsoMockitoAlojamientos\src\main\java\org\example\common" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gema\Downloads\Ordinaria" />
+      <recent name="C:\Users\alvar\IdeaProjects\junitEntornos\EjemploUsoMockitoAlojamientos\src\test\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.dao" />
+      <recent name="org.example.service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.ui" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.ui.Main" />
+      <module name="Ordinaria" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DaoAlojamientosTest$AddAlojamiento.addAlojamientoVacio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EjemploUsoMockitoAlojamientos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.dao.DaoAlojamientosTest" />
+      <option name="MAIN_CLASS_NAME" value="org.example.dao.DaoAlojamientosTest$AddAlojamiento" />
+      <option name="METHOD_NAME" value="addAlojamientoVacio" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DaoAlojamientosTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EjemploUsoMockitoAlojamientos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.dao" />
+      <option name="MAIN_CLASS_NAME" value="org.example.dao.DaoAlojamientosTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiciosAlojamientosImplTest$Excepciones.addAlojamientoCategoriaErronea" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EjemploUsoMockitoAlojamientos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.common.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.service.ServiciosAlojamientosImplTest" />
+      <option name="MAIN_CLASS_NAME" value="org.example.service.ServiciosAlojamientosImplTest$Excepciones" />
+      <option name="METHOD_NAME" value="addAlojamientoCategoriaErronea" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiciosAlojamientosImplTest.getListaAlojamientos" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EjemploUsoMockitoAlojamientos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.common.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.service" />
+      <option name="MAIN_CLASS_NAME" value="org.example.service.ServiciosAlojamientosImplTest" />
+      <option name="METHOD_NAME" value="getListaAlojamientos" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Ordinaria" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Ordinaria" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ServiciosAlojamientosImplTest$Excepciones.addAlojamientoCategoriaErronea" />
+        <item itemvalue="JUnit.ServiciosAlojamientosImplTest.getListaAlojamientos" />
+        <item itemvalue="JUnit.DaoAlojamientosTest$AddAlojamiento.addAlojamientoVacio" />
+        <item itemvalue="JUnit.DaoAlojamientosTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a113075-f168-4ee8-8c34-6c490a63cb73" name="Changes" comment="" />
+      <created>1682238134102</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682238134102</updated>
+      <workItem from="1684843069286" duration="1562000" />
+    </task>
+    <task id="LOCAL-00001" summary="Uso junit.jupiter, mockito, assertj">
+      <created>1682318247942</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682318247942</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Uso junit.jupiter, mockito, assertj">
+      <created>1682322039801</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682322039801</updated>
+    </task>
+    <task id="LOCAL-00003" summary="testing Dao">
+      <created>1682460863223</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682460863223</updated>
+    </task>
+    <task id="LOCAL-00004" summary="testing Dao">
+      <created>1682460887958</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682460887958</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Junit y Log4j">
+      <created>1684148975555</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684148975555</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Junit y Log4j">
+      <created>1684149007162</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684149007162</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Uso junit.jupiter, mockito, assertj" />
+    <MESSAGE value="testing Dao" />
+    <MESSAGE value="testing y reportando en Log4j" />
+    <MESSAGE value="Actualizando Tarea" />
+    <MESSAGE value="Junit y Log4j" />
+    <option name="LAST_COMMIT_MESSAGE" value="Junit y Log4j" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/dao/PistaDaoImpl.java</url>
+          <line>43</line>
+          <properties class="org.example.dao.PistaDaoImpl" method="listadoOrdenadoProvinciaKm">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/EjemploUsoMockitoAlojamientos$DaoAlojamientosTest.ic" NAME="DaoAlojamientosTest Coverage Results" MODIFIED="1682317318362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.example.dao.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/EjemploUsoMockitoAlojamientos$ServiciosAlojamientosImplTest.ic" NAME="ServiciosAlojamientosImplTest Coverage Results" MODIFIED="1682317349069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.example.service.*</FILTER>
+    </SUITE>
+  </component>
+</project>
