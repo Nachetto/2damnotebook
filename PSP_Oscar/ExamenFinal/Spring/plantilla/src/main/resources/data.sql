@@ -1,0 +1,3 @@
+INSERT INTO usuarios (username, password, rol) VALUES ('ines1', '$2a$10$i.njtAxylSZGz/F1JpG3y.u1w7iVRvobUS./EDdx55tP7TYLi9Yk2', 'NIVEL1');
+INSERT INTO usuarios (username, password, rol) VALUES ('ines2', '$2a$10$i.njtAxylSZGz/F1JpG3y.u1w7iVRvobUS./EDdx55tP7TYLi9Yk2', 'NIVEL2');
+INSERT INTO usuarios (username, password, rol) VALUES ('ines3', '$2a$10$i.njtAxylSZGz/F1JpG3y.u1w7iVRvobUS./EDdx55tP7TYLi9Yk2', 'ADMIN');
