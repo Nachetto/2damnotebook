@@ -1,5 +1,6 @@
 package com.example.navigationdecero.ui.pantallas
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -13,8 +14,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
 import com.example.navigationdecero.R
 import com.example.navigationdecero.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -103,6 +105,12 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.search -> {
                 // Handle search icon press
+                true
+            }
+            R.id.bottom -> {
+                Intent(this, MainActivityBottom::class.java).also {
+                    startActivity(it)
+                }
                 true
             }
             else -> false
