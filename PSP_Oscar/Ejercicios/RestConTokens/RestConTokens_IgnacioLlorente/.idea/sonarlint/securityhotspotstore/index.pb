@@ -51,3 +51,5 @@ i
 9src/main/java/jakarta/security/InMemoryIdentityStore.java,6\d\6d97913429001725280ec173a2d0c3f6a81ff072
 ^
 .src/main/java/domain/modelo/JwtCredential.java,0\b\0b3f82de2d0abe022641224069bec62ec574df85
+h
+8src/main/java/model/errores/BaseDatosCaidaException.java,d\8\d830802336d93e4b25460dea9efce3b78c2120b3

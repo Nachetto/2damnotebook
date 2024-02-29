@@ -1,0 +1,7 @@
+- como arrancar spring ( https://informatica.iesquevedo.es/videos/2dam/PSP/2024-01-31_Spring.mp4 )
+- plantilla para Spring
+- plantilla para Seguridad (VER VIDEO DE ASIMETRICO ANTES https://informatica.iesquevedo.es/videos/2dam/PSP/2024-01-17_Asimetrico.mp4 )
+- postman checkear (RECUERDA BEARER EN EL HEADER)
+- graphql video? https://informatica.iesquevedo.es/videos/2dam/PSP/2024-02-07_Graphql.mp4
+
+como registro el primer usuario si no tengo nada que lo haga

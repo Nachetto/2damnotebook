@@ -1,0 +1,32 @@
+Rest con spring y tokens:
+A nivel de modelo datos:
+
+paquetes request y response tal cual
+ids autoincrementables y demas anotaciones de Spring
+tiene que haber las mismas tablas con los mismos nombres en sql
+
+Parte de configuracion de Spring:
+
+un main en la ruta raiz (llamado Ejercicio3ExamenPspApplication en la plantilla)
+tienes que poner notaciones en los repositorios (interfaces que gestionan el dao auto), en los modelos, en los servicios y en los rest
+clases para que funcione:
+SecurityConfig: vincula filtro global del jwt (JwtAuthenticationFilter) con spring, aqui esta el whitelist de las rutas por las que no pasa el filtro.
+Configuration: copypaste la verdad
+RandomBytesGenerator: en el paquete utils, copypaste tambien
+el application.properties en el paquete resources tambien
+obviamente las dependencias, pero eso es lo primero de todo
+
+
+
+Parte de seguridad:
+
+primero que todo tienes las clases de accestoken y refreshtoken creadas, luego tienes 4 clases mas
+JwtService: opera como la logica de todo este berengenal, dentro tiene la clave privada del servidor con el que se firman los tokens (se basa en una keystore generada en un main cutre, tiene que estar generada, pega la clase MainKeyStore), tiene los metodos para generar los tokens de acceso y de refresco, tiene por ultimo un metodo para sacar las afirmaciones del token que son los roles que tiene el usuario y su nombre. Esta clase solo es llamada por AuthService
+AuthService: gestiona la logica del login apoyandose en la magia de spring y es el que implementa la logica de la clase JWTService para que devuelva estos cuando el login sea correcto.
+JwtAuthenticationFilter: un filtro global que en cada llamada que se haga gestiona los roles, utiliza la clase JwtService tambien para sacar el nombre de usuario y los roles que estan dentro del token y los pasa a spring para que sepa quien esta autenticado y que roles tiene
+Para que esto surga efecto en el rest tienes que poner la anotacion @RolesAllowed({"rol1", "rol2"})
+
+
+
+CONTRASEÑA HASHEADA ¨ines¨:
+$2a$10$i.njtAxylSZGz/F1JpG3y.u1w7iVRvobUS./EDdx55tP7TYLi9Yk2
