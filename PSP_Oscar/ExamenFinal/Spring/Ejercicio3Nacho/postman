@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "b9ddc8d3-d9a0-4e7e-be07-680063c40ac1",
+		"name": "Pruebas Examen Ej3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31109183"
+	},
+	"item": [
+		{
+			"name": "Seguridad",
+			"item": [
+				{
+					"name": "LoginAdmin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/login?username=admin&password=ines",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "admin"
+								},
+								{
+									"key": "password",
+									"value": "ines"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginEmpleado1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/login?username=empleado1&password=ines",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "empleado1"
+								},
+								{
+									"key": "password",
+									"value": "ines"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Empleados",
+			"item": [
+				{
+					"name": "Ver todos los empleados con sus moviles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJlbXBsZWFkbzEiLCJleHAiOjE3MDkyMDc0MDUsInVzZXIiOiJlbXBsZWFkbzEiLCJyb2wiOiJFTVBMRUFETyJ9.gAmiWY27-qE62-pJpDNwGKwCZshAQha1iTvEF2c5sFSpZWAJeSyggqiQSy9hrpAtEx6h2PvPkf2KhTe5UdzCTzcKPhSMz_x_wC0--vg77n4f1yc8DN3dM3H-vYSVz-_569o8ar-_wG7AJVh-fi2eQBjdTZFLEKfE6BOt9N36C2GqG_tWkEwuPtRjAwpJtQxYgU20Z7wyuZAmBJbIHyiYlrbXwgJBzCpUuK3jQuadlJ1rUtroDPYbLrVGn1iCcqWMt0gglNC4C1YtEcZ9fUFuJ47KPZCrjnimqM_2AkS_fLqJyVStteZMpFQPz7AF1FqEA0basiw14IgF7jtqUf7pHQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/empleados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"empleados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Empleado",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"empleado900\",\r\n    \"password\": \"$2a$10$i.njtAxylSZGz/F1JpG3y.u1w7iVRvobUS./EDdx55tP7TYLi9Yk2\",\r\n    \"rol\": \"EMPLEADO\",\r\n    \"fechaNacimiento\": \"1990-01-01\",\r\n    \"moviles\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/empleados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"empleados"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Moviles",
+			"item": [
+				{
+					"name": "Ver todos los moviles con el nombre del empleado",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcwOTIwNzgyNSwidXNlciI6ImFkbWluIiwicm9sIjoiQURNSU4ifQ.MZC4JHq86e8eA0Zjea6bJ2zfm0ehbIl0uw6BDcHtcPyz1GX5_39TpuSWXnUbBaI-Xa2kthFi_Uo4-8J2SOn0FVczqq9DUX29USnHqTjIqHuK7a2LcPbc83CWD3BLJcHOgpsSyul2mIuVIVx5sXXE82LoOaV6RxS_ffwlfaT1HY3_jyCMICazV0Ko9AnW8aqv28I4WqyjhW5CY-R8Z6xE_JpODxaclIuKAi_bSbdSAtPPLRo7JYkEzBa7GClk4IWyDUkCJgYKx-Y3e3R8tGgUnMiQ7L-hoVxRv1nIJF0F9GiBXPanHfqynNdlt0LHW2dEyL6lbVN8bSayPr5ZOFPV-w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/empleados/movilesrol",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"empleados",
+								"movilesrol"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar Moviles",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJlbXBsZWFkbzEiLCJleHAiOjE3MDkyMDgyNTAsInVzZXIiOiJlbXBsZWFkbzEiLCJyb2wiOiJFTVBMRUFETyJ9.GG9CvW7neIRRj7B-YNtolUrsec5mIwEeAqfz3g4Si92QcwEC4a1kDF3EP9_VuqIME93dfWyey_z5Pa_ocjd3AMQ-eDJeGSAd3jROxsgMln7RY7ZyHgEkUO-lAs5xPeAo3rLY1gWR_juSeYImsAZ81Y8hLgmfGyTrZnyZY40IT3nqaT4M50FPaT1MHHzrLpFU1_QZf8Hj4NybfSh_ysSfXjJo3ireuMUev_N2OO6_CXY_ZfZ1M4dc57wjqYVQ6bcWtowqV0F4aKHq1mlluRkmh3Ydq2ahAYQ4ZZRBmQy9GOM1aqrzACTYu7lzTFNFwuli-2dzA6dZFOkwGKrwDOsheA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"modelo\": \"Modelo1\",\r\n    \"anyo\": 2022,\r\n    \"capacidad\": 64,\r\n    \"empleado\": {\r\n        \"id\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/moviles/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"moviles",
+								"1"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Movil",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/moviles/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"moviles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

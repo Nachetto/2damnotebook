@@ -1,0 +1,30 @@
+scalar Date
+
+type Alumno{
+    id : ID!
+    nombre: String
+    asignaturas: [Asignatura]
+}
+
+
+type Asignatura{
+    id : ID!
+    nombre: String
+    nota: Int
+    alumno : Alumno
+}
+
+type Query {
+    getAlumnos : [Alumno]!
+}
+
+type Mutation {
+    addAlumno(nombre: String!) : Asignatura
+}
+
+
+input AlumnoInput {
+    id: ID
+    nombre: String
+}
+
