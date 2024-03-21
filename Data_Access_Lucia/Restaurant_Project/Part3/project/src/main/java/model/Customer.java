@@ -30,7 +30,7 @@ public class Customer {
         this.email = elemArray[3];
         this.phone = !elemArray[4].isEmpty() ? Integer.parseInt(elemArray[4]) : 0;
         this.birthdate = LocalDate.parse(elemArray[5]);
-        this.credential = new Credential("root", "2dam");
+        this.credential = new Credential(name, "1234");
     }
 
 

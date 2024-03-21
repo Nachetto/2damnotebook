@@ -1,5 +1,4 @@
 package dao;
-
 import io.vavr.control.Either;
 import model.Credential;
 import model.Customer;

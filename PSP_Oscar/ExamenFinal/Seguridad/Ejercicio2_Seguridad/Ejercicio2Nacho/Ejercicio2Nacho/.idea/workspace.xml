@@ -5,52 +5,115 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb91bfed-fe90-4b98-8d1d-19f12766b5ad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/Pruebas Examen Ej3.http" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/Pruebas Examen Ej3.postman_collection.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/keystore.pfx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/Ejercicio3ExamenPspApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/config/Configuration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/data/error/ErrorObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/data/modelo/Informe.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/data/modelo/Raton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/data/modelo/Usuario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/data/modelo/request/AuthenticationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/data/modelo/response/AuthenticationResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/data/repositorios/InformeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/data/repositorios/RatonRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/data/repositorios/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/domain/AuthService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/domain/CustomUserDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/domain/InformeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/domain/JwtService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/domain/RatonService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/seguridad/JwtAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/seguridad/MainKeyStore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/ui/RestAuth.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/ui/RestInforme.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/ui/RestRaton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/ui/exceptions/TokenException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/java/com/example/ejercicio3examenpsp/utils/RandomBytesGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/main/resources/data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Spring/plantilla/src/test/java/com/example/ejercicio3examenpsp/Ejercicio3ExamenPspApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/common/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/common/config/Configuration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/dao/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/dao/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/model/Credential.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/model/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/model/MenuItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/model/MenuItemXML.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/model/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/model/OrderItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/model/OrderItemXML.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/model/OrderItemsXML.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/model/OrderXML.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/model/OrdersXML.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/src/main/java/model/Table.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/target/classes/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Data_Access_Lucia/Restaurant_Project/Part3/project/target/classes/model/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Moviles_Oscar/misapps/NachoFragments/app/src/main/res/layout/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Moviles_Oscar/misapps/NachoFragments/app/src/main/res/layout/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Ejercicios/4_NachoModular/NachoGamingHub/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Ejercicios/4_NachoModular/NachoGamingHub/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../susApuntes/miprimerPayara/miprimerPayara.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../susApuntes/miprimerPayara/miprimerPayara.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../susApuntes/miprimerREST/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../susApuntes/miprimerREST/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/ExPendientes.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/0/1/010832ca9b116c9f67bf05e3be95c781a844f5de" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/0/5/050ea9d6813df81bfc34507bfeaac2f14d4c7c59" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/2/0/20456f5ea3f4c401b2067fe17627f2a202475da7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/2/a/2a8464b2008f59206c28d5677d43248b88a5cb6f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/2/b/2b5b96308137c2b7515f9380e144ace57db2cf5b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/3/2/329c2829019c2f33ab4a44f04e6d17a86635e117" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/3/3/33b0245106f433507bc1f066291a456c000a787d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/3/5/353c0b7342c5715765f499a1e284e76ee3d2f3d2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/7/c/7cd3e0c88f30146ce901afef7b2ecd9b70615e17" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/8/b/8b2eb80b9700f9f21a4d75021667f150d00840ac" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/9/4/94b276b4ed811f4196c2afcb074fffdf9b04f398" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/a/d/ad93670a4039c1a19b6e1cf39009582567646e4c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/b/1/b1d0aecf23a7f1a9bcd314eb7f34f46c4158f839" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/c/e/cec6ecebb2e521b79f62924535cfe20a140bde88" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/e/1/e1b0dd319eba612d9bcce79603489328b6d2fb8b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/0/1/010832ca9b116c9f67bf05e3be95c781a844f5de" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/0/5/050ea9d6813df81bfc34507bfeaac2f14d4c7c59" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/2/0/20456f5ea3f4c401b2067fe17627f2a202475da7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/2/a/2a8464b2008f59206c28d5677d43248b88a5cb6f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/2/b/2b5b96308137c2b7515f9380e144ace57db2cf5b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/3/2/329c2829019c2f33ab4a44f04e6d17a86635e117" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/3/3/33b0245106f433507bc1f066291a456c000a787d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/3/5/353c0b7342c5715765f499a1e284e76ee3d2f3d2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/7/c/7cd3e0c88f30146ce901afef7b2ecd9b70615e17" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/8/b/8b2eb80b9700f9f21a4d75021667f150d00840ac" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/9/4/94b276b4ed811f4196c2afcb074fffdf9b04f398" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/a/d/ad93670a4039c1a19b6e1cf39009582567646e4c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/b/1/b1d0aecf23a7f1a9bcd314eb7f34f46c4158f839" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/c/e/cec6ecebb2e521b79f62924535cfe20a140bde88" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/e/1/e1b0dd319eba612d9bcce79603489328b6d2fb8b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/Ex3ev.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/src/main/java/org/example/common/Constantes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/src/main/java/org/example/common/PrecioException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/src/main/java/org/example/common/ValoracionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/src/main/java/org/example/dao/CentroOcioDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/src/main/java/org/example/dao/LocalDateAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/src/main/java/org/example/domain/CentroOcio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/src/main/java/org/example/domain/ParqueAtracciones.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/src/main/java/org/example/domain/Zoologico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/src/main/java/org/example/service/Service.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/src/main/java/org/example/service/ServiceInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/src/main/java/org/example/ui/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/src/main/java/org/example/ui/Tester.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/src/test/resources/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/classes/org/example/common/Constantes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/classes/org/example/common/PrecioException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/classes/org/example/common/ValoracionException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/classes/org/example/dao/CentroOcioDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/classes/org/example/dao/LocalDateAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/classes/org/example/domain/CentroOcio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/classes/org/example/domain/ParqueAtracciones.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/classes/org/example/domain/Zoologico.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/classes/org/example/service/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/classes/org/example/service/ServiceInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/classes/org/example/ui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/classes/org/example/ui/Tester.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/test-classes/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/test-classes/org/example/dao/DaoAlojamientosTest$Actualizacion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/test-classes/org/example/dao/DaoAlojamientosTest$AddAlojamiento.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/test-classes/org/example/dao/DaoAlojamientosTest$estaVacia.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/test-classes/org/example/dao/DaoAlojamientosTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/test-classes/org/example/service/ServiciosAlojamientosImplTest$ActualizarCategoria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/test-classes/org/example/service/ServiciosAlojamientosImplTest$Excepciones.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/ExPendientes/target/test-classes/org/example/service/ServiciosAlojamientosImplTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/FicheroBinario" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/FicheroDeTexto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/ExPendientesIgnacioLlorente/parques.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/NachoExtraOrdinaria/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/OrdinariaNacho/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../ZRecu/recu/estudiandoProg/TareaMockitoInmobiliaria/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,9 +123,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2d2Ubn73S9Kdh1RRycxa2DYjQlj" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -83,6 +146,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -102,6 +168,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709205741166</updated>
       <workItem from="1709205742198" duration="603000" />
+      <workItem from="1711007988283" duration="16000" />
     </task>
     <servers />
   </component>

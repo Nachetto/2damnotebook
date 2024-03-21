@@ -1,0 +1,6 @@
+patientID;name;contactDetails;personalInformation;username;password
+0;admin;123-456-7890;admin;admin;admin
+1;John Doe;123-456-7890;Male, 35 years old, non-smoker;johndoe;1234
+2;Jane Smith;456-789-0123;Female, 45 years old, occasional smoker;janesmith;1234
+3;Michael Johnson;789-012-3456;Male, 50 years old, diabetic;michaelj;1234
+4;Emily Davis;012-345-6789;Female, 25 years old, no significant medical history;emilyd;1234
