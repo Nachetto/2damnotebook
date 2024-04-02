@@ -58,12 +58,4 @@ public class Configuration {
     public String getPassword(String key) {
         return passwords.getProperty(key);
     }
-
-    public String getLastRecordID() {
-        return properties.getProperty("lastRecordID");
-    }
-
-    public void setLastRecordID(int id) {
-        properties.setProperty("lastRecordID", String.valueOf(id));
-    }
 }

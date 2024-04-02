@@ -27,6 +27,8 @@ public class Main {
     }
 
     public void run() {
+        //Show all usernames an passwords
+        patientService.getAll().get().stream().filter(p -> p.getCredential() != null).forEach(p -> System.out.println(p.getCredential()));
         Scanner sc = new Scanner(System.in);
         try {
             //Login pidiendo usuario y contraseña y si no es correcto que vuelva a pedirlo, llamar al servicio doLogin(username, password) para comprobarlo
@@ -139,9 +141,7 @@ public class Main {
         sc.nextLine();
         System.out.println("Enter the diagnosis: ");
         String diagnosis = sc.nextLine();
-        return new Record(
-                /*TODO CHANGE THE ID TO THE LAST ONE SAVED IN PROPERTIES*/0, patientID, diagnosis, doctorID);
-
+        return new Record(/*TODO CHANGE THE ID TO THE LAST ONE SAVED IN PROPERTIES*/0, patientID, diagnosis, doctorID);
     }
 
     private PrescribedMedication requestMedication(Scanner sc, int number) {
@@ -175,9 +175,7 @@ public class Main {
                 System.out.println("The patient wasn't deleted, exiting...");
             } else {
                 //delete the patient medical records
-                if (medicationService.deleteByPatient(id) == -1
-                        || recordService.deleteByPatient(id) == -1
-                        || patientService.delete(id) == -1) {
+                if (recordService.deleteByPatient(id) == -1 || medicationService.deleteByPatient(id) == -1 || patientService.delete(id) == -1) {
                     System.out.println("Error while deleting the records, medications or patient");
                 } else {
                     System.out.println("Patient deleted correctly");
@@ -186,3 +184,4 @@ public class Main {
         }
     }
 }
+

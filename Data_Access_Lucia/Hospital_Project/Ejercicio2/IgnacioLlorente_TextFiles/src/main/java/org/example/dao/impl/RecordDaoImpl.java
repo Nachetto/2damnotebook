@@ -41,9 +41,6 @@ public class RecordDaoImpl implements RecordDao {
     @Override
     public int save(Record r) {
         try {
-            //set the last recordID property in the configuration file properties.txt
-            Configuration.getInstance().setLastRecordID(r.getRecordID());
-
             Files.write(Paths.get(Configuration.getInstance().getRecordDataFile()), ('\n' + r.toStringTextFile()).getBytes(), StandardOpenOption.APPEND);
             return 1;
         } catch (IOException e) {
@@ -73,10 +70,6 @@ public class RecordDaoImpl implements RecordDao {
         } catch (IOException e) {
             return -1;
         }
-    }
-
-    public int getNewRecordID() {
-        return Integer.parseInt(Configuration.getInstance().getLastRecordID()) + 1;
     }
 
     public int deleteByPatient(int id) {

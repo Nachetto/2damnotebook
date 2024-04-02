@@ -1,6 +1,7 @@
 recordID;patientID;diagnosis;doctorID
 1;1;flu;1
 6;1;flu2;1
+2;2;fever;2
 3;3;cold;3
 4;4;headache;4
 5;5;flu;5

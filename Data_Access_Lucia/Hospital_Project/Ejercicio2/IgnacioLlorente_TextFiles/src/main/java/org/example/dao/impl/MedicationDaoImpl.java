@@ -74,24 +74,13 @@ public class MedicationDaoImpl implements MedicationDao {
 
     public int deleteByPatient(int id) {
         try {
-            Either<String, List<PrescribedMedication>> medications = getAll();
-            if (medications.isRight()){
-                List<PrescribedMedication> meds = medications.get();
-                for (PrescribedMedication medication : meds) {
-                    if (medication.getRecordID() == id) {
-                        meds.remove(medication);
-                    }
-                }
-                Files.write(Paths.get(Configuration.getInstance().getMedicationDataFile()), "medicationID;name;dosage;redordID".getBytes());
-                for (PrescribedMedication medication : meds) {
-                    save(medication);
-                }
-                return 1;
+            List<PrescribedMedication> medications = getAll().get();
+            medications.removeIf(m -> m.getRecordID() == id);
+            Files.write(Paths.get(Configuration.getInstance().getMedicationDataFile()), "medicationID;name;dosage;redordID".getBytes());
+            for (PrescribedMedication medication : medications) {
+                save(medication);
             }
-            else {
-                System.out.println(medications.getLeft());
-                return -1;
-            }
+            return 1;
         } catch (IOException e) {
             return -1;
         }
