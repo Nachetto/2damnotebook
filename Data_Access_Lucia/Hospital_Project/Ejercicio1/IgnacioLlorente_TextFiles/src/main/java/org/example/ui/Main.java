@@ -139,9 +139,7 @@ public class Main {
         sc.nextLine();
         System.out.println("Enter the diagnosis: ");
         String diagnosis = sc.nextLine();
-        return new Record(
-                /*TODO CHANGE THE ID TO THE LAST ONE SAVED IN PROPERTIES*/0, patientID, diagnosis, doctorID);
-
+        return new Record(recordService.getNewRecordID(), patientID, diagnosis, doctorID);
     }
 
     private PrescribedMedication requestMedication(Scanner sc, int number) {
@@ -174,7 +172,7 @@ public class Main {
             if (!answer.equalsIgnoreCase("Y")) {
                 System.out.println("The patient wasn't deleted, exiting...");
             } else {
-                //delete the patient medical records
+                //delete the patient, medications and records
                 if (medicationService.deleteByPatient(id) == -1
                         || recordService.deleteByPatient(id) == -1
                         || patientService.delete(id) == -1) {

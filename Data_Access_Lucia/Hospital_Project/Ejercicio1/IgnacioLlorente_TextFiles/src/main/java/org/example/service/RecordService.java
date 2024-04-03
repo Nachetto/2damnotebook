@@ -41,4 +41,12 @@ public class RecordService {
     public boolean hasMedications(int id, MedicationService medicationService) {
         return recordDao.hasMedications(id,  medicationService);
     }
+
+    public int getNewRecordID() {
+        return recordDao.getNewRecordID();
+    }
+
+    public List<Integer> getRecordIdsFromPatientId(int patientId) {
+        return recordDao.getRecordIdsFromPatientId(patientId);
+    }
 }

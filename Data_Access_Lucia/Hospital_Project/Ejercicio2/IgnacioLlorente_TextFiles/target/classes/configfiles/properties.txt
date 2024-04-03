@@ -3,3 +3,5 @@ patientDataFile=data/patients.csv
 appointmentDataFile=data/appointments.csv
 medicationDataFile=data/medications.csv
 recordDataFile=data/records.csv
+recordXmlDataFile=data/records.xml
+lastRecordID=5

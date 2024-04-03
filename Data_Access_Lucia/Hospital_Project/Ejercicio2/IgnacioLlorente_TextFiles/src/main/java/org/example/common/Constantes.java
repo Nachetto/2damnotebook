@@ -2,13 +2,19 @@ package org.example.common;
 
 public class Constantes {
 
-    public static final String MENU = "\n1.- Show all patients" +
+    public static final String MENU =
+            "\n1.- Show all patients" +
             "\n2.- Show medical records by patient" +
             "\n3.- Append a new medical record with two medications: Make sure that the patient and the doctor exist" +
             "\n4.- Delete a patient: If it has any medications associated with one of their medical records, ask the user, and if so, delete everything related to the patient before deleting the patient." +
-            "\n5.- EXIT";
+            "\n5.- Save to XML" +
 
-    public static final String QUIERE_VER_DEL_1_AL_14_15_PARA_SALIR = "\n\nWrite the number of the exercise you wanna see from 1 to 4. 5 to exit: ";
+
+
+
+            "\n10.- Exit";
+
+    public static final String QUIERE_VER_DEL_1_AL_14_15_PARA_SALIR = "\n\nWrite the number of the exercise you wanna see from 1 to 9. 10 to exit: ";
 
 
     public static final String UNEXPECTED_ERROR_SHOWINH_MENU_AGAIN = "Unexpected error, showing menu again.";

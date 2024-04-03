@@ -6,6 +6,7 @@ import org.example.common.Constantes;
 import org.example.domain.Credential;
 import org.example.domain.Patient;
 import org.example.domain.PrescribedMedication;
+import org.example.service.DoctorService;
 import org.example.service.MedicationService;
 import org.example.service.PatientService;
 import org.example.service.RecordService;
@@ -18,17 +19,17 @@ public class Main {
 
     private final RecordService recordService;
     private final MedicationService medicationService;
+    private final DoctorService doctorService;
 
     @Inject
-    public Main(PatientService patientService, RecordService recordService, MedicationService medicationService) {
+    public Main(PatientService patientService, RecordService recordService, MedicationService medicationService, DoctorService doctorService) {
         this.patientService = patientService;
         this.recordService = recordService;
         this.medicationService = medicationService;
+        this.doctorService = doctorService;
     }
 
     public void run() {
-        //Show all usernames an passwords
-        patientService.getAll().get().stream().filter(p -> p.getCredential() != null).forEach(p -> System.out.println(p.getCredential()));
         Scanner sc = new Scanner(System.in);
         try {
             //Login pidiendo usuario y contraseña y si no es correcto que vuelva a pedirlo, llamar al servicio doLogin(username, password) para comprobarlo
@@ -50,7 +51,7 @@ public class Main {
 
 
         int option = 0;
-        while (option != 5) {
+        while (option != 10) {
             try {
                 System.out.println(Constantes.MENU);
                 System.out.println(Constantes.QUIERE_VER_DEL_1_AL_14_15_PARA_SALIR);
@@ -68,6 +69,12 @@ public class Main {
                         break;
                     case 4:
                         exercise4();
+                        break;
+                    case 5:
+                        saveToXML();
+                        break;
+                    case 6:
+                        exercise6(sc);
                         break;
                     default:
                         break;
@@ -141,7 +148,7 @@ public class Main {
         sc.nextLine();
         System.out.println("Enter the diagnosis: ");
         String diagnosis = sc.nextLine();
-        return new Record(/*TODO CHANGE THE ID TO THE LAST ONE SAVED IN PROPERTIES*/0, patientID, diagnosis, doctorID);
+        return new Record(recordService.getNewRecordID(), patientID, diagnosis, doctorID);
     }
 
     private PrescribedMedication requestMedication(Scanner sc, int number) {
@@ -174,8 +181,10 @@ public class Main {
             if (!answer.equalsIgnoreCase("Y")) {
                 System.out.println("The patient wasn't deleted, exiting...");
             } else {
-                //delete the patient medical records
-                if (recordService.deleteByPatient(id) == -1 || medicationService.deleteByPatient(id) == -1 || patientService.delete(id) == -1) {
+                //delete the patient, medications and records
+                if (medicationService.deleteByPatient(id) == -1
+                        || recordService.deleteByPatient(id) == -1
+                        || patientService.delete(id) == -1) {
                     System.out.println("Error while deleting the records, medications or patient");
                 } else {
                     System.out.println("Patient deleted correctly");
@@ -183,5 +192,21 @@ public class Main {
             }
         }
     }
-}
 
+    private void saveToXML() {
+        System.out.println("Saving to XML");
+        if (recordService.saveToXML(recordService.getAll().get(), medicationService.getAll().get(), patientService.getAll().get(), doctorService.getAll().get())
+                == -1) {
+            System.out.println("Error while saving to XML");
+        } else {
+            System.out.println("Saved to XML correctly");
+        }
+    }
+
+    private void exercise6(Scanner sc) {
+        System.out.println("Enter the Patient's ID: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.println(recordService.medicationsFromAPatientXML(id));
+    }
+}

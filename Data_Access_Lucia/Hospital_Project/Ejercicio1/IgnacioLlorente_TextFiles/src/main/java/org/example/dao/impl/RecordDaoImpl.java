@@ -43,7 +43,6 @@ public class RecordDaoImpl implements RecordDao {
         try {
             //set the last recordID property in the configuration file properties.txt
             Configuration.getInstance().setLastRecordID(r.getRecordID());
-
             Files.write(Paths.get(Configuration.getInstance().getRecordDataFile()), ('\n' + r.toStringTextFile()).getBytes(), StandardOpenOption.APPEND);
             return 1;
         } catch (IOException e) {
@@ -98,5 +97,13 @@ public class RecordDaoImpl implements RecordDao {
                 .anyMatch(m -> getAll().get().stream().anyMatch
                         (r -> r.getRecordID() == m.getRecordID()
                                 && r.getPatientID() == id));
+    }
+
+    public List<Integer> getRecordIdsFromPatientId(int patientID) {
+        //recordID;patientID;diagnosis;doctorID -> recordID from patientID
+        return getAll().get().stream()
+                .filter(r -> r.getPatientID() == patientID)
+                .map(Record::getRecordID)
+                .toList();
     }
 }

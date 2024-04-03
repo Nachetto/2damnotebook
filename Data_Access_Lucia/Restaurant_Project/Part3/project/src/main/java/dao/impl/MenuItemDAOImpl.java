@@ -60,9 +60,6 @@ public class MenuItemDAOImpl implements MenuItemDAO {
         }
     }
 
-
-
-
     public Either<String, MenuItem> get(int id) {
         List<MenuItem> menuItems = getAll().get();
         for (MenuItem menuItem : menuItems) {
@@ -141,12 +138,8 @@ public class MenuItemDAOImpl implements MenuItemDAO {
             for (MenuItem menuItem : menuItems) {
                 OrderXML orderXML = new OrderXML();
                 OrderItemXML orderItemXML = new OrderItemXML();
-                MenuItemXML menuItemXML = new MenuItemXML();
-
-                menuItemXML.setId(menuItem.getId());
-                menuItemXML.setName(menuItem.getName());
-                menuItemXML.setDescription(menuItem.getDescription());
-                menuItemXML.setPrice(menuItem.getPrice());
+                MenuItemAdapter adapter = new MenuItemAdapter();
+                MenuItemXML menuItemXML = adapter.marshal(menuItem);
 
                 orderItemXML.setMenuItem(menuItemXML);
                 orderXML.getOrderItems().getOrderItem().add(orderItemXML);

@@ -1,10 +1,12 @@
 package org.example.dao.impl;
 
 import io.vavr.control.Either;
+import jakarta.inject.Inject;
 import org.example.common.Constantes;
 import org.example.common.config.Configuration;
 import org.example.dao.MedicationDao;
 import org.example.domain.PrescribedMedication;
+import org.example.service.RecordService;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,6 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MedicationDaoImpl implements MedicationDao {
+
+    private final RecordService recordService;
+
+    @Inject
+    public MedicationDaoImpl(RecordService recordService) {
+        this.recordService = recordService;
+    }
 
     @Override
     public Either<String, List<PrescribedMedication>> getAll() {
@@ -77,11 +86,17 @@ public class MedicationDaoImpl implements MedicationDao {
             Either<String, List<PrescribedMedication>> medications = getAll();
             if (medications.isRight()){
                 List<PrescribedMedication> meds = medications.get();
-                for (PrescribedMedication medication : meds) {
-                    if (medication.getRecordID() == id) {
-                        meds.remove(medication);
+
+                //save a list of record IDs to delete
+                List<Integer> recordIDs = recordService.getRecordIdsFromPatientId(id);
+                for (Integer recordID : recordIDs) {
+                    for (PrescribedMedication medication : meds) {
+                        if (medication.getRecordID() == recordID) {
+                            meds.remove(medication);
+                        }
                     }
                 }
+
                 Files.write(Paths.get(Configuration.getInstance().getMedicationDataFile()), "medicationID;name;dosage;redordID".getBytes());
                 for (PrescribedMedication medication : meds) {
                     save(medication);

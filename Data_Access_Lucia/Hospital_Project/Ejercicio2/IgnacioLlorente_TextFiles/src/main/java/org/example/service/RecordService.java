@@ -3,6 +3,9 @@ package org.example.service;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
 import org.example.dao.impl.RecordDaoImpl;
+import org.example.domain.Doctor;
+import org.example.domain.Patient;
+import org.example.domain.PrescribedMedication;
 import org.example.domain.Record;
 
 import java.util.List;
@@ -40,5 +43,21 @@ public class RecordService {
 
     public boolean hasMedications(int id, MedicationService medicationService) {
         return recordDao.hasMedications(id,  medicationService);
+    }
+
+    public int getNewRecordID() {
+        return recordDao.getNewRecordID();
+    }
+
+    public List<Integer> getRecordIdsFromPatientId(int patientId) {
+        return recordDao.getRecordIdsFromPatientId(patientId);
+    }
+
+    public int saveToXML(List<Record> records, List<PrescribedMedication> medications, List<Patient> patients, List<Doctor> doctors) {
+        return recordDao.saveToXML(records, medications, patients, doctors);
+    }
+
+    public List<PrescribedMedication> medicationsFromAPatientXML(int patientID) {
+        return recordDao.medicationsFromAPatientXML(patientID);
     }
 }

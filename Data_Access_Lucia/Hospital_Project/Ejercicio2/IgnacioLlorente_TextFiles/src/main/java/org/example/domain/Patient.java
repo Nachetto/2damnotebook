@@ -4,18 +4,18 @@ import lombok.Data;
 
 @Data
 public class Patient {
-    private int patientID;
-    private String name;
-    private String contactDetails;
-    private String personalInformation;
-    private Credential credential;
+    private final int patientID;
+    private final String name;
+    private final String contactDetails;
+    private final String personalInformation;
+    private final Credential credential;
 
-    public Patient(int patientID, String name, String contactDetails, String personalInformation) {
+    public Patient(int patientID, String name, String contactDetails, String personalInformation, Credential credential) {
         this.patientID = patientID;
         this.name = name;
         this.contactDetails = contactDetails;
         this.personalInformation = personalInformation;
-        new Credential(name, "1234");
+        this.credential=credential;
     }
 
     public Patient(String fileLine) {

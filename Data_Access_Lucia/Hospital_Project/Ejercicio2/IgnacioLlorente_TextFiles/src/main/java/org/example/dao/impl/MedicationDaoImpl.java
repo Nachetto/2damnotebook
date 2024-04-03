@@ -1,10 +1,12 @@
 package org.example.dao.impl;
 
 import io.vavr.control.Either;
+import jakarta.inject.Inject;
 import org.example.common.Constantes;
 import org.example.common.config.Configuration;
 import org.example.dao.MedicationDao;
 import org.example.domain.PrescribedMedication;
+import org.example.service.RecordService;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,6 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MedicationDaoImpl implements MedicationDao {
+
+    private final RecordService recordService;
+
+    @Inject
+    public MedicationDaoImpl(RecordService recordService) {
+        this.recordService = recordService;
+    }
 
     @Override
     public Either<String, List<PrescribedMedication>> getAll() {
@@ -74,13 +83,30 @@ public class MedicationDaoImpl implements MedicationDao {
 
     public int deleteByPatient(int id) {
         try {
-            List<PrescribedMedication> medications = getAll().get();
-            medications.removeIf(m -> m.getRecordID() == id);
-            Files.write(Paths.get(Configuration.getInstance().getMedicationDataFile()), "medicationID;name;dosage;redordID".getBytes());
-            for (PrescribedMedication medication : medications) {
-                save(medication);
+            Either<String, List<PrescribedMedication>> medications = getAll();
+            if (medications.isRight()){
+                List<PrescribedMedication> meds = medications.get();
+
+                //save a list of record IDs to delete
+                List<Integer> recordIDs = recordService.getRecordIdsFromPatientId(id);
+                for (Integer recordID : recordIDs) {
+                    for (PrescribedMedication medication : meds) {
+                        if (medication.getRecordID() == recordID) {
+                            meds.remove(medication);
+                        }
+                    }
+                }
+
+                Files.write(Paths.get(Configuration.getInstance().getMedicationDataFile()), "medicationID;name;dosage;redordID".getBytes());
+                for (PrescribedMedication medication : meds) {
+                    save(medication);
+                }
+                return 1;
             }
-            return 1;
+            else {
+                System.out.println(medications.getLeft());
+                return -1;
+            }
         } catch (IOException e) {
             return -1;
         }
