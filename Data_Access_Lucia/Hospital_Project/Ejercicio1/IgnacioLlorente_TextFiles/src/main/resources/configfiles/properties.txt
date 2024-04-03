@@ -3,4 +3,4 @@ patientDataFile=data/patients.csv
 appointmentDataFile=data/appointments.csv
 medicationDataFile=data/medications.csv
 recordDataFile=data/records.csv
-lastRecordID=5
+lastRecordID=10

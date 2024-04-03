@@ -1,11 +1,9 @@
 medicationID;name;dosage;redordID
 1;Aspirin;100mg;1
 2;Paracetam;500mg;1
-3;iboprefeen;700mg;2
-4;paracetamol;80mg;2
-5;Aspirin;100mg;3
-6;Paracetam;500mg;3
-7;Aspirin;100mg;4
-8;Paracetam;500mg;4
+7;Atenolol;100mg;4
+8;Lisinopril;500mg;4
 9;Aspirin;100mg;5
-10;Paracetam;500mg;5
+10;Sertraline;500mg;5
+123;Ciprofloxacin 400;499 mg;0
+321312;Prednisone;500mg;0

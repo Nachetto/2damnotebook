@@ -6,6 +6,7 @@ import org.example.common.Constantes;
 import org.example.domain.Credential;
 import org.example.domain.Patient;
 import org.example.domain.PrescribedMedication;
+import org.example.service.DoctorService;
 import org.example.service.MedicationService;
 import org.example.service.PatientService;
 import org.example.service.RecordService;
@@ -18,12 +19,14 @@ public class Main {
 
     private final RecordService recordService;
     private final MedicationService medicationService;
+    private final DoctorService doctorService;
 
     @Inject
-    public Main(PatientService patientService, RecordService recordService, MedicationService medicationService) {
+    public Main(PatientService patientService, RecordService recordService, MedicationService medicationService, DoctorService doctorService) {
         this.patientService = patientService;
         this.recordService = recordService;
         this.medicationService = medicationService;
+        this.doctorService = doctorService;
     }
 
     public void run() {
@@ -75,6 +78,7 @@ public class Main {
                 sc.next();
                 option = 0;
             } catch (Exception e) {
+                e.printStackTrace();
                 System.out.println(Constantes.UNEXPECTED_ERROR_SHOWINH_MENU_AGAIN);
                 option = 0;
             }
@@ -110,26 +114,30 @@ public class Main {
         boolean bothExist = false;
         while (!bothExist) {
             record = requestRecord(sc);
-            if (patientService.get(record.getPatientID()).isLeft() || patientService.get(record.getDoctorID()).isLeft()) {
+            if (patientService.get(record.getPatientID()).isLeft() ||
+                    doctorService.get(record.getDoctorID()).isLeft()) {
                 System.out.println("The patient or the doctor doesn't exist, please enter valid ID's");
-            }else {
+            } else {
                 bothExist = true;
             }
         }
-        System.out.println("Enter the medications for the record\n");
-        if (medicationService.save(requestMedication(sc, 1)) == -1 ||
-                medicationService.save(requestMedication(sc, 2)) == -1) {
+
+        System.out.println("\n***************************************" +
+                "\nEntering the medications for the record:");
+        PrescribedMedication medication1 = requestMedication(sc, 1);
+        PrescribedMedication medication2 = requestMedication(sc, 2);
+
+        int result = recordService.save(record, medication1, medication2);
+
+        if (result == -1) {
+            System.out.println("Error while saving the record");
+        } else if (result == -2) {
             System.out.println("Error while saving the medications");
+
         } else {
-            //public Record(int recordID, int patientID, String diagnosis, int doctorID)
-            if (recordService.save(record) == -1) {
-                System.out.println("Error while saving the record");
-            } else {
-                System.out.println("Record and Medications saved correctly");
-            }
+            System.out.println("Record and Medications saved correctly");
         }
     }
-
     private Record requestRecord(Scanner sc) {
         System.out.println("Enter the Patient's ID: ");
         int patientID = sc.nextInt();
@@ -141,14 +149,13 @@ public class Main {
         String diagnosis = sc.nextLine();
         return new Record(recordService.getNewRecordID(), patientID, diagnosis, doctorID);
     }
-
     private PrescribedMedication requestMedication(Scanner sc, int number) {
-        System.out.println("Enter the nº"+number+" medication id: ");
+        System.out.println("Enter the nº" + number + " medication id: ");
         int medicationID1 = sc.nextInt();
         sc.nextLine();
-        System.out.println("Enter the nº"+number+" medication name: ");
+        System.out.println("Enter the nº" + number + " medication name: ");
         String medicationName1 = sc.nextLine();
-        System.out.println("Enter the nº"+number+" medication dosage: ");
+        System.out.println("Enter the nº" + number + " medication dosage: ");
         String medicationDosage1 = sc.nextLine();
 
         return new PrescribedMedication(medicationID1, medicationName1, medicationDosage1, 0);
@@ -180,6 +187,14 @@ public class Main {
                 } else {
                     System.out.println("Patient deleted correctly");
                 }
+            }
+        }
+        else {
+            //delete the patient
+            if (patientService.delete(id) == -1) {
+                System.out.println("Error while deleting the patient");
+            } else {
+                System.out.println("Patient deleted correctly");
             }
         }
     }

@@ -6,22 +6,22 @@ import org.example.common.Constantes;
 import org.example.common.config.Configuration;
 import org.example.dao.MedicationDao;
 import org.example.domain.PrescribedMedication;
-import org.example.service.RecordService;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class MedicationDaoImpl implements MedicationDao {
 
-    private final RecordService recordService;
+    private final RecordDaoImpl recordDao;
 
     @Inject
-    public MedicationDaoImpl(RecordService recordService) {
-        this.recordService = recordService;
+    public MedicationDaoImpl(RecordDaoImpl recordDao) {
+        this.recordDao = recordDao;
     }
 
     @Override
@@ -88,14 +88,9 @@ public class MedicationDaoImpl implements MedicationDao {
                 List<PrescribedMedication> meds = medications.get();
 
                 //save a list of record IDs to delete
-                List<Integer> recordIDs = recordService.getRecordIdsFromPatientId(id);
-                for (Integer recordID : recordIDs) {
-                    for (PrescribedMedication medication : meds) {
-                        if (medication.getRecordID() == recordID) {
-                            meds.remove(medication);
-                        }
-                    }
-                }
+                List<Integer> recordIDs = recordDao.getRecordIdsFromPatientId(id);
+
+                meds.removeIf(medication -> recordIDs.contains(medication.getRecordID()));
 
                 Files.write(Paths.get(Configuration.getInstance().getMedicationDataFile()), "medicationID;name;dosage;redordID".getBytes());
                 for (PrescribedMedication medication : meds) {
