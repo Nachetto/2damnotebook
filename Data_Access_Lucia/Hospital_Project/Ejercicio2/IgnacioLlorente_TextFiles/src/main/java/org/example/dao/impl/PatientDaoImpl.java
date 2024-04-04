@@ -31,7 +31,7 @@ public class PatientDaoImpl implements PatientDao {
             return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
         }
     }
-    
+
     public Either<String, Patient> get(int id) {
         List<Patient> list= getAll().get().stream().filter(p -> p.getPatientID() == id).toList();
         if (1 != list.size()) {

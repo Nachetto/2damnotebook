@@ -31,7 +31,6 @@ public class RecordService {
     }
 
     public int save(Record r, PrescribedMedication medication1, PrescribedMedication medication2) {
-        //TODO PONER EL ID BIEN A LAS MEDICATIONS
         int recordID=r.getRecordID();
         medication1.setRecordID(recordID);
         medication2.setRecordID(recordID);

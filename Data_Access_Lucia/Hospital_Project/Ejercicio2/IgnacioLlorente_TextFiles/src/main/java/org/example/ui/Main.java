@@ -119,23 +119,28 @@ public class Main {
         boolean bothExist = false;
         while (!bothExist) {
             record = requestRecord(sc);
-            if (patientService.get(record.getPatientID()).isLeft() || patientService.get(record.getDoctorID()).isLeft()) {
+            if (patientService.get(record.getPatientID()).isLeft() ||
+                    doctorService.get(record.getDoctorID()).isLeft()) {
                 System.out.println("The patient or the doctor doesn't exist, please enter valid ID's");
-            }else {
+            } else {
                 bothExist = true;
             }
         }
-        System.out.println("Enter the medications for the record\n");
-        if (medicationService.save(requestMedication(sc, 1)) == -1 ||
-                medicationService.save(requestMedication(sc, 2)) == -1) {
+
+        System.out.println("\n***************************************" +
+                "\nEntering the medications for the record:");
+        PrescribedMedication medication1 = requestMedication(sc, 1);
+        PrescribedMedication medication2 = requestMedication(sc, 2);
+
+        int result = recordService.save(record, medication1, medication2);
+
+        if (result == -1) {
+            System.out.println("Error while saving the record");
+        } else if (result == -2) {
             System.out.println("Error while saving the medications");
+
         } else {
-            //public Record(int recordID, int patientID, String diagnosis, int doctorID)
-            if (recordService.save(record) == -1) {
-                System.out.println("Error while saving the record");
-            } else {
-                System.out.println("Record and Medications saved correctly");
-            }
+            System.out.println("Record and Medications saved correctly");
         }
     }
 
@@ -189,6 +194,14 @@ public class Main {
                 } else {
                     System.out.println("Patient deleted correctly");
                 }
+            }
+        }
+        else {
+            //delete the patient
+            if (patientService.delete(id) == -1) {
+                System.out.println("Error while deleting the patient");
+            } else {
+                System.out.println("Patient deleted correctly");
             }
         }
     }
