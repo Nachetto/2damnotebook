@@ -136,6 +136,7 @@ public class RecordDaoImpl implements RecordDao {
             return null;
         }
     }
+
     public int saveToXML(RecordsXML recordsXML) {
         try {
             Path xmlFilePath = Paths.get(Configuration.getInstance().getRecordXmlDataFile());
@@ -200,12 +201,10 @@ public class RecordDaoImpl implements RecordDao {
             }
             for (RecordXML recordXML : recordsXML.getRecords()) {
                 if (recordXML.getPatient().getPatientID() == patientID) {
-                    //check null
-                    if (recordXML.getMedications() != null) {
+                    if (recordXML.getMedications() != null && recordXML.getMedications().getMedication() != null) {
                         recordXML.getMedications().getMedication().forEach(medicationXML ->
                                 medications.add(new MedicationAdapter().unmarshal(medicationXML)));
                     }
-                    return medications;
                 }
             }
         } catch (Exception e) {
@@ -237,6 +236,7 @@ public class RecordDaoImpl implements RecordDao {
         return -1;
     }
 
+
     public int deletePatientXML(int id) {
         //deleting the patient and all his records
         try {
@@ -251,5 +251,39 @@ public class RecordDaoImpl implements RecordDao {
             log.error("Error deleting patient from XML file: " + e.getMessage());
             return -1;
         }
+    }
+
+    public int appendRecordXML(int patientID, String diagnosis, String doctorName) {
+        try {
+            RecordsXML recordsXML = readRecordsFromXML();
+            if (recordsXML == null) {
+                return -1;
+            }
+            //ID, medications, patient, doctor, diagnosis
+            RecordXML recordXML = new RecordXML(getNewRecordID(),new MedicationsXML(),getPatientFromIDXML(patientID),doctorName, diagnosis);
+
+            recordsXML.getRecords().add(recordXML);
+            saveToXML(recordsXML);
+            return 1;
+        } catch (Exception e) {
+            log.error("Error appending record to XML file: " + e.getMessage());
+            return -1;
+        }
+    }
+
+    private PatientXML getPatientFromIDXML(int id){
+        try {
+            RecordsXML recordsXML = readRecordsFromXML();
+            if (recordsXML != null) {
+                for (RecordXML recordXML : recordsXML.getRecords()) {
+                    if (recordXML.getPatient().getPatientID() == id) {
+                        return recordXML.getPatient();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            log.error("Error getting patient from XML file: " + e.getMessage());
+        }
+        return null;
     }
 }

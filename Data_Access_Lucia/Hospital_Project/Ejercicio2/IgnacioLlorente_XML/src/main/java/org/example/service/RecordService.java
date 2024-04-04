@@ -79,4 +79,8 @@ public class RecordService {
     public int deletePatientXML(int id) {
         return recordDao.deletePatientXML(id);
     }
+
+    public int appendRecordXML(int patientID, String diagnosis, String doctorName) {
+        return recordDao.appendRecordXML(patientID, diagnosis, doctorName);
+    }
 }

@@ -10,7 +10,7 @@
             </medication>
             <medication>
                 <medicationID>2</medicationID>
-                <name>Amoxicilina</name>
+                <name>Paracetam</name>
                 <dosage>500mg</dosage>
             </medication>
         </medications>
@@ -30,7 +30,7 @@
         <medications>
             <medication>
                 <medicationID>3</medicationID>
-                <name>Amoxicilina</name>
+                <name>iboprefeen</name>
                 <dosage>700mg</dosage>
             </medication>
             <medication>
@@ -60,7 +60,7 @@
             </medication>
             <medication>
                 <medicationID>6</medicationID>
-                <name>Paracetam</name>
+                <name>Amoxicilina</name>
                 <dosage>500mg</dosage>
             </medication>
         </medications>
@@ -85,7 +85,7 @@
             </medication>
             <medication>
                 <medicationID>8</medicationID>
-                <name>Paracetam</name>
+                <name>Amoxicilina</name>
                 <dosage>500mg</dosage>
             </medication>
         </medications>
@@ -127,7 +127,13 @@
     </records>
     <records>
         <id>6</id>
-        <medications/>
+        <medications>
+            <medication>
+                <medicationID>11</medicationID>
+                <name>MedicationFromRecordNumber6</name>
+                <dosage>500mg</dosage>
+            </medication>
+        </medications>
         <patient>
             <patientID>1</patientID>
             <name>John Doe</name>

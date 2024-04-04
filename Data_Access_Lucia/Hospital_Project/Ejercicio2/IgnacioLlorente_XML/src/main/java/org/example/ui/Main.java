@@ -6,6 +6,7 @@ import org.example.common.Constantes;
 import org.example.domain.Credential;
 import org.example.domain.Patient;
 import org.example.domain.PrescribedMedication;
+import org.example.domain.xml.RecordXML;
 import org.example.service.DoctorService;
 import org.example.service.MedicationService;
 import org.example.service.PatientService;
@@ -166,9 +167,9 @@ public class Main {
 
     private PrescribedMedication requestMedication(Scanner sc, int number) {
         int medicationID1 = medicationService.getNewMedicationID();
-        System.out.println("Enter the nº"+number+" medication name: ");
+        System.out.println("Enter the nº" + number + " medication name: ");
         String medicationName1 = sc.nextLine();
-        System.out.println("Enter the nº"+number+" medication dosage: ");
+        System.out.println("Enter the nº" + number + " medication dosage: ");
         String medicationDosage1 = sc.nextLine();
 
         return new PrescribedMedication(medicationID1, medicationName1, medicationDosage1, 0);
@@ -201,8 +202,7 @@ public class Main {
                     System.out.println("Patient deleted correctly");
                 }
             }
-        }
-        else {
+        } else {
             //delete the patient
             if (patientService.delete(id) == -1) {
                 System.out.println("Error while deleting the patient");
@@ -223,6 +223,7 @@ public class Main {
     }
 
     //Get information about the medications of a given patient
+    //CORREGIDO 1: QUE TE BUSQUE LAS MEDICACIONES DE VARIOS RECORDS
     private void exercise6(Scanner sc) {
         System.out.println("Enter the Patient's ID: ");
         int id = sc.nextInt();
@@ -236,22 +237,20 @@ public class Main {
         System.out.println(medicationService.getPatientsMedicatedWith("Amoxicilina"));
     }
 
-    // Append a new medical order to a given patient in the xml
+    //Append a new medical order to a given patient in the xml, the patientID diagnosis and doctor name will be asked
+    //CORREGIDO 2, AHORA SON RECORDS NO MEDICATIONS
     private void exercise8(Scanner sc) {
         System.out.println("Enter the Patient's ID: ");
         int patientID = sc.nextInt();
         sc.nextLine();
-        int medicationID = medicationService.getNewMedicationID();
-        System.out.println("Enter the medication name: ");
-        String medicationName = sc.nextLine();
-        System.out.println("Enter the medication dosage: ");
-        String medicationDosage = sc.nextLine();
-
-        PrescribedMedication medication = new PrescribedMedication(medicationID, medicationName, medicationDosage, 0);
-        if (recordService.appendMedicationToPatientXML(patientID, medication) == -1) {
-            System.out.println("Error while appending the medication to the patient");
+        System.out.println("Enter the diagnosis: ");
+        String diagnosis = sc.nextLine();
+        System.out.println("Enter the Doctor's name: ");
+        String doctorName = sc.nextLine();
+        if (recordService.appendRecordXML(patientID,diagnosis,doctorName) == -1) {
+            System.out.println("Error while saving the record");
         } else {
-            System.out.println("Medication appended correctly");
+            System.out.println("Record and Medication saved correctly");
         }
     }
 
