@@ -43,7 +43,7 @@ public class RecordDaoImpl implements RecordDao {
     }
 
     public Either<String, Record> get(int id) {
-        List<Record> list= getAll().get().stream().filter(r -> r.getRecordID() == id).toList();
+        List<Record> list = getAll().get().stream().filter(r -> r.getRecordID() == id).toList();
         if (1 != list.size()) {
             return Either.left(Constantes.PATIENTDOESNTEXIST);
         } else {
@@ -92,7 +92,7 @@ public class RecordDaoImpl implements RecordDao {
         }
     }
 
-    public List<PrescribedMedication> medicationsFromAPatientXML(int patientID){
+    public List<PrescribedMedication> medicationsFromAPatientXML(int patientID) {
         List<PrescribedMedication> medications = new ArrayList<>();
         try {
             RecordsXML recordsXML = readRecordsFromXML();
@@ -103,10 +103,14 @@ public class RecordDaoImpl implements RecordDao {
             for (RecordXML recordXML : recordsXML.getRecords()) {
                 if (recordXML.getPatient().getPatientID() == patientID) {
                     //check null
-                    
-                    for (MedicationXML medicationXML : recordXML.getMedications().getMedication()) {
-                        PrescribedMedication medication = new MedicationAdapter().unmarshal(medicationXML);
-                        medications.add(medication);
+                    if (recordXML.getMedications() == null) {
+                        return medications;
+                    } else {
+
+                        for (MedicationXML medicationXML : recordXML.getMedications().getMedication()) {
+                            PrescribedMedication medication = new MedicationAdapter().unmarshal(medicationXML);
+                            medications.add(medication);
+                        }
                     }
                 }
             }
@@ -171,7 +175,7 @@ public class RecordDaoImpl implements RecordDao {
         try {
             List<Record> records = getAll().get();
             records.removeIf(r -> r.getPatientID() == id);
-            Files.write(Paths.get(Configuration.getInstance().getRecordDataFile()),"recordID;patientID;diagnosis;doctorID".getBytes());
+            Files.write(Paths.get(Configuration.getInstance().getRecordDataFile()), "recordID;patientID;diagnosis;doctorID".getBytes());
             for (Record record : records) {
                 save(record);
             }
