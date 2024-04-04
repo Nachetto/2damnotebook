@@ -75,4 +75,8 @@ public class RecordService {
     public int appendMedicationToPatientXML(int patientID, PrescribedMedication medication) {
         return recordDao.appendMedicationToPatientXML(patientID, medication);
     }
+
+    public int deletePatientXML(int id) {
+        return recordDao.deletePatientXML(id);
+    }
 }

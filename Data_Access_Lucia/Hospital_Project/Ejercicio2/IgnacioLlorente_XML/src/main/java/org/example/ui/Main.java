@@ -54,7 +54,7 @@ public class Main {
         while (option != 10) {
             try {
                 System.out.println(Constantes.MENU);
-                System.out.println(Constantes.QUIERE_VER_DEL_1_AL_14_15_PARA_SALIR);
+                System.out.println(Constantes.QUIERE_VER_DEL_1_AL_14_10_PARA_SALIR);
                 option = sc.nextInt();
                 sc.nextLine();
                 switch (option) {
@@ -78,6 +78,12 @@ public class Main {
                         break;
                     case 7:
                         exercise7();
+                        break;
+                    case 8:
+                        exercise8(sc);
+                        break;
+                    case 9:
+                        exercise9(sc);
                         break;
                     default:
                         break;
@@ -230,7 +236,7 @@ public class Main {
         System.out.println(medicationService.getPatientsMedicatedWith("Amoxicilina"));
     }
 
-    //// Append a new medical order to a given patient in the xml
+    // Append a new medical order to a given patient in the xml
     private void exercise8(Scanner sc) {
         System.out.println("Enter the Patient's ID: ");
         int patientID = sc.nextInt();
@@ -246,6 +252,18 @@ public class Main {
             System.out.println("Error while appending the medication to the patient");
         } else {
             System.out.println("Medication appended correctly");
+        }
+    }
+
+    //delete a patient from the xml
+    private void exercise9(Scanner sc) {
+        System.out.println("Enter the Patient's ID: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+        if (recordService.deletePatientXML(id) == -1) {
+            System.out.println("Error while deleting the patient");
+        } else {
+            System.out.println("Patient deleted correctly");
         }
     }
 

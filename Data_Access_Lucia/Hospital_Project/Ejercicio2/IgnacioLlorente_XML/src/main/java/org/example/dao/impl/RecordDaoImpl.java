@@ -236,4 +236,20 @@ public class RecordDaoImpl implements RecordDao {
         }
         return -1;
     }
+
+    public int deletePatientXML(int id) {
+        //deleting the patient and all his records
+        try {
+            RecordsXML recordsXML = readRecordsFromXML();
+            if (recordsXML == null) {
+                return -1;
+            }
+            recordsXML.getRecords().removeIf(r -> r.getPatient().getPatientID() == id);
+            saveToXML(recordsXML);
+            return 1;
+        } catch (Exception e) {
+            log.error("Error deleting patient from XML file: " + e.getMessage());
+            return -1;
+        }
+    }
 }
