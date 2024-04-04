@@ -3,6 +3,7 @@ package org.example.service;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
 import org.example.dao.impl.MedicationDaoImpl;
+import org.example.domain.Patient;
 import org.example.domain.PrescribedMedication;
 
 import java.util.List;
@@ -36,5 +37,13 @@ public class MedicationService {
 
     public int deleteByPatient(int id) {
         return medicationDao.deleteByPatient(id);
+    }
+
+    public List<Patient> getPatientsMedicatedWith(String medicationName) {
+        return medicationDao.getPatientsMedicatedWith(medicationName);
+    }
+
+    public int getNewMedicationID() {
+        return medicationDao.getNewMedicationID();
     }
 }

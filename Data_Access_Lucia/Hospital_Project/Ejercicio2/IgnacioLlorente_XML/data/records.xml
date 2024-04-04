@@ -10,7 +10,7 @@
             </medication>
             <medication>
                 <medicationID>2</medicationID>
-                <name>Paracetam</name>
+                <name>Amoxicilina</name>
                 <dosage>500mg</dosage>
             </medication>
         </medications>
@@ -30,7 +30,7 @@
         <medications>
             <medication>
                 <medicationID>3</medicationID>
-                <name>iboprefeen</name>
+                <name>Amoxicilina</name>
                 <dosage>700mg</dosage>
             </medication>
             <medication>

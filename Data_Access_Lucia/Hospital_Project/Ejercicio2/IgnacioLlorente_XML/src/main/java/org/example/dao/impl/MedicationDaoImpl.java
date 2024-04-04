@@ -5,7 +5,12 @@ import jakarta.inject.Inject;
 import org.example.common.Constantes;
 import org.example.common.config.Configuration;
 import org.example.dao.MedicationDao;
+import org.example.dao.PatientAdapter;
+import org.example.domain.Patient;
 import org.example.domain.PrescribedMedication;
+import org.example.domain.xml.MedicationXML;
+import org.example.domain.xml.RecordXML;
+import org.example.domain.xml.RecordsXML;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -51,6 +56,8 @@ public class MedicationDaoImpl implements MedicationDao {
     public int save(PrescribedMedication m) {
         try {
             Files.write(Paths.get(Configuration.getInstance().getMedicationDataFile()), ('\n' + m.toStringTextFile()).getBytes(), StandardOpenOption.APPEND);
+            //set the last medicationID property in the configuration file properties.txt
+            Configuration.getInstance().setLastMedicationID(m.getMedicationID());
             return 1;
         } catch (IOException e) {
             return -1;
@@ -105,5 +112,32 @@ public class MedicationDaoImpl implements MedicationDao {
         } catch (IOException e) {
             return -1;
         }
+    }
+
+    public List<Patient> getPatientsMedicatedWith(String medicationName) {
+        List<Patient> patients = new ArrayList<>();
+        try {
+            RecordsXML recordsXML = recordDao.readRecordsFromXML();
+            if (recordsXML == null) {
+                return patients;
+            }
+            for (RecordXML recordXML : recordsXML.getRecords()) {
+                for (MedicationXML medication : recordXML.getMedications().getMedication()) {
+                    if (medication.getName().equals(medicationName)) {
+                        patients.add(new PatientAdapter().unmarshal(recordXML.getPatient()));
+                        break;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            return patients;
+        }
+        //removing duplicated patients
+        patients.removeIf(patient -> patients.stream().anyMatch(p -> p.getPatientID() == patient.getPatientID()));
+        return patients;
+    }
+
+    public int getNewMedicationID() {
+        return Integer.parseInt(Configuration.getInstance().getLastMedicationID()) + 1;
     }
 }

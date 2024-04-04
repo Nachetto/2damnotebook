@@ -76,6 +76,9 @@ public class Main {
                     case 6:
                         exercise6(sc);
                         break;
+                    case 7:
+                        exercise7();
+                        break;
                     default:
                         break;
                 }
@@ -127,8 +130,7 @@ public class Main {
             }
         }
 
-        System.out.println("\n***************************************" +
-                "\nEntering the medications for the record:");
+        System.out.println("\n***************************************\nEntering the medications for the record:");
         PrescribedMedication medication1 = requestMedication(sc, 1);
         PrescribedMedication medication2 = requestMedication(sc, 2);
 
@@ -157,9 +159,7 @@ public class Main {
     }
 
     private PrescribedMedication requestMedication(Scanner sc, int number) {
-        System.out.println("Enter the nº"+number+" medication id: ");
-        int medicationID1 = sc.nextInt();
-        sc.nextLine();
+        int medicationID1 = medicationService.getNewMedicationID();
         System.out.println("Enter the nº"+number+" medication name: ");
         String medicationName1 = sc.nextLine();
         System.out.println("Enter the nº"+number+" medication dosage: ");
@@ -216,10 +216,37 @@ public class Main {
         }
     }
 
+    //Get information about the medications of a given patient
     private void exercise6(Scanner sc) {
         System.out.println("Enter the Patient's ID: ");
         int id = sc.nextInt();
         sc.nextLine();
         System.out.println(recordService.medicationsFromAPatientXML(id));
     }
+
+    //Get the patients that are medicated with Amoxicilina
+    private void exercise7() {
+        System.out.println("Patients medicated with Amoxicilina: ");
+        System.out.println(medicationService.getPatientsMedicatedWith("Amoxicilina"));
+    }
+
+    //// Append a new medical order to a given patient in the xml
+    private void exercise8(Scanner sc) {
+        System.out.println("Enter the Patient's ID: ");
+        int patientID = sc.nextInt();
+        sc.nextLine();
+        int medicationID = medicationService.getNewMedicationID();
+        System.out.println("Enter the medication name: ");
+        String medicationName = sc.nextLine();
+        System.out.println("Enter the medication dosage: ");
+        String medicationDosage = sc.nextLine();
+
+        PrescribedMedication medication = new PrescribedMedication(medicationID, medicationName, medicationDosage, 0);
+        if (recordService.appendMedicationToPatientXML(patientID, medication) == -1) {
+            System.out.println("Error while appending the medication to the patient");
+        } else {
+            System.out.println("Medication appended correctly");
+        }
+    }
+
 }

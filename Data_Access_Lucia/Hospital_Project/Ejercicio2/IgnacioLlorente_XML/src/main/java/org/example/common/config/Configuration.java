@@ -20,7 +20,7 @@ public class Configuration {
         properties = new Properties();
         passwords = new Properties();
         try {
-            properties.load(Configuration.class.getClassLoader().getResourceAsStream("configFiles/properties.txt"));
+            properties.loadFromXML(Configuration.class.getClassLoader().getResourceAsStream("configFiles/properties.xml"));
             passwords.loadFromXML(Configuration.class.getClassLoader().getResourceAsStream("configFiles/passwords.xml"));
         } catch (IOException e) {
             System.out.println(Constantes.ERRDB);
@@ -67,5 +67,15 @@ public class Configuration {
         properties.setProperty("lastRecordID", String.valueOf(id));
     }
 
-    public String getRecordXmlDataFile() { return getProperty("recordXmlDataFile"); }
+    public String getRecordXmlDataFile() {
+        return getProperty("recordXmlDataFile");
+    }
+
+    public String getLastMedicationID() {
+        return properties.getProperty("lastMedicationID");
+    }
+
+    public void setLastMedicationID(int medicationID) {
+        properties.setProperty("lastMedicationID", String.valueOf(medicationID));
+    }
 }

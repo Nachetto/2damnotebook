@@ -5,3 +5,4 @@ medicationDataFile=data/medications.csv
 recordDataFile=data/records.csv
 recordXmlDataFile=data/records.xml
 lastRecordID=5
+lastMedicationID=10
