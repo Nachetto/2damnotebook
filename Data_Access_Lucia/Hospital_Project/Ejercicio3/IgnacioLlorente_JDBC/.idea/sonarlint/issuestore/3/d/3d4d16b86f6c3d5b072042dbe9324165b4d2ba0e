@@ -1,0 +1,47 @@
+
+j
+java:S1192 "NDefine a constant instead of duplicating this literal "Enter the nÂº" 3 times.(¬Í–²ÿÿÿÿÿ
+t
+java:S1192k"YDefine a constant instead of duplicating this literal "Enter the Patient's ID: " 4 times.(İÖĞ¨ûÿÿÿÿ
+E	java:S106$"+Replace this use of System.out by a logger.(±ÂÜûıÿÿÿÿ
+@	java:S106&"+Replace this use of System.out by a logger.(«à¶§
+E	java:S106)"+Replace this use of System.out by a logger.(ìú–”ûÿÿÿÿ
+E	java:S106*"+Replace this use of System.out by a logger.(±ÂÜûıÿÿÿÿ
+@	java:S106,"+Replace this use of System.out by a logger.(«à¶§
+?	java:S1060"+Replace this use of System.out by a logger.(šÄ‰j
+E	java:S1068"+Replace this use of System.out by a logger.(§Ñôõùÿÿÿÿ
+@	java:S1069"+Replace this use of System.out by a logger.(Ô®»ñ
+@	java:S106S"+Replace this use of System.out by a logger.(Œ­€…
+E	java:S106W"+Replace this use of System.out by a logger.(º¬Ôœøÿÿÿÿ
+E	java:S106["+Replace this use of System.out by a logger.(õ¤‡úÿÿÿÿ
+@	java:S106c"+Replace this use of System.out by a logger.(ÃÛÿÄ
+@	java:S106e"+Replace this use of System.out by a logger.(ä«…Ê
+E	java:S106k"+Replace this use of System.out by a logger.(İÖĞ¨ûÿÿÿÿ
+E	java:S106o"+Replace this use of System.out by a logger.(‘Õè¤ıÿÿÿÿ
+U
+java:S6213t":Rename this variable to not match a restricted identifier.(ü³‚‘ûÿÿÿÿ
+@	java:S106|"+Replace this use of System.out by a logger.(ÌÂØü
+F	java:S106‚"+Replace this use of System.out by a logger.(÷Š¯Šûÿÿÿÿ
+U
+java:S6126‚"2Replace this String concatenation with Text block.(÷Š¯Šûÿÿÿÿ8½¬’¾ê1
+F	java:S106Š"+Replace this use of System.out by a logger.(üÿÿÿÿÿÿ
+A	java:S106Œ"+Replace this use of System.out by a logger.(Ò·Õ
+F	java:S106"+Replace this use of System.out by a logger.(ûĞÀùÿÿÿÿ
+F	java:S106”"+Replace this use of System.out by a logger.(İÖĞ¨ûÿÿÿÿ
+A	java:S106—"+Replace this use of System.out by a logger.(šèŞ
+F	java:S106š"+Replace this use of System.out by a logger.(Ÿ£’Ìøÿÿÿÿ
+F	java:S106 "+Replace this use of System.out by a logger.(¬Í–²ÿÿÿÿÿ
+F	java:S106£"+Replace this use of System.out by a logger.(ç›Æ»ıÿÿÿÿ
+A	java:S106¥"+Replace this use of System.out by a logger.(œ¦Äõ
+F	java:S106¯"+Replace this use of System.out by a logger.(İÖĞ¨ûÿÿÿÿ
+F	java:S106¶"+Replace this use of System.out by a logger.(‹—›Çùÿÿÿÿ
+@	java:S106»"+Replace this use of System.out by a logger.(Ü¿¦c
+F	java:S106Á"+Replace this use of System.out by a logger.(–‘˜¾øÿÿÿÿ
+F	java:S106Ã"+Replace this use of System.out by a logger.(¹Ÿ®×øÿÿÿÿ
+H	java:S106Ê"+Replace this use of System.out by a logger.(êŞùˆ8Ä¬’¾ê1
+M	java:S106Ì"+Replace this use of System.out by a logger.(¹Ÿ®×øÿÿÿÿ8Å¬’¾ê1
+H	java:S106Ò"+Replace this use of System.out by a logger.(óºŸ±8Å¬’¾ê1
+H	java:S106Õ"+Replace this use of System.out by a logger.(ÜÄı8Æ¬’¾ê1
+M	java:S106×"+Replace this use of System.out by a logger.(¹Ó¨£úÿÿÿÿ8Æ¬’¾ê1
+M	java:S106Ü"+Replace this use of System.out by a logger.(İÖĞ¨ûÿÿÿÿ8œ”¾ê1
+M	java:S106ß"+Replace this use of System.out by a logger.(¬äß­ÿÿÿÿÿ8œ”¾ê1
