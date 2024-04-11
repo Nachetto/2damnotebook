@@ -31,9 +31,10 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     public Either<String, List<Customer>> getAll() {
-        try (Connection myConnection = DriverManager.getConnection("jdbc:mysql://dam2.mysql.iesquevedo.es: 3335/ignacioLlorente_restaurant", "root", "quevedo2dam");
-             Statement stmt = myConnection.createStatement();
-             PreparedStatement preparedStatement = myConnection.prepareStatement(SQLConstants.SELECT_CREDS_FROM_CUSTOMER_QUERY)) {
+        try (Connection con = db.getConnection();
+                Statement stmt = con.createStatement();
+                PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.SELECT_CREDS_FROM_CUSTOMER_QUERY)) {
+
             ResultSet rs = stmt.executeQuery(SQLConstants.SELECT_CUSTOMERS_QUERY);
             List<Customer> customers = new ArrayList<>();
             while (rs.next()) {
@@ -116,7 +117,7 @@ public class CustomerDAOImpl implements CustomerDAO {
             credentials.setInt(1, c.getId());
             credentials.setString(2, c.getCredential().username());
             credentials.setString(3, c.getCredential().password());
-            if (preparedStatement.executeUpdate()!=-1){
+            if (preparedStatement.executeUpdate() != -1) {
                 return credentials.executeUpdate();
             }
             return -1;
@@ -158,38 +159,38 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
 
         try (Connection con = db.getConnection()) {
-            try {
-                if (userConfirmedDeletion) {
-                    try (
-                            PreparedStatement deleteOrderItems = con.prepareStatement(SQLConstants.DELETE_ORDER_ITEMS_BY_CUSTOMER_QUERY);
-                            PreparedStatement deleteOrders = con.prepareStatement(SQLConstants.DELETE_ORDERS_BY_CUSTOMER_QUERY)) {
-                        con.setAutoCommit(false); // Start a transaction
-                        deleteOrderItems.setInt(1, c.getId());
-                        deleteOrders.setInt(1, c.getId());
+            if (userConfirmedDeletion) {
+                //delete orders and order items first
+                try (
+                        PreparedStatement deleteOrderItems = con.prepareStatement(SQLConstants.DELETE_ORDER_ITEMS_BY_CUSTOMER_QUERY);
+                        PreparedStatement deleteOrders = con.prepareStatement(SQLConstants.DELETE_ORDERS_BY_CUSTOMER_QUERY)) {
+                    con.setAutoCommit(false); // Start a transaction
+                    deleteOrderItems.setInt(1, c.getId());
+                    deleteOrders.setInt(1, c.getId());
 
-                        // Execute the delete statements for orders and order items
-                        deleteOrderItems.executeUpdate();
-                        deleteOrders.executeUpdate();
+                    // Execute the delete statements for orders and order items
+                    deleteOrderItems.executeUpdate();
+                    deleteOrders.executeUpdate();
 
-                        con.commit(); // Commit the transaction
-                    }
-                }
-
-                try (PreparedStatement deleteCustomer = con.prepareStatement(SQLConstants.DELETE_CUSTOMER_QUERY);
-                     PreparedStatement deleteCredentials = con.prepareStatement(SQLConstants.DELETE_CREDENTIALS_QUERY)) {
-                    deleteCustomer.setInt(1, c.getId());
-                    deleteCredentials.setInt(1, c.getId());
-                    deleteCredentials.executeUpdate();
-                    deleteCustomer.executeUpdate();
-                    return 1; // Deletion successful
+                    con.commit(); // Commit the transaction
                 } catch (SQLException ex) {
-                    log.error("Error deleting customer: " + ex.getMessage());
-                    con.rollback(); // Rollback in case of an exception during customer deletion
+                    log.error("Error deleting orders and order items: " + ex.getMessage());
+                    con.rollback(); // Rollback in case of an exception during orders and order items deletion
                     return -1;
                 }
+            }
+
+            try (PreparedStatement deleteCustomer = con.prepareStatement(SQLConstants.DELETE_CUSTOMER_QUERY);
+                 PreparedStatement deleteCredentials = con.prepareStatement(SQLConstants.DELETE_CREDENTIALS_QUERY)) {
+                //no need to be in a transaction, as the previous deletion of orders and order items is the only one that needs to be atomic
+                deleteCustomer.setInt(1, c.getId());
+                deleteCredentials.setInt(1, c.getId());
+                deleteCredentials.executeUpdate();
+                deleteCustomer.executeUpdate();
+                return 1; // Deletion successful
             } catch (SQLException ex) {
-                log.error("Error deleting associated orders and items: " + ex.getMessage());
-                con.rollback(); // Rollback in case of an exception during orders and order items deletion
+                log.error("Error deleting customer: " + ex.getMessage());
+                con.rollback(); // Rollback in case of an exception during customer deletion
                 return -1;
             }
         } catch (SQLException ex) {

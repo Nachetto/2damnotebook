@@ -1,22 +1,33 @@
 package org.example.dao.impl;
 
 import io.vavr.control.Either;
+import jakarta.inject.Inject;
+import lombok.extern.log4j.Log4j2;
 import org.example.common.Constantes;
 import org.example.common.config.Configuration;
 import org.example.dao.PatientDao;
+import org.example.dao.common.DBConnection;
+import org.example.dao.common.SQLConstants;
 import org.example.domain.Patient;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import org.example.domain.Credential;
 
-
+@Log4j2
 public class PatientDaoImpl implements PatientDao {
+    private final DBConnection db;
+
+    @Inject
+    public PatientDaoImpl(DBConnection db) {
+        this.db = db;
+    }
+
     @Override
     public Either<String, List<Patient>> getAll() {
         List<Patient> patients = new ArrayList<>();
@@ -29,6 +40,19 @@ public class PatientDaoImpl implements PatientDao {
             return Either.right(patients);
         } catch (IOException | NumberFormatException e) {
             return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
+        }
+    }
+
+    public Either<String, Integer> getTotalAmmountPayed(int id) {
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.TOTAL_AMMOUNT_PAID_BY_PATIENT)) {
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            return Either.right(rs.getInt("total"));
+        } catch (SQLException ex) {
+            log.error(ex.getMessage());
+            return Either.left(Constantes.DATABASEERR + ex.getMessage());
         }
     }
 

@@ -1,6 +1,7 @@
 
-E	java:S106c"+Replace this use of System.out by a logger.(•ƒ©™ϊÿÿÿÿ
+R
+java:S1066Μ"/Merge this if statement with the enclosing one.(Ζλ•ξÿÿÿÿÿ8ιξΚαμ1
+P
+java:S6213S":Rename this variable to not match a restricted identifier.(‚¬
 Q
-java:S6213":Rename this variable to not match a restricted identifier.(‚¬
-Q
-java:S6213―":Rename this variable to not match a restricted identifier.(‚¬
+java:S6213«":Rename this variable to not match a restricted identifier.(‚¬

@@ -11,3 +11,15 @@ c
 3src/main/java/ui/screens/login/LoginController.java,d\3\d31a9f12ac475e8a39ceb69663c6063f796579c2
 q
 Asrc/main/java/ui/screens/customers/add/CustomerAddController.java,e\c\ecfcbfe3a356f715c22f5880939bd19505adc1af
+[
++src/main/java/dao/impl/CustomerDAOImpl.java,c\2\c286d51b1b3be6ca0f3a3b2f00f51d3152e2814b
+Z
+*src/main/java/dao/common/DBConnection.java,f\6\f6d43a6781e0c747760a7adcefce556596b74654
+Q
+!src/main/java/model/Customer.java,d\8\d809aaf69069b4e367322db0008755f08edcc9a2
+Q
+!src/main/java/model/MenuItem.java,3\e\3e6c670982a942e8ba153c81ff84c5075d583063
+X
+(src/main/java/dao/impl/OrderDAOImpl.java,7\c\7c03bd71bfe1ba0e3b4031a5d0f10203936ba704
+Z
+*src/main/java/dao/common/SQLConstants.java,8\1\81e3790530aeb779362d316c6fcf4b18343dac0e

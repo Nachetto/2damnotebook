@@ -11,13 +11,6 @@ public class Doctor {
 
     // Constructor, getters y setters
 
-    public Doctor(int doctorID, String name, String specialty, String contactDetails) {
-        this.doctorID = doctorID;
-        this.name = name;
-        this.specialty = specialty;
-        this.contactDetails = contactDetails;
-    }
-
     public Doctor(String fileLine) {
         String[] elemArray = fileLine.split(";");
         this.doctorID = Integer.parseInt(elemArray[0]);

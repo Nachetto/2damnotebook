@@ -28,6 +28,7 @@ public class Constantes {
     public static final String PATIENTDBERROR = "Error in the patients database: ";
     public static final String PATIENTDOESNTEXIST = "The patient does not exist";
     public static final String ERRDB = "Error in the database";
+    public static final String DATABASEERR = "Error in the database: ";
 
 
     private Constantes() {
