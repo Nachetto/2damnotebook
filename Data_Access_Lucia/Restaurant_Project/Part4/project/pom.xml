@@ -15,7 +15,8 @@
     </properties>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+
+        <!-- Eithers -->
         <dependency>
             <groupId>io.vavr</groupId>
             <artifactId>vavr</artifactId>

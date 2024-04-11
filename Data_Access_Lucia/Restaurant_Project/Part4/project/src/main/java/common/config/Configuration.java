@@ -19,7 +19,6 @@ public class Configuration {
         properties = new Properties();
         try {
             properties.loadFromXML(Configuration.class.getClassLoader().getResourceAsStream("configFiles/properties.xml"));
-            //  properties.load(Configuration.class.getClassLoader().getResourceAsStream("configFiles/properties.txt"));
         } catch (IOException e) {
             System.out.println(Constants.ERRDB);
         }

@@ -1,2 +1,0 @@
-customerDataFile=data/customers.csv
-orderDataFile=data/orders.csv

@@ -1,13 +1,14 @@
-package dao.common;
+package org.example.dao.common;
 
-import common.config.Configuration;
 import jakarta.inject.Inject;
 import lombok.extern.log4j.Log4j2;
+import org.example.common.config.Configuration;
 
 import javax.annotation.PreDestroy;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 @Log4j2
 public class DBConnection {
     private final Configuration config;
@@ -37,4 +38,3 @@ public class DBConnection {
         }
     }
 }
-
