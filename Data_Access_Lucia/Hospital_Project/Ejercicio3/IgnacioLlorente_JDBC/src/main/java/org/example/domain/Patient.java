@@ -33,13 +33,11 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{\n" +
-                "patientID=" + patientID +
-                "\nname='" + name + '\'' +
-                "\ncontactDetails='" + contactDetails + '\'' +
-                "\npersonalInformation='" + personalInformation + '\'' +
-                "\ncredential=" + credential +
-                "\n}\n";
+        return "\n\nPatient with ID " + patientID +
+                "\nname: " + name +
+                "\ncontactDetails: " + contactDetails +
+                "\npersonalInformation: " + personalInformation +
+                "\ncredentials: " + credential;
     }
 
     // Constructor, getters y setters

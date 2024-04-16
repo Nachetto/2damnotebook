@@ -9,4 +9,9 @@
     <entry key="recordXmlDataFile">data/records.xml</entry>
     <entry key="lastRecordID">5</entry>
     <entry key="lastMedicationID">10</entry>
+
+
+    <entry key="urlDB">jdbc:mysql://dam2.mysql.iesquevedo.es:3335/IgnacioLlorente_HospitalDataAccess</entry>
+    <entry key="user_name">root</entry>
+    <entry key="password">quevedo2dam</entry>
 </properties>

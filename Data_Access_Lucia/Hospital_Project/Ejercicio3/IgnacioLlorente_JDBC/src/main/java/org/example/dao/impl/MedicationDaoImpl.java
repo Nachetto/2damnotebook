@@ -2,10 +2,13 @@ package org.example.dao.impl;
 
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
+import lombok.extern.log4j.Log4j2;
 import org.example.common.Constantes;
 import org.example.common.config.Configuration;
 import org.example.dao.MedicationDao;
 import org.example.dao.PatientAdapter;
+import org.example.dao.common.DBConnection;
+import org.example.dao.common.SQLConstants;
 import org.example.domain.Patient;
 import org.example.domain.PrescribedMedication;
 import org.example.domain.xml.MedicationXML;
@@ -16,17 +19,21 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+@Log4j2
 public class MedicationDaoImpl implements MedicationDao {
 
     private final RecordDaoImpl recordDao;
+    private final DBConnection db;
 
     @Inject
-    public MedicationDaoImpl(RecordDaoImpl recordDao) {
+    public MedicationDaoImpl(RecordDaoImpl recordDao, DBConnection db) {
         this.recordDao = recordDao;
+        this.db = db;
     }
 
     @Override
@@ -43,8 +50,32 @@ public class MedicationDaoImpl implements MedicationDao {
         }
     }
 
+    //select all the prescribed medication for a patient
+    public Either<String, List<PrescribedMedication>> getAllByPatient(int patientID) throws SQLException {
+        try (Connection con = db.getConnection();
+        Statement stmt = con.createStatement();
+        PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.MEDICATIONSBYPATIENTID_QUERY)) {
+            preparedStatement.setInt(1, patientID);
+            ResultSet rs = preparedStatement.executeQuery();
+            List<PrescribedMedication> medications = new ArrayList<>();
+            while (rs.next()) {
+                medications.add(
+                        new PrescribedMedication(rs.getInt("MedicationID"),
+                                rs.getString("Name"),
+                                rs.getString("Dosage"),
+                                rs.getInt("RecordID")
+                        )
+                );
+            }
+            return Either.right(medications);
+        } catch(SQLException e){
+            log.error(e.getMessage());
+            return Either.left(Constantes.MEDICATIONDBERROR + e.getMessage());
+        }
+    }
+
     public Either<String, PrescribedMedication> get(int id) {
-        List<PrescribedMedication> list= getAll().get().stream().filter(m -> m.getMedicationID() == id).toList();
+        List<PrescribedMedication> list = getAll().get().stream().filter(m -> m.getMedicationID() == id).toList();
         if (1 != list.size()) {
             return Either.left(Constantes.PATIENTDOESNTEXIST);
         } else {
@@ -91,7 +122,7 @@ public class MedicationDaoImpl implements MedicationDao {
     public int deleteByPatient(int id) {
         try {
             Either<String, List<PrescribedMedication>> medications = getAll();
-            if (medications.isRight()){
+            if (medications.isRight()) {
                 List<PrescribedMedication> meds = medications.get();
 
                 //save a list of record IDs to delete
@@ -104,8 +135,7 @@ public class MedicationDaoImpl implements MedicationDao {
                     save(medication);
                 }
                 return 1;
-            }
-            else {
+            } else {
                 System.out.println(medications.getLeft());
                 return -1;
             }

@@ -20,6 +20,10 @@ public class PatientService {
         this.recordDao = recordDao;
     }
 
+    public Either<String, Integer> getTotalAmmountPayed(int id) {
+        return patientDao.getTotalAmmountPayed(id);
+    }
+
     public Either<String, List<Patient>> getAll() {
         return patientDao.getAll();
     }

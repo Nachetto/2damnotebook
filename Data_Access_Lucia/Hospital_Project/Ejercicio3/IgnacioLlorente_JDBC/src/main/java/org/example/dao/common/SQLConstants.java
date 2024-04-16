@@ -10,5 +10,11 @@ public class SQLConstants {
                 "INNER JOIN PrescribedMedication pm ON p.MedicationID = pm.MedicationID "+
                 "INNER JOIN Record r ON pm.RecordID = r.RecordID "+
                 "WHERE r.PatientID = ?;";
-
+    public static final String CREDENTIALSFROMPATIENTID_QUERY =
+            "SELECT * FROM User_Authentication WHERE PatientID = ?;";
+    public static final String GETALLPATIENTS_QUERY =
+            "SELECT * FROM Patient;";
+    public static final String MEDICATIONSBYPATIENTID_QUERY =
+            "SELECT * FROM PrescribedMedication WHERE RecordID IN (SELECT RecordID FROM Record WHERE PatientID = ?);";
+    public static final String GETALLRECORDS_QUERY = "SELECT * FROM Record;";
 }

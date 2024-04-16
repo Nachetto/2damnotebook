@@ -26,12 +26,14 @@ public class DBConnection {
             log.error(e);
         }
     }
+
     public Connection getConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
             connection = DriverManager.getConnection(config.getProperty("urlDB"), config.getProperty("user_name"), config.getProperty("password"));
         }
         return connection;
     }
+
     public void close() throws SQLException {
         if (connection != null && !connection.isClosed()) {
             connection.close();

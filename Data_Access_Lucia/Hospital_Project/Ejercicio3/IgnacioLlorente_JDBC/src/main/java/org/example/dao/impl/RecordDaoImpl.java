@@ -1,6 +1,7 @@
 package org.example.dao.impl;
 
 import io.vavr.control.Either;
+import jakarta.inject.Inject;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
@@ -10,6 +11,8 @@ import org.example.common.config.Configuration;
 import org.example.dao.MedicationAdapter;
 import org.example.dao.PatientAdapter;
 import org.example.dao.RecordDao;
+import org.example.dao.common.DBConnection;
+import org.example.dao.common.SQLConstants;
 import org.example.domain.Doctor;
 import org.example.domain.Patient;
 import org.example.domain.PrescribedMedication;
@@ -23,6 +26,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -30,7 +37,32 @@ import java.util.Optional;
 @Log4j2
 public class RecordDaoImpl implements RecordDao {
 
+    private final DBConnection db;
+    @Inject
+    public RecordDaoImpl(DBConnection db) {
+        this.db = db;
+    }
+
     @Override
+    public Either<String, List<Record>> getAll() {
+        try(Connection con = db.getConnection();
+            Statement stmt = con.createStatement();){
+            List<Record> records = new ArrayList<>();
+            ResultSet rs = stmt.executeQuery(SQLConstants.GETALLRECORDS_QUERY);
+            while (rs.next()) {
+                records.add(new Record(rs.getInt("RecordID"),
+                        rs.getInt("PatientID"),
+                        rs.getString("Diagnosis"),
+                        rs.getInt("DoctorID")
+                        ));
+            }
+            return Either.right(records);
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
+        }
+    }
+    /*@Override
     public Either<String, List<Record>> getAll() {
         List<Record> records = new ArrayList<>();
         try {
@@ -42,7 +74,7 @@ public class RecordDaoImpl implements RecordDao {
         } catch (IOException | NumberFormatException e) {
             return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
         }
-    }
+    }*/
 
     public Either<String, Record> get(int id) {
         List<Record> list = getAll().get().stream().filter(r -> r.getRecordID() == id).toList();

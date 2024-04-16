@@ -30,6 +30,44 @@ public class PatientDaoImpl implements PatientDao {
 
     @Override
     public Either<String, List<Patient>> getAll() {
+        try (Connection con = db.getConnection();
+             Statement stmt = con.createStatement();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.CREDENTIALSFROMPATIENTID_QUERY)) {
+
+            ResultSet rs = stmt.executeQuery(SQLConstants.GETALLPATIENTS_QUERY);
+            List<Patient> patients = new ArrayList<>();
+            while (rs.next()) {
+                preparedStatement.setInt(1, rs.getInt("PatientID"));
+                ResultSet credentialsResult = preparedStatement.executeQuery();
+                if (!credentialsResult.next()) {
+                    log.error("No credentials found for patient with id " + rs.getInt("PatientID"));
+                    return Either.left(Constantes.PATIENTDBERROR + "No credentials found for patient with id " + rs.getInt("id"));
+                }
+                patients.add(newPatientFromDB(rs, credentialsResult));
+            }
+            return Either.right(patients);
+        } catch (SQLException e) {
+            log.error(e.getMessage());
+            return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
+        }
+    }
+
+    private Patient newPatientFromDB(ResultSet rs, ResultSet credentialsResult) throws SQLException {
+        return new Patient(
+                rs.getInt("PatientID"),
+                rs.getString("Name"),
+                rs.getString("ContactDetails"),
+                rs.getString("PersonalInformation"),
+                new Credential(
+                        credentialsResult.getString("username"),
+                        credentialsResult.getString("password")
+                )
+        );
+    }
+    
+    /*
+    @Override
+    public Either<String, List<Patient>> getAll() {
         List<Patient> patients = new ArrayList<>();
         try {
             List<String> lines = Files.readAllLines(Paths.get(Configuration.getInstance().getPatientDataFile()));
@@ -42,6 +80,7 @@ public class PatientDaoImpl implements PatientDao {
             return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
         }
     }
+    */
 
     public Either<String, Integer> getTotalAmmountPayed(int id) {
         try (Connection con = db.getConnection();
@@ -49,7 +88,7 @@ public class PatientDaoImpl implements PatientDao {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             rs.next();
-            return Either.right(rs.getInt("total"));
+            return Either.right(rs.getInt("TotalAmountPaid"));
         } catch (SQLException ex) {
             log.error(ex.getMessage());
             return Either.left(Constantes.DATABASEERR + ex.getMessage());
@@ -87,6 +126,12 @@ public class PatientDaoImpl implements PatientDao {
         }
         return false;
         */
+    }
+
+    public boolean isPatientType(Credential p) {
+        return Configuration.getInstance().getPatientType(
+                p.username()).equals("Patient"
+        );
     }
 
     @Override
