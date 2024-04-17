@@ -111,6 +111,11 @@ public class Main {
                         exercise12(sc);
                         break;
                     case 13:
+                        exercise13(sc);
+                        break;
+                    case 14:
+                        //exercise14();
+                        break;
 
 
 
