@@ -33,23 +33,23 @@ public class Constantes {
 
     public static final String MENU_DOCTOR =
             """
-                             
+            
                              ********** DOCTOR MENU **********
             Add and modify medical records and prescribed medication
             1.- Show all medical records asignated to this doctor
-            2.- Add a new medical record
-            3.- Modify a medical record
+            2.- Add a new medical record asignated to this doctor
+            3.- Modify a medical record asignated to this doctor
             4.- Add a new medication assigned to this doctor
             5.- Modify a medication assigned to this doctor
             6.- Exit
             
             """;
 
-    public static final String QUIERE_VER_DEL_1_AL_14_10_PARA_SALIR = "Write the number of the exercise you wanna see from 1 to 9. 10 to exit: ";
+    public static final String CHOOSE_ECERCISE_NUMBER_ADMIN = "Write the number of the exercise you wanna see from 1 to 15. 16 to exit: ";
+    public static final String CHOOSE_ECERCISE_NUMBER_DOCTOR = "Write the number of the exercise you wanna see from 1 to 5. 6 to exit: ";
 
     public static final String UNEXPECTED_ERROR_SHOWINH_MENU_AGAIN = "Unexpected error, showing menu again.";
     public static final String GOODBYE = "See Ya!";
-    public static final String DESEA_SALIR_PULSE_3 = "Indique si quiere agregar\n un parque de atracciones (escriba 1)\n o un zoologico(escriba 2)\n si desea salir pulse 3";
     public static final String PATIENTDBERROR = "Error in the patients database: ";
     public static final String PATIENTDOESNTEXIST = "The patient does not exist";
     public static final String ERRDB = "Error in the database";

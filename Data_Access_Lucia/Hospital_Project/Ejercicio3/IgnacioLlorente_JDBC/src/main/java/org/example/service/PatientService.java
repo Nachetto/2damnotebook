@@ -55,4 +55,8 @@ public class PatientService {
     public List<Record> getRecords(int patientID) {
         return recordDao.getAll().get().stream().filter(r -> r.getPatientID() == patientID).toList();
     }
+
+    public Either<String, Boolean> isPatient(String usuario) {
+        return patientDao.isPatientType(usuario);
+    }
 }

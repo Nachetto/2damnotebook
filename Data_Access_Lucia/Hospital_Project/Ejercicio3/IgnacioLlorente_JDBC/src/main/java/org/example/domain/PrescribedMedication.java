@@ -28,4 +28,9 @@ public class PrescribedMedication {
     public String toStringTextFile() {
         return medicationID + ";" + name + ";" + dosage + ";" + recordID;
     }
+
+    @Override
+    public String toString() {
+        return "\n\nMedication with ID: "+medicationID + "\nName: " + name + "\nDosage: " + dosage + "\nRecord ID: " + recordID;
+    }
 }

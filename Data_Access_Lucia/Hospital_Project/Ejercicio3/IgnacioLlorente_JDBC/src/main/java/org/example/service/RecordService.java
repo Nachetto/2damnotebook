@@ -83,4 +83,12 @@ public class RecordService {
     public int appendRecordXML(int patientID, String diagnosis, String doctorName) {
         return recordDao.appendRecordXML(patientID, diagnosis, doctorName);
     }
+
+    public Either<String, List<Record>> getRecords(int patientId) {
+        return recordDao.getRecords(patientId);
+    }
+
+    public String medicationsFromARecordId(int recordID) {
+        return recordDao.medicationsFromARecordId(recordID);
+    }
 }

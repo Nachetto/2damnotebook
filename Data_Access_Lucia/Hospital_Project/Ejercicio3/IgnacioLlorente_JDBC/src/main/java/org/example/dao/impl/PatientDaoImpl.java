@@ -8,6 +8,7 @@ import org.example.common.config.Configuration;
 import org.example.dao.PatientDao;
 import org.example.dao.common.DBConnection;
 import org.example.dao.common.SQLConstants;
+import org.example.domain.Credential;
 import org.example.domain.Patient;
 
 import java.io.IOException;
@@ -17,7 +18,6 @@ import java.nio.file.StandardOpenOption;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import org.example.domain.Credential;
 
 @Log4j2
 public class PatientDaoImpl implements PatientDao {
@@ -32,12 +32,12 @@ public class PatientDaoImpl implements PatientDao {
     public Either<String, List<Patient>> getAll() {
         try (Connection con = db.getConnection();
              Statement stmt = con.createStatement();
-             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.CREDENTIALSFROMPATIENTID_QUERY)) {
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.CREDENTIALSFROMPATIENTORDOCTORID_QUERY)) {
 
             ResultSet rs = stmt.executeQuery(SQLConstants.GETALLPATIENTS_QUERY);
             List<Patient> patients = new ArrayList<>();
             while (rs.next()) {
-                preparedStatement.setInt(1, rs.getInt("PatientID"));
+                preparedStatement.setInt(1, rs.getInt("PatientOrDoctorID"));
                 ResultSet credentialsResult = preparedStatement.executeQuery();
                 if (!credentialsResult.next()) {
                     log.error("No credentials found for patient with id " + rs.getInt("PatientID"));
@@ -53,34 +53,19 @@ public class PatientDaoImpl implements PatientDao {
     }
 
     private Patient newPatientFromDB(ResultSet rs, ResultSet credentialsResult) throws SQLException {
-        return new Patient(
-                rs.getInt("PatientID"),
-                rs.getString("Name"),
-                rs.getString("ContactDetails"),
-                rs.getString("PersonalInformation"),
-                new Credential(
-                        credentialsResult.getString("username"),
-                        credentialsResult.getString("password")
-                )
-        );
+        if (rs.getBoolean("isTypePatient")) {
+            return new Patient(
+                    rs.getInt("PatientID"),
+                    rs.getString("Name"),
+                    rs.getString("ContactDetails"),
+                    rs.getString("PersonalInformation"),
+                    new Credential(
+                            credentialsResult.getString("username"),
+                            credentialsResult.getString("password")
+                    )
+            );
+        } else return null;
     }
-    
-    /*
-    @Override
-    public Either<String, List<Patient>> getAll() {
-        List<Patient> patients = new ArrayList<>();
-        try {
-            List<String> lines = Files.readAllLines(Paths.get(Configuration.getInstance().getPatientDataFile()));
-            for (String line : lines.subList(1, lines.size())) {
-//                patients.add(new Patient(line, "withCredentials"));
-                patients.add(new Patient(line));
-            }
-            return Either.right(patients);
-        } catch (IOException | NumberFormatException e) {
-            return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
-        }
-    }
-    */
 
     public Either<String, Integer> getTotalAmmountPayed(int id) {
         try (Connection con = db.getConnection();
@@ -96,7 +81,7 @@ public class PatientDaoImpl implements PatientDao {
     }
 
     public Either<String, Patient> get(int id) {
-        List<Patient> list= getAll().get().stream().filter(p -> p.getPatientID() == id).toList();
+        List<Patient> list = getAll().get().stream().filter(p -> p.getPatientID() == id).toList();
         if (1 != list.size()) {
             return Either.left(Constantes.PATIENTDOESNTEXIST);
         } else {
@@ -106,32 +91,36 @@ public class PatientDaoImpl implements PatientDao {
 
     @Override
     public boolean checkLogin(Credential p) {
-        //getting the password from the passwords.xml file
-        return Configuration.getInstance().getPassword(
-                p.username()).equals(p.password()
-        );
-
-        /* The right way to implement this method is to use the following code:
-        Either<String, List<Patient>> result = getAll();
-
-        if (result.isRight()) {
-            for (Patient pat : result.get()) {
-                if (Objects.equals(pat.getCredential(), p)) {
-                    return true;
-                }
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.AUTHENTICATION_QUERY)) {
+            preparedStatement.setString(1, p.username());
+            preparedStatement.setString(2, p.password());
+            ResultSet credentialsResult = preparedStatement.executeQuery();
+            if (!credentialsResult.next()) {
+                return false;
             }
+            else {
+                return credentialsResult.getBoolean("isAuthenticated");
+            }
+        } catch (SQLException e) {
+            return false;
         }
-        else {//todo exception handling
-            System.out.println(result.getLeft());
-        }
-        return false;
-        */
     }
 
-    public boolean isPatientType(Credential p) {
-        return Configuration.getInstance().getPatientType(
-                p.username()).equals("Patient"
-        );
+    public Either<String,Boolean> isPatientType(String username) {
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.ISTYPEPATIENTFROMUSERNAME_QUERY)) {
+            preparedStatement.setString(1, username);
+            ResultSet credentialsResult = preparedStatement.executeQuery();
+            if (!credentialsResult.next()) {
+                return Either.left("No credentials found for the username " + username);
+            }
+            else {
+                return Either.right(credentialsResult.getBoolean("isTypePatient"));
+            }
+        } catch (SQLException e) {
+            return Either.left("Error in the database: " + e.getMessage());
+        }
     }
 
     @Override
@@ -170,8 +159,36 @@ public class PatientDaoImpl implements PatientDao {
 
 
     public int delete(int patientID) {
-        List<Patient> patients = getAll().get();
-        Patient patient = patients.stream().filter(p -> p.getPatientID() == patientID).findFirst().get();
-        return delete(patient);
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.PATIENT_DELETE)) {
+            preparedStatement.setInt(1, patientID);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
+            } else {
+                return -1;
+            }
+        } catch (SQLException e) {
+            log.error(e.getMessage());
+            return -1;
+        }
     }
+
+
+    /*
+    @Override
+    public Either<String, List<Patient>> getAll() {
+        List<Patient> patients = new ArrayList<>();
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(Configuration.getInstance().getPatientDataFile()));
+            for (String line : lines.subList(1, lines.size())) {
+//                patients.add(new Patient(line, "withCredentials"));
+                patients.add(new Patient(line));
+            }
+            return Either.right(patients);
+        } catch (IOException | NumberFormatException e) {
+            return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
+        }
+    }
+    */
 }

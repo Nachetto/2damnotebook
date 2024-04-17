@@ -28,4 +28,12 @@ public class Record {
     public String toStringTextFile() {
         return recordID + ";" + patientID + ";" + diagnosis + ";" + doctorID;
     }
+
+    @Override
+    public String toString() {
+        return "\n\nRecord with id: " + recordID +
+                "\nPatient ID: " + patientID +
+                "\nDiagnosis: " + diagnosis +
+                "\nDoctor ID: " + doctorID;
+    }
 }

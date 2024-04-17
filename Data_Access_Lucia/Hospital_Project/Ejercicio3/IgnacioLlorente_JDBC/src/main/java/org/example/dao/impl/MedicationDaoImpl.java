@@ -85,12 +85,19 @@ public class MedicationDaoImpl implements MedicationDao {
 
     @Override
     public int save(PrescribedMedication m) {
-        try {
-            Files.write(Paths.get(Configuration.getInstance().getMedicationDataFile()), ('\n' + m.toStringTextFile()).getBytes(), StandardOpenOption.APPEND);
-            //set the last medicationID property in the configuration file properties.txt
-            Configuration.getInstance().setLastMedicationID(m.getMedicationID());
-            return 1;
-        } catch (IOException e) {
+        try(Connection con = db.getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.MEDICATION_INSERT)) {
+            preparedStatement.setString(1, m.getName());
+            preparedStatement.setString(2, m.getDosage());
+            preparedStatement.setInt(3, m.getRecordID());
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
+            } else {
+                return -1;
+            }
+        } catch (SQLException e) {
+            log.error(e.getMessage());
             return -1;
         }
     }
@@ -120,26 +127,17 @@ public class MedicationDaoImpl implements MedicationDao {
     }
 
     public int deleteByPatient(int id) {
-        try {
-            Either<String, List<PrescribedMedication>> medications = getAll();
-            if (medications.isRight()) {
-                List<PrescribedMedication> meds = medications.get();
-
-                //save a list of record IDs to delete
-                List<Integer> recordIDs = recordDao.getRecordIdsFromPatientId(id);
-
-                meds.removeIf(medication -> recordIDs.contains(medication.getRecordID()));
-
-                Files.write(Paths.get(Configuration.getInstance().getMedicationDataFile()), "medicationID;name;dosage;redordID".getBytes());
-                for (PrescribedMedication medication : meds) {
-                    save(medication);
-                }
-                return 1;
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.MEDICATION_DELETEBYPATIENTID)) {
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
             } else {
-                System.out.println(medications.getLeft());
                 return -1;
             }
-        } catch (IOException e) {
+        } catch (SQLException e) {
+            log.error(e.getMessage());
             return -1;
         }
     }

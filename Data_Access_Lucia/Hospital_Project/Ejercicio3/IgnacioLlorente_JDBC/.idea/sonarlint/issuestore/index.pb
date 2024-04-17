@@ -37,3 +37,5 @@ X
 (src/main/java/org/example/ui/Tester.java,3\a\3ab2c58bf1f151ce190d029997027f6d61bd32ab
 f
 6src/main/java/org/example/dao/common/DBConnection.java,e\3\e32858411b2e3dc6eb821771ac3036548e5598a3
+`
+0src/main/java/org/example/domain/Credential.java,3\b\3be7a6dbc5420e5fd22c7d1e34c7c8436d8bbc51

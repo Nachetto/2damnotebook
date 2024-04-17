@@ -3,7 +3,6 @@ package org.example.dao.impl;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
 import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import lombok.extern.log4j.Log4j2;
 import org.example.common.Constantes;
@@ -17,7 +16,10 @@ import org.example.domain.Doctor;
 import org.example.domain.Patient;
 import org.example.domain.PrescribedMedication;
 import org.example.domain.Record;
-import org.example.domain.xml.*;
+import org.example.domain.xml.MedicationsXML;
+import org.example.domain.xml.PatientXML;
+import org.example.domain.xml.RecordXML;
+import org.example.domain.xml.RecordsXML;
 import org.example.service.MedicationService;
 
 import java.io.File;
@@ -38,6 +40,7 @@ import java.util.Optional;
 public class RecordDaoImpl implements RecordDao {
 
     private final DBConnection db;
+
     @Inject
     public RecordDaoImpl(DBConnection db) {
         this.db = db;
@@ -45,8 +48,8 @@ public class RecordDaoImpl implements RecordDao {
 
     @Override
     public Either<String, List<Record>> getAll() {
-        try(Connection con = db.getConnection();
-            Statement stmt = con.createStatement();){
+        try (Connection con = db.getConnection();
+             Statement stmt = con.createStatement()) {
             List<Record> records = new ArrayList<>();
             ResultSet rs = stmt.executeQuery(SQLConstants.GETALLRECORDS_QUERY);
             while (rs.next()) {
@@ -54,27 +57,14 @@ public class RecordDaoImpl implements RecordDao {
                         rs.getInt("PatientID"),
                         rs.getString("Diagnosis"),
                         rs.getInt("DoctorID")
-                        ));
+                ));
             }
             return Either.right(records);
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error(e.getMessage());
             return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
         }
     }
-    /*@Override
-    public Either<String, List<Record>> getAll() {
-        List<Record> records = new ArrayList<>();
-        try {
-            List<String> lines = Files.readAllLines(Paths.get(Configuration.getInstance().getRecordDataFile()));
-            for (String line : lines.subList(1, lines.size())) {
-                records.add(new Record(line));
-            }
-            return Either.right(records);
-        } catch (IOException | NumberFormatException e) {
-            return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
-        }
-    }*/
 
     public Either<String, Record> get(int id) {
         List<Record> list = getAll().get().stream().filter(r -> r.getRecordID() == id).toList();
@@ -87,12 +77,21 @@ public class RecordDaoImpl implements RecordDao {
 
     @Override
     public int save(Record r) {
-        try {
-            //set the last recordID property in the configuration file properties.txt
-            Configuration.getInstance().setLastRecordID(r.getRecordID());
-            Files.write(Paths.get(Configuration.getInstance().getRecordDataFile()), ('\n' + r.toStringTextFile()).getBytes(), StandardOpenOption.APPEND);
-            return 1;
-        } catch (IOException e) {
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.RECORD_INSERT)
+        ) {
+            preparedStatement.setInt(1, r.getPatientID());
+            preparedStatement.setString(2, r.getDiagnosis());
+            preparedStatement.setInt(3, r.getDoctorID());
+            preparedStatement.executeUpdate();
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
+            } else {
+                return -1;
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return -1;
         }
     }
@@ -100,6 +99,7 @@ public class RecordDaoImpl implements RecordDao {
     @Override
     public int modify(Record initialrecord, Record modifiedrecord) {
         delete(initialrecord);
+        save(modifiedrecord);
         return 1;
     }
 
@@ -120,6 +120,26 @@ public class RecordDaoImpl implements RecordDao {
             return -1;
         }
     }
+
+
+    public String medicationsFromARecordId(int recordID) {
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.MEDICATIONSFROMRECORDID_QUERY)
+        ) {
+            preparedStatement.setInt(1, recordID);
+            ResultSet rs = preparedStatement.executeQuery();
+            StringBuilder medications = new StringBuilder();
+            while (rs.next()) {
+                medications.append("\nMedicationID: ").append(rs.getInt("MedicationID")).append("\n - Name: ").append(rs.getString("Name")).append("\n - Dosage: ").append(rs.getString("Dosage")).append("\n");
+            }
+            return medications.toString();
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return Constantes.MEDICATIONDBERROR + e.getMessage();
+        }
+    }
+
+    //XML
 
     public int saveToXML(List<Record> records, List<PrescribedMedication> medications, List<Patient> patients, List<Doctor> doctors) {
         try {
@@ -210,10 +230,16 @@ public class RecordDaoImpl implements RecordDao {
     }
 
     public boolean hasMedications(int id, MedicationService medicationService) {
-        return medicationService.getAll().get().stream()
-                .anyMatch(m -> getAll().get().stream().anyMatch
-                        (r -> r.getRecordID() == m.getRecordID()
-                                && r.getPatientID() == id));
+        try(Connection con = db.getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.COUNTMEDICATIONSFROMRECORDID_QUERY)
+        ) {
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            return rs.getInt("count") > 0;
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return false;
+        }
     }
 
     public List<Integer> getRecordIdsFromPatientId(int patientID) {
@@ -268,7 +294,6 @@ public class RecordDaoImpl implements RecordDao {
         return -1;
     }
 
-
     public int deletePatientXML(int id) {
         //deleting the patient and all his records
         try {
@@ -292,7 +317,7 @@ public class RecordDaoImpl implements RecordDao {
                 return -1;
             }
             //ID, medications, patient, doctor, diagnosis
-            RecordXML recordXML = new RecordXML(getNewRecordID(),new MedicationsXML(),getPatientFromIDXML(patientID),doctorName, diagnosis);
+            RecordXML recordXML = new RecordXML(getNewRecordID(), new MedicationsXML(), getPatientFromIDXML(patientID), doctorName, diagnosis);
 
             recordsXML.getRecords().add(recordXML);
             saveToXML(recordsXML);
@@ -303,7 +328,7 @@ public class RecordDaoImpl implements RecordDao {
         }
     }
 
-    private PatientXML getPatientFromIDXML(int id){
+    private PatientXML getPatientFromIDXML(int id) {
         try {
             RecordsXML recordsXML = readRecordsFromXML();
             if (recordsXML != null) {
@@ -318,4 +343,29 @@ public class RecordDaoImpl implements RecordDao {
         }
         return null;
     }
+
+    public Either<String, List<Record>> getRecords(int patientId) {
+
+        try (Connection con = db.getConnection();
+             Statement stmt = con.createStatement();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.RECORDSFROMPATIENTID_QUERY)
+            ) {
+            preparedStatement.setInt(1, patientId);
+            ResultSet rs = preparedStatement.executeQuery();
+            List<Record> records = new ArrayList<>();
+            while (rs.next()) {
+                records.add(new Record(rs.getInt("RecordID"),
+                        rs.getInt("PatientID"),
+                        rs.getString("Diagnosis"),
+                        rs.getInt("DoctorID")
+                ));
+            }
+            return Either.right(records);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
+        }
+
+    }
+
 }
