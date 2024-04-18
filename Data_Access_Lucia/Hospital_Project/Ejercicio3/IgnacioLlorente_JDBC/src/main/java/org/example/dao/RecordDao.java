@@ -11,7 +11,7 @@ public interface RecordDao {
 
     int save(Record c);
 
-    int modify(Record c, Record cu);
+    int modify(Record c);
 
     int delete(Record c);
 }

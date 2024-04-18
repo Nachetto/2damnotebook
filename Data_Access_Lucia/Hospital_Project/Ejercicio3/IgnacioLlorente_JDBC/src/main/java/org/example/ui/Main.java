@@ -7,25 +7,24 @@ import org.example.domain.Credential;
 import org.example.domain.Patient;
 import org.example.domain.PrescribedMedication;
 import org.example.domain.Record;
-import org.example.service.DoctorService;
-import org.example.service.MedicationService;
-import org.example.service.PatientService;
-import org.example.service.RecordService;
+import org.example.service.*;
 
+import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     private final PatientService patientService;
-
+    private final AppointmentService appointmentService;
     private final RecordService recordService;
     private final MedicationService medicationService;
     private final DoctorService doctorService;
 
     @Inject
-    public Main(PatientService patientService, RecordService recordService, MedicationService medicationService, DoctorService doctorService) {
+    public Main(PatientService patientService, AppointmentService appointmentService, RecordService recordService, MedicationService medicationService, DoctorService doctorService) {
         this.patientService = patientService;
+        this.appointmentService = appointmentService;
         this.recordService = recordService;
         this.medicationService = medicationService;
         this.doctorService = doctorService;
@@ -33,18 +32,17 @@ public class Main {
 
     public void run() {
         Scanner sc = new Scanner(System.in);
-        String usuario = "";
+        String username = "";
         try {
-
-            //Login pidiendo usuario y contraseña y si no es correcto que vuelva a pedirlo, llamar al servicio doLogin(username, password) para comprobarlo
+            //Login pidiendo username y contraseña y si no es correcto que vuelva a pedirlo, llamar al servicio doLogin(username, password) para comprobarlo
             System.out.println("Enter Username: ");
-            usuario = sc.nextLine();
+            username = sc.nextLine();
             System.out.println("Enter Password: ");
             String contrasena = sc.nextLine();
-            while (!patientService.checkLogin(new Credential(usuario, contrasena))) {
+            while (!patientService.checkLogin(new Credential(username, contrasena))) {
                 System.out.println("Username or password not valid, try again.");
                 System.out.println("Enter Username: ");
-                usuario = sc.nextLine();
+                username = sc.nextLine();
                 System.out.println("Enter Password: ");
                 contrasena = sc.nextLine();
             }
@@ -53,18 +51,20 @@ public class Main {
             return;
         }
         int option = 0;
-        if (usuario.equals("root")) {
+        if (username.equals("root")) {
             adminMenu(sc, option);
         } else {
-            Either<String, Boolean> isPatient = patientService.isPatient(usuario);
-            if (isPatient.isRight() && (isPatient.get().equals(true)))
-                doctorMenu(sc, option);
-            else System.out.println(isPatient.getLeft());
+            Either<String, Boolean> isPatient = patientService.isPatient(username);
+            if (isPatient.isRight() && (isPatient.get().equals(false)))
+                doctorMenu(sc, option, username);
+            if (isPatient.isLeft())
+                System.out.println(isPatient.getLeft());
+            else
+                System.out.println("Patient UI not implemented yet");
         }
 
         System.out.println(Constantes.GOODBYE);
     }
-
 
     private void adminMenu(Scanner sc, int option) {
         while (option != 16) {
@@ -114,11 +114,11 @@ public class Main {
                         exercise13(sc);
                         break;
                     case 14:
-                        //exercise14();
+                        exercise14();
                         break;
-
-
-
+                    case 15:
+                        exercise15();
+                        break;
                     default:
                         break;
                 }
@@ -132,6 +132,44 @@ public class Main {
             }
         }
     }
+
+    private void doctorMenu(Scanner sc, int option, String username) {
+        while (option != 6) {
+            try {
+                System.out.println(Constantes.MENU_DOCTOR);
+                System.out.println(Constantes.CHOOSE_ECERCISE_NUMBER_DOCTOR);
+                option = sc.nextInt();
+                sc.nextLine();
+                switch (option) {
+                    case 1:
+                        exerciseDoctor1(username);
+                        break;
+                    case 2:
+                        exerciseDoctor2(sc, username);
+                        break;
+                    case 3:
+                        exerciseDoctor3(sc);
+                        break;
+                    case 4:
+                        exerciseDoctor4(sc);
+                        break;
+                    case 5:
+                        exerciseDoctor5(sc);
+                        break;
+                    default:
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("You have entered a wrong input, showing the menu again.");
+                sc.next();
+                option = 0;
+            } catch (Exception e) {
+                System.out.println(Constantes.UNEXPECTED_ERROR_SHOWINH_MENU_AGAIN);
+                option = 0;
+            }
+        }
+    }
+
 
     // Show all patients
     private void exercise1() {
@@ -266,15 +304,12 @@ public class Main {
     private void exercise10() {
         try {
             System.out.println("Showing all patients and the total amount paid: ");
-            Either<String, List<Patient>> patients = patientService.getAll();
+            Either<String, List<Patient>> patients = patientService.getAllPatientsWithTotalAmmountPaid();
             if (patients.isLeft()) {
                 System.out.println(patients.getLeft());
                 return;
             }
-            for (Patient p : patients.get()) {
-                System.out.println(p);
-                System.out.println("Total amount paid: " + patientService.getTotalAmmountPayed(p.getPatientID()));
-            }
+            System.out.println(patients.get());
         } catch (Exception e) {
             System.out.println("Error while showing the patients");
         }
@@ -295,7 +330,7 @@ public class Main {
                 System.out.println("Records found for the patient: " + records.get() + "\nSelect a record id to see the prescribed medications:");
                 int recordID = sc.nextInt();
                 sc.nextLine();
-                System.out.println("Medications found for the record: " +recordService.medicationsFromARecordId(recordID));
+                System.out.println("Medications found for the record: " + recordService.medicationsFromARecordId(recordID));
                 System.out.println("\nEnd of medications for the record, press enter when you are ready to continue");
                 sc.nextLine();
             }
@@ -347,9 +382,7 @@ public class Main {
                 System.out.println("The patient wasn't deleted, exiting...");
             } else {
                 //delete the patient, medications and records
-                if (medicationService.deleteByPatient(id) == -1
-                        || recordService.deleteByPatient(id) == -1
-                        || patientService.delete(id) == -1) {
+                if (patientService.deletePatientWithCosas(id) == -1) {
                     System.out.println("Error while deleting the records, medications or patient");
                 } else {
                     System.out.println("Patient deleted correctly");
@@ -357,11 +390,32 @@ public class Main {
             }
         } else {
             //delete the patient
-            if (patientService.delete(id) == -1) {
+            if (patientService.delete(id, appointmentService) == -1) {
                 System.out.println("Error while deleting the patient");
             } else {
                 System.out.println("Patient deleted correctly");
             }
+        }
+    }
+
+    //Find the patient with the most medical records
+    private void exercise14() {
+        Either<String, Patient> patient = recordService.getPatientWithMostRecords();
+        if (patient.isLeft()) {
+            System.out.println(patient.getLeft());
+        } else {
+            System.out.println(patient.get());
+        }
+    }
+
+    //Find the date with more patients
+    private void exercise15() {
+        System.out.println("The date with more patients is: ");
+        Either<String, LocalDateTime> date = appointmentService.getDateWithMorePatients();
+        if (date.isLeft()) {
+            System.out.println(date.getLeft());
+        } else {
+            System.out.println(date.get().toLocalDate());
         }
     }
 
@@ -372,6 +426,15 @@ public class Main {
         sc.nextLine();
         System.out.println("Enter the Doctor's ID: ");
         int doctorID = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter the diagnosis: ");
+        String diagnosis = sc.nextLine();
+        return new Record(recordService.getNewRecordID(), patientID, diagnosis, doctorID);
+    }
+
+    private Record requestRecord(Scanner sc, int doctorID) {
+        System.out.println("Enter the Patient's ID: ");
+        int patientID = sc.nextInt();
         sc.nextLine();
         System.out.println("Enter the diagnosis: ");
         String diagnosis = sc.nextLine();
@@ -399,61 +462,97 @@ public class Main {
     }
 
 
-    private void doctorMenu(Scanner sc, int option) {
-        while (option != 6) {
-            try {
-                System.out.println(Constantes.MENU_DOCTOR);
-                System.out.println(Constantes.CHOOSE_ECERCISE_NUMBER_DOCTOR);
-                option = sc.nextInt();
-                sc.nextLine();
-                switch (option) {
-                    case 1:
-                        exerciseDoctor1();
-                        break;
-                    case 2:
-                        exerciseDoctor2(sc);
-                        break;
-                    case 3:
-                        exerciseDoctor3(sc);
-                        break;
-                    case 4:
-                        exerciseDoctor4(sc);
-                        break;
-                    case 5:
-                        exerciseDoctor5(sc);
-                        break;
-                    default:
-                        break;
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("You have entered a wrong input, showing the menu again.");
-                sc.next();
-                option = 0;
-            } catch (Exception e) {
-                System.out.println(Constantes.UNEXPECTED_ERROR_SHOWINH_MENU_AGAIN);
-                option = 0;
-            }
+    //Show all medical records asignated to this doctor
+    private void exerciseDoctor1(String username) {
+        recordService.getRecordsFromDoctorUsername(username);
+        Either<String, List<Record>> records = recordService.getRecordsFromDoctorUsername(username);
+        if (records.isLeft()) {
+            System.out.println(records.getLeft());
+        } else {
+            System.out.println(records.get());
         }
     }
 
-
-    //Show all medical records asignated to this doctor
-    private void exerciseDoctor1() {
-    }
-
     //Add a new medical record asignated to this doctor
-    private void exerciseDoctor2(Scanner sc) {
+    private void exerciseDoctor2(Scanner sc, String username) {
+        int doctorID = doctorService.getDoctorIDFromUsername(username);
+        if (doctorID == -1) {
+            System.out.println("Error while getting the doctorID");
+            return;
+        }
+        Record record = null;
+        //check for patientID and doctorID existence
+        boolean bothExist = false;
+        while (!bothExist) {
+            record = requestRecord(sc, doctorID);
+            if (patientService.get(record.getPatientID()).isLeft()
+            || doctorService.get(record.getDoctorID()).isLeft()) {
+                System.out.println("The patient or doctor doesn't exist, please enter valid ID's" +doctorID);
+            } else {
+                bothExist = true;
+            }
+        }
+
+        if (recordService.save(record) == -1) {
+            System.out.println("Error while saving the record");
+        }  else {
+            System.out.println("Record and Medications saved correctly");
+        }
     }
 
     //Modify a medical record asignated to this doctor
     private void exerciseDoctor3(Scanner sc) {
+        System.out.println("Enter the Record's ID: ");
+        int recordID = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter the new diagnosis: ");
+        String diagnosis = sc.nextLine();
+        Record record = new Record(recordID, 0, diagnosis, 0);
+        if (recordService.modify(record) == -1) {
+            System.out.println("Error while modifying the record");
+        } else {
+            System.out.println("Record modified correctly");
+        }
     }
 
     //Add a new medication assigned to this doctor
     private void exerciseDoctor4(Scanner sc) {
+        System.out.println("Enter the Record's ID: ");
+        int recordID = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter the medication name: ");
+        String medicationName1 = sc.nextLine();
+        System.out.println("Enter the medication dosage: ");
+        String medicationDosage1 = sc.nextLine();
+
+        PrescribedMedication medication = new PrescribedMedication(medicationName1, medicationDosage1, recordID);
+        int result = medicationService.save(medication);
+
+
+
+        if (result == -1) {
+            System.out.println("Error while saving the record");
+        } else if (result == -2) {
+            System.out.println("Error while saving the medications");
+        } else {
+            System.out.println("Record and Medications saved correctly");
+        }
     }
 
     //Modify a medication assigned to this doctor
     private void exerciseDoctor5(Scanner sc) {
+        System.out.println("Enter the Medication's ID: ");
+        int medicationID = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter the new medication name: ");
+        String medicationName = sc.nextLine();
+        System.out.println("Enter the new medication dosage: ");
+        String medicationDosage = sc.nextLine();
+        PrescribedMedication medication = new PrescribedMedication(medicationID, medicationName, medicationDosage, 0);
+        if (medicationService.modify(medication) == -1) {
+            System.out.println("Error while modifying the medication");
+        } else {
+            System.out.println("Medication modified correctly");
+        }
     }
 }

@@ -1,16 +1,17 @@
 package org.example.service;
 
 import io.vavr.control.Either;
+import jakarta.inject.Inject;
 import org.example.dao.impl.DoctorDaoImpl;
 import org.example.domain.Doctor;
 
-import javax.inject.Inject;
 import java.util.List;
 
 public class DoctorService {
-    private DoctorDaoImpl doctorDao;
-    public DoctorService() {
-        this.doctorDao = new DoctorDaoImpl();
+    private final DoctorDaoImpl doctorDao;
+    @Inject
+    public DoctorService(DoctorDaoImpl doctorDao) {
+        this.doctorDao = doctorDao;
     }
 
     public Either<String, List<Doctor>> getAll() {
@@ -31,5 +32,9 @@ public class DoctorService {
 
     public int delete(Doctor d) {
         return doctorDao.delete(d);
+    }
+
+    public int getDoctorIDFromUsername(String username) {
+        return doctorDao.getDoctorIDFromUsername(username);
     }
 }

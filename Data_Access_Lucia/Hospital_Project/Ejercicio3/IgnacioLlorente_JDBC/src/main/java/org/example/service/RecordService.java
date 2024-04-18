@@ -3,6 +3,7 @@ package org.example.service;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
 import org.example.dao.impl.MedicationDaoImpl;
+import org.example.dao.impl.PatientDaoImpl;
 import org.example.dao.impl.RecordDaoImpl;
 import org.example.domain.Doctor;
 import org.example.domain.Patient;
@@ -13,10 +14,12 @@ import java.util.List;
 
 public class RecordService {
     private final RecordDaoImpl recordDao;
+    private final PatientDaoImpl patientDao;
     private final MedicationDaoImpl medicationDao;
     @Inject
-    public RecordService(RecordDaoImpl recordDao, MedicationDaoImpl medicationDao) {
+    public RecordService(RecordDaoImpl recordDao, PatientDaoImpl patientDao, MedicationDaoImpl medicationDao) {
         this.recordDao = recordDao;
+        this.patientDao = patientDao;
         this.medicationDao = medicationDao;
     }
 
@@ -36,13 +39,14 @@ public class RecordService {
         int recordID=r.getRecordID();
         medication1.setRecordID(recordID);
         medication2.setRecordID(recordID);
+        int recordSave = recordDao.save(r);
         if (medicationDao.save(medication1) == -1 || medicationDao.save(medication2) == -1)
             return -2;
-        return recordDao.save(r); //this returns an int, not the object itself
+        return recordSave; //this returns an int, not the object itself
     }
 
-    public int modify(Record initialrecord, Record modifiedrecord) {
-        return recordDao.modify(initialrecord, modifiedrecord);
+    public int modify(Record modifiedrecord) {
+        return recordDao.modify(modifiedrecord);
     }
 
     public int delete(Record r) {
@@ -87,8 +91,15 @@ public class RecordService {
     public Either<String, List<Record>> getRecords(int patientId) {
         return recordDao.getRecords(patientId);
     }
+    public Either<String, List<Record>> getRecordsFromDoctorUsername(String username) {
+        return recordDao.getRecordsFromDoctorUsername(username);
+    }
 
     public String medicationsFromARecordId(int recordID) {
         return recordDao.medicationsFromARecordId(recordID);
+    }
+
+    public Either<String, Patient> getPatientWithMostRecords() {
+        return patientDao.get(recordDao.patientIDWithMostRecords());
     }
 }

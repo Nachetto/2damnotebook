@@ -25,6 +25,13 @@ public class PrescribedMedication {
         this.recordID = Integer.parseInt(elemArray[3]);
     }
 
+    public PrescribedMedication(String medicationName1, String medicationDosage1, int recordID) {
+        this.medicationID = -1;
+        this.name = medicationName1;
+        this.dosage = medicationDosage1;
+        this.recordID = recordID;
+    }
+
     public String toStringTextFile() {
         return medicationID + ";" + name + ";" + dosage + ";" + recordID;
     }

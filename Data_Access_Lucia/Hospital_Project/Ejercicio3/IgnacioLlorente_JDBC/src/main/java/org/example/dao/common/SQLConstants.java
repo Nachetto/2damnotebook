@@ -10,6 +10,14 @@ public class SQLConstants {
                 "INNER JOIN PrescribedMedication pm ON p.MedicationID = pm.MedicationID "+
                 "INNER JOIN Record r ON pm.RecordID = r.RecordID "+
                 "WHERE r.PatientID = ?;";
+    
+    public static final String GETALLPATIENTSWITHTOTALAMMOUNTPAID_QUERY =
+            "SELECT pt.*, SUM(p.Amount) AS TotalAmountPaid " +
+                    "FROM Payment p " +
+                    "INNER JOIN PrescribedMedication pm ON p.MedicationID = pm.MedicationID " +
+                    "INNER JOIN Record r ON pm.RecordID = r.RecordID " +
+                    "INNER JOIN Patient pt ON r.PatientID = pt.PatientID " +
+                    "GROUP BY pt.PatientID;";
     public static final String CREDENTIALSFROMPATIENTORDOCTORID_QUERY =
             "SELECT * FROM User_Authentication WHERE PatientOrDoctorID = ?;";
     public static final String GETALLPATIENTS_QUERY =
@@ -29,4 +37,31 @@ public class SQLConstants {
     public static final String COUNTMEDICATIONSFROMRECORDID_QUERY = "SELECT COUNT(*) AS count FROM PrescribedMedication WHERE RecordID = ?;";
     public static final String MEDICATION_DELETEBYPATIENTID = "DELETE FROM PrescribedMedication WHERE RecordID IN (SELECT RecordID FROM Record WHERE PatientID = ?);";
     public static final String PATIENT_DELETE = "DELETE FROM Patient WHERE PatientID = ?;";
+    public static final String PATIENTWITHMOSTRECORDS_QUERY = "SELECT PatientID, COUNT(*) AS count FROM Record GROUP BY PatientID ORDER BY count DESC LIMIT 1;";
+    public static final String GETFROMPATIENTID_QUERY = "SELECT * FROM Patient WHERE PatientID = ?;";
+    public static final String GETDATEWITHMOREPATIENTS_QUERY =
+            "SELECT DATE(DateAndTime) as Date, PatientID, COUNT(*) AS count " +
+                    "FROM Appointment " +
+                    "GROUP BY Date, PatientID " +
+                    "ORDER BY count DESC LIMIT 1";
+    public static final String RECORDSFROMUSERNAME_DOCTORSONLY_QUERY = "SELECT * FROM Record WHERE DoctorID = " +
+            "(SELECT PatientOrDoctorID FROM User_Authentication WHERE Username = ? AND isTypePatient = 0);";
+    public static final String RECORD_DELETE = "DELETE FROM Record WHERE RecordID = ?;";
+    public static final String CREDENTIALS_DELETEBYPATIENTID =
+            "DELETE FROM User_Authentication WHERE PatientOrDoctorID = ? " +
+            "AND isTypePatient = 1;";
+    public static final String RECORD_DELETEBYPATIENTID = "DELETE FROM Record WHERE PatientID = ?;";
+    public static final String DELETEPAYMENTSFROMPATIENTID_QUERY =
+            "DELETE FROM Payment " +
+            "WHERE MedicationID IN (" +
+                    "SELECT MedicationID FROM PrescribedMedication WHERE RecordID IN " +
+                        "(SELECT RecordID FROM Record WHERE PatientID = ?));";
+    public static final String DELETEMEDICATIONSFROMPATIENTID_QUERY =
+            "DELETE FROM PrescribedMedication " +
+            "WHERE RecordID IN (SELECT RecordID FROM Record WHERE PatientID = ?);";
+    public static final String APP_DELETEBYPATIENTID = "DELETE FROM Appointment WHERE PatientID = ?;";
+    public static final String COUNTMEDICATIONSFROMPATIENTID_QUERY = "SELECT COUNT(*) AS count FROM PrescribedMedication WHERE RecordID IN (SELECT RecordID FROM Record WHERE PatientID = ?);";
+    public static final String GETDOCTORIDFROMUSERNAME_QUERY = "SELECT PatientOrDoctorID FROM User_Authentication WHERE Username = ? AND isTypePatient = 0;";
+    public static final String RECORD_UPDATE = "UPDATE Record SET Diagnosis = ? WHERE RecordID = ?;";
+    public static final String MEDICATION_UPDATE = "UPDATE PrescribedMedication SET Name = ?, Dosage = ? WHERE MedicationID = ?;";
 }

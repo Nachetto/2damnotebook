@@ -37,7 +37,7 @@ public class PatientDaoImpl implements PatientDao {
             ResultSet rs = stmt.executeQuery(SQLConstants.GETALLPATIENTS_QUERY);
             List<Patient> patients = new ArrayList<>();
             while (rs.next()) {
-                preparedStatement.setInt(1, rs.getInt("PatientOrDoctorID"));
+                preparedStatement.setInt(1, rs.getInt("PatientID"));
                 ResultSet credentialsResult = preparedStatement.executeQuery();
                 if (!credentialsResult.next()) {
                     log.error("No credentials found for patient with id " + rs.getInt("PatientID"));
@@ -53,18 +53,16 @@ public class PatientDaoImpl implements PatientDao {
     }
 
     private Patient newPatientFromDB(ResultSet rs, ResultSet credentialsResult) throws SQLException {
-        if (rs.getBoolean("isTypePatient")) {
-            return new Patient(
-                    rs.getInt("PatientID"),
-                    rs.getString("Name"),
-                    rs.getString("ContactDetails"),
-                    rs.getString("PersonalInformation"),
-                    new Credential(
-                            credentialsResult.getString("username"),
-                            credentialsResult.getString("password")
-                    )
-            );
-        } else return null;
+        return new Patient(
+                rs.getInt("PatientID"),
+                rs.getString("Name"),
+                rs.getString("ContactDetails"),
+                rs.getString("PersonalInformation"),
+                new Credential(
+                        credentialsResult.getString("username"),
+                        credentialsResult.getString("password")
+                )
+        );
     }
 
     public Either<String, Integer> getTotalAmmountPayed(int id) {
@@ -80,12 +78,45 @@ public class PatientDaoImpl implements PatientDao {
         }
     }
 
+    public Either<String, List<Patient>> getAllPatientsWithTotalAmmountPaid() {
+        try (Connection con = db.getConnection();
+             Statement stmt = con.createStatement()) {
+            ResultSet rs = stmt.executeQuery(SQLConstants.GETALLPATIENTSWITHTOTALAMMOUNTPAID_QUERY);
+            List<Patient> patients = new ArrayList<>();
+            while (rs.next()) {
+                patients.add(new Patient(
+                        rs.getInt("PatientID"),
+                        rs.getString("Name"),
+                        rs.getString("ContactDetails"),
+                        rs.getString("PersonalInformation"),
+                        rs.getInt("TotalAmountPaid")
+                ));
+            }
+            return Either.right(patients);
+        } catch (SQLException e) {
+            log.error(e.getMessage());
+            return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
+        }
+    }
+
     public Either<String, Patient> get(int id) {
-        List<Patient> list = getAll().get().stream().filter(p -> p.getPatientID() == id).toList();
-        if (1 != list.size()) {
-            return Either.left(Constantes.PATIENTDOESNTEXIST);
-        } else {
-            return Either.right(list.get(0));
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.GETFROMPATIENTID_QUERY)) {
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                return Either.right(new Patient(
+                        rs.getInt("PatientID"),
+                        rs.getString("Name"),
+                        rs.getString("ContactDetails"),
+                        rs.getString("PersonalInformation")
+                ));
+            } else {
+                return Either.left(Constantes.PATIENTDBERROR + "No patient found with id " + id);
+            }
+        } catch (SQLException e) {
+            log.error(e.getMessage());
+            return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
         }
     }
 
@@ -98,8 +129,7 @@ public class PatientDaoImpl implements PatientDao {
             ResultSet credentialsResult = preparedStatement.executeQuery();
             if (!credentialsResult.next()) {
                 return false;
-            }
-            else {
+            } else {
                 return credentialsResult.getBoolean("isAuthenticated");
             }
         } catch (SQLException e) {
@@ -107,15 +137,14 @@ public class PatientDaoImpl implements PatientDao {
         }
     }
 
-    public Either<String,Boolean> isPatientType(String username) {
+    public Either<String, Boolean> isPatientType(String username) {
         try (Connection con = db.getConnection();
              PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.ISTYPEPATIENTFROMUSERNAME_QUERY)) {
             preparedStatement.setString(1, username);
             ResultSet credentialsResult = preparedStatement.executeQuery();
             if (!credentialsResult.next()) {
                 return Either.left("No credentials found for the username " + username);
-            }
-            else {
+            } else {
                 return Either.right(credentialsResult.getBoolean("isTypePatient"));
             }
         } catch (SQLException e) {
@@ -141,32 +170,20 @@ public class PatientDaoImpl implements PatientDao {
 
     @Override
     public int delete(Patient p) {
-        if (p == null) {
-            return -1;
-        }
-        try {
-            List<Patient> patients = getAll().get();
-            patients.remove(p);
-            Files.write(Paths.get(Configuration.getInstance().getPatientDataFile()), "patientID;name;contactDetails;personalInformation;username;password".getBytes());
-            for (Patient patient : patients) {
-                save(patient);
-            }
-            return 1;
-        } catch (IOException e) {
-            return -1;
-        }
-    }
-
-
-    public int delete(int patientID) {
         try (Connection con = db.getConnection();
-             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.PATIENT_DELETE)) {
-            preparedStatement.setInt(1, patientID);
-            ResultSet rs = preparedStatement.executeQuery();
-            if (rs.next()) {
-                return rs.getInt(1);
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.PATIENT_DELETE);
+             PreparedStatement preparedStatement2 = con.prepareStatement(SQLConstants.CREDENTIALS_DELETEBYPATIENTID)) {
+            preparedStatement2.setInt(1, p.getPatientID());
+            int affectedRows2 = preparedStatement2.executeUpdate();
+            if (affectedRows2 == 0) {
+                throw new SQLException("Deleting patient credentials failed, no rows affected.");
             } else {
-                return -1;
+                preparedStatement.setInt(1, p.getPatientID());
+                int affectedRows = preparedStatement.executeUpdate();
+                if (affectedRows == 0) {
+                    throw new SQLException("Deleting patient failed, no rows affected.");
+                }
+                return 1;
             }
         } catch (SQLException e) {
             log.error(e.getMessage());
@@ -174,6 +191,96 @@ public class PatientDaoImpl implements PatientDao {
         }
     }
 
+
+    public int delete(int patientID) {
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.PATIENT_DELETE);
+            con.setAutoCommit(false); // Start a transaction
+            preparedStatement.setInt(1, patientID);
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                return -1; // No rows affected, return -1
+            } else {
+                con.commit();
+                return 1; // Successful deletion, return 1
+            }
+        } catch (SQLException e) {
+            log.error(e.getMessage());
+            if (con != null) {
+                try {
+                    con.rollback(); // Rollback in case of an exception during deletion
+                } catch (SQLException ex) {
+                    log.error("Error during rollback: " + ex.getMessage());
+                }
+            }
+            e.printStackTrace();
+            return -1;
+        } finally {
+            if (con != null) {
+                try {
+                    con.setAutoCommit(true); // Restore auto-commit mode
+                    con.close(); // Close the connection
+                } catch (SQLException e) {
+                    log.error("Error closing connection: " + e.getMessage());
+                }
+            }
+        }
+    }
+
+    public int deletePatientWithCosas(int patientID) {
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            PreparedStatement deletePayments = con.prepareStatement(SQLConstants.DELETEPAYMENTSFROMPATIENTID_QUERY);
+            PreparedStatement deleteMedications = con.prepareStatement(SQLConstants.DELETEMEDICATIONSFROMPATIENTID_QUERY);
+            PreparedStatement deleteRecords = con.prepareStatement(SQLConstants.RECORD_DELETEBYPATIENTID);
+            PreparedStatement deleteAppointments = con.prepareStatement(SQLConstants.APP_DELETEBYPATIENTID);
+            PreparedStatement deleteCredentials = con.prepareStatement(SQLConstants.CREDENTIALS_DELETEBYPATIENTID);
+            PreparedStatement deletePatient = con.prepareStatement(SQLConstants.PATIENT_DELETE);
+
+            con.setAutoCommit(false); // Start a transaction
+
+            deletePayments.setInt(1, patientID);
+            deleteMedications.setInt(1, patientID);
+            deleteRecords.setInt(1, patientID);
+            deleteAppointments.setInt(1, patientID);
+            deleteCredentials.setInt(1, patientID);
+            deletePatient.setInt(1, patientID);
+
+
+            // Execute the delete statements
+            deletePayments.executeUpdate();
+            deleteMedications.executeUpdate();
+            deleteRecords.executeUpdate();
+            deleteAppointments.executeUpdate();
+            deleteCredentials.executeUpdate();
+            deletePatient.executeUpdate();
+
+            con.commit(); // Commit the transaction
+            return 1; // Successful deletion, return 1
+        } catch (SQLException ex) {
+            log.error("Error deleting the patient with stuff assigned: " + ex.getMessage());
+            if (con != null) {
+                try {
+                    con.rollback(); // Rollback in case of an exception during deletion
+                } catch (SQLException e) {
+                    log.error("Error during rollback: " + e.getMessage());
+                }
+            }
+            return -1;
+        } finally {
+            if (con != null) {
+                try {
+                    con.setAutoCommit(true); // Restore auto-commit mode
+                    con.close(); // Close the connection
+                } catch (SQLException e) {
+                    log.error("Error closing connection: " + e.getMessage());
+                }
+            }
+        }
+    }
 
     /*
     @Override

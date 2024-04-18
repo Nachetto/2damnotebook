@@ -24,6 +24,10 @@ public class PatientService {
         return patientDao.getTotalAmmountPayed(id);
     }
 
+    public Either<String, List<Patient>> getAllPatientsWithTotalAmmountPaid() {
+        return patientDao.getAllPatientsWithTotalAmmountPaid();
+    }
+
     public Either<String, List<Patient>> getAll() {
         return patientDao.getAll();
     }
@@ -44,11 +48,29 @@ public class PatientService {
         return patientDao.modify(initialpatient, modifiedpatient);
     }
 
+    public Either<String, Boolean> isPatientType(String username) {
+        return patientDao.isPatientType(username);
+    }
+
+    public int deletePatientWithCosas(int patientID) {
+        return patientDao.deletePatientWithCosas(patientID);
+    }
+
     public int delete(Patient p) {
         return patientDao.delete(p);
     }
 
     public int delete(int patientID) {
+        return patientDao.delete(patientID);
+    }
+
+    public int delete(int patientID, AppointmentService appointmentService) {
+
+        if (appointmentService.patientHasAppointments(patientID)){
+            if (appointmentService.delete(patientID) == 0){
+                return 0;
+            }
+        }
         return patientDao.delete(patientID);
     }
 

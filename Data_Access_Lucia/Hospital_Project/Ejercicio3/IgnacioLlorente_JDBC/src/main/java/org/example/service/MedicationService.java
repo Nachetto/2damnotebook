@@ -27,8 +27,8 @@ public class MedicationService {
         return medicationDao.save(m);
     }
 
-    public int modify(PrescribedMedication initialmedication, PrescribedMedication modifiedmedication) {
-        return medicationDao.modify(initialmedication, modifiedmedication);
+    public int modify(PrescribedMedication modifiedmedication) {
+        return medicationDao.modify(modifiedmedication);
     }
 
     public int delete(PrescribedMedication m) {
@@ -46,4 +46,5 @@ public class MedicationService {
     public int getNewMedicationID() {
         return medicationDao.getNewMedicationID();
     }
+
 }

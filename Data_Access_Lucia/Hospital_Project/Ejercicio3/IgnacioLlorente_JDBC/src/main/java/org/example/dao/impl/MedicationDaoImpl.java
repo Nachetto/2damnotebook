@@ -86,15 +86,20 @@ public class MedicationDaoImpl implements MedicationDao {
     @Override
     public int save(PrescribedMedication m) {
         try(Connection con = db.getConnection();
-            PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.MEDICATION_INSERT)) {
+            PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.MEDICATION_INSERT, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, m.getName());
             preparedStatement.setString(2, m.getDosage());
             preparedStatement.setInt(3, m.getRecordID());
-            ResultSet rs = preparedStatement.executeQuery();
-            if (rs.next()) {
-                return rs.getInt(1);
-            } else {
-                return -1;
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new SQLException("Creating medication failed, no rows affected.");
+            }
+            try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    return 1;
+                } else {
+                    throw new SQLException("Creating medication failed, no ID obtained.");
+                }
             }
         } catch (SQLException e) {
             log.error(e.getMessage());
@@ -103,9 +108,22 @@ public class MedicationDaoImpl implements MedicationDao {
     }
 
     @Override
-    public int modify(PrescribedMedication initialmedication, PrescribedMedication modifiedmedication) {
-        delete(initialmedication);
-        return 1;
+    public int modify( PrescribedMedication modifiedmedication) {
+        try(Connection con = db.getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.MEDICATION_UPDATE)) {
+            preparedStatement.setString(1, modifiedmedication.getName());
+            preparedStatement.setString(2, modifiedmedication.getDosage());
+            preparedStatement.setInt(3, modifiedmedication.getMedicationID());
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                return -1;
+            } else {
+                return 1;
+            }
+        } catch (SQLException e) {
+            log.error(e.getMessage());
+            return -1;
+        }
     }
 
     @Override
@@ -130,11 +148,11 @@ public class MedicationDaoImpl implements MedicationDao {
         try (Connection con = db.getConnection();
              PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.MEDICATION_DELETEBYPATIENTID)) {
             preparedStatement.setInt(1, id);
-            ResultSet rs = preparedStatement.executeQuery();
-            if (rs.next()) {
-                return rs.getInt(1);
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                return -1; // No rows affected, return -1
             } else {
-                return -1;
+                return 1; // Successful deletion, return 1
             }
         } catch (SQLException e) {
             log.error(e.getMessage());

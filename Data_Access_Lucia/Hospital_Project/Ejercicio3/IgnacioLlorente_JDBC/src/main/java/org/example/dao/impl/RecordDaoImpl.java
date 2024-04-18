@@ -23,15 +23,9 @@ import org.example.domain.xml.RecordsXML;
 import org.example.service.MedicationService;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -78,17 +72,21 @@ public class RecordDaoImpl implements RecordDao {
     @Override
     public int save(Record r) {
         try (Connection con = db.getConnection();
-             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.RECORD_INSERT)
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.RECORD_INSERT, Statement.RETURN_GENERATED_KEYS)
         ) {
             preparedStatement.setInt(1, r.getPatientID());
             preparedStatement.setString(2, r.getDiagnosis());
             preparedStatement.setInt(3, r.getDoctorID());
-            preparedStatement.executeUpdate();
-            ResultSet rs = preparedStatement.executeQuery();
-            if (rs.next()) {
-                return rs.getInt(1);
-            } else {
-                return -1;
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new SQLException("Creating record failed, no rows affected.");
+            }
+            try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    return generatedKeys.getInt(1);
+                } else {
+                    throw new SQLException("Creating record failed, no ID obtained.");
+                }
             }
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -97,26 +95,37 @@ public class RecordDaoImpl implements RecordDao {
     }
 
     @Override
-    public int modify(Record initialrecord, Record modifiedrecord) {
-        delete(initialrecord);
-        save(modifiedrecord);
-        return 1;
+    public int modify(Record modifiedrecord) {
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.RECORD_UPDATE)
+        ) {
+            preparedStatement.setString(1, modifiedrecord.getDiagnosis());
+            preparedStatement.setInt(2, modifiedrecord.getRecordID());
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new SQLException("Updating record failed, no rows affected.");
+            }
+            return 1;
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return -1;
+        }
     }
 
     @Override
     public int delete(Record r) {
-        if (r == null) {
-            return -1;
-        }
-        try {
-            List<Record> records = getAll().get();
-            records.remove(r);
-            Files.write(Paths.get(Configuration.getInstance().getRecordDataFile()), "recordID;patientID;diagnosis;doctorID".getBytes());
-            for (Record record : records) {
-                save(record);
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.RECORD_DELETE)
+        ) {
+            preparedStatement.setInt(1, r.getRecordID());
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new SQLException("Deleting record failed, no rows affected.");
             }
             return 1;
-        } catch (IOException e) {
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            e.printStackTrace();
             return -1;
         }
     }
@@ -216,25 +225,28 @@ public class RecordDaoImpl implements RecordDao {
     }
 
     public int deleteByPatient(int id) {
-        try {
-            List<Record> records = getAll().get();
-            records.removeIf(r -> r.getPatientID() == id);
-            Files.write(Paths.get(Configuration.getInstance().getRecordDataFile()), "recordID;patientID;diagnosis;doctorID".getBytes());
-            for (Record record : records) {
-                save(record);
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.RECORD_DELETEBYPATIENTID)) {
+            preparedStatement.setInt(1, id);
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                return -1; // No rows affected, return -1
+            } else {
+                return 1; // Successful deletion, return 1
             }
-            return 1;
-        } catch (IOException e) {
+        } catch (SQLException e) {
+            log.error(e.getMessage());
             return -1;
         }
     }
 
     public boolean hasMedications(int id, MedicationService medicationService) {
-        try(Connection con = db.getConnection();
-            PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.COUNTMEDICATIONSFROMRECORDID_QUERY)
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.COUNTMEDICATIONSFROMPATIENTID_QUERY)
         ) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
             return rs.getInt("count") > 0;
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -349,7 +361,7 @@ public class RecordDaoImpl implements RecordDao {
         try (Connection con = db.getConnection();
              Statement stmt = con.createStatement();
              PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.RECORDSFROMPATIENTID_QUERY)
-            ) {
+        ) {
             preparedStatement.setInt(1, patientId);
             ResultSet rs = preparedStatement.executeQuery();
             List<Record> records = new ArrayList<>();
@@ -368,4 +380,40 @@ public class RecordDaoImpl implements RecordDao {
 
     }
 
+    public Either<String, List<Record>> getRecordsFromDoctorUsername(String username) {
+        try (Connection con = db.getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.RECORDSFROMUSERNAME_DOCTORSONLY_QUERY)
+        ) {
+            preparedStatement.setString(1, username);
+            ResultSet rs = preparedStatement.executeQuery();
+            List<Record> records = new ArrayList<>();
+            while (rs.next()) {
+                records.add(new Record(rs.getInt("RecordID"),
+                        rs.getInt("PatientID"),
+                        rs.getString("Diagnosis"),
+                        rs.getInt("DoctorID")
+                ));
+            }
+            return Either.right(records);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return Either.left(Constantes.PATIENTDBERROR + e.getMessage());
+        }
+    }
+
+
+    public int patientIDWithMostRecords() {
+        try (Connection con = db.getConnection();
+             Statement stmt = con.createStatement();
+             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.PATIENTWITHMOSTRECORDS_QUERY)
+        ) {
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            System.out.println("The following patient has " + rs.getString("count") + " records: ");
+            return rs.getInt("PatientID");
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return -1;
+        }
+    }
 }

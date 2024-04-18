@@ -11,7 +11,7 @@ public interface MedicationDao {
 
     int save(PrescribedMedication c);
 
-    int modify(PrescribedMedication c, PrescribedMedication cu);
+    int modify( PrescribedMedication cu);
 
     int delete(PrescribedMedication c);
 }

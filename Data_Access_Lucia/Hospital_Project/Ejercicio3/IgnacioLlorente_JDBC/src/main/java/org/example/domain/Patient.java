@@ -8,7 +8,8 @@ public class Patient {
     private final String name;
     private final String contactDetails;
     private final String personalInformation;
-    private final Credential credential;
+    private Credential credential;
+    private int totalAmountPaid;
 
     public Patient(int patientID, String name, String contactDetails, String personalInformation, Credential credential) {
         this.patientID = patientID;
@@ -16,6 +17,21 @@ public class Patient {
         this.contactDetails = contactDetails;
         this.personalInformation = personalInformation;
         this.credential=credential;
+    }
+    public Patient(int patientID, String name, String contactDetails, String personalInformation) {
+        this.patientID = patientID;
+        this.name = name;
+        this.contactDetails = contactDetails;
+        this.personalInformation = personalInformation;
+    }
+
+
+    public Patient(int patientID, String name, String contactDetails, String personalInformation, int totalAmountPaid) {
+        this.patientID = patientID;
+        this.name = name;
+        this.contactDetails = contactDetails;
+        this.personalInformation = personalInformation;
+        this.totalAmountPaid = totalAmountPaid;
     }
 
     public Patient(String fileLine) {
@@ -37,7 +53,8 @@ public class Patient {
                 "\nname: " + name +
                 "\ncontactDetails: " + contactDetails +
                 "\npersonalInformation: " + personalInformation +
-                "\ncredentials: " + credential;
+                "\ncredentials: " + credential +
+                "\ntotalAmountPaid: " + totalAmountPaid;
     }
 
     // Constructor, getters y setters

@@ -3,6 +3,7 @@ package org.example.dao;
 import io.vavr.control.Either;
 import org.example.domain.Appointment;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface AppointmentDao {
@@ -14,4 +15,5 @@ public interface AppointmentDao {
     int modify(Appointment c, Appointment cu);
 
     int delete(Appointment c);
+
 }

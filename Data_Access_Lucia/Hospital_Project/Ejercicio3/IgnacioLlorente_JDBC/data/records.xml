@@ -19,11 +19,11 @@
             <name>John Doe</name>
             <contactDetails>123-456-7890</contactDetails>
             <personalInformation>Male, 35 years old, non-smoker</personalInformation>
-            <username>johndoe</username>
-            <password>1234</password>
+            <username>johndoe123</username>
+            <password>password123</password>
         </patient>
-        <doctor>Dr. Smith</doctor>
-        <diagnosis>flu</diagnosis>
+        <doctor>Dr. Martinez</doctor>
+        <diagnosis>Hypertension</diagnosis>
     </records>
     <records>
         <id>2</id>
@@ -42,13 +42,13 @@
         <patient>
             <patientID>2</patientID>
             <name>Jane Smith</name>
-            <contactDetails>456-789-012</contactDetails>
-            <personalInformation>Female, 30 years old, non-smoker</personalInformation>
-            <username>janes</username>
-            <password>1234</password>
+            <contactDetails>456-789-0123</contactDetails>
+            <personalInformation>Female, 45 years old, occasional smoker</personalInformation>
+            <username>janesmith456</username>
+            <password>smith789</password>
         </patient>
         <doctor>Dr. Johnson</doctor>
-        <diagnosis>flu</diagnosis>
+        <diagnosis>Bronchitis</diagnosis>
     </records>
     <records>
         <id>3</id>
@@ -69,11 +69,11 @@
             <name>Michael Johnson</name>
             <contactDetails>789-012-3456</contactDetails>
             <personalInformation>Male, 50 years old, diabetic</personalInformation>
-            <username>michaelj</username>
-            <password>1234</password>
+            <username>michaelj789</username>
+            <password>mikejohnson</password>
         </patient>
-        <doctor>Dr. Williams</doctor>
-        <diagnosis>cold</diagnosis>
+        <doctor>Dr. Smith</doctor>
+        <diagnosis>Diabetes</diagnosis>
     </records>
     <records>
         <id>4</id>
@@ -94,11 +94,11 @@
             <name>Emily Davis</name>
             <contactDetails>012-345-6789</contactDetails>
             <personalInformation>Female, 25 years old, no significant medical history</personalInformation>
-            <username>emilyd</username>
-            <password>1234</password>
+            <username>emilydavis25</username>
+            <password>davise123</password>
         </patient>
-        <doctor>Dr. Brown</doctor>
-        <diagnosis>headache</diagnosis>
+        <doctor>Dr. Williams</doctor>
+        <diagnosis>Allergy</diagnosis>
     </records>
     <records>
         <id>5</id>
@@ -116,14 +116,14 @@
         </medications>
         <patient>
             <patientID>5</patientID>
-            <name>Sarah Smith</name>
-            <contactDetails>345-678-901</contactDetails>
-            <personalInformation>Female, 40 years old, non-smoker</personalInformation>
-            <username>sarahs</username>
-            <password>1234</password>
+            <name>David Wilson</name>
+            <contactDetails>234-567-8901</contactDetails>
+            <personalInformation>Male, 40 years old, hypertension</personalInformation>
+            <username>davidwilson40</username>
+            <password>davidw234</password>
         </patient>
-        <doctor>Dr. Martinez</doctor>
-        <diagnosis>flu</diagnosis>
+        <doctor>Dr. Brown</doctor>
+        <diagnosis>Fractured arm</diagnosis>
     </records>
     <records>
         <id>6</id>
@@ -135,70 +135,28 @@
             </medication>
         </medications>
         <patient>
-            <patientID>1</patientID>
-            <name>John Doe</name>
-            <contactDetails>123-456-7890</contactDetails>
-            <personalInformation>Male, 35 years old, non-smoker</personalInformation>
-            <username>johndoe</username>
-            <password>1234</password>
+            <patientID>2</patientID>
+            <name>Jane Smith</name>
+            <contactDetails>456-789-0123</contactDetails>
+            <personalInformation>Female, 45 years old, occasional smoker</personalInformation>
+            <username>janesmith456</username>
+            <password>smith789</password>
         </patient>
-        <doctor>Dr. Smith</doctor>
-        <diagnosis>flu2</diagnosis>
+        <doctor>Dr. Martinez</doctor>
+        <diagnosis>covid</diagnosis>
     </records>
     <records>
         <id>7</id>
         <medications/>
         <patient>
-            <patientID>2</patientID>
-            <name>Jane Smith</name>
-            <contactDetails>456-789-012</contactDetails>
-            <personalInformation>Female, 30 years old, non-smoker</personalInformation>
-            <username>janes</username>
-            <password>1234</password>
-        </patient>
-        <doctor>Dr. Johnson</doctor>
-        <diagnosis>flu2</diagnosis>
-    </records>
-    <records>
-        <id>8</id>
-        <medications/>
-        <patient>
-            <patientID>3</patientID>
-            <name>Michael Johnson</name>
-            <contactDetails>789-012-3456</contactDetails>
-            <personalInformation>Male, 50 years old, diabetic</personalInformation>
-            <username>michaelj</username>
-            <password>1234</password>
-        </patient>
-        <doctor>Dr. Williams</doctor>
-        <diagnosis>cold2</diagnosis>
-    </records>
-    <records>
-        <id>9</id>
-        <medications/>
-        <patient>
-            <patientID>4</patientID>
-            <name>Emily Davis</name>
-            <contactDetails>012-345-6789</contactDetails>
-            <personalInformation>Female, 25 years old, no significant medical history</personalInformation>
-            <username>emilyd</username>
-            <password>1234</password>
-        </patient>
-        <doctor>Dr. Brown</doctor>
-        <diagnosis>headache2</diagnosis>
-    </records>
-    <records>
-        <id>10</id>
-        <medications/>
-        <patient>
             <patientID>5</patientID>
-            <name>Sarah Smith</name>
-            <contactDetails>345-678-901</contactDetails>
-            <personalInformation>Female, 40 years old, non-smoker</personalInformation>
-            <username>sarahs</username>
-            <password>1234</password>
+            <name>David Wilson</name>
+            <contactDetails>234-567-8901</contactDetails>
+            <personalInformation>Male, 40 years old, hypertension</personalInformation>
+            <username>davidwilson40</username>
+            <password>davidw234</password>
         </patient>
         <doctor>Dr. Martinez</doctor>
-        <diagnosis>flu2</diagnosis>
+        <diagnosis>covid</diagnosis>
     </records>
 </recordsXML>

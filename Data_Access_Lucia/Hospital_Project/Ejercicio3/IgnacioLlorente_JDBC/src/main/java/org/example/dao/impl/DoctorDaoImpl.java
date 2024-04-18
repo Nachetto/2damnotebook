@@ -1,18 +1,29 @@
 package org.example.dao.impl;
 import io.vavr.control.Either;
+import jakarta.inject.Inject;
 import org.example.common.Constantes;
 import org.example.common.config.Configuration;
 import org.example.dao.DoctorDao;
+import org.example.dao.common.DBConnection;
 import org.example.domain.Doctor;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import org.example.dao.common.SQLConstants;
 
 public class DoctorDaoImpl implements DoctorDao{
+    private final DBConnection db;
+    @Inject
+    public DoctorDaoImpl(DBConnection db) {
+        this.db = db;
+    }
     @Override
     public Either<String, List<Doctor>> getAll() {
         List<Doctor> doctors = new ArrayList<>();
@@ -66,6 +77,20 @@ public class DoctorDaoImpl implements DoctorDao{
             }
             return 1;
         } catch (IOException e) {
+            return -1;
+        }
+    }
+
+    public int getDoctorIDFromUsername(String username) {
+        try (Connection conn = db.getConnection();
+             PreparedStatement ps = conn.prepareStatement(SQLConstants.GETDOCTORIDFROMUSERNAME_QUERY)) {
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("PatientOrDoctorID");
+            }
+            return -1;
+        } catch (Exception e) {
             return -1;
         }
     }
