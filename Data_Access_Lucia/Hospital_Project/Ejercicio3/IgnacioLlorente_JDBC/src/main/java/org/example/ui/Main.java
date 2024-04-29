@@ -242,7 +242,7 @@ public class Main {
                 //delete the patient, medications and records
                 if (medicationService.deleteByPatient(id) == -1
                         || recordService.deleteByPatient(id) == -1
-                        || patientService.delete(id) == -1) {
+                        || patientService.delete(id, true) == -1) {
                     System.out.println("Error while deleting the records, medications or patient");
                 } else {
                     System.out.println("Patient deleted correctly");
@@ -250,7 +250,7 @@ public class Main {
             }
         } else {
             //delete the patient
-            if (patientService.delete(id) == -1) {
+            if (patientService.delete(id, false) == -1) {
                 System.out.println("Error while deleting the patient");
             } else {
                 System.out.println("Patient deleted correctly");
@@ -382,7 +382,7 @@ public class Main {
                 System.out.println("The patient wasn't deleted, exiting...");
             } else {
                 //delete the patient, medications and records
-                if (patientService.deletePatientWithCosas(id) == -1) {
+                if (patientService.delete(id, true) == -1) {
                     System.out.println("Error while deleting the records, medications or patient");
                 } else {
                     System.out.println("Patient deleted correctly");
@@ -390,7 +390,7 @@ public class Main {
             }
         } else {
             //delete the patient
-            if (patientService.delete(id, appointmentService) == -1) {
+            if (patientService.delete(id, false) == -1) {
                 System.out.println("Error while deleting the patient");
             } else {
                 System.out.println("Patient deleted correctly");

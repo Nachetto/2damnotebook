@@ -14,7 +14,7 @@ public interface PatientDao {
 
     int modify(Patient c, Patient cu);
 
-    int delete(Patient c);
+    int delete(int patientID, boolean deepDeletion);
 
     boolean checkLogin(Credential c);
 }

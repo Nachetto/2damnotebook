@@ -164,119 +164,85 @@ public class PatientDaoImpl implements PatientDao {
 
     @Override
     public int modify(Patient initialpatient, Patient modifiedpatient) {
-        delete(initialpatient);
         return 1;
     }
 
     @Override
-    public int delete(Patient p) {
-        try (Connection con = db.getConnection();
-             PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.PATIENT_DELETE);
-             PreparedStatement preparedStatement2 = con.prepareStatement(SQLConstants.CREDENTIALS_DELETEBYPATIENTID)) {
-            preparedStatement2.setInt(1, p.getPatientID());
-            int affectedRows2 = preparedStatement2.executeUpdate();
-            if (affectedRows2 == 0) {
-                throw new SQLException("Deleting patient credentials failed, no rows affected.");
-            } else {
-                preparedStatement.setInt(1, p.getPatientID());
-                int affectedRows = preparedStatement.executeUpdate();
-                if (affectedRows == 0) {
-                    throw new SQLException("Deleting patient failed, no rows affected.");
-                }
-                return 1;
-            }
-        } catch (SQLException e) {
-            log.error(e.getMessage());
-            return -1;
-        }
-    }
-
-
-    public int delete(int patientID) {
+    public int delete(int patientID, boolean deepDeletion) {
         Connection con = null;
-        try {
-            con = db.getConnection();
-            PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.PATIENT_DELETE);
-            con.setAutoCommit(false); // Start a transaction
-            preparedStatement.setInt(1, patientID);
-            int affectedRows = preparedStatement.executeUpdate();
-            if (affectedRows == 0) {
-                return -1; // No rows affected, return -1
-            } else {
-                con.commit();
+        if (!deepDeletion) {
+            try {
+                con = db.getConnection();
+                PreparedStatement preparedStatement = con.prepareStatement(SQLConstants.PATIENT_DELETE);
+                PreparedStatement preparedStatement2 = con.prepareStatement(SQLConstants.CREDENTIALS_DELETEBYPATIENTID);
+                preparedStatement2.setInt(1, patientID);
+                int affectedRows2 = preparedStatement2.executeUpdate();
+                if (affectedRows2 == 0) {
+                    throw new SQLException("Deleting patient credentials failed, no rows affected.");
+                } else {
+                    preparedStatement.setInt(1, patientID);
+                    int affectedRows = preparedStatement.executeUpdate();
+                    if (affectedRows == 0) {
+                        throw new SQLException("Deleting patient failed, no rows affected.");
+                    }
+                    return 1;
+                }
+            } catch (SQLException e) {
+                log.error(e.getMessage());
+                log.info("This is type deepDeletion false");
+                e.printStackTrace();
+                return -1;
+            }
+        } else {
+            try {
+                con = db.getConnection();
+                PreparedStatement deletePayments = con.prepareStatement(SQLConstants.DELETEPAYMENTSFROMPATIENTID_QUERY);
+                PreparedStatement deleteMedications = con.prepareStatement(SQLConstants.DELETEMEDICATIONSFROMPATIENTID_QUERY);
+                PreparedStatement deleteRecords = con.prepareStatement(SQLConstants.RECORD_DELETEBYPATIENTID);
+                PreparedStatement deleteAppointments = con.prepareStatement(SQLConstants.APP_DELETEBYPATIENTID);
+                PreparedStatement deleteCredentials = con.prepareStatement(SQLConstants.CREDENTIALS_DELETEBYPATIENTID);
+                PreparedStatement deletePatient = con.prepareStatement(SQLConstants.PATIENT_DELETE);
+
+                con.setAutoCommit(false); // Start a transaction
+
+                deletePayments.setInt(1, patientID);
+                deleteMedications.setInt(1, patientID);
+                deleteRecords.setInt(1, patientID);
+                deleteAppointments.setInt(1, patientID);
+                deleteCredentials.setInt(1, patientID);
+                deletePatient.setInt(1, patientID);
+
+
+                // Execute the delete statements
+                deletePayments.executeUpdate();
+                deleteMedications.executeUpdate();
+                deleteRecords.executeUpdate();
+                deleteAppointments.executeUpdate();
+                deleteCredentials.executeUpdate();
+                deletePatient.executeUpdate();
+
+                con.commit(); // Commit the transaction
                 return 1; // Successful deletion, return 1
-            }
-        } catch (SQLException e) {
-            log.error(e.getMessage());
-            if (con != null) {
-                try {
-                    con.rollback(); // Rollback in case of an exception during deletion
-                } catch (SQLException ex) {
-                    log.error("Error during rollback: " + ex.getMessage());
+            } catch (SQLException ex) {
+                log.error("Error deleting the patient with stuff assigned: " + ex.getMessage());
+                log.info("This is type deepDeletion true");
+                ex.printStackTrace();
+                if (con != null) {
+                    try {
+                        con.rollback(); // Rollback in case of an exception during deletion
+                    } catch (SQLException e) {
+                        log.error("Error during rollback: " + e.getMessage());
+                    }
                 }
-            }
-            e.printStackTrace();
-            return -1;
-        } finally {
-            if (con != null) {
-                try {
-                    con.setAutoCommit(true); // Restore auto-commit mode
-                    con.close(); // Close the connection
-                } catch (SQLException e) {
-                    log.error("Error closing connection: " + e.getMessage());
-                }
-            }
-        }
-    }
-
-    public int deletePatientWithCosas(int patientID) {
-        Connection con = null;
-        try {
-            con = db.getConnection();
-            PreparedStatement deletePayments = con.prepareStatement(SQLConstants.DELETEPAYMENTSFROMPATIENTID_QUERY);
-            PreparedStatement deleteMedications = con.prepareStatement(SQLConstants.DELETEMEDICATIONSFROMPATIENTID_QUERY);
-            PreparedStatement deleteRecords = con.prepareStatement(SQLConstants.RECORD_DELETEBYPATIENTID);
-            PreparedStatement deleteAppointments = con.prepareStatement(SQLConstants.APP_DELETEBYPATIENTID);
-            PreparedStatement deleteCredentials = con.prepareStatement(SQLConstants.CREDENTIALS_DELETEBYPATIENTID);
-            PreparedStatement deletePatient = con.prepareStatement(SQLConstants.PATIENT_DELETE);
-
-            con.setAutoCommit(false); // Start a transaction
-
-            deletePayments.setInt(1, patientID);
-            deleteMedications.setInt(1, patientID);
-            deleteRecords.setInt(1, patientID);
-            deleteAppointments.setInt(1, patientID);
-            deleteCredentials.setInt(1, patientID);
-            deletePatient.setInt(1, patientID);
-
-
-            // Execute the delete statements
-            deletePayments.executeUpdate();
-            deleteMedications.executeUpdate();
-            deleteRecords.executeUpdate();
-            deleteAppointments.executeUpdate();
-            deleteCredentials.executeUpdate();
-            deletePatient.executeUpdate();
-
-            con.commit(); // Commit the transaction
-            return 1; // Successful deletion, return 1
-        } catch (SQLException ex) {
-            log.error("Error deleting the patient with stuff assigned: " + ex.getMessage());
-            if (con != null) {
-                try {
-                    con.rollback(); // Rollback in case of an exception during deletion
-                } catch (SQLException e) {
-                    log.error("Error during rollback: " + e.getMessage());
-                }
-            }
-            return -1;
-        } finally {
-            if (con != null) {
-                try {
-                    con.setAutoCommit(true); // Restore auto-commit mode
-                    con.close(); // Close the connection
-                } catch (SQLException e) {
-                    log.error("Error closing connection: " + e.getMessage());
+                return -1;
+            } finally {
+                if (con != null) {
+                    try {
+                        con.setAutoCommit(true); // Restore auto-commit mode
+                        con.close(); // Close the connection
+                    } catch (SQLException e) {
+                        log.error("Error closing connection: " + e.getMessage());
+                    }
                 }
             }
         }

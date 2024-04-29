@@ -1,0 +1,12 @@
+
+M
+java:S1128"2Remove this unused import 'jakarta.inject.Inject'.(ž‘ø”þÿÿÿÿ
+L
+java:S1068"1Remove this unused "appointmentID" private field.(Ø“ƒ¶øÿÿÿÿ
+E
+java:S1068	"/Remove this unused "dateAndTime" private field.(‡§Öò
+H
+java:S1068
+"-Remove this unused "patientID" private field.(¸œ¸‡úÿÿÿÿ
+G
+java:S1068",Remove this unused "doctorID" private field.(ç«€„ýÿÿÿÿ

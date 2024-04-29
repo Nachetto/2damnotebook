@@ -52,26 +52,8 @@ public class PatientService {
         return patientDao.isPatientType(username);
     }
 
-    public int deletePatientWithCosas(int patientID) {
-        return patientDao.deletePatientWithCosas(patientID);
-    }
-
-    public int delete(Patient p) {
-        return patientDao.delete(p);
-    }
-
-    public int delete(int patientID) {
-        return patientDao.delete(patientID);
-    }
-
-    public int delete(int patientID, AppointmentService appointmentService) {
-
-        if (appointmentService.patientHasAppointments(patientID)){
-            if (appointmentService.delete(patientID) == 0){
-                return 0;
-            }
-        }
-        return patientDao.delete(patientID);
+    public int delete(int p, boolean deepDeletion) {
+        return patientDao.delete(p, deepDeletion);
     }
 
     public List<Record> getRecords(int patientID) {
