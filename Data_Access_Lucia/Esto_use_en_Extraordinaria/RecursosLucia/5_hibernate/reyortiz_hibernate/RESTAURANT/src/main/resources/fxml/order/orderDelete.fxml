@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="471.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.screens.orders.OrderDeleteController">
+    <children>
+        <Label layoutX="35.0" layoutY="33.0" text="Delete order">
+            <font>
+                <Font size="23.0"/>
+            </font>
+        </Label>
+        <Label layoutX="429.0" layoutY="83.0" text="Order items">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label layoutX="35.0" layoutY="83.0" text="All orders">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+
+        <TableView fx:id="deleteOrderTable" layoutX="35.0" layoutY="110.0" prefHeight="238.0" prefWidth="356.0"
+                   onMouseClicked="#showOrder">
+            <columns>
+                <TableColumn fx:id="orderID" prefWidth="34.19997787475586" text="ID"/>
+                <TableColumn fx:id="orderTable" prefWidth="48.79998779296875" text="Table"/>
+                <TableColumn fx:id="orderCustomerID" prefWidth="102.39999389648438" text="Costumer ID"/>
+                <TableColumn fx:id="orderDate" prefWidth="169.4000244140625" text="Date"/>
+            </columns>
+        </TableView>
+        <TableView fx:id="orderItemTable" layoutX="429.0" layoutY="110.0" prefHeight="238.0" prefWidth="252.0">
+            <columns>
+                <TableColumn fx:id="orderItemName" prefWidth="125.20001220703125" text="Name"/>
+                <TableColumn fx:id="orderItemQuantity" prefWidth="60.399932861328125" text="Quantity"/>
+                <TableColumn fx:id="orderItemPrice" prefWidth="66.60003662109375" text="Price"/>
+            </columns>
+        </TableView>
+
+        <Button layoutX="35.0" layoutY="368.0" mnemonicParsing="false" onAction="#delete" text="Delete"/>
+
+    </children>
+</AnchorPane>

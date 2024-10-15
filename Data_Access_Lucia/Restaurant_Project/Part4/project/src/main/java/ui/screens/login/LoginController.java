@@ -15,6 +15,5 @@ public class LoginController extends BaseScreenController {
     @FXML
     private void login() {
         getPrincipalController().onLogin(username.getText(), password.getText());
-
     }
 }

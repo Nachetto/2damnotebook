@@ -1,0 +1,60 @@
+# reymortiz_ejercicio3
+
+###
+@urlbase =http://localhost:8080/
+# @name loginAdmin
+GET {{urlbase}}login?
+    nombre=admin&
+    password=admin
+
+
+
+###
+# @name loginEmpleado
+GET {{urlbase}}login?
+    nombre=test1&
+    password=test
+
+###
+# @name getEmpleados
+GET {{urlbase}}empleados
+Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhY2Nlc3NUb2tlbiIsImV4cCI6MTcwOTQwNTgxMSwibm9tYnJlIjoidGVzdDEiLCJyb2wiOiJFTVBMRUFETyJ9.Wz_CJK0BQB9UFqDarhUkso-HRO5GfySBU-xLtfY7piGOy9QLo7BgatSahw6NWTjIn24Y5KXZFvK8WvTZyRrqtcXHrqAPEojQ-_cz6lsnbj8kIsQmTeIrsIJzRR9JJ0e-YHUCBUawpmqkBKT2-rp4eusRVXU1-Y2kEkgS3jEyxbB45itOjJ7Zx3VKgJoXd6xX7nc_-K3bEHmOEB5VAeaabKXazVneDzNLyfgFVi-CmTak5mAurTGZjhUqE-kDIBTcbtrGIZJ2dWP3OD9pZVJvXQYLkU5UvlsNEc4WU7I9Bcv0_0S6w2cp2T6SjdAui595fRuGL_u28HL6I0KrJqcmKw
+
+###
+# @name getMoviles
+GET {{urlbase}}moviles
+Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhY2Nlc3NUb2tlbiIsImV4cCI6MTcwOTQwNTgxMSwibm9tYnJlIjoidGVzdDEiLCJyb2wiOiJFTVBMRUFETyJ9.Wz_CJK0BQB9UFqDarhUkso-HRO5GfySBU-xLtfY7piGOy9QLo7BgatSahw6NWTjIn24Y5KXZFvK8WvTZyRrqtcXHrqAPEojQ-_cz6lsnbj8kIsQmTeIrsIJzRR9JJ0e-YHUCBUawpmqkBKT2-rp4eusRVXU1-Y2kEkgS3jEyxbB45itOjJ7Zx3VKgJoXd6xX7nc_-K3bEHmOEB5VAeaabKXazVneDzNLyfgFVi-CmTak5mAurTGZjhUqE-kDIBTcbtrGIZJ2dWP3OD9pZVJvXQYLkU5UvlsNEc4WU7I9Bcv0_0S6w2cp2T6SjdAui595fRuGL_u28HL6I0KrJqcmKw
+
+###
+# @name addEmpleado
+POST {{urlbase}}empleado
+Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhY2Nlc3NUb2tlbiIsImV4cCI6MTcwOTE5ODEyMiwibm9tYnJlIjoidGVzdDEiLCJyb2wiOiJFTVBMRUFETyJ9.OgMc-7dlEzugnl7nR3Eqle2zwftVmw0UAJN6o9cXRMFgTFw92dn7At9MQvEDCkPtybstYFAAgL_bPh1l7Bs9Wja1NsBd3PuLfFvo4Ah2NAfTHLaVN8Fte6e1NkDW3EED37NvP01ZECTgG3BvZACdgrXrulXZom6_aeAxYjGxl-M5ghnR3nZ0L_NlwkSDwXBdEkHbVa2-lcpugOTJI-bj2VcPvu11j2CActvJdnP4Ysizfp-gtVUqFMgha2CU2IbWnOVxiBBZZoF_KhBtH7vYRKurDmAjPL9CVwCdf6q_t21zPIZ6bA1zgPCVt4jaaZphC6_gS3Ua9nRSHkKKESpKMQ
+Content-Type: application/json
+
+{
+  "id": null,
+  "fechaNac": "1980-11-10",
+  "nombre": "maritere",
+  "password": "test",
+  "rol": "EMPLEADO"
+}
+
+###
+# @name updateMovil
+PUT {{urlbase}}movil
+Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhY2Nlc3NUb2tlbiIsImV4cCI6MTcwOTQwNTgxMSwibm9tYnJlIjoidGVzdDEiLCJyb2wiOiJFTVBMRUFETyJ9.Wz_CJK0BQB9UFqDarhUkso-HRO5GfySBU-xLtfY7piGOy9QLo7BgatSahw6NWTjIn24Y5KXZFvK8WvTZyRrqtcXHrqAPEojQ-_cz6lsnbj8kIsQmTeIrsIJzRR9JJ0e-YHUCBUawpmqkBKT2-rp4eusRVXU1-Y2kEkgS3jEyxbB45itOjJ7Zx3VKgJoXd6xX7nc_-K3bEHmOEB5VAeaabKXazVneDzNLyfgFVi-CmTak5mAurTGZjhUqE-kDIBTcbtrGIZJ2dWP3OD9pZVJvXQYLkU5UvlsNEc4WU7I9Bcv0_0S6w2cp2T6SjdAui595fRuGL_u28HL6I0KrJqcmKw
+Content-Type: application/json
+
+{
+  "id": 1,
+  "capacidad": 200,
+  "modelo": "Pixel4b",
+  "year": "2022",
+  "empleado": 2
+}
+
+###
+# @name deleteMovil
+DELETE {{urlbase}}movil?
+    id=1
+Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhY2Nlc3NUb2tlbiIsImV4cCI6MTcwOTE5ODEyMiwibm9tYnJlIjoidGVzdDEiLCJyb2wiOiJFTVBMRUFETyJ9.OgMc-7dlEzugnl7nR3Eqle2zwftVmw0UAJN6o9cXRMFgTFw92dn7At9MQvEDCkPtybstYFAAgL_bPh1l7Bs9Wja1NsBd3PuLfFvo4Ah2NAfTHLaVN8Fte6e1NkDW3EED37NvP01ZECTgG3BvZACdgrXrulXZom6_aeAxYjGxl-M5ghnR3nZ0L_NlwkSDwXBdEkHbVa2-lcpugOTJI-bj2VcPvu11j2CActvJdnP4Ysizfp-gtVUqFMgha2CU2IbWnOVxiBBZZoF_KhBtH7vYRKurDmAjPL9CVwCdf6q_t21zPIZ6bA1zgPCVt4jaaZphC6_gS3Ua9nRSHkKKESpKMQ

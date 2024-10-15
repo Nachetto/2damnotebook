@@ -1,0 +1,76 @@
+
+|
+java:S1192‚"^Define a constant instead of duplicating this literal "ERROR ESCRITURA ESPECIFICO:
+ " 3 times.(Ñˆé“8åèŠ¸Õ1
+i
+java:S1192"MDefine a constant instead of duplicating this literal "delfinatorio" 4 times.(ƒµœ8æèŠ¸Õ1
+h
+java:S1192"LDefine a constant instead of duplicating this literal "exhibiciÃ³n" 4 times.(ƒµœ8æèŠ¸Õ1
+g
+java:S1192"KDefine a constant instead of duplicating this literal "pingÃ¼inos" 4 times.(ƒµœ8æèŠ¸Õ1
+h
+java:S1192"KDefine a constant instead of duplicating this literal "provincia1" 4 times.(‡Ï•è8·òÍ¸Õ1
+m
+java:S1192"KDefine a constant instead of duplicating this literal "provincia2" 4 times.(»±§¹ÿÿÿÿÿ8¸òÍ¸Õ1
+z
+java:S1192±"\Define a constant instead of duplicating this literal "ERROR LECTURA ESPECIFICO:
+ " 3 times.(é‹8æèŠ¸Õ1
+X
+java:S1141Ì"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8çèŠ¸Õ1
+F
+java:S2140")Use "java.util.Random.nextInt()" instead.(‡Ï•è8ÍêŠ¸Õ1
+F
+java:S2140")Use "java.util.Random.nextInt()" instead.(‡Ï•è8ÎêŠ¸Õ1
+K
+java:S2140")Use "java.util.Random.nextInt()" instead.(»±§¹ÿÿÿÿÿ8ÎêŠ¸Õ1
+K
+java:S2140")Use "java.util.Random.nextInt()" instead.(»±§¹ÿÿÿÿÿ8ÎêŠ¸Õ1
+K
+java:S2140 ")Use "java.util.Random.nextInt()" instead.(ÿÆÄ—ùÿÿÿÿ8ÏêŠ¸Õ1
+K
+java:S2140 ")Use "java.util.Random.nextInt()" instead.(ÿÆÄ—ùÿÿÿÿ8ÏêŠ¸Õ1
+K
+java:S2140!")Use "java.util.Random.nextInt()" instead.(ÜÑİˆùÿÿÿÿ8ÏêŠ¸Õ1
+K
+java:S2140!")Use "java.util.Random.nextInt()" instead.(ÜÑİˆùÿÿÿÿ8ÏêŠ¸Õ1
+F
+java:S2140#")Use "java.util.Random.nextInt()" instead.(ìğìÛ8ĞêŠ¸Õ1
+F
+java:S2140#")Use "java.util.Random.nextInt()" instead.(ìğìÛ8ĞêŠ¸Õ1
+F
+java:S2140$")Use "java.util.Random.nextInt()" instead.(¼±¼8ĞêŠ¸Õ1
+F
+java:S2140$")Use "java.util.Random.nextInt()" instead.(¼±¼8ÑêŠ¸Õ1
+K
+java:S2140%")Use "java.util.Random.nextInt()" instead.(ˆ²½ıÿÿÿÿ8ÑêŠ¸Õ1
+K
+java:S2140%")Use "java.util.Random.nextInt()" instead.(ˆ²½ıÿÿÿÿ8ÑêŠ¸Õ1
+K
+java:S2140&")Use "java.util.Random.nextInt()" instead.(–Çãÿÿÿÿÿ8ÒêŠ¸Õ1
+K
+java:S2140&")Use "java.util.Random.nextInt()" instead.(–Çãÿÿÿÿÿ8ÒêŠ¸Õ1
+L	java:S106("+Replace this use of System.out by a logger.(ş¼Şñÿÿÿÿÿ8ÒêŠ¸Õ1
+F
+java:S2140.")Use "java.util.Random.nextInt()" instead.(—€™‰8ÓêŠ¸Õ1
+K
+java:S2140/")Use "java.util.Random.nextInt()" instead.(ìó„³úÿÿÿÿ8ÓêŠ¸Õ1
+F
+java:S21400")Use "java.util.Random.nextInt()" instead.(¿õºÿ8ÓêŠ¸Õ1
+i
+java:S6201Q"LReplace this instanceof check and cast with 'instanceof Zoologico zoologico'(¥òäç8µ•ß¸Õ1
+o
+java:S6204k"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8¸•ß¸Õ1
+m
+java:S1612i"PReplace this lambda with method reference 'ParqueAtracciones.class::isInstance'.(Îş­ñ8ÙêŠ¸Õ1
+l
+java:S1612j"JReplace this lambda with method reference 'ParqueAtracciones.class::cast'.(„Œ©šùÿÿÿÿ8ÙêŠ¸Õ1
+X	java:S125|"<This block of commented-out lines of code should be removed.(—¢©8ÛêŠ¸Õ1
+H	java:S106‚"+Replace this use of System.out by a logger.(Ñˆé“8ÜêŠ¸Õ1
+H	java:S106"+Replace this use of System.out by a logger.(Ñˆé“8ŞêŠ¸Õ1
+H	java:S106¢"+Replace this use of System.out by a logger.(Ñˆé“8áêŠ¸Õ1
+H	java:S106±"+Replace this use of System.out by a logger.(é‹8âêŠ¸Õ1
+H	java:S106¾"+Replace this use of System.out by a logger.(é‹8åêŠ¸Õ1
+c
+java:S2147á"ECombine this catch with the one at line 222, which has the same body.(é§8æêŠ¸Õ1
+M	java:S106Ğ"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8èêŠ¸Õ1
+H	java:S106Ü"+Replace this use of System.out by a logger.(é‹8êêŠ¸Õ1

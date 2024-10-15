@@ -1,0 +1,77 @@
+# reymortiz_ejercicio1
+
+###
+@urlbase = http://localhost:8080/
+# @name getEquiposNombre
+GRAPHQL {{urlbase}}graphql
+
+query GetEquipos{
+    getEquipos{
+        nombre
+    }
+}
+
+###
+# @name getEquiposJugadores
+GRAPHQL {{urlbase}}graphql
+
+query GetEquipos{
+    getEquipos{
+        id
+        nombre
+        jugadores{
+            id
+            nombre
+        }
+    }
+}
+
+###
+# @name getEquipoExiste
+GRAPHQL {{urlbase}}graphql
+
+query GetEquipo($id : Int!){
+    getEquipo(id : $id){
+        nombre
+        jugadores{
+            id
+            nombre
+        }
+    }
+}
+
+{
+  "id": 1
+}
+
+###
+# @name getEquipoNoExiste
+GRAPHQL {{urlbase}}graphql
+
+query GetEquipo($id : Int!){
+    getEquipo(id : $id){
+        nombre
+    }
+}
+
+{
+  "id": 3
+}
+
+###
+# @name addJugador
+GRAPHQL {{urlbase}}graphql
+
+mutation addJugador($jugador: JugadorInput!){
+    addJugador(jugador : $jugador){
+        nombre
+        equipo
+    }
+}
+
+{
+  "jugador": {
+    "nombre": "Paquita Salas",
+    "equipo": 1
+  }
+}

@@ -1,0 +1,8 @@
+
+[	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(‹Ó¢íüÿÿÿÿ
+I
+java:S1128",Remove this unused import 'lombok.ToString'.(¹ÂÄÓ8àå²Õ1
+S
+java:S1128	"1Remove this unused import 'java.io.Serializable'.(èãîÂÿÿÿÿÿ8àå²Õ1
+O
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8àå²Õ1

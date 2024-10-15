@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<orders>
+    <order>
+        <id>44</id>
+        <order_item>
+            <menu_item>Cheesecake</menu_item>
+            <quantity>1</quantity>
+        </order_item>
+    </order>
+    <order>
+        <id>45</id>
+        <order_item>
+            <menu_item>Ice cream </menu_item>
+            <quantity>1</quantity>
+        </order_item>
+        <order_item>
+            <menu_item>French fries</menu_item>
+            <quantity>1</quantity>
+        </order_item>
+    </order>
+</orders>

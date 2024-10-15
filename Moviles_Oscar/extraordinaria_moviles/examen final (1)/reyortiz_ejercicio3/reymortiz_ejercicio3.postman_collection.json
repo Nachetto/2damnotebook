@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "df91b1b7-ddeb-4c9d-af97-1b0b405b08e7",
+		"name": "reymortiz_ejercicio3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30330907"
+	},
+	"item": [
+		{
+			"name": "loginAdmin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlbase}}login?nombre=admin&password=admin",
+					"host": [
+						"{{urlbase}}login"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "admin"
+						},
+						{
+							"key": "password",
+							"value": "admin"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginEmpleado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlbase}}login?nombre=test1&password=test",
+					"host": [
+						"{{urlbase}}login"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "test1"
+						},
+						{
+							"key": "password",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEmpleados",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhY2Nlc3NUb2tlbiIsImV4cCI6MTcwOTE5ODAzNCwibm9tYnJlIjoiYWRtaW4iLCJyb2wiOiJBRE1JTiJ9.MyPFfaXAxfwvTvfXFcAgRbcPpkcIEo5F_MVhfFty0UJZVrKPhsZaw5rqEtQyIWXO-CcmJIbu5PizjOQghj0wdh1uIqIDAyI7qub7suiiHP2sxNqtnPgq3p9BC0h9XnKZDwFG4jo8SRu1G3BMUQ03fyNAzR6jLF9ngiwuYva3L6aioMEquwqIFxdeKiLI99uYaLaCmID5teQneXvrUkZiN1kpAWoCfvuvcniTU-qHMveOgIEibYm_rKXZyvk0od6QzBCYBVcus4PP3RinNSR4EbGQ-mHWrobYb33mpCdfRPCdDfIA6ZXraLJpbvxkjvRZghDU2EJH-dLJf6JOa2xEsA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{urlbase}}empleados",
+					"host": [
+						"{{urlbase}}empleados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMoviles",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhY2Nlc3NUb2tlbiIsImV4cCI6MTcwOTE5Nzk3OSwibm9tYnJlIjoidGVzdDEiLCJyb2wiOiJFTVBMRUFETyJ9.iARl9mdLMcL-YPFdycGaQ3y36S7mmUAYtTnSuCRiEeueln-cBQPwb1wV3-69TJ8N7N4spAzhh912ETEQTbadTloC2cUPoJBueqSnSVYt0jbycDDf5C-TDqUigy4Za5xogDF4bsQNwdJ-zGntAVy8h-3obWSBWd3f_3mZLSWfKGB5QTVtUhPEcXVSDKvbpKObE23L7bqNitO2IQHf4NbM6NZV-EmNYijoF-qSiUOBdHicFj5C7GJk64eu-9r6NV1LmTX1MdUuUd53LbK8ZbQAmXvYE9-RmM6zLDtGx6dvxfcGdG9Ji5lslt67KG7dhWDy6j9Cm9uPdGTsX_-Tngj3uA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{urlbase}}moviles",
+					"host": [
+						"{{urlbase}}moviles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addEmpleado",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhY2Nlc3NUb2tlbiIsImV4cCI6MTcwOTE5ODEyMiwibm9tYnJlIjoidGVzdDEiLCJyb2wiOiJFTVBMRUFETyJ9.OgMc-7dlEzugnl7nR3Eqle2zwftVmw0UAJN6o9cXRMFgTFw92dn7At9MQvEDCkPtybstYFAAgL_bPh1l7Bs9Wja1NsBd3PuLfFvo4Ah2NAfTHLaVN8Fte6e1NkDW3EED37NvP01ZECTgG3BvZACdgrXrulXZom6_aeAxYjGxl-M5ghnR3nZ0L_NlwkSDwXBdEkHbVa2-lcpugOTJI-bj2VcPvu11j2CActvJdnP4Ysizfp-gtVUqFMgha2CU2IbWnOVxiBBZZoF_KhBtH7vYRKurDmAjPL9CVwCdf6q_t21zPIZ6bA1zgPCVt4jaaZphC6_gS3Ua9nRSHkKKESpKMQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\" : null,\r\n   \"fechaNac\" : \"1980-11-10\",\r\n   \"nombre\": \"maritere\",\r\n   \"password\": \"test\",\r\n   \"rol\": \"EMPLEADO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlbase}}empleado",
+					"host": [
+						"{{urlbase}}empleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateMovil",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhY2Nlc3NUb2tlbiIsImV4cCI6MTcwOTE5ODEyMiwibm9tYnJlIjoidGVzdDEiLCJyb2wiOiJFTVBMRUFETyJ9.OgMc-7dlEzugnl7nR3Eqle2zwftVmw0UAJN6o9cXRMFgTFw92dn7At9MQvEDCkPtybstYFAAgL_bPh1l7Bs9Wja1NsBd3PuLfFvo4Ah2NAfTHLaVN8Fte6e1NkDW3EED37NvP01ZECTgG3BvZACdgrXrulXZom6_aeAxYjGxl-M5ghnR3nZ0L_NlwkSDwXBdEkHbVa2-lcpugOTJI-bj2VcPvu11j2CActvJdnP4Ysizfp-gtVUqFMgha2CU2IbWnOVxiBBZZoF_KhBtH7vYRKurDmAjPL9CVwCdf6q_t21zPIZ6bA1zgPCVt4jaaZphC6_gS3Ua9nRSHkKKESpKMQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 1,\r\n    \"capacidad\" : 200,\r\n    \"modelo\" : \"Pixel4b\",\r\n    \"year\" : \"2022\",\r\n    \"empleado\" : 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlbase}}movil",
+					"host": [
+						"{{urlbase}}movil"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteMovil",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhY2Nlc3NUb2tlbiIsImV4cCI6MTcwOTE5ODEyMiwibm9tYnJlIjoidGVzdDEiLCJyb2wiOiJFTVBMRUFETyJ9.OgMc-7dlEzugnl7nR3Eqle2zwftVmw0UAJN6o9cXRMFgTFw92dn7At9MQvEDCkPtybstYFAAgL_bPh1l7Bs9Wja1NsBd3PuLfFvo4Ah2NAfTHLaVN8Fte6e1NkDW3EED37NvP01ZECTgG3BvZACdgrXrulXZom6_aeAxYjGxl-M5ghnR3nZ0L_NlwkSDwXBdEkHbVa2-lcpugOTJI-bj2VcPvu11j2CActvJdnP4Ysizfp-gtVUqFMgha2CU2IbWnOVxiBBZZoF_KhBtH7vYRKurDmAjPL9CVwCdf6q_t21zPIZ6bA1zgPCVt4jaaZphC6_gS3Ua9nRSHkKKESpKMQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{urlbase}}movil?id=1",
+					"host": [
+						"{{urlbase}}movil"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "urlbase",
+			"value": "http://localhost:8080/",
+			"type": "string"
+		}
+	]
+}

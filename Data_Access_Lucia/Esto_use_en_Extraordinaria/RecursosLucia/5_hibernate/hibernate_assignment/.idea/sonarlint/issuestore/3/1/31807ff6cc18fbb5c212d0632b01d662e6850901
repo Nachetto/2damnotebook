@@ -1,0 +1,21 @@
+
+“
+java:S1192C"KDefine a constant instead of duplicating this literal "Loading..." 7 times.(×í® ÿÿÿÿÿ8Õøïå÷1J$7a25f565-38a8-4141-81b0-ce3d2f80313c
+k
+java:S5411%"(Use a primitive boolean expression here.(Ğğ˜İ8Øøïå÷1J$d79ba4e2-22d3-481e-bf87-cf66348280f5
+r	java:S106"+Replace this use of System.out by a logger.(Ä¾—©üÿÿÿÿ8äûïå÷1J$e2de5538-0269-4119-96ae-4b2dfb77f2eb
+m	java:S106"+Replace this use of System.out by a logger.(©£êò8åûïå÷1J$202f2faf-173d-47c6-a1bd-da9a8cb20d7d
+m	java:S106"+Replace this use of System.out by a logger.(û–âĞ8æûïå÷1J$746f6500-85d3-480d-94cf-72b970b87c08
+r	java:S106&"+Replace this use of System.out by a logger.(‰œø©ıÿÿÿÿ8èûïå÷1J$8baf2c98-06d8-4974-9bf7-b59fdc438934
+m	java:S106+"+Replace this use of System.out by a logger.(Îñë8éûïå÷1J$baa2162b-5a74-4a83-b0b4-a899cea79ec4
+r	java:S106C"+Replace this use of System.out by a logger.(×í® ÿÿÿÿÿ8êûïå÷1J$63eef8d6-b8fb-4254-babd-09ff687129b6
+r	java:S106X"+Replace this use of System.out by a logger.(×í® ÿÿÿÿÿ8îûïå÷1J$d5aab4d2-e1ab-4003-afb8-3cfd1195c6fe
+r	java:S106e"+Replace this use of System.out by a logger.(×í® ÿÿÿÿÿ8èÂßƒø1J$1691b78f-902b-4448-b63f-7844031a797e
+r	java:S106n"+Replace this use of System.out by a logger.(×í® ÿÿÿÿÿ8êÂßƒø1J$67911871-77a4-4943-9f3f-8692c5bf242a
+r	java:S106s"+Replace this use of System.out by a logger.(×í® ÿÿÿÿÿ8êÂßƒø1J$086aea04-8595-4581-a7d6-5a60fc734df4
+r	java:S106x"+Replace this use of System.out by a logger.(×í® ÿÿÿÿÿ8ëÂßƒø1J$c3ba90a4-a850-471d-9539-5dbded897ecc
+r	java:S106}"+Replace this use of System.out by a logger.(×í® ÿÿÿÿÿ8ëÂßƒø1J$78c34256-8509-475c-a15f-fbaac72f2146
+s	java:S106…"+Replace this use of System.out by a logger.(ËŠ”´ÿÿÿÿÿ8ìÂßƒø1J$76fb18f6-7002-45ff-bd2d-012cf4033372
+s	java:S106‹"+Replace this use of System.out by a logger.(·€”æÿÿÿÿÿ8ìÂßƒø1J$5762c679-d569-41b7-8619-93078f4a8690
+‰
+java:S6541"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 97 to 64, Complexity from 19 to 14, Nesting Level from 4 to 2, Number of Variables from 25 to 6.(Çµí‘8Ëİê÷1J$ad534506-7cfd-4b5f-8521-e778f1893431

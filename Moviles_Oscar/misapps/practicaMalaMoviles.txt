@@ -1,0 +1,25 @@
+MOVILES
+--------
+usuario -> suspensos
+pantalla que muestra opciones de login y register, login tiene un he olvidado la contraseña
+	register es normal.
+Dos pantallas
+	pantalla cuenta te muestra los datos de tu cuenta y te da la opcion de logout y de cambiar la contraseña
+	pantalla suspensos te muestra una lista de asignaturas suspendidas, si le das a un boton de añade una mas con datos random
+-----------
+room
+ es una base de datos en un fichero que hace todo lo repetitivo de base de datos para ahorrar codigo
+entitys, interfaz y base de datos
+una tabla se crea con @Entity, con @PrimaryKey
+datamappers en el modelo que se refiere al domain para hacer los converters, se hace ahi porque el domain es tonto
+el dao se anota con @Dao
+tb se anota cada query
+se define la base de datos con una clase que hereda de RoomDatabase
+las fechas y los uuids se gestionan en una clase comberter, que luego la referencias con la anotacion @TypeConvertert
+
+9:23 empieza
+dependencias: 9:43
+
+un flow es como el single para hacer programacion reactiva, pero es nativo de koltin
+
+hay dos tipos de flows, uno que se guarda el dato para siempre y otro que si el dato no lo escuchas lo tira

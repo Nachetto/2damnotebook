@@ -84,3 +84,5 @@ X
 (gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 Š
 Zapp/src/main/java/com/example/nachorestaurante/framework/pantalladetallada/OrderAdapter.kt,9\3\93c895ce5aa1f316639e9d40d638e28bdf4df450
+†
+Vapp/src/main/java/com/example/nachorestaurante/framework/common/ConstantesFramework.kt,d\a\da1a9a8372f8057ae880e0732b148e7da3fa8223

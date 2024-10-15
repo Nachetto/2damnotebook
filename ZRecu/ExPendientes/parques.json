@@ -1,0 +1,42 @@
+[
+  {
+    "edadMinima": 0,
+    "id": 1,
+    "nombre": "parque1",
+    "precioEntrada": 22,
+    "provincia": "provincia1",
+    "fechaConstruccion": "1473-04-23",
+    "correo": "correo1@gmail.com",
+    "valoracion": 1
+  },
+  {
+    "edadMinima": 0,
+    "id": 2,
+    "nombre": "parque2",
+    "precioEntrada": 23,
+    "provincia": "provincia2",
+    "fechaConstruccion": "0929-01-21",
+    "correo": "correo2@gmail.com",
+    "valoracion": 2
+  },
+  {
+    "edadMinima": 0,
+    "id": 3,
+    "nombre": "parque3",
+    "precioEntrada": 20,
+    "provincia": "provincia1",
+    "fechaConstruccion": "0309-10-09",
+    "correo": "correo3@gmail.com",
+    "valoracion": 5
+  },
+  {
+    "edadMinima": 0,
+    "id": 4,
+    "nombre": "parque4",
+    "precioEntrada": 22,
+    "provincia": "provincia2",
+    "fechaConstruccion": "1069-08-26",
+    "correo": "correo4@gmail.com",
+    "valoracion": 4
+  }
+]

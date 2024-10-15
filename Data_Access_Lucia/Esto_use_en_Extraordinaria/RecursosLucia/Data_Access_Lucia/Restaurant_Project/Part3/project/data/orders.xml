@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ordersXML>
+
+    <order>
+        <id>1</id>
+        <orderItems>
+            <orderItem>
+                <menuItem>
+                    <id>1</id>
+                    <name>Caesar Salad</name>
+                    <description>A fresh and delicious Caesar salad</description>
+                    <price>5.99</price>
+                </menuItem>
+                <quantity>2</quantity>
+            </orderItem>
+            <orderItem>
+                <menuItem>
+                    <id>2</id>
+                    <name>Pasta</name>
+                    <description>Delicious pasta with your choice of sauce</description>
+                    <price>7.99</price>
+                </menuItem>
+                <quantity>1</quantity>
+            </orderItem>
+            <orderItem>
+                <menuItem>
+                    <id>3</id>
+                    <name>Salmon</name>
+                    <description>Freshly grilled salmon with lemon</description>
+                    <price>12.99</price>
+                </menuItem>
+                <quantity>3</quantity>
+            </orderItem>
+            <orderItem>
+                <menuItem>
+                    <id>4</id>
+                    <name>Apple Cake</name>
+                    <description>Homemade apple cake with a scoop of vanilla ice cream</description>
+                    <price>4.99</price>
+                </menuItem>
+                <quantity>2</quantity>
+            </orderItem>
+        </orderItems>
+    </order>
+    <order>
+        <id>2</id>
+        <orderItems>
+            <orderItem>
+                <menuItem>
+                    <id>5</id>
+                    <name>Hamburger</name>
+                    <description>A classic hamburger with all the fixings</description>
+                    <price>6.99</price>
+                </menuItem>
+                <quantity>2</quantity>
+            </orderItem>
+            <orderItem>
+                <menuItem>
+                    <id>6</id>
+                    <name>Coffee</name>
+                    <description>Hot brewed coffee with your choice of cream and sugar</description>
+                    <price>2.49</price>
+                </menuItem>
+                <quantity>2</quantity>
+            </orderItem>
+        </orderItems>
+    </order>
+    <order>
+        <id>3</id>
+        <orderItems>
+            <orderItem>
+                <menuItem>
+                    <id>1</id>
+                    <name>Pizza</name>
+                    <description>A delicious pizza with your choice of toppings</description>
+                    <price>9.99</price>
+                </menuItem>
+                <quantity>2</quantity>
+            </orderItem>
+            <orderItem>
+                <menuItem>
+                    <id>7</id>
+                    <name>Coke</name>
+                    <description>A refreshing Coca-Cola drink</description>
+                    <price>1.99</price>
+                </menuItem>
+                <quantity>1</quantity>
+            </orderItem>
+        </orderItems>
+    </order>
+    <order>
+        <id>4</id>
+        <orderItems>
+            <orderItem>
+                <menuItem>
+                    <id>8</id>
+                    <name>Sandwich</name>
+                    <description>Delicious sandwich with your choice of fillings</description>
+                    <price>5.49</price>
+                </menuItem>
+                <quantity>1</quantity>
+            </orderItem>
+            <orderItem>
+                <menuItem>
+                    <id>9</id>
+                    <name>Tea</name>
+                    <description>Hot tea with a variety of flavors</description>
+                    <price>2.99</price>
+                </menuItem>
+                <quantity>3</quantity>
+            </orderItem>
+        </orderItems>
+    </order>
+
+    <order>
+        <id>5</id>
+        <orderItems>
+            <orderItem>
+                <menuItem>
+                    <id>1</id>
+                    <name>Pizza</name>
+                    <description>A delicious pizza</description>
+                    <price>9.99</price>
+                </menuItem>
+                <quantity>4</quantity>
+            </orderItem>
+
+            <orderItem>
+                <menuItem>
+                    <id>12</id>
+                    <name>Ice Cream</name>
+                    <description>Delicious ice cream</description>
+                    <price>3.99</price>
+                </menuItem>
+                <quantity>2</quantity>
+            </orderItem>
+
+        </orderItems>
+    </order>
+    <order>
+        <id>6</id>
+        <orderItems>
+            <orderItem>
+                <menuItem>
+                    <id>10</id>
+                    <name>Lasagna</name>
+                    <description>Homemade lasagna with layers of pasta and cheese</description>
+                    <price>8.99</price>
+                </menuItem>
+                <quantity>2</quantity>
+            </orderItem>
+            <orderItem>
+                <menuItem>
+                    <id>11</id>
+                    <name>Salad</name>
+                    <description>Fresh garden salad with your choice of dressing</description>
+                    <price>4.49</price>
+                </menuItem>
+                <quantity>1</quantity>
+            </orderItem>
+        </orderItems>
+    </order>
+</ordersXML>

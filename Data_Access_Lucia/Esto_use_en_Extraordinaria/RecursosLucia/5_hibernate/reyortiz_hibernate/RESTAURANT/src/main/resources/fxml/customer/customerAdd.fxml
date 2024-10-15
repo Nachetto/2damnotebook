@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.screens.customer.CustomerAddController">
+   <children>
+      <TextField fx:id="addFirstName" layoutX="42.0" layoutY="99.0" prefHeight="26.0" prefWidth="158.0" promptText="First Name" />
+      <TextField fx:id="addLastName" layoutX="42.0" layoutY="144.0" prefHeight="26.0" prefWidth="158.0" promptText="Last Name" />
+      <TextField fx:id="addEmail" layoutX="42.0" layoutY="191.0" prefHeight="26.0" prefWidth="158.0" promptText="E-mail" />
+      <TextField fx:id="addPhone" layoutX="42.0" layoutY="236.0" prefHeight="26.0" prefWidth="158.0" promptText="Phone number" />
+      <DatePicker fx:id="addDate" layoutX="42.0" layoutY="272.0" prefHeight="26.0" prefWidth="157.0" promptText="Date of birth(yyyy-MM-dd)" />
+      <TextField fx:id="addUsername" layoutX="283.0" layoutY="100.0" promptText="Username" />
+      <PasswordField fx:id="addPassword" layoutX="284.0" layoutY="145.0" promptText="Password" />
+
+      <Button layoutX="42.0" layoutY="312.0" mnemonicParsing="false" onAction="#checkFields" text="Add" />
+      <Label layoutX="42.0" layoutY="54.0" text="Add customer">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+
+   </children>
+</AnchorPane>

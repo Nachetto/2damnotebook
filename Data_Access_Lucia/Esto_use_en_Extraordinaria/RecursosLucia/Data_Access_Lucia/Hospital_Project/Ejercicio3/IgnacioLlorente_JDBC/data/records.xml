@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<recordsXML>
+    <records>
+        <id>1</id>
+        <medications>
+            <medication>
+                <medicationID>1</medicationID>
+                <name>Aspirin</name>
+                <dosage>100mg</dosage>
+            </medication>
+            <medication>
+                <medicationID>2</medicationID>
+                <name>Paracetam</name>
+                <dosage>500mg</dosage>
+            </medication>
+        </medications>
+        <patient>
+            <patientID>1</patientID>
+            <name>John Doe</name>
+            <contactDetails>123-456-7890</contactDetails>
+            <personalInformation>Male, 35 years old, non-smoker</personalInformation>
+            <username>johndoe123</username>
+            <password>password123</password>
+        </patient>
+        <doctor>Dr. Martinez</doctor>
+        <diagnosis>Hypertension</diagnosis>
+    </records>
+    <records>
+        <id>2</id>
+        <medications>
+            <medication>
+                <medicationID>3</medicationID>
+                <name>iboprefeen</name>
+                <dosage>700mg</dosage>
+            </medication>
+            <medication>
+                <medicationID>4</medicationID>
+                <name>paracetamol</name>
+                <dosage>80mg</dosage>
+            </medication>
+        </medications>
+        <patient>
+            <patientID>2</patientID>
+            <name>Jane Smith</name>
+            <contactDetails>456-789-0123</contactDetails>
+            <personalInformation>Female, 45 years old, occasional smoker</personalInformation>
+            <username>janesmith456</username>
+            <password>smith789</password>
+        </patient>
+        <doctor>Dr. Johnson</doctor>
+        <diagnosis>Bronchitis</diagnosis>
+    </records>
+    <records>
+        <id>3</id>
+        <medications>
+            <medication>
+                <medicationID>5</medicationID>
+                <name>Aspirin</name>
+                <dosage>100mg</dosage>
+            </medication>
+            <medication>
+                <medicationID>6</medicationID>
+                <name>Amoxicilina</name>
+                <dosage>500mg</dosage>
+            </medication>
+        </medications>
+        <patient>
+            <patientID>3</patientID>
+            <name>Michael Johnson</name>
+            <contactDetails>789-012-3456</contactDetails>
+            <personalInformation>Male, 50 years old, diabetic</personalInformation>
+            <username>michaelj789</username>
+            <password>mikejohnson</password>
+        </patient>
+        <doctor>Dr. Smith</doctor>
+        <diagnosis>Diabetes</diagnosis>
+    </records>
+    <records>
+        <id>4</id>
+        <medications>
+            <medication>
+                <medicationID>7</medicationID>
+                <name>Aspirin</name>
+                <dosage>100mg</dosage>
+            </medication>
+            <medication>
+                <medicationID>8</medicationID>
+                <name>Amoxicilina</name>
+                <dosage>500mg</dosage>
+            </medication>
+        </medications>
+        <patient>
+            <patientID>4</patientID>
+            <name>Emily Davis</name>
+            <contactDetails>012-345-6789</contactDetails>
+            <personalInformation>Female, 25 years old, no significant medical history</personalInformation>
+            <username>emilydavis25</username>
+            <password>davise123</password>
+        </patient>
+        <doctor>Dr. Williams</doctor>
+        <diagnosis>Allergy</diagnosis>
+    </records>
+    <records>
+        <id>5</id>
+        <medications>
+            <medication>
+                <medicationID>9</medicationID>
+                <name>Aspirin</name>
+                <dosage>100mg</dosage>
+            </medication>
+            <medication>
+                <medicationID>10</medicationID>
+                <name>Paracetam</name>
+                <dosage>500mg</dosage>
+            </medication>
+        </medications>
+        <patient>
+            <patientID>5</patientID>
+            <name>David Wilson</name>
+            <contactDetails>234-567-8901</contactDetails>
+            <personalInformation>Male, 40 years old, hypertension</personalInformation>
+            <username>davidwilson40</username>
+            <password>davidw234</password>
+        </patient>
+        <doctor>Dr. Brown</doctor>
+        <diagnosis>Fractured arm</diagnosis>
+    </records>
+    <records>
+        <id>6</id>
+        <medications>
+            <medication>
+                <medicationID>11</medicationID>
+                <name>MedicationFromRecordNumber6</name>
+                <dosage>500mg</dosage>
+            </medication>
+        </medications>
+        <patient>
+            <patientID>2</patientID>
+            <name>Jane Smith</name>
+            <contactDetails>456-789-0123</contactDetails>
+            <personalInformation>Female, 45 years old, occasional smoker</personalInformation>
+            <username>janesmith456</username>
+            <password>smith789</password>
+        </patient>
+        <doctor>Dr. Martinez</doctor>
+        <diagnosis>covid</diagnosis>
+    </records>
+    <records>
+        <id>7</id>
+        <medications/>
+        <patient>
+            <patientID>5</patientID>
+            <name>David Wilson</name>
+            <contactDetails>234-567-8901</contactDetails>
+            <personalInformation>Male, 40 years old, hypertension</personalInformation>
+            <username>davidwilson40</username>
+            <password>davidw234</password>
+        </patient>
+        <doctor>Dr. Martinez</doctor>
+        <diagnosis>covid</diagnosis>
+    </records>
+</recordsXML>

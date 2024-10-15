@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cd095612-013b-4c8c-8e0b-8968a07e1d89" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/ClienteJS.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/5/1583d825fc0cb275d8ab501311405ef952366d98" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/1/5182b44cfbed16b9ca9918b67fbec05abe93f661" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/7/57ddf58028c95c21514eb584207da06124f6e9bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/e/7e795319f50864b6ce4bed7499ff3b57b9edba44" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/6/a6202d0c9bbbf34673232637904d25239b26c081" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/6/f6013a00b362253c64368d6eebc50ea2131754e2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/5/1583d825fc0cb275d8ab501311405ef952366d98" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/1/5182b44cfbed16b9ca9918b67fbec05abe93f661" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/7/57ddf58028c95c21514eb584207da06124f6e9bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/e/7e795319f50864b6ce4bed7499ff3b57b9edba44" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/6/a6202d0c9bbbf34673232637904d25239b26c081" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/6/f6013a00b362253c64368d6eebc50ea2131754e2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/credentials.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/medRecord.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/medRecordantiguo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/patient.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mainPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/SpringConfigurator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/model/Doctor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/repository/DoctorDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/repository/PatientDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/repository/staticDAO/DoctorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/repository/staticDAO/PatientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/domain/error/BadRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/domain/error/ConflictException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/domain/error/InternalServerErrorException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/domain/error/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/service/CredentialService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/service/DoctorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/service/MedRecordService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/service/MedicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/service/PatientService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/ui/RestDoctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/model/MedRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/model/MedRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/model/Medication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/model/Medication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/model/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/repository/staticDAO/CredentialRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/repository/staticDAO/CredentialRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/repository/staticDAO/MedRecordRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/repository/staticDAO/MedRecordRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/repository/staticDAO/MedicationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/dao/repository/staticDAO/MedicationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/domain/error/NewError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/domain/model/MedRecordUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/domain/model/MedRecordUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/domain/model/PatientUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/domain/model/PatientUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/ui/RestMedicalRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/ui/RestMedicalRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/ui/RestPatient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/com/hospitalcrud/ui/RestPatient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2mHvzYvy1FGvsOji7entZNADxKn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.mainPage.html.executor": "Run",
+    "Node.js.medRecord.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Nachetto/Documents/GitHub/SpringBoot_Server/ClienteJS/js",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Nachetto\Documents\GitHub\SpringBoot_Server\ClienteJS\js" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.mainPage.html">
+    <configuration name="mainPage.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ClienteJS/ClienteJS/mainPage.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="medRecord.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="medRecord.js" working-dir="$PROJECT_DIR$/js">
+      <method v="2" />
+    </configuration>
+    <configuration name="medRecordantiguo.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="medRecordantiguo.js" working-dir="$PROJECT_DIR$/js">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.mainPage.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cd095612-013b-4c8c-8e0b-8968a07e1d89" name="Changes" comment="" />
+      <created>1726746578748</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1726746578748</updated>
+      <workItem from="1726746580045" duration="689000" />
+      <workItem from="1727171102117" duration="106000" />
+      <workItem from="1727171252062" duration="1558000" />
+      <workItem from="1727257773096" duration="1615000" />
+      <workItem from="1728330626923" duration="226000" />
+      <workItem from="1728332652042" duration="15763000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/patient.js</url>
+          <line>32</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/patient.js</url>
+          <line>33</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/patient.js</url>
+          <line>62</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/patient.js</url>
+          <line>53</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/patient.js</url>
+          <line>57</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

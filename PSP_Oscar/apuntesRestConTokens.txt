@@ -1,0 +1,60 @@
+jjwt es una libreria que usamos para la seguridad, la que pone -api no la pongas
+
+mandar mail es una clase, 
+!!las variables van en un properties
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+LOGIN/REGISTRO(hecho con un rest)
+
+cuando se registra se crea el user en base de datos,
+le llega un correo con un enlace el cual tiene caducidad.
+el enlace se genera en el servidor con un queryparam de 32 bytes aleatorios codificados en base64,
+se sube a base de datos el codigo del enlace generado, cuando el usuario haga una peticion get
+a ese enlace, cambia el valor en base de datos de la tabla de usuario de activado a true
+
+cuando se hace login se verifica si esta verificado a parte de verificar el usuario y
+la contra, si no lo esta que mande directamente el correo de verificacion y cambie la
+fecha de caducidad
+
+la tabla user tiene 
+user que es el correo, 
+password que es un hash, 
+el bool de activado que por defecto es false, 
+una fecha para que pueda caducar el enlace de verificacion,
+el codigo de activacion para la verificacion,
+los roles que tiene
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+GENERAR TOKEN
+Cada vez que un usuario se loguee
+Los tokens se utilizan para mantener la sesion entre el servidor y el cliente
+van a caducar, cuando se caduca otra vez a hacer login
+los tokens se dividen en 3, cabecera, dato y firma, separados por punto
+esto lo vemos en la clase ServletJWT
+para firmar la secretkey, tienes que crifrar una contraseña y la conviertes en clave,
+!!La contraseña va en un properties
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+VERIFICAR TOKEN
+el token estará en la cabecera de cada llamada que se haga
+en la clase ServletVerifyJWT tienes el codigo que coge un token y lo parsea para poderle sacar
+los datos de usuario y tal. Con eso sacas los valores que tenias dentro de el y ya puedes hacer
+lo que quieras
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+SECURITY CONTEXT
+es una api que sirve para poder guardar los parametros del usuario y sus roles (los
+cuales estan dentro del token) de forma estandar, que todo el mundo acceda a ella desde
+alli.
+
+para darle los datos al securitycontext, vamos a emplear un "superfiltro", que en cada llamada mira
+la cabecera y extrae el token 
+
+una vez tiene los datos del token, con esto el filtro se gestiona con una notacion que se 
+llama @RolesAllowed(admin,users) esta notacion se puede poner en una clase o en un metodo, 
+depende de como configures el rest
+
+la clase JWTAuth que extiende de HttpAuthenticationMechanism se encarga de decirle al api donde esta el token con la informacion
+esta clase coge todas las llamadas les saca el token, esto sirve luego para que vaya con armonia con el securitycontext y todos felices
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

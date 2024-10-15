@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Unit2XMLFiles" />
         <module name="Ex3ev" />
+        <module name="Unit2XMLFiles" />
         <module name="Unit1TextFiles" />
+        <module name="Ejercicio4" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

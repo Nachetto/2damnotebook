@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "4b5fe83d-5c9e-4391-9a1f-5ff0b44a35f8",
+		"name": "reymortiz_ejercicio1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30330907"
+	},
+	"item": [
+		{
+			"name": "getEquiposNombre",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetEquipos{\r\n    getEquipos{\r\n        nombre\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{urlbase}}graphql",
+					"host": [
+						"{{urlbase}}graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEquiposJugadores",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetEquipos{\r\n    getEquipos{\r\n        id\r\n        nombre\r\n        jugadores{\r\n            id\r\n            nombre\r\n        }\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{urlbase}}graphql",
+					"host": [
+						"{{urlbase}}graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEquipoExiste",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetEquipo($id : Int!){\r\n    getEquipo(id : $id){\r\n        nombre\r\n    }\r\n}",
+						"variables": "{\r\n    \"id\" : 1\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{urlbase}}graphql",
+					"host": [
+						"{{urlbase}}graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEquipoNoExiste",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetEquipo($id : Int!){\r\n    getEquipo(id : $id){\r\n        nombre\r\n    }\r\n}",
+						"variables": "{\r\n    \"id\":3\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{urlbase}}graphql",
+					"host": [
+						"{{urlbase}}graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addJugador",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation addJugador($jugador: JugadorInput!){\r\n    addJugador(jugador : $jugador){\r\n            nombre\r\n            equipo\r\n    }\r\n}",
+						"variables": "{\r\n    \"jugador\":{\r\n        \"nombre\" : \"Paquita Salas\",\r\n        \"equipo\" : 1\r\n    }\r\n    \r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{urlbase}}graphql",
+					"host": [
+						"{{urlbase}}graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "urlbase",
+			"value": "http://localhost:8080/",
+			"type": "string"
+		}
+	]
+}

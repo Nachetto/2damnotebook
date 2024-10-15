@@ -1,0 +1,26 @@
+type Jugador{
+    id :Int!
+    nombre :String
+    equipo: Int!
+}
+
+type Equipo{
+    id :Int!
+    nombre : String
+    jugadores : [Jugador]
+}
+
+type Query {
+    getEquipos : [Equipo]!
+    getEquipo(id : Int!) : Equipo
+}
+
+type Mutation {
+    addJugador(jugador : JugadorInput!) : Jugador
+}
+
+input JugadorInput{
+    id :Int
+    nombre :String
+    equipo: Int!
+}

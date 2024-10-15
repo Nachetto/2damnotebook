@@ -1,0 +1,9 @@
+
+]	java:S125	"<This block of commented-out lines of code should be removed.(æÀ×ùÿÿÿÿ8Ê½öÏ1
+^	java:S125–"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8Ë½öÏ1
+O
+java:S1128"-Remove this unused import 'dao.OrderItemDAO'.(„ÇÄÿÿÿÿÿ8Ì½öÏ1
+J
+java:S1128"(Remove this unused import 'lombok.Data'.(÷í«ÿÿÿÿÿ8Ì½öÏ1
+S
+java:S1128"7Remove this unused import 'lombok.extern.log4j.Log4j2'.(ÅP8Ì½öÏ1

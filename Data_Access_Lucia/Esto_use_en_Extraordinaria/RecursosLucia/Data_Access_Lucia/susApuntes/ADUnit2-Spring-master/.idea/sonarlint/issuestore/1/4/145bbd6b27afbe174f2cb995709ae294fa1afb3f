@@ -1,0 +1,11 @@
+
+g	java:S112""FDefine and throw a dedicated exception instead of using a generic one.(¹ƒ©¹ùÿÿÿÿ8Ôö§½1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¶µ¯ú8 Ôö§½1
+v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ôõ¼Å8©Ôö§½1
+{	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‘ôØ«úÿÿÿÿ8©Ôö§½1
+f
+java:S1128	"DRemove this unused import 'org.springframework.jdbc.core.RowMapper'.(¦¬ÀÙùÿÿÿÿ8´Ôö§½1
+K
+java:S1128"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8´Ôö§½1
+O
+java:S1128"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8µÔö§½1

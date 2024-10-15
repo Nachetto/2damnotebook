@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="450" prefWidth="749" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.screens.customers.add.CustomerAddController">
+   <children>
+      <TextField fx:id="entercustomername" layoutX="39.0" layoutY="60.0" promptText="Name" />
+      <TextField fx:id="entercustomersurname" layoutX="40.0" layoutY="106.0" promptText="Surname" />
+      <TextField fx:id="entercustomeremail" layoutX="39.0" layoutY="151.0" promptText="Email" />
+      <TextField fx:id="entercustomerid" layoutX="41.0" layoutY="200.0" promptText="ID" />
+      <TextField fx:id="entercustomerphone" layoutX="40.0" layoutY="243.0" promptText="Phone" />
+      <DatePicker fx:id="entercustomerbirthdate" layoutX="40.0" layoutY="282.0" prefHeight="26.0" prefWidth="150.0"
+                  promptText="Birthdate"/>
+      <Button fx:id="enterall" layoutX="90.0" layoutY="325.0" mnemonicParsing="false" onAction="#addNewCustomer" text="Add" />
+
+      <TableView fx:id="customerlist" layoutX="219.0" layoutY="61.0" prefHeight="298.0" prefWidth="372.0">
+         <columns>
+            <TableColumn fx:id="customername" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="customersurname" prefWidth="75.0" text="Surname" />
+            <TableColumn fx:id="customeremail" prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="customerid" prefWidth="54.199981689453125" text="id" />
+            <TableColumn fx:id="customerphone" prefWidth="96.20001220703125" text="Phone" />
+            <TableColumn fx:id="customerbirthdate" prefWidth="75.0" text="BirthDate" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
