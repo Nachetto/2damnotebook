@@ -1,4 +1,4 @@
-package com.hospitalcrud.dao.repository.staticDAO;
+package com.hospitalcrud.dao.repository.staticDao;
 
 import com.hospitalcrud.dao.model.MedRecord;
 import com.hospitalcrud.dao.model.Medication;
@@ -6,11 +6,15 @@ import com.hospitalcrud.dao.repository.MedRecordDAO;
 import com.hospitalcrud.domain.error.BadRequestException;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import com.hospitalcrud.domain.error.NotFoundException;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
+@Profile("txt")
 public class MedRecordRepository implements MedRecordDAO {
     //creando la lista estatica de medrecords
     private static List<MedRecord> medRecords = new ArrayList<>(List.of(
@@ -71,13 +75,13 @@ public class MedRecordRepository implements MedRecordDAO {
     }
 
     @Override
-    public void delete(int id, boolean confirmation) {
+    public boolean delete(int id, boolean confirmation) {
         if (!confirmation) {
             throw new BadRequestException("Confirmation is required to delete MedRecord");
         }
         try {
             if (medRecords.removeIf(medRecord -> medRecord.getId() == id)) {
-                return;
+                return true;
             }
             throw new NotFoundException("MedRecord not found");
         } catch (Exception e) {

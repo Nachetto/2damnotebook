@@ -13,12 +13,13 @@ import java.util.List;
 @RestController
 
 @CrossOrigin(origins = "http://127.0.0.1:5500")
-@RequestMapping("/nacho/patients/medRecords")
+@RequestMapping("/patients/medRecords")
 public class RestMedicalRecord {
+
     private final MedRecordService medRecordService;
 
-    public RestMedicalRecord() {
-        this.medRecordService = new MedRecordService();
+    public RestMedicalRecord(MedRecordService medRecordService) {
+        this.medRecordService = medRecordService;
     }
 
     // Exception handling

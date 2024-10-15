@@ -1,18 +1,21 @@
 package com.hospitalcrud.service;
 
 import com.hospitalcrud.dao.model.Doctor;
-import com.hospitalcrud.dao.repository.staticDAO.DoctorRepository;
-import com.hospitalcrud.domain.model.PatientUI;
+import com.hospitalcrud.dao.repository.DoctorDAO;
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+@Service
 public class DoctorService {
-    private DoctorRepository dao;
-    public DoctorService() {
-        this.dao = new DoctorRepository();
+    private final DoctorDAO dao;
+
+    public DoctorService(DoctorDAO dao) {
+        this.dao = dao;
     }
+
     public List<Doctor> getDoctors() {
-        return dao.getDoctors();
+        return dao.getAll();
     }
-    // not implemented for this exercise, created on client
 }

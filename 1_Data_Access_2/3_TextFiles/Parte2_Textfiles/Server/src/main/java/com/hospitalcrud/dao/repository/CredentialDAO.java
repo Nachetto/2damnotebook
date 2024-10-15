@@ -7,5 +7,6 @@ import java.util.List;
 public interface CredentialDAO {
     List<Credential> getAll();
     int save(Credential c);
-    void delete(int id, boolean confirmation);
+    void update(Credential c);
+    boolean delete(int id, boolean confirmation);
 }

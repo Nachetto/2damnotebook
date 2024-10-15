@@ -1,5 +1,10 @@
 package com.hospitalcrud.dao.model;
 
+import lombok.Data;
+import lombok.Getter;
+
+@Data
+@Getter
 public class Doctor {
     private int id;
     private String name;
@@ -9,17 +14,5 @@ public class Doctor {
         this.id = id;
         this.name = name;
         this.specialty = specialty;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSpecialty() {
-        return specialty;
     }
 }

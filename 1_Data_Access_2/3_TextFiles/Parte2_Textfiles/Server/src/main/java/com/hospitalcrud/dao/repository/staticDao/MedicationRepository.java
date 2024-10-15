@@ -1,11 +1,15 @@
-package com.hospitalcrud.dao.repository.staticDAO;
+package com.hospitalcrud.dao.repository.staticDao;
 
 import com.hospitalcrud.dao.model.Medication;
 import com.hospitalcrud.dao.repository.MedicationDAO;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
+@Profile("txt")
 public class MedicationRepository implements MedicationDAO {
     //creando la lista estatica de medicamentos y sus dosis
     private static List<Medication> medications = new ArrayList<>(List.of(
@@ -27,11 +31,11 @@ public class MedicationRepository implements MedicationDAO {
 
     @Override
     public void update(Medication m) {
-
+        //not implemented on the js client
     }
 
     @Override
-    public void delete(int id, boolean confirmation) {
-
+    public boolean delete(int id, boolean confirmation) {
+        return false;
     }
 }

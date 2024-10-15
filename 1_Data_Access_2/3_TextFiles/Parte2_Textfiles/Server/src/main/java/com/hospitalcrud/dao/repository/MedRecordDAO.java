@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface MedRecordDAO {
     List<MedRecord> getAll();
+    List<MedRecord> get(int patientId);
     int save(MedRecord m);
     void update(MedRecord m);
-    void delete(int id, boolean confirmation);
+    boolean delete(int id, boolean confirmation);
 }

@@ -8,5 +8,5 @@ public interface MedicationDAO {
     List<Medication> getAll();
     int save(Medication m);
     void update(Medication m);
-    void delete(int id, boolean confirmation);
+    boolean delete(int id, boolean confirmation);
 }

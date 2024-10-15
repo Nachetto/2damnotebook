@@ -16,9 +16,15 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://127.0.0.1:5500")
 
-@RequestMapping("/nacho/patients")
+@RequestMapping("/patients")
 public class RestPatient {
+
     private final PatientService patientService;
+
+    public RestPatient(PatientService patientService) {
+        this.patientService = patientService;
+    }
+
 
     //manejo de excepciones
     @ExceptionHandler(BadRequestException.class)
@@ -49,9 +55,6 @@ public class RestPatient {
         return e.getMessage();
     }
 
-    public RestPatient() {
-        this.patientService = new PatientService();
-    }
 
 
     @GetMapping

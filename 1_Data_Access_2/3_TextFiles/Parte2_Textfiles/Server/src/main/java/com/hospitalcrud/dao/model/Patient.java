@@ -2,6 +2,7 @@ package com.hospitalcrud.dao.model;
 
 import com.hospitalcrud.domain.model.PatientUI;
 import lombok.Data;
+import java.time.format.DateTimeFormatter;
 
 import java.time.LocalDate;
 
@@ -19,18 +20,11 @@ public class Patient {
         this.birthDate = dob;
         this.phone = phone;
     }
-
-    public Patient(String st) {
-        String[] parts = st.split(";");
-        this.id = Integer.parseInt(parts[0]);
-        this.name = parts[1];
-        this.birthDate = LocalDate.parse(parts[2]);
-        this.phone = parts[3];
-    }
-
     @Override
     public String toString() {
-        return id + ";" + name + ";" + birthDate + ";" + phone;
+        return id + ";" + name + ";" +
+                birthDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                + ";" + phone;
     }
 
     public PatientUI toPatientUI() {

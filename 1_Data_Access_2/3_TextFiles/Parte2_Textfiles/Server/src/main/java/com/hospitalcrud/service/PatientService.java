@@ -1,22 +1,24 @@
 package com.hospitalcrud.service;
 
-import com.hospitalcrud.dao.repository.staticDAO.PatientRepository;
+import com.hospitalcrud.dao.repository.PatientDAO;
+import com.hospitalcrud.dao.repository.staticDao.PatientRepository;
 import com.hospitalcrud.domain.error.MedicalRecordException;
 import com.hospitalcrud.domain.model.MedRecordUI;
 import com.hospitalcrud.domain.model.PatientUI;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class PatientService {
     private final MedRecordService medRecordService;
-    private final PatientRepository dao;
-    //llamar al DAO inyectado
-    public PatientService() {
-        this.dao = new PatientRepository();
-        this.medRecordService = new MedRecordService();
+    private final PatientDAO dao;
+    public PatientService(MedRecordService medRecordService, PatientDAO dao) {
+        this.dao = dao;
+        this.medRecordService = medRecordService;
     }
-
 
     public List<PatientUI> getPatients() {
         return dao.getAll().stream().map(p -> p.toPatientUI()).collect(Collectors.toList());
@@ -31,7 +33,6 @@ public class PatientService {
     }
 
     public boolean delete(int patientId, boolean confirm) {
-        //check if patient has med records and if so throw exception MedicalRecordException
         if (!medRecordService.checkPatientMedRecords(patientId))
             throw new MedicalRecordException("Patient has medical records");
         return dao.delete(patientId, confirm);

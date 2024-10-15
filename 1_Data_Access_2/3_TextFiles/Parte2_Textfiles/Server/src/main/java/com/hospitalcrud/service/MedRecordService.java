@@ -1,16 +1,19 @@
 package com.hospitalcrud.service;
 
 
-import com.hospitalcrud.dao.repository.staticDAO.MedRecordRepository;
+import com.hospitalcrud.dao.repository.MedRecordDAO;
 import com.hospitalcrud.domain.model.MedRecordUI;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+@Service
 public class MedRecordService {
-    private final MedRecordRepository dao;
-    //llamar al DAO inyectado
-    public MedRecordService() {
-        this.dao = new MedRecordRepository();
+    private final MedRecordDAO dao;
+
+    public MedRecordService(MedRecordDAO dao) {
+        this.dao = dao;
     }
 
     public List<MedRecordUI> getAll() {

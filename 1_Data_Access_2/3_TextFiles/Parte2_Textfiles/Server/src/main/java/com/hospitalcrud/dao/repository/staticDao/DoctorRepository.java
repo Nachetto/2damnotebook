@@ -1,9 +1,7 @@
-package com.hospitalcrud.dao.repository.staticDAO;
+package com.hospitalcrud.dao.repository.staticDao;
 
 import com.hospitalcrud.dao.model.Doctor;
-import com.hospitalcrud.domain.model.PatientUI;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,13 +1,13 @@
 package com.hospitalcrud.dao.repository.textFiles;
 
 import com.hospitalcrud.common.config.Configuration;
+import com.hospitalcrud.dao.mappers.PatientRowMapper;
 import com.hospitalcrud.dao.model.Patient;
 import com.hospitalcrud.dao.repository.PatientDAO;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
-import jakarta.inject.Inject;
 
-import java.util.List;
-
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Repository;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,82 +15,120 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static java.nio.file.StandardOpenOption.APPEND;
-import static java.nio.file.StandardOpenOption.TRUNCATE_EXISTING;
 
+@Repository
+@Profile("txt")
 public class TxtPatientRepository implements PatientDAO {
 
     private final Configuration config;
+    private final PatientRowMapper rowMapper;
 
-    @Inject
-    public TxtPatientRepository(Configuration config) {
-        this.config = config;
+    public TxtPatientRepository(PatientRowMapper rowMapper) {
+        this.config = Configuration.getInstance();
+        this.rowMapper = rowMapper;
+    }
+
+    private List<String> readFile() {
+        List<String> lines = new ArrayList<>();
+        Path filePath = Paths.get(config.getPathPatients());
+
+        try (BufferedReader reader = Files.newBufferedReader(filePath)) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+        } catch (IOException e) {
+            throw new InternalServerErrorException("Error reading the patient file " + e);
+        }
+        return lines;
+    }
+
+    private Patient mapToPatient(String line) {
+        return rowMapper.mapRow(line);
     }
 
 
     @Override
     public List<Patient> getAll() {
-        Path file = Paths.get(config.getPathPatients());
-        List<Patient> patientList = new ArrayList<>();
+        List<String> lines = readFile();
+        List<Patient> patients = new ArrayList<>();
 
-        if (!file.toFile().exists()) {
-            throw new InternalServerErrorException("File does not exist");
+        for (String line : lines) {
+            patients.add(mapToPatient(line));
         }
-
-        try (BufferedReader br = Files.newBufferedReader(file)) {
-            String st;
-            StringBuilder malformedLine = new StringBuilder();
-
-            // Check if the file is empty first
-            if (Files.size(file) == 0) {
-                throw new InternalServerErrorException("No data found");
-            } else {
-                // Read the file line by line and create a new Patient object for each line
-                while ((st = br.readLine()) != null) {
-                    if (!st.trim().isEmpty()) { // Skip empty lines
-                        String[] parts = st.split(";");
-                        if (parts.length == 4) {
-                            Patient patient = new Patient(st);
-                            patientList.add(patient);
-                        } else {
-                            malformedLine.append(st);
-                            if (malformedLine.toString().split(";").length == 4) {
-                                Patient patient = new Patient(malformedLine.toString());
-                                patientList.add(patient);
-                                malformedLine.setLength(0); // Clear the buffer
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            throw new InternalServerErrorException("Error reading file");
-        }
-
-        return patientList;
+        return patients;
     }
+
 
     @Override
     public int save(Patient m) {
+        int nextIdPatient= Integer.parseInt(config.getNextIdPatient());
         Path file = Paths.get(config.getPathPatients());
-        try (BufferedWriter bw = Files.newBufferedWriter(file, APPEND, TRUNCATE_EXISTING)) {
-            bw.write(m.toString());
-            bw.newLine();
-            return 1;
-        } catch (IOException e) {
+        if (!file.toFile().exists()) {
             throw new InternalServerErrorException("Error saving patient");
+        } else {
+            try (BufferedWriter bw = Files.newBufferedWriter(file, APPEND)) {
+                bw.write(new Patient(nextIdPatient , m.getName(), m.getBirthDate(), m.getPhone()).toString());
+                bw.newLine();
+                config.setNextIdPatient(String.valueOf(nextIdPatient+1));
+                return 1;
+            } catch (IOException e) {
+                throw new InternalServerErrorException("Error saving patient");
+            }
         }
     }
 
-    @Override
-    public void update(Patient m) {
 
+    @Override
+    public void update(Patient updatedPatient) {
+        Path filePath = Paths.get(config.getPathPatients());
+        List<String> newLines;
+
+        try (BufferedReader reader = Files.newBufferedReader(filePath)) {
+            newLines = reader.lines()
+                    .map(line -> {
+                        Patient patient = mapToPatient(line);
+                        if (patient.getId() == updatedPatient.getId()) {
+                            return updatedPatient.toString();
+                        } else {
+                            return line;
+                        }
+                    })
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            throw new InternalServerErrorException("Error reading the patient file " + e);
+        }
+
+        try {
+            Files.write(filePath, newLines, StandardOpenOption.TRUNCATE_EXISTING);
+        } catch (IOException e) {
+            throw new InternalServerErrorException("Error updating the patient file " + e);
+        }
     }
 
+
     @Override
-    public boolean delete(int id, boolean confirmation) {
-        return false;
+    public boolean delete(int patientId, boolean confirmation) {
+        List<Patient> patients = getAll();
+        Path filePath = Paths.get(config.getPathPatients());
+
+        try {
+            List<String> newLines = new ArrayList<>();
+            for (Patient patient : patients) {
+                if (patient.getId() != patientId) {
+                    newLines.add(patient.toString());
+                }
+            }
+            Files.write(filePath, newLines);
+            return true;
+        } catch (IOException e) {
+            throw new InternalServerErrorException("Error deleting the patient " + e);
+        }
     }
 }

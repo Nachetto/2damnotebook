@@ -11,7 +11,7 @@ public class SpringConfigurator implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins("http://localhost:5500", "null", "http://localhost:63342")
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS") // Añade "OPTIONS" aquí
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS")
                 .allowCredentials(true);
     }
 }

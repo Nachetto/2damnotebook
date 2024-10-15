@@ -1,6 +1,7 @@
 package com.hospitalcrud.common;
 
 public class Constants {
+    //TODO TODAS LAS CONSTANTES DE LA APLICACION
 
     private Constants() {
     }
@@ -12,6 +13,6 @@ public class Constants {
     public static final String PATH_PATIENTS = "pathPatients";
     public static final String PATH_DOCTORS = "pathDoctors";
 
-    public static final String LAST_ID_PATIENT = "config/lastIdPatient";
-    public static final String LAST_ID_DOCTOR = "config/lastIdDoctor";
+    public static final String NEXT_ID_PATIENT = "config/nextIdPatient";
+    public static final String NEXT_ID_DOCTOR = "config/nextIdDoctor";
 }

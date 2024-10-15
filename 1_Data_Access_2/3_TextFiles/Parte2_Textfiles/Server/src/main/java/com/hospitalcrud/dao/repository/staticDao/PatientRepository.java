@@ -1,11 +1,10 @@
-package com.hospitalcrud.dao.repository.staticDAO;
+package com.hospitalcrud.dao.repository.staticDao;
 
 import com.hospitalcrud.dao.model.Patient;
 import com.hospitalcrud.dao.repository.PatientDAO;
 import com.hospitalcrud.domain.error.BadRequestException;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import com.hospitalcrud.domain.error.NotFoundException;
-import com.hospitalcrud.service.MedRecordService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
