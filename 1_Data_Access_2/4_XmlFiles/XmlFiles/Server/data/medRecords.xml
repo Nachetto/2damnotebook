@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<medRecords>
+    <medRecord>
+        <id>1</id>
+        <idPatient>1</idPatient>
+        <doctor>1</doctor>
+        <diagnosis>Diabetes</diagnosis>
+        <date>01/01/2009</date>
+        <medications>
+            <medication>Insulin</medication>
+            <medication>Glyburide</medication>
+        </medications>
+    </medRecord>
+    <medRecord>
+        <id>2</id>
+        <idPatient>1</idPatient>
+        <doctor>1</doctor>
+        <diagnosis>High Blood Pressure</diagnosis>
+        <date>01/01/2009</date>
+        <medications>
+            <medication>Hydrochlorothiazide</medication>
+        </medications>
+    </medRecord>
+</medRecords>
