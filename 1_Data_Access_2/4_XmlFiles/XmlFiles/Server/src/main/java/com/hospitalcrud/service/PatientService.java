@@ -1,7 +1,6 @@
 package com.hospitalcrud.service;
 
 import com.hospitalcrud.dao.repository.PatientDAO;
-import com.hospitalcrud.dao.repository.staticDao.PatientRepository;
 import com.hospitalcrud.domain.error.MedicalRecordException;
 import com.hospitalcrud.domain.model.MedRecordUI;
 import com.hospitalcrud.domain.model.PatientUI;

@@ -8,8 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
-@Profile("txt")
 public class MedicationRepository implements MedicationDAO {
     //creando la lista estatica de medicamentos y sus dosis
     private static List<Medication> medications = new ArrayList<>(List.of(

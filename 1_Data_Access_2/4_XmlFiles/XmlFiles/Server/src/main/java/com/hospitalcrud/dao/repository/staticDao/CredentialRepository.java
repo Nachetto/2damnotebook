@@ -2,10 +2,14 @@ package com.hospitalcrud.dao.repository.staticDao;
 
 import com.hospitalcrud.dao.model.Credential;
 import com.hospitalcrud.dao.repository.CredentialDAO;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
+@Profile("xml")
 public class CredentialRepository implements CredentialDAO {
 
     //creando la lista estatica de credenciales

@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 import static java.nio.file.StandardOpenOption.APPEND;
 
 @Repository
-@Profile("txt")
+@Profile("xml")
 public class TxtPatientRepository implements PatientDAO {
 
     private final Configuration config;

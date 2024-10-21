@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 import static java.nio.file.StandardOpenOption.APPEND;
 
 @Repository
-@Profile("txt")
+@Profile("xml")
 public class TxtDoctorRepository implements DoctorDAO {
     private final Configuration config;
     private final DoctorRowMapper rowMapper;

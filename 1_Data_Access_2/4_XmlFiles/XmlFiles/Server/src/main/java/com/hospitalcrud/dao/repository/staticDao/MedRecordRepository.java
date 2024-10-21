@@ -13,8 +13,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
-@Profile("txt")
 public class MedRecordRepository implements MedRecordDAO {
     //creando la lista estatica de medrecords
     private static List<MedRecord> medRecords = new ArrayList<>(List.of(

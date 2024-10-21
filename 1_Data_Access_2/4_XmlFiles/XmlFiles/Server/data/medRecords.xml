@@ -3,7 +3,7 @@
     <medRecord>
         <id>1</id>
         <idPatient>1</idPatient>
-        <doctor>1</doctor>
+        <idDoctor>1</idDoctor>
         <diagnosis>Diabetes</diagnosis>
         <date>01/01/2009</date>
         <medications>
@@ -14,7 +14,7 @@
     <medRecord>
         <id>2</id>
         <idPatient>1</idPatient>
-        <doctor>1</doctor>
+        <idDoctor>1</idDoctor>
         <diagnosis>High Blood Pressure</diagnosis>
         <date>01/01/2009</date>
         <medications>

@@ -15,19 +15,21 @@ import java.util.Properties;
 @Log4j2
 public class Configuration {
     private static Configuration instance=null;
+    private Properties properties;
 
     private String pathPatients;
     private String pathDoctors;
+    private String pathMedicalRecords;
     private String nextIdDoctor;
     private String nextIdPatient;
-    private Properties properties;
 
-    public Configuration(){
+    public Configuration() {
         try {
             properties = new Properties();
-            properties.load(Objects.requireNonNull(Configuration.class.getClassLoader().getResourceAsStream(Constants.CONFIG_FILE_PATH)));
+            properties.loadFromXML(Objects.requireNonNull(Configuration.class.getClassLoader().getResourceAsStream(Constants.CONFIG_FILE_PATH_XML)));
             this.pathPatients = properties.getProperty(Constants.PATH_PATIENTS);
             this.pathDoctors = properties.getProperty(Constants.PATH_DOCTORS);
+            this.pathMedicalRecords = properties.getProperty(Constants.PATH_MEDICAL_RECORDS);
             this.nextIdDoctor = properties.getProperty(Constants.NEXT_ID_DOCTOR);
             this.nextIdPatient = properties.getProperty(Constants.NEXT_ID_PATIENT);
         } catch (IOException ex) {
@@ -36,9 +38,8 @@ public class Configuration {
     }
 
     public static Configuration getInstance() {
-
-        if (instance==null) {
-            instance=new Configuration();
+        if (instance == null) {
+            instance = new Configuration();
         }
         return instance;
     }
@@ -54,11 +55,11 @@ public class Configuration {
     }
 
     private void updateProperties(String key, String value) {
-        try (FileOutputStream output = new FileOutputStream(Objects.requireNonNull(Configuration.class.getClassLoader().getResource(Constants.CONFIG_FILE_PATH)).getFile())) {
+        try (FileOutputStream output = new FileOutputStream(
+                Objects.requireNonNull(Configuration.class.getClassLoader().getResource(Constants.CONFIG_FILE_PATH_XML)).getFile())) {
             properties.setProperty(key, value);
-            properties.store(output, null);
+            properties.storeToXML(output, null);
         } catch (IOException ex) {
             log.error("Error updating properties file", ex);
         }
-    }
-}
+    }}
