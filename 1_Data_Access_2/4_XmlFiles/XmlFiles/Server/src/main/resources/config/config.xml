@@ -6,4 +6,5 @@
     <entry key="pathMedicalRecords">data/medRecords.xml</entry>
     <entry key="nextIdDoctor">0</entry>
     <entry key="nextIdPatient">0</entry>
+    <entry key="nextIdMedRecord">8</entry>
 </properties>

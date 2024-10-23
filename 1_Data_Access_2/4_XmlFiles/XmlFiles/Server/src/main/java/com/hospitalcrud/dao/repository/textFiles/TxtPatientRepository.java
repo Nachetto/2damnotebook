@@ -115,9 +115,11 @@ public class TxtPatientRepository implements PatientDAO {
 
     @Override
     public boolean delete(int patientId, boolean confirmation) {
+        if (!confirmation) {
+            return false;
+        }
         List<Patient> patients = getAll();
         Path filePath = Paths.get(config.getPathPatients());
-
         try {
             List<String> newLines = new ArrayList<>();
             for (Patient patient : patients) {

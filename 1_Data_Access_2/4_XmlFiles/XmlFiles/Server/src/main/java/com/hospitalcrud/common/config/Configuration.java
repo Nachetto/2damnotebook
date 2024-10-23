@@ -22,6 +22,7 @@ public class Configuration {
     private String pathMedicalRecords;
     private String nextIdDoctor;
     private String nextIdPatient;
+    private String nextIdMedRecord;
 
     public Configuration() {
         try {
@@ -32,6 +33,7 @@ public class Configuration {
             this.pathMedicalRecords = properties.getProperty(Constants.PATH_MEDICAL_RECORDS);
             this.nextIdDoctor = properties.getProperty(Constants.NEXT_ID_DOCTOR);
             this.nextIdPatient = properties.getProperty(Constants.NEXT_ID_PATIENT);
+            this.nextIdMedRecord = properties.getProperty(Constants.NEXT_ID_MED_RECORD);
         } catch (IOException ex) {
             log.error(ex.getMessage(), ex);
         }
@@ -54,6 +56,11 @@ public class Configuration {
         updateProperties(Constants.NEXT_ID_PATIENT, nextIdPatient);
     }
 
+    public void setNextIdMedRecord(String nextIdMedRecord) {
+        this.nextIdMedRecord = nextIdMedRecord;
+        updateProperties(Constants.NEXT_ID_MED_RECORD, nextIdMedRecord);
+    }
+
     private void updateProperties(String key, String value) {
         try (FileOutputStream output = new FileOutputStream(
                 Objects.requireNonNull(Configuration.class.getClassLoader().getResource(Constants.CONFIG_FILE_PATH_XML)).getFile())) {
@@ -62,4 +69,5 @@ public class Configuration {
         } catch (IOException ex) {
             log.error("Error updating properties file", ex);
         }
-    }}
+    }
+}

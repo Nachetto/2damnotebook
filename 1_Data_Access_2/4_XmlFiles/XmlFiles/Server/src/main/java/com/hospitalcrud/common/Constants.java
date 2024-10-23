@@ -5,16 +5,15 @@ public class Constants {
     //TODO TODAS LAS CONSTANTES DE LA APLICACION
 
     private Constants() {
-    }
 
-    //PROPERTIES FILE PATH
-    public static final String CONFIG_FILE_PATH = "config/config.properties";
+    }
 
     //DATA FILES PATH PROPERTY NAMES
     public static final String PATH_MEDICAL_RECORDS = "pathMedicalRecords";
     public static final String PATH_PATIENTS = "pathPatients";
     public static final String PATH_DOCTORS = "pathDoctors";
 
-    public static final String NEXT_ID_PATIENT = "config/nextIdPatient";
-    public static final String NEXT_ID_DOCTOR = "config/nextIdDoctor";
+    public static final String NEXT_ID_PATIENT = "nextIdPatient";
+    public static final String NEXT_ID_DOCTOR = "nextIdDoctor";
+    public static final String NEXT_ID_MED_RECORD = "nextIdMedRecord";
 }

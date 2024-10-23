@@ -1,24 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <medRecords>
     <medRecord>
-        <id>1</id>
+        <id>2</id>
         <idPatient>1</idPatient>
-        <idDoctor>1</idDoctor>
-        <diagnosis>Diabetes</diagnosis>
-        <date>01/01/2009</date>
+        <doctor>1</doctor>
+        <diagnosis>Hypertension</diagnosis>
+        <date>2010-02-01</date>
         <medications>
-            <medication>Insulin</medication>
-            <medication>Glyburide</medication>
+            <medication>Lisinopril</medication>
         </medications>
     </medRecord>
     <medRecord>
-        <id>2</id>
-        <idPatient>1</idPatient>
-        <idDoctor>1</idDoctor>
-        <diagnosis>High Blood Pressure</diagnosis>
-        <date>01/01/2009</date>
+        <id>3</id>
+        <idPatient>2</idPatient>
+        <doctor>2</doctor>
+        <diagnosis>Asthma</diagnosis>
+        <date>2011-03-01</date>
         <medications>
-            <medication>Hydrochlorothiazide</medication>
+            <medication>Albuterol</medication>
+        </medications>
+    </medRecord>
+    <medRecord>
+        <id>4</id>
+        <idPatient>2</idPatient>
+        <doctor>3</doctor>
+        <diagnosis>Allergy</diagnosis>
+        <date>2012-04-01</date>
+        <medications>
+            <medication>Loratadine</medication>
+        </medications>
+    </medRecord>
+    <medRecord>
+        <id>5</id>
+        <idPatient>3</idPatient>
+        <doctor>4</doctor>
+        <diagnosis>Flu</diagnosis>
+        <date>2013-05-01</date>
+        <medications>
+            <medication>Oseltamivir</medication>
+        </medications>
+    </medRecord>
+    <medRecord>
+        <id>6</id>
+        <idPatient>3</idPatient>
+        <doctor>5</doctor>
+        <diagnosis>Cold</diagnosis>
+        <date>2014-06-01</date>
+        <medications>
+            <medication>Paracetamol</medication>
+        </medications>
+    </medRecord>
+    <medRecord>
+        <id>7</id>
+        <idPatient>4</idPatient>
+        <doctor>6</doctor>
+        <diagnosis>Arthritis</diagnosis>
+        <date>2015-07-01</date>
+        <medications>
+            <medication>Ibuprofen</medication>
         </medications>
     </medRecord>
 </medRecords>

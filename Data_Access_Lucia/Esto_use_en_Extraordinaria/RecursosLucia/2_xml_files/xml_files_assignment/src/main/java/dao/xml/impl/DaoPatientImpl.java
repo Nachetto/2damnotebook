@@ -33,8 +33,6 @@ public class DaoPatientImpl implements DaoPatient {
 
     @Override
     public Either<AppError, List<PatientXML>> getAll(Patient patient) {
-
-
         if (patient.getName() != null) {
             String medicationName = patient.getName();
             return readXML(medicationName, false).flatMap(patientsXML -> {
