@@ -6,86 +6,91 @@ import com.hospitalcrud.dao.repository.PatientDAO;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Profile;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 
 @Repository
 @Profile("jdbc")
 @Log4j2
 public class PatientRepository implements PatientDAO {
+    private final JdbcTemplate jdbcTemplate;
 
-    private ResultSet rs;
-    private PreparedStatement pStmt;
-    private DBConnection dbConnection;
+    public PatientRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
 
-    public PatientRepository(DBConnection dbConnection) {
-        this.dbConnection = dbConnection;
+    //Rowmapper to cast the names of the columns to the names of the fields in the Patient class
+    private static class PatientRowMapper implements RowMapper<Patient> {
+        @Override
+        public Patient mapRow(java.sql.ResultSet rs, int rowNum) throws java.sql.SQLException {
+            return new Patient(
+                    rs.getInt("patient_id"),
+                    rs.getString("name"),
+                    rs.getDate("date_of_birth").toLocalDate(),
+                    rs.getString("phone")
+            );
+        }
     }
 
     @Override
     public List<Patient> getAll() {
-        try (Connection con = dbConnection.getConnection()) {
-            pStmt = con.prepareStatement(Constants.GET_ALL_PATIENTS);
-            rs = pStmt.executeQuery();
-            return readRS(rs);
-        } catch (SQLException e) {
-            throw new InternalServerErrorException(e.getMessage());
+        try {
+            String sql = Constants.GET_ALL_PATIENTS;
+            return jdbcTemplate.query(sql, new PatientRowMapper());
+        } catch (DataAccessException e) {
+            log.error(e.getMessage(), e);
+            throw new InternalServerErrorException("Error fetching patients: " + e.getMessage());
         }
     }
 
     @Override
-    public int save(Patient m) {
-        try (Connection con = dbConnection.getConnection()) {
-            pStmt = con.prepareStatement(Constants.INSERT_PATIENT);
-            pStmt.setString(1, m.getName());
-            pStmt.setDate(2, java.sql.Date.valueOf(m.getBirthDate()));
-            pStmt.setString(3, m.getPhone());
-            return pStmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new InternalServerErrorException(e.getMessage());
+    public int save(Patient patient) {
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
+
+        MapSqlParameterSource parameters = new MapSqlParameterSource();
+        parameters.addValue("name", patient.getName());
+        parameters.addValue("birthdate", Date.valueOf(patient.getBirthDate()));
+        parameters.addValue("phone", patient.getPhone());
+
+        int update = namedParameterJdbcTemplate.update(Constants.INSERT_PATIENT, parameters, keyHolder, new String[]{"id"});
+
+        if (update > 0 && keyHolder.getKey() != null) {
+            return keyHolder.getKey().intValue();
         }
+        return -1;
     }
 
     @Override
-    public void update(Patient m) {
-        try (Connection con = dbConnection.getConnection()) {
-            pStmt = con.prepareStatement(Constants.UPDATE_PATIENT);
-            pStmt.setString(1, m.getName());
-            pStmt.setDate(2, java.sql.Date.valueOf(m.getBirthDate()));
-            pStmt.setString(3, m.getPhone());
-            pStmt.setInt(4, m.getId());
-            pStmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new InternalServerErrorException(e.getMessage());
-        }
+    public void update(Patient patient) {
+        NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
+
+        MapSqlParameterSource parameters = new MapSqlParameterSource();
+        parameters.addValue("name", patient.getName());
+        parameters.addValue("birthdate", Date.valueOf(patient.getBirthDate()));
+        parameters.addValue("phone", patient.getPhone());
+        parameters.addValue("id", patient.getId());
+
+        namedParameterJdbcTemplate.update(Constants.UPDATE_PATIENT, parameters);
     }
 
     @Override
     public boolean delete(int id, boolean confirmation) {
-        return false;
-    }
+        NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
+        MapSqlParameterSource parameters = new MapSqlParameterSource().addValue("id", id);
 
-    private ArrayList<Patient> readRS(ResultSet rs) {
-        ArrayList<Patient> listPatients = new ArrayList<>();
-        try {
-            while (rs.next()) {
-                int id = rs.getInt("patient_id");
-                String name = rs.getString("name");
-                LocalDate dateOfBirth = rs.getDate("date_of_birth").toLocalDate();
-                String phone = rs.getString("phone");
-                listPatients.add(new Patient(id, name, dateOfBirth, phone));
-            }
-        } catch (SQLException e) {
-            log.error(e.getMessage(), e);
-        }
-        return listPatients;
+        return namedParameterJdbcTemplate.update(Constants.DELETE_PATIENT, parameters) > 0;
     }
 }
+

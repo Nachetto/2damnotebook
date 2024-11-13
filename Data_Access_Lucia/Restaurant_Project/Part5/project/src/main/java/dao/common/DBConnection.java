@@ -43,33 +43,6 @@ public class DBConnection {
         return hikariDataSource;
     }
 
-    private BasicDataSource getBasicPool() {
-        BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setUsername(config.getProperty("user_name"));
-        basicDataSource.setPassword(config.getProperty("password"));
-        basicDataSource.setUrl(config.getProperty("urlDB"));
-
-        return basicDataSource;
-    }
-
-    public Connection getConnection() {
-        Connection con=null;
-        try {
-            con = hikariDataSource.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return con;
-    }
-
-    public void closeConnection(Connection con) {
-        try {
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
     @PreDestroy
     public void closePool() {
         ((HikariDataSource) hikariDataSource).close();

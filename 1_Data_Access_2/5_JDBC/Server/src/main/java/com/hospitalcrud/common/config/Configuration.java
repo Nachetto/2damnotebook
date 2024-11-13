@@ -26,11 +26,13 @@ public class Configuration {
     private String pathDbUrl  ;
     private String pathDbUser ;
     private String pathDbPassword ;
+    private String pathDriver;
 
     public Configuration() {
         try {
             properties = new Properties();
             properties.loadFromXML(Objects.requireNonNull(Configuration.class.getClassLoader().getResourceAsStream(Constants.CONFIG_FILE_PATH_XML)));
+
             this.pathPatients = properties.getProperty(Constants.PATH_PATIENTS);
             this.pathDoctors = properties.getProperty(Constants.PATH_DOCTORS);
             this.pathMedicalRecords = properties.getProperty(Constants.PATH_MEDICAL_RECORDS);
@@ -40,6 +42,7 @@ public class Configuration {
             this.pathDbUrl = properties.getProperty(Constants.PATH_DB_URL);
             this.pathDbUser = properties.getProperty(Constants.PATH_DB_USER);
             this.pathDbPassword = properties.getProperty(Constants.PATH_DB_PASSWORD);
+            this.pathDriver = properties.getProperty(Constants.PATH_DRIVER);
         } catch (IOException ex) {
             log.error(ex.getMessage(), ex);
         }

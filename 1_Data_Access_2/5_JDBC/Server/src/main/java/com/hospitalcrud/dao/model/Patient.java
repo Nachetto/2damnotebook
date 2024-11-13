@@ -20,6 +20,7 @@ public class Patient {
         this.birthDate = dob;
         this.phone = phone;
     }
+
     @Override
     public String toString() {
         return id + ";" + name + ";" +

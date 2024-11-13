@@ -17,12 +17,54 @@ import java.util.List;
 public class RestMedicalRecord {
 
     private final MedRecordService medRecordService;
-
     public RestMedicalRecord(MedRecordService medRecordService) {
         this.medRecordService = medRecordService;
     }
 
-    // Exception handling
+    @PostMapping
+    public int addMedRecord(@RequestBody MedRecordUI medRecordUI) {
+        return medRecordService.add(medRecordUI);
+    }
+
+    @PutMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateMedRecord(@RequestBody MedRecordUI medRecordUI) {
+        medRecordService.update(medRecordUI);
+    }
+
+    @DeleteMapping("/{medRecordId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    //queryparam confirmation boolean
+    public void deleteMedRecord(@PathVariable int medRecordId) {
+        medRecordService.delete(medRecordId);
+    }
+
+    @GetMapping
+    public List<MedRecordUI> getRecordsFromPatientID(@PathVariable int patientId)  {
+        return medRecordService.getMedRecords(patientId);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // todo Exception handling en el mismo controlador
     @ExceptionHandler(BadRequestException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
@@ -42,28 +84,5 @@ public class RestMedicalRecord {
     @ResponseBody
     public String handleInternalServerError(InternalServerErrorException e) {
         return e.getMessage();
-    }
-
-    @GetMapping
-    public List<MedRecordUI> getRecordsFromPatientID(@PathVariable int patientId)  {
-        return medRecordService.getAll().stream().filter(m -> m.getIdPatient() == patientId).toList();
-    }
-
-    @PostMapping
-    public int addMedRecord(@RequestBody MedRecordUI medRecordUI) {
-        return medRecordService.add(medRecordUI);
-    }
-
-    @PutMapping
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateMedRecord(@RequestBody MedRecordUI medRecordUI) {
-        medRecordService.update(medRecordUI);
-    }
-
-    @DeleteMapping("/{medRecordId}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    //queryparam confirmation boolean
-    public void deleteMedRecord(@PathVariable int medRecordId) {
-        medRecordService.delete(medRecordId);
     }
 }

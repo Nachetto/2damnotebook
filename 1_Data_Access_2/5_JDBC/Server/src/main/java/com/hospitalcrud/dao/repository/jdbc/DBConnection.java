@@ -1,71 +1,48 @@
 package com.hospitalcrud.dao.repository.jdbc;
 import com.hospitalcrud.common.config.Configuration;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import jakarta.annotation.PreDestroy;
+import jakarta.inject.Singleton;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javax.sql.DataSource;
 
 @Component
+@Log4j2
+@Singleton
 class DBConnection {
-
     private final Configuration config;
+    private final DataSource hikariDataSource;
+
 
     public DBConnection() {
         this.config = Configuration.getInstance();
+        hikariDataSource = getHikariPool();
     }
 
-    public Connection getConnection() throws SQLException {
+    private DataSource getHikariPool() {
+        HikariConfig hikariConfig = new HikariConfig();
+        hikariConfig.setJdbcUrl(config.getPathDbUrl());
+        hikariConfig.setUsername(config.getPathDbUser());
+        hikariConfig.setPassword(config.getPathDbPassword());
+        hikariConfig.setDriverClassName(config.getPathDriver());
+        hikariConfig.setMaximumPoolSize(4);
+        hikariConfig.addDataSourceProperty("cachePrepStmts", true);
+        hikariConfig.addDataSourceProperty("prepStmtCacheSize", 250);
+        hikariConfig.addDataSourceProperty("prepStmtCacheSqlLimit", 2048);
 
-        Connection conn = DriverManager
-                .getConnection(config.getPathDbUrl(), config.getPathDbUser(), config.getPathDbPassword());
-        System.out.println("Connected to DB");
-        return conn;
+        return new HikariDataSource(hikariConfig);
     }
 
-    public void closeConnection(Connection connArg) {
-        System.out.println("Releasing all open resources ...");
-        try {
-            if (connArg != null) {
-                connArg.close();
-            }
-        } catch (SQLException sqle) {
-            sqle.printStackTrace();
-        }
+    public DataSource getDataSource() {
+        return hikariDataSource;
     }
 
-    public void releaseResource(PreparedStatement pstmt) {
-        try {
-            if (pstmt != null) {
-                pstmt.close();
-            }
-        } catch (SQLException sqle) {
-            sqle.printStackTrace();
-        }
-    }
-
-    public void releaseResource(ResultSet rs) {
-        try {
-            if (rs != null) {
-                rs.close();
-            }
-
-        } catch (SQLException sqle) {
-            sqle.printStackTrace();
-        }
-    }
-
-    public void releaseResource(Statement stmt) {
-        try {
-            if (stmt != null) {
-                stmt.close();
-            }
-        } catch (SQLException sqle) {
-            sqle.printStackTrace();
-        }
+    @PreDestroy
+    public void closePool() {
+        ((HikariDataSource) hikariDataSource).close();
     }
 }

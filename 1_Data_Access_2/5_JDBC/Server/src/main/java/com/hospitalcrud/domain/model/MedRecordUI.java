@@ -2,6 +2,7 @@ package com.hospitalcrud.domain.model;
 
 import com.hospitalcrud.dao.model.MedRecord;
 import com.hospitalcrud.dao.model.Medication;
+import com.hospitalcrud.service.MedicationService;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -14,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class MedRecordUI {
+
     private int id;
     private int idPatient;
     private int idDoctor;
@@ -24,7 +26,7 @@ public class MedRecordUI {
     public MedRecord toMedRecord() {
         DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
         LocalDate datee = LocalDate.parse(this.date, formatter);
-        return new MedRecord(id, idPatient, idDoctor, description, datee, medications.stream().map(m -> new Medication(0, m, id)).toList());
+        return new MedRecord(id, idPatient, idDoctor, description, datee);
     }
 }
 

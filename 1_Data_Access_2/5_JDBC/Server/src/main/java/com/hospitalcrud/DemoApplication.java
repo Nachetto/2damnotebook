@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(DemoApplication.class);
-        application.setAdditionalProfiles("xml");
+        application.setAdditionalProfiles("jdbc");
         SpringApplication.run(DemoApplication.class, args);
     }
 }

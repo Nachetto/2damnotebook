@@ -13,10 +13,12 @@ import java.sql.SQLException;
 public class DBConnection {
     private final Configuration config;
     private Connection connection;
+
     @Inject
     public DBConnection(Configuration config) {
         this.config = config;
     }
+
     @PreDestroy
     public void closePool() {
         // Cerrar el pool de conexiones antes ce que se destruya el objeto

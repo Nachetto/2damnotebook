@@ -11,15 +11,9 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Medication {
-    @XmlTransient // This annotation is used to exclude a field from the XML representation.
     private int id;
-
-    @XmlElement(name = "medication")
     private String medicationName;
-
-    @XmlTransient
     private int medRecordId;
 }
 
