@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Repository
-@Profile("jdbc")
+@Profile("spring")
 @Log4j2
 public class DoctorRepository  implements DoctorDAO {
 

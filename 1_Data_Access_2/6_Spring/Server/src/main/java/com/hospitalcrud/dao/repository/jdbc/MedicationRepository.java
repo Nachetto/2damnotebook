@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-@Profile("jdbc")
+@Profile("spring")
 @Log4j2
 public class MedicationRepository implements MedicationDAO {
 

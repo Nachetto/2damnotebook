@@ -20,7 +20,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Repository
-@Profile("jdbc")
+@Profile("spring")
 @Log4j2
 public class PatientRepository implements PatientDAO {
     private final JdbcTemplate jdbcTemplate;
