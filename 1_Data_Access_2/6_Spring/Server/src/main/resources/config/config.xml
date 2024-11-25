@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="pathPatients">data/patients.csv</entry>
+    <entry key="pathDoctors">data/doctors.csv</entry>
+    <entry key="pathMedicalRecords">data/medRecords.xml</entry>
+    <entry key="nextIdDoctor">0</entry>
+    <entry key="nextIdPatient">0</entry>
+    <entry key="nextIdMedRecord">8</entry>
+    <entry key="dbUrl">jdbc:mysql://dam2.mysql.iesquevedo.es:3335</entry>
+    <entry key="dbUser">root</entry>
+    <entry key="dbPassword">quevedo2dam</entry>
+    <entry key="dbDriver">com.mysql.cj.jdbc.Driver</entry>
+</properties>
