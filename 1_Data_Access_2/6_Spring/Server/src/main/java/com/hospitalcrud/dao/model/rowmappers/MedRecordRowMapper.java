@@ -2,7 +2,9 @@ package com.hospitalcrud.dao.model.rowmappers;
 
 import com.hospitalcrud.dao.model.MedRecord;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MedRecordRowMapper implements RowMapper<MedRecord> {
     @Override
     public MedRecord mapRow(java.sql.ResultSet rs, int rowNum) throws java.sql.SQLException {

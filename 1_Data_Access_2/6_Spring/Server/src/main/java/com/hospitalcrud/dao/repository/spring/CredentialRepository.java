@@ -5,10 +5,11 @@ import com.hospitalcrud.dao.model.rowmappers.CredentialRowMapper;
 import com.hospitalcrud.dao.repository.CredentialDAO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Profile;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Profile("spring")
@@ -16,49 +17,54 @@ import java.util.List;
 public class CredentialRepository implements CredentialDAO {
 
     public static final String CHECK_USERNAME = "SELECT * FROM user_login WHERE username = ?";
+    private final CredentialRowMapper credentialRowMapper;
 
-
-    private final JdbcTemplate jdbcTemplate;
-    public CredentialRepository(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    private final JdbcClient jdbcClient;
+    public CredentialRepository(JdbcClient jdbcClient, CredentialRowMapper credentialRowMapper) {
+        this.credentialRowMapper = credentialRowMapper;
+        this.jdbcClient = jdbcClient;
     }
-
 
     public boolean validateUsername(String username) {
         try {
-            String sql = CHECK_USERNAME;
-            List<Credential> credentials = jdbcTemplate.query(sql, new CredentialRowMapper(), username);
-            return credentials.size() == 1;
+            Optional<Credential> optionalCredential = jdbcClient.sql(CHECK_USERNAME)
+                    .param(1, username)
+                    .query(credentialRowMapper)
+                    .optional();
+            return optionalCredential.isPresent();
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+            log.error("Error validating username: {}", username, e);
             return false;
         }
     }
 
-    public boolean login(String username,String  password) {
+    public boolean login(String username, String password) {
         try {
-            String sql = "SELECT * FROM user_login WHERE username = ? AND password = ?";
-            List<Credential> credentials = jdbcTemplate.query(sql, new CredentialRowMapper(), username, password);
-            return credentials.size() == 1;
+            Optional<Credential> optionalCredential = jdbcClient.sql("SELECT * FROM user_login WHERE username = ? AND password = ?")
+                    .param(1, username)
+                    .param(2, password)
+                    .query(credentialRowMapper)
+                    .optional();
+            return optionalCredential.isPresent();
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+            log.error("Error during login for username: {}", username, e);
             return false;
         }
     }
 
-
-    @Override
-    public int save(Credential c) {
+    public int save(Credential credential) {
         try {
             String sql = "INSERT INTO user_login (username, password, patient_id, doctor_id) VALUES (?, ?, ?, NULL)";
-            return jdbcTemplate.update(sql, c.getUsername(), c.getPassword(), c.getPatientId());
+            return jdbcClient.sql(sql)
+                    .param(1, credential.getUsername())
+                    .param(2, credential.getPassword())
+                    .param(3, credential.getPatientId())
+                    .update();
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+            log.error("Error saving credential for username: {}", credential.getUsername(), e);
             return 0;
         }
     }
-
-
 
     //not implemented for this exercise
     @Override

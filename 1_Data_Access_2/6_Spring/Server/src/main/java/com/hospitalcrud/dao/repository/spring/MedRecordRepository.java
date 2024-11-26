@@ -11,98 +11,104 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Profile("spring")
 @Log4j2
 public class MedRecordRepository implements MedRecordDAO {
 
-    private final JdbcTemplate jdbcTemplate;
-    public MedRecordRepository(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    private final JdbcClient jdbcClient;
+    public MedRecordRepository(JdbcClient jdbcClient) {
+        this.jdbcClient = jdbcClient;
     }
 
     @Override
     public List<MedRecord> get(int patientId) {
         try {
-            String sql = Constants.GET_MED_RECORDS_BY_PATIENT_ID;
-            return jdbcTemplate.query(
-                    sql,
-                    new Object[]{patientId},
-                    new MedRecordRowMapper()
-            );
-        } catch (DataAccessException e) {
-            log.error(e.getMessage(), e);
+            return jdbcClient.sql(Constants.GET_MED_RECORDS_BY_PATIENT_ID)
+                    .param(1, patientId)
+                    .query(new MedRecordRowMapper()).list();
+        } catch (Exception e) {
+            log.error("Error fetching medical records for patient ID: {}", patientId, e);
             throw new InternalServerErrorException("Error fetching medical records for patient ID: " + patientId + " - " + e.getMessage());
         }
     }
 
-
     @Override
     public int save(MedRecord medRecord) {
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-        NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
-
-        MapSqlParameterSource parameters = new MapSqlParameterSource();
-        parameters.addValue("1", medRecord.getIdPatient());
-        parameters.addValue("2", medRecord.getIdDoctor());
-        parameters.addValue("3", medRecord.getDiagnosis());
-        parameters.addValue("4", medRecord.getDate());
-
-        int update = namedParameterJdbcTemplate.update(
-                Constants.INSERT_MED_RECORD,
-                parameters,
-                keyHolder,
-                new String[]{"record_id"}
-        );
-
-        if (update > 0 && keyHolder.getKey() != null) {
-            return keyHolder.getKey().intValue();
+        try {
+            String sql = Constants.INSERT_MED_RECORD;
+            return jdbcClient.sql(sql)
+                    .param(1, medRecord.getIdPatient())
+                    .param(2, medRecord.getIdDoctor())
+                    .param(3, medRecord.getDiagnosis())
+                    .param(4, medRecord.getDate())
+                    .update();
+        } catch (Exception e) {
+            log.error("Error saving medical record", e);
+            return -1;
         }
-        return -1;
     }
-
 
     @Override
     public void update(MedRecord medRecord) {
-        NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
-
-        MapSqlParameterSource parameters = new MapSqlParameterSource();
-        parameters.addValue("1", medRecord.getIdPatient());
-        parameters.addValue("2", medRecord.getIdDoctor());
-        parameters.addValue("3", medRecord.getDiagnosis());
-        parameters.addValue("4", medRecord.getDate());
-        parameters.addValue("5", medRecord.getId());
-
-        namedParameterJdbcTemplate.update(Constants.UPDATE_MED_RECORD, parameters);
+        try {
+            String sql = Constants.UPDATE_MED_RECORD;
+            jdbcClient.sql(sql)
+                    .param(1, medRecord.getIdPatient())
+                    .param(2, medRecord.getIdDoctor())
+                    .param(3, medRecord.getDiagnosis())
+                    .param(4, medRecord.getDate())
+                    .param(5, medRecord.getId())
+                    .update();
+        } catch (Exception e) {
+            log.error("Error updating medical record with id: {}", medRecord.getId(), e);
+        }
     }
 
     @Override
     public boolean delete(int id, boolean confirmation) {
-        NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
-        MapSqlParameterSource parameters = new MapSqlParameterSource().addValue("?", id);
-
-        return namedParameterJdbcTemplate.update(Constants.DELETE_MED_RECORD, parameters) > 0;
+        try {
+            String sql = Constants.DELETE_MED_RECORD;
+            return jdbcClient.sql(sql)
+                    .param(1, id)
+                    .update() > 0;
+        } catch (Exception e) {
+            log.error("Error deleting medical record with id: {}", id, e);
+            return false;
+        }
     }
 
-
-
-
-
-    //not used on this exercise
     @Override
     public List<MedRecord> getAll() {
         try {
-            String sql = Constants.GET_ALL_MED_RECORDS;
-            return jdbcTemplate.query(sql, new MedRecordRowMapper());
-        } catch (DataAccessException e) {
-            log.error(e.getMessage(), e);
-            throw new InternalServerErrorException("Error fetching medical records: " + e.getMessage());
+            return jdbcClient.sql(Constants.GET_ALL_MED_RECORDS)
+                    .query(new MedRecordRowMapper()).list();
+        } catch (Exception e) {
+            log.error("Error fetching all medical records", e);
+            throw new InternalServerErrorException("Error fetching all medical records: " + e.getMessage());
         }
     }
+
+    public MedRecord getById(int id) {
+        try {
+            Optional<MedRecord> optionalMedRecord = jdbcClient.sql("SELECT * FROM medical_records WHERE record_id = ?")
+                    .param(1, id)
+                    .query(new MedRecordRowMapper())
+                    .optional(); // Devuelve un Optional
+
+            return optionalMedRecord.orElse(null);
+        } catch (Exception e) {
+            log.error("Error fetching medical record with id: {}", id, e);
+            return null;
+        }
+    }
+
 }

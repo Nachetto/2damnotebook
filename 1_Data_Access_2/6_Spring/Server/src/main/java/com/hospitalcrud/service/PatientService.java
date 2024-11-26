@@ -30,7 +30,7 @@ public class PatientService {
     public int addPatient(PatientUI patientUI) {
         //check for duplicated username
         if (credentialDAO.validateUsername(patientUI.getUserName()))
-            throw new ConflictException("Username already exists");
+            throw new ConflictException("Username duplicated, it already exists");
 
         if (dao.save(patientUI.toPatient())==1)
             return credentialDAO.save(patientUI.toCredential(dao.getPatientId(patientUI.getName())));
