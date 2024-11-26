@@ -1,6 +1,6 @@
-package com.hospitalcrud.dao.repository.jdbc;
-import com.hospitalcrud.common.config.Configuration;
+package com.hospitalcrud.dao.repository.spring;
 
+import com.hospitalcrud.common.config.Configuration;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import jakarta.annotation.PreDestroy;

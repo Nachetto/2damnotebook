@@ -1,4 +1,4 @@
-package com.hospitalcrud.dao.repository.jdbc;
+package com.hospitalcrud.dao.repository.spring;
 
 import com.hospitalcrud.common.Constants;
 import com.hospitalcrud.dao.model.Patient;
@@ -7,7 +7,6 @@ import com.hospitalcrud.domain.error.InternalServerErrorException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Profile;
 import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -92,5 +91,16 @@ public class PatientRepository implements PatientDAO {
 
         return namedParameterJdbcTemplate.update(Constants.DELETE_PATIENT, parameters) > 0;
     }
+
+    public int getPatientId(String name) {
+        try {
+            String sql = Constants.GET_PATIENT_ID;
+            return jdbcTemplate.queryForObject(sql, new Object[]{name}, Integer.class);
+        } catch (DataAccessException e) {
+            log.error(e.getMessage(), e);
+            throw new InternalServerErrorException("Error fetching patient id: " + e.getMessage());
+        }
+    }
+
 }
 

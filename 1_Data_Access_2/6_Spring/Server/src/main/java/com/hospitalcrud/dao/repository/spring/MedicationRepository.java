@@ -1,13 +1,12 @@
-package com.hospitalcrud.dao.repository.jdbc;
+package com.hospitalcrud.dao.repository.spring;
 
 import com.hospitalcrud.dao.model.Medication;
+import com.hospitalcrud.dao.model.rowmappers.MedicationRowMapper;
 import com.hospitalcrud.dao.repository.MedicationDAO;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Profile;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,23 +17,12 @@ import java.util.List;
 public class MedicationRepository implements MedicationDAO {
 
     private final JdbcTemplate jdbcTemplate;
-    private final RowMapper<Medication> medicationRowMapper = new BeanPropertyRowMapper<>(Medication.class);
 
     public MedicationRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    //Rowmapper to cast the names of the columns to the names of the fields in the Medication class
-    private static class MedicationRowMapper implements RowMapper<Medication> {
-        @Override
-        public Medication mapRow(java.sql.ResultSet rs, int rowNum) throws java.sql.SQLException {
-            Medication medication = new Medication();
-            medication.setId(rs.getInt("prescription_id"));
-            medication.setMedRecordId(rs.getInt("record_id"));
-            medication.setMedicationName(rs.getString("medication_name"));
-            return medication;
-        }
-    }
+
 
     @Override
     public int save(Medication m) {

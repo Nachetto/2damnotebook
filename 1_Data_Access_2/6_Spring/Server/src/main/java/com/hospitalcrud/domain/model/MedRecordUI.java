@@ -1,8 +1,6 @@
 package com.hospitalcrud.domain.model;
 
 import com.hospitalcrud.dao.model.MedRecord;
-import com.hospitalcrud.dao.model.Medication;
-import com.hospitalcrud.service.MedicationService;
 import lombok.*;
 
 import java.time.LocalDate;

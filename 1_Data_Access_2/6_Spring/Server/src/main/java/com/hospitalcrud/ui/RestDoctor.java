@@ -2,7 +2,6 @@ package com.hospitalcrud.ui;
 
 import com.hospitalcrud.dao.model.Doctor;
 import com.hospitalcrud.service.DoctorService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

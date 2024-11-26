@@ -1,5 +1,6 @@
 package com.hospitalcrud.domain.model;
 
+import com.hospitalcrud.dao.model.Credential;
 import com.hospitalcrud.dao.model.Patient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,10 @@ public class PatientUI {
 
     public Patient toPatient() {
         return new Patient(id, name, birthDate, phone);
+    }
+
+    public Credential toCredential(int idGenerated) {
+        return new Credential(userName, password, idGenerated);
     }
 }
 

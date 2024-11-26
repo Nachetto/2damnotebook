@@ -1,14 +1,13 @@
-package com.hospitalcrud.dao.repository.jdbc;
+package com.hospitalcrud.dao.repository.spring;
 
 import com.hospitalcrud.dao.model.Credential;
+import com.hospitalcrud.dao.model.rowmappers.CredentialRowMapper;
 import com.hospitalcrud.dao.repository.CredentialDAO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -24,16 +23,6 @@ public class CredentialRepository implements CredentialDAO {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    private static class CredentialRowMapper implements RowMapper<Credential> {
-        @Override
-        public Credential mapRow(java.sql.ResultSet rs, int rowNum) throws SQLException {
-            return new Credential(
-                    rs.getString("username"),
-                    rs.getString("password"),
-                    rs.getInt("patient_id")
-            );
-        }
-    }
 
     public boolean validateUsername(String username) {
         try {
@@ -58,17 +47,28 @@ public class CredentialRepository implements CredentialDAO {
     }
 
 
+    @Override
+    public int save(Credential c) {
+        try {
+            String sql = "INSERT INTO user_login (username, password, patient_id, doctor_id) VALUES (?, ?, ?, NULL)";
+            return jdbcTemplate.update(sql, c.getUsername(), c.getPassword(), c.getPatientId());
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            return 0;
+        }
+    }
+
+
+
     //not implemented for this exercise
     @Override
     public List<Credential> getAll() {
         return List.of();
     }
-    @Override
-    public int save(Credential c) {
-        return 0;
-    }
+
     @Override
     public void update(Credential c) {/*bla bla bla*/}
+
     @Override
     public boolean delete(int id, boolean confirmation) {
         return false;

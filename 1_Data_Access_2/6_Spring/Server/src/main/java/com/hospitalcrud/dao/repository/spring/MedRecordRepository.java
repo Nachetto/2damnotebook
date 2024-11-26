@@ -1,14 +1,14 @@
-package com.hospitalcrud.dao.repository.jdbc;
+package com.hospitalcrud.dao.repository.spring;
 
 import com.hospitalcrud.common.Constants;
 import com.hospitalcrud.dao.model.MedRecord;
+import com.hospitalcrud.dao.model.rowmappers.MedRecordRowMapper;
 import com.hospitalcrud.dao.repository.MedRecordDAO;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Profile;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -26,21 +26,6 @@ public class MedRecordRepository implements MedRecordDAO {
     public MedRecordRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
-
-    private static class MedRecordRowMapper implements  RowMapper<MedRecord> {
-        @Override
-        public MedRecord mapRow(java.sql.ResultSet rs, int rowNum) throws java.sql.SQLException {
-            return new MedRecord(
-                    rs.getInt("record_id"),
-                    rs.getInt("patient_id"),
-                    rs.getInt("doctor_id"),
-                    rs.getString("diagnosis"),
-                    rs.getDate("admission_date").toLocalDate()
-            );
-        }
-    }
-
 
     @Override
     public List<MedRecord> get(int patientId) {

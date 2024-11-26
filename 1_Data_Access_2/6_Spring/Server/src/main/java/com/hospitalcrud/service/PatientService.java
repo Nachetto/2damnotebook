@@ -1,10 +1,11 @@
 package com.hospitalcrud.service;
 
-import com.hospitalcrud.dao.repository.PatientDAO;
+import com.hospitalcrud.dao.repository.spring.CredentialRepository;
+import com.hospitalcrud.dao.repository.spring.PatientRepository;
+import com.hospitalcrud.domain.error.ConflictException;
 import com.hospitalcrud.domain.error.MedicalRecordException;
 import com.hospitalcrud.domain.model.MedRecordUI;
 import com.hospitalcrud.domain.model.PatientUI;
-
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,10 +14,13 @@ import java.util.stream.Collectors;
 @Service
 public class PatientService {
     private final MedRecordService medRecordService;
-    private final PatientDAO dao;
-    public PatientService(MedRecordService medRecordService, PatientDAO dao) {
+    private final PatientRepository dao;
+    private  final CredentialRepository credentialDAO;
+
+    public PatientService(MedRecordService medRecordService, PatientRepository dao, CredentialRepository credentialDAO) {
         this.dao = dao;
         this.medRecordService = medRecordService;
+        this.credentialDAO = credentialDAO;
     }
 
     public List<PatientUI> getPatients() {
@@ -24,7 +28,13 @@ public class PatientService {
     }
 
     public int addPatient(PatientUI patientUI) {
-        return dao.save(patientUI.toPatient());
+        //check for duplicated username
+        if (credentialDAO.validateUsername(patientUI.getUserName()))
+            throw new ConflictException("Username already exists");
+
+        if (dao.save(patientUI.toPatient())==1)
+            return credentialDAO.save(patientUI.toCredential(dao.getPatientId(patientUI.getName())));
+        return 0;
     }
 
     public void updatePatient(PatientUI patientUI) {
@@ -34,6 +44,7 @@ public class PatientService {
     public boolean delete(int patientId, boolean confirm) {
         if (!medRecordService.checkPatientMedRecords(patientId))
             throw new MedicalRecordException("Patient has medical records");
+
         return dao.delete(patientId, confirm);
     }
 
