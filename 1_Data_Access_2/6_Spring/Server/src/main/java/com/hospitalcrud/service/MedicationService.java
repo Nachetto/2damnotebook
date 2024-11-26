@@ -40,5 +40,8 @@ public class MedicationService {
         dao.delete(medRecordId);
     }
 
+    public void deleteByPatientId(int patientId) {
+    }
+
     // not implemented for this exercise, created on client
 }

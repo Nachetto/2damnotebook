@@ -1,9 +1,6 @@
 package com.hospitalcrud.ui;
 
-import com.hospitalcrud.domain.error.BadRequestException;
-import com.hospitalcrud.domain.error.InternalServerErrorException;
-import com.hospitalcrud.domain.error.MedicalRecordException;
-import com.hospitalcrud.domain.error.NotFoundException;
+import com.hospitalcrud.domain.error.*;
 import com.hospitalcrud.domain.model.MedRecordUI;
 import com.hospitalcrud.domain.model.PatientUI;
 import com.hospitalcrud.service.PatientService;
@@ -18,6 +15,14 @@ import java.util.List;
 
 @RequestMapping("/patients")
 public class RestPatient {
+
+    @ExceptionHandler(UsernameDuplicatedException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    @ResponseBody
+    public String handleUsernameDuplicated(UsernameDuplicatedException e) {
+        return e.getMessage();
+    }
+
 
     private final PatientService patientService;
 

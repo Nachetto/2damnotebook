@@ -10,4 +10,5 @@ public interface MedRecordDAO {
     int save(MedRecord m);
     void update(MedRecord m);
     boolean delete(int id, boolean confirmation);
+
 }

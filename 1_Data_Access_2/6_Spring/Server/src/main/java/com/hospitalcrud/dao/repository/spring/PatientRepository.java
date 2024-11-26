@@ -16,6 +16,7 @@ import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.util.List;
@@ -58,6 +59,7 @@ public class PatientRepository implements PatientDAO {
         }
     }
 
+
     @Override
     public void update(Patient patient) {
         try {
@@ -74,29 +76,31 @@ public class PatientRepository implements PatientDAO {
     }
 
     @Override
+    @Transactional
     public boolean delete(int id, boolean confirmation) {
+        if (!confirmation) {
+            log.warn("Deletion not confirmed for patient with id: {}", id);
+            return false;
+        }
+
         try {
+            String sqlCredential = "DELETE FROM user_login WHERE patient_id = :id";
             String sql = Constants.DELETE_PATIENT;
+
+            jdbcClient.sql(sqlCredential)
+                    .param("id", id)
+                    .update();
             return jdbcClient.sql(sql)
                     .param("id", id)
-                    .update() > 0; // Devuelve true si se elimina el paciente
+                    .update() > 0;
         } catch (Exception e) {
             log.error("Error deleting patient with id: {}", id, e);
-            return false; // Retorna false si ocurre un error
+            return false; // Return false if an error occurs
         }
     }
 
     public int getPatientId(String name) {
-        try {
-            String sql = Constants.GET_PATIENT_ID;
-            return jdbcClient.sql(sql)
-                    .param(1, name)
-                    .query(Integer.class)
-                    .optional().orElse(-1); // Devuelve el id del paciente o -1 si no se encuentra
-        } catch (Exception e) {
-            log.error("Error fetching patient id for name: {}", name, e);
-            return -1; // Si ocurre un error, devuelve Optional vacío
-        }
+        return  -1;
     }
 
 

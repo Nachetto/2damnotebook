@@ -1,6 +1,7 @@
 package com.hospitalcrud.service;
 
 import com.hospitalcrud.dao.repository.MedRecordDAO;
+import com.hospitalcrud.dao.repository.spring.MedRecordRepository;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import com.hospitalcrud.domain.model.MedRecordUI;
 import org.springframework.stereotype.Service;
@@ -10,10 +11,10 @@ import java.util.stream.Collectors;
 
 @Service
 public class MedRecordService {
-    private final MedRecordDAO dao;
+    private final MedRecordRepository dao;
     private final MedicationService medicationService;
 
-    public MedRecordService(MedRecordDAO dao, MedicationService medicationService) {
+    public MedRecordService(MedRecordRepository dao, MedicationService medicationService) {
         this.dao = dao;
         this.medicationService = medicationService;
     }
@@ -48,4 +49,11 @@ public class MedRecordService {
         return dao.get(patientId).isEmpty();
     }
 
+    public void deleteByPatientId(int patientId) {
+        dao.getListOfMedRecordsIdsFromPatient(patientId).forEach(id -> {
+            medicationService.delete(id);
+            dao.delete(id, true);
+        });
+
+    }
 }

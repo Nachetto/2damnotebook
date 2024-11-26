@@ -111,4 +111,15 @@ public class MedRecordRepository implements MedRecordDAO {
         }
     }
 
+    public List<Integer> getListOfMedRecordsIdsFromPatient(int patientId) {
+        try {
+            return jdbcClient.sql("SELECT record_id FROM medical_records WHERE patient_id = ?")
+                    .param(1, patientId)
+                    .query((rs, rowNum) -> rs.getInt("record_id"))
+                    .list();
+        } catch (Exception e) {
+            log.error("Error fetching medical records for patient ID: {}", patientId, e);
+            return List.of(); // Return an empty list in case of an error
+        }
+    }
 }

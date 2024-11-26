@@ -3,7 +3,9 @@ package com.hospitalcrud.service;
 import com.hospitalcrud.dao.repository.spring.CredentialRepository;
 import com.hospitalcrud.dao.repository.spring.PatientRepository;
 import com.hospitalcrud.domain.error.ConflictException;
+import com.hospitalcrud.domain.error.InternalServerErrorException;
 import com.hospitalcrud.domain.error.MedicalRecordException;
+import com.hospitalcrud.domain.error.UsernameDuplicatedException;
 import com.hospitalcrud.domain.model.MedRecordUI;
 import com.hospitalcrud.domain.model.PatientUI;
 import org.springframework.stereotype.Service;
@@ -30,11 +32,15 @@ public class PatientService {
     public int addPatient(PatientUI patientUI) {
         //check for duplicated username
         if (credentialDAO.validateUsername(patientUI.getUserName()))
-            throw new ConflictException("Username duplicated, it already exists");
+            throw new UsernameDuplicatedException("Username duplicated, it already exists");
 
-        if (dao.save(patientUI.toPatient())==1)
-            return credentialDAO.save(patientUI.toCredential(dao.getPatientId(patientUI.getName())));
-        return 0;
+        int patientId = dao.save(patientUI.toPatient());
+
+        if (patientId == -1) {
+            return 0;
+        }
+
+        return credentialDAO.save(patientUI.toCredential(patientId));
     }
 
     public void updatePatient(PatientUI patientUI) {
@@ -42,11 +48,18 @@ public class PatientService {
     }
 
     public boolean delete(int patientId, boolean confirm) {
-        if (!medRecordService.checkPatientMedRecords(patientId))
-            throw new MedicalRecordException("Patient has medical records");
-
-        return dao.delete(patientId, confirm);
+        if (!confirm) {
+            if (!medRecordService.checkPatientMedRecords(patientId)) {
+                throw new MedicalRecordException("Patient has medical records, cannot delete.");
+            }
+            medRecordService.deleteByPatientId(patientId);
+            return dao.delete(patientId, confirm);
+        } else {
+            medRecordService.deleteByPatientId(patientId);
+            return dao.delete(patientId, confirm);
+        }
     }
+
 
     public List<MedRecordUI> getPatientMedRecords(int patientId) {
         return medRecordService.getMedRecords(patientId);
