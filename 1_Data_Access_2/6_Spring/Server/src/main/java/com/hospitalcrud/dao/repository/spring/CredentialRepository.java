@@ -65,6 +65,13 @@ public class CredentialRepository implements CredentialDAO {
             return 0;
         }
     }
+    @Override
+    public boolean delete(int id) {
+        String sqlCredential = "DELETE FROM user_login WHERE patient_id = ?";
+        return  jdbcClient.sql(sqlCredential)
+                .param(1, id)
+                .update() > 0;
+    }
 
     //not implemented for this exercise
     @Override
@@ -75,9 +82,5 @@ public class CredentialRepository implements CredentialDAO {
     @Override
     public void update(Credential c) {/*bla bla bla*/}
 
-    @Override
-    public boolean delete(int id, boolean confirmation) {
-        return false;
-    }
 
 }

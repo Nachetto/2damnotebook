@@ -7,13 +7,7 @@ import com.hospitalcrud.dao.repository.MedRecordDAO;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Profile;
-import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.JdbcClient;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -74,15 +68,16 @@ public class MedRecordRepository implements MedRecordDAO {
     }
 
     @Override
-    public boolean delete(int id, boolean confirmation) {
+    public boolean delete(int id) {
         try {
+
+
             String sql = Constants.DELETE_MED_RECORD;
             return jdbcClient.sql(sql)
                     .param(1, id)
                     .update() > 0;
         } catch (Exception e) {
-            log.error("Error deleting medical record with id: {}", id, e);
-            return false;
+            throw new InternalServerErrorException(STR."Error deleting medical record with id: \{id} - \{e.getMessage()}");
         }
     }
 

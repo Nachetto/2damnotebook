@@ -9,6 +9,6 @@ public interface MedRecordDAO {
     List<MedRecord> get(int patientId);
     int save(MedRecord m);
     void update(MedRecord m);
-    boolean delete(int id, boolean confirmation);
+    boolean delete(int id);
 
 }

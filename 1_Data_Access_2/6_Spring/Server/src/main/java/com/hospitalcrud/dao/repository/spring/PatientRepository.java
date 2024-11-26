@@ -7,16 +7,8 @@ import com.hospitalcrud.dao.repository.PatientDAO;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Profile;
-import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.JdbcClient;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.util.List;
@@ -76,33 +68,21 @@ public class PatientRepository implements PatientDAO {
     }
 
     @Override
-    @Transactional
     public boolean delete(int id, boolean confirmation) {
-        if (!confirmation) {
-            log.warn("Deletion not confirmed for patient with id: {}", id);
-            return false;
-        }
-
         try {
-            String sqlCredential = "DELETE FROM user_login WHERE patient_id = :id";
-            String sql = Constants.DELETE_PATIENT;
-
-            jdbcClient.sql(sqlCredential)
-                    .param("id", id)
+            //delete appointments first, i dont have an appointment dao so i dont care to do it here
+            String sqlAppointments = Constants.DELETE_APPOINTMENTS;
+            jdbcClient.sql(sqlAppointments)
+                    .param(1, id)
                     .update();
+
+            String sql = Constants.DELETE_PATIENT;
             return jdbcClient.sql(sql)
-                    .param("id", id)
+                    .param(1, id)
                     .update() > 0;
         } catch (Exception e) {
-            log.error("Error deleting patient with id: {}", id, e);
-            return false; // Return false if an error occurs
+            throw new InternalServerErrorException(STR."Error deleting patient with id: \{id} \{e.getMessage()}");
         }
     }
-
-    public int getPatientId(String name) {
-        return  -1;
-    }
-
-
 }
 

@@ -1,14 +1,14 @@
 package com.hospitalcrud.service;
 
+import com.hospitalcrud.dao.model.Patient;
 import com.hospitalcrud.dao.repository.spring.CredentialRepository;
 import com.hospitalcrud.dao.repository.spring.PatientRepository;
-import com.hospitalcrud.domain.error.ConflictException;
-import com.hospitalcrud.domain.error.InternalServerErrorException;
 import com.hospitalcrud.domain.error.MedicalRecordException;
 import com.hospitalcrud.domain.error.UsernameDuplicatedException;
 import com.hospitalcrud.domain.model.MedRecordUI;
 import com.hospitalcrud.domain.model.PatientUI;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,15 +18,17 @@ public class PatientService {
     private final MedRecordService medRecordService;
     private final PatientRepository dao;
     private  final CredentialRepository credentialDAO;
+    private final CredentialService credentialService;
 
-    public PatientService(MedRecordService medRecordService, PatientRepository dao, CredentialRepository credentialDAO) {
+    public PatientService(MedRecordService medRecordService, PatientRepository dao, CredentialRepository credentialDAO, CredentialService credentialService) {
         this.dao = dao;
         this.medRecordService = medRecordService;
         this.credentialDAO = credentialDAO;
+        this.credentialService = credentialService;
     }
 
     public List<PatientUI> getPatients() {
-        return dao.getAll().stream().map(p -> p.toPatientUI()).collect(Collectors.toList());
+        return dao.getAll().stream().map(Patient::toPatientUI).toList();
     }
 
     public int addPatient(PatientUI patientUI) {
@@ -47,17 +49,24 @@ public class PatientService {
         dao.update(patientUI.toPatient());
     }
 
+    @Transactional
     public boolean delete(int patientId, boolean confirm) {
-        if (!confirm) {
-            if (!medRecordService.checkPatientMedRecords(patientId)) {
+        //this way of making it makes it  so that it will always call all those deletes even after checking if there are records, but it is ok, it is a small amount of data
+        if (!confirm && !medRecordService.checkPatientMedRecords(patientId)) {
                 throw new MedicalRecordException("Patient has medical records, cannot delete.");
-            }
-            medRecordService.deleteByPatientId(patientId);
-            return dao.delete(patientId, confirm);
-        } else {
-            medRecordService.deleteByPatientId(patientId);
-            return dao.delete(patientId, confirm);
         }
+
+        //deleting all the medical records of the patient, and all the medications of those records
+        medRecordService.deleteByPatientId(patientId);
+
+        //deleting the credentials of the patient
+        if (!credentialService.delete(patientId)) {
+            //this  it would mean the patient has no credentials, rarer than a unicorn
+            throw new MedicalRecordException("Unexpected error deleting patient credentials, no credentials were deleted, rolling back...");
+        }
+
+        //deleting appointments and the final patient
+        return dao.delete(patientId, confirm);
     }
 
 

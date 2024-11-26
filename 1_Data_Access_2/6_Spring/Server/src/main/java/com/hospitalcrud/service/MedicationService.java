@@ -17,6 +17,7 @@ public class MedicationService {
 
 
     public int add(List<String> medications, int medRecordId) {
+        //no need to be transactional, it is already called in a transactional method and only there
         medications.forEach(
                 //a query is executed for adding each medication, not efficient
                 m -> dao.save(
@@ -37,10 +38,8 @@ public class MedicationService {
     }
 
     public void delete(int medRecordId) {
+        //delete payments as well
         dao.delete(medRecordId);
-    }
-
-    public void deleteByPatientId(int patientId) {
     }
 
     // not implemented for this exercise, created on client

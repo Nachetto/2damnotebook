@@ -29,4 +29,7 @@ public class CredentialService {
         }
         return "Valid";
     }
+    public boolean delete(int patientId) {
+        return dao.delete(patientId);
+    }
 }
