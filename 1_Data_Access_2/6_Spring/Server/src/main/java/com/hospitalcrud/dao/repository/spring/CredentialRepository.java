@@ -61,7 +61,7 @@ public class CredentialRepository implements CredentialDAO {
                     .param(3, credential.getPatientId())
                     .update();
         } catch (Exception e) {
-            log.error("Error saving credential for username: {}", credential.getUsername(), e);
+            log.error("Error saving credential: ", e);
             return 0;
         }
     }

@@ -39,12 +39,20 @@ public class MedRecordRepository implements MedRecordDAO {
     public int save(MedRecord medRecord) {
         try {
             String sql = Constants.INSERT_MED_RECORD;
-            return jdbcClient.sql(sql)
+            String sql2 = "SELECT record_id FROM medical_records WHERE patient_id = ? AND doctor_id = ? AND diagnosis = ? AND admission_date = ?";
+            jdbcClient.sql(sql)
                     .param(1, medRecord.getIdPatient())
                     .param(2, medRecord.getIdDoctor())
                     .param(3, medRecord.getDiagnosis())
                     .param(4, medRecord.getDate())
                     .update();
+            return jdbcClient.sql(sql2)
+                    .param(1, medRecord.getIdPatient())
+                    .param(2, medRecord.getIdDoctor())
+                    .param(3, medRecord.getDiagnosis())
+                    .param(4, medRecord.getDate())
+                    .query((rs, rowNum) -> rs.getInt("record_id"))
+                    .single();
         } catch (Exception e) {
             log.error("Error saving medical record", e);
             return -1;
@@ -77,7 +85,7 @@ public class MedRecordRepository implements MedRecordDAO {
                     .param(1, id)
                     .update() > 0;
         } catch (Exception e) {
-            throw new InternalServerErrorException(STR."Error deleting medical record with id: \{id} - \{e.getMessage()}");
+            throw new InternalServerErrorException("Error deleting medical record with id: " + id + " - " + e.getMessage());
         }
     }
 

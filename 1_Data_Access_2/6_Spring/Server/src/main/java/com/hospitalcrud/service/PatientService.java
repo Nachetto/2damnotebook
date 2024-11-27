@@ -4,6 +4,7 @@ import com.hospitalcrud.dao.model.Patient;
 import com.hospitalcrud.dao.repository.spring.CredentialRepository;
 import com.hospitalcrud.dao.repository.spring.PatientRepository;
 import com.hospitalcrud.domain.error.MedicalRecordException;
+import com.hospitalcrud.domain.error.NotFoundException;
 import com.hospitalcrud.domain.error.UsernameDuplicatedException;
 import com.hospitalcrud.domain.model.MedRecordUI;
 import com.hospitalcrud.domain.model.PatientUI;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class PatientService {
@@ -31,6 +31,7 @@ public class PatientService {
         return dao.getAll().stream().map(Patient::toPatientUI).toList();
     }
 
+    @Transactional
     public int addPatient(PatientUI patientUI) {
         //check for duplicated username
         if (credentialDAO.validateUsername(patientUI.getUserName()))
@@ -38,8 +39,8 @@ public class PatientService {
 
         int patientId = dao.save(patientUI.toPatient());
 
-        if (patientId == -1) {
-            return 0;
+        if (credentialDAO.save(patientUI.toCredential(patientId))!=1) {
+            throw new MedicalRecordException("Unexpected error saving patient, no pawtient was saved, rolling back...");
         }
 
         return credentialDAO.save(patientUI.toCredential(patientId));
@@ -60,9 +61,14 @@ public class PatientService {
         medRecordService.deleteByPatientId(patientId);
 
         //deleting the credentials of the patient
-        if (!credentialService.delete(patientId)) {
+        try {
+            if (!credentialService.delete(patientId)) {
+                //this  it would mean the patient has no credentials, rarer than a unicorn
+                throw new NotFoundException("no credentials were found");
+            }
+        } catch (Exception e) {
             //this  it would mean the patient has no credentials, rarer than a unicorn
-            throw new MedicalRecordException("Unexpected error deleting patient credentials, no credentials were deleted, rolling back...");
+            throw new MedicalRecordException("Unexpected error deleting patient credentials, no credentials were deleted, rolling back..." + e.getMessage());
         }
 
         //deleting appointments and the final patient

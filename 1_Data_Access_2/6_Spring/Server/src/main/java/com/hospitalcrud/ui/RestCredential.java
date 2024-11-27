@@ -2,7 +2,6 @@ package com.hospitalcrud.ui;
 
 import com.hospitalcrud.dao.model.Credential;
 import com.hospitalcrud.service.CredentialService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

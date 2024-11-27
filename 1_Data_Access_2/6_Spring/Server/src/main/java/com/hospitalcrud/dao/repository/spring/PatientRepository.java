@@ -40,11 +40,20 @@ public class PatientRepository implements PatientDAO {
     public int save(Patient patient) {
         try {
             String sql = Constants.INSERT_PATIENT;
-            return jdbcClient.sql(sql)
+            String retreiveId = "SELECT patient_id FROM patients WHERE name = ? AND date_of_birth = ? AND phone = ?";
+            jdbcClient.sql(sql)
                     .param("name", patient.getName())
                     .param("birthdate", Date.valueOf(patient.getBirthDate()))
                     .param("phone", patient.getPhone())
                     .update(); // Devuelve el número de filas afectadas
+            return jdbcClient.sql(retreiveId)
+                    .param( patient.getName())
+                    .param( Date.valueOf(patient.getBirthDate()))
+                    .param( patient.getPhone())
+                    .query(rs -> {
+                        rs.next();
+                        return rs.getInt("patient_idz");
+                    });
         } catch (Exception e) {
             log.error("Error saving patient", e);
             return -1; // Retorna -1 si ocurre un error
@@ -81,7 +90,7 @@ public class PatientRepository implements PatientDAO {
                     .param(1, id)
                     .update() > 0;
         } catch (Exception e) {
-            throw new InternalServerErrorException(STR."Error deleting patient with id: \{id} \{e.getMessage()}");
+            throw new InternalServerErrorException("Error deleting patient with id: " + id + " - " + e.getMessage());
         }
     }
 }
