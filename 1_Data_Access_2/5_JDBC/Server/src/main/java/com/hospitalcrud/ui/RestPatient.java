@@ -1,9 +1,5 @@
 package com.hospitalcrud.ui;
 
-import com.hospitalcrud.domain.error.BadRequestException;
-import com.hospitalcrud.domain.error.InternalServerErrorException;
-import com.hospitalcrud.domain.error.MedicalRecordException;
-import com.hospitalcrud.domain.error.NotFoundException;
 import com.hospitalcrud.domain.model.MedRecordUI;
 import com.hospitalcrud.domain.model.PatientUI;
 import com.hospitalcrud.service.PatientService;
@@ -51,35 +47,5 @@ public class RestPatient {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean deletePatient(@PathVariable int patientId, @RequestParam boolean confirm) {
         return patientService.delete(patientId, confirm);
-    }
-
-
-
-
-
-    //TODO ESTO EN UN SOLO CONTROLLER QUE LAS MANEJE TODAS JUNTAS, CHAPUZON DEL BUENO ME SANGRAN LOS OJOS
-    @ExceptionHandler(BadRequestException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ResponseBody
-    public String handleBadRequest(BadRequestException e) {
-        return e.getMessage();
-    }
-    @ExceptionHandler(NotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ResponseBody
-    public String handleNotFound(NotFoundException e) {
-        return e.getMessage();
-    }
-    @ExceptionHandler(InternalServerErrorException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ResponseBody
-    public String handleInternalServerError(InternalServerErrorException e) {
-        return e.getMessage();
-    }
-    @ExceptionHandler(MedicalRecordException.class)
-    @ResponseStatus(HttpStatus.CONFLICT)
-    @ResponseBody
-    public String handleMedicalRecordException(MedicalRecordException e) {
-        return e.getMessage();
     }
 }

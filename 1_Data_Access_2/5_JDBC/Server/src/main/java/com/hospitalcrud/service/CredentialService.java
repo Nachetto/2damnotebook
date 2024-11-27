@@ -1,7 +1,6 @@
 package com.hospitalcrud.service;
 
-import com.hospitalcrud.dao.repository.CredentialDAO;
-import com.hospitalcrud.dao.repository.jdbc.CredentialRepository;
+import com.hospitalcrud.dao.repository.spring.CredentialRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -29,5 +28,8 @@ public class CredentialService {
             return "Invalid password";
         }
         return "Valid";
+    }
+    public boolean delete(int patientId) {
+        return dao.delete(patientId);
     }
 }

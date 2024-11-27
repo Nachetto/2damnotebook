@@ -8,5 +8,5 @@ public interface CredentialDAO {
     List<Credential> getAll();
     int save(Credential c);
     void update(Credential c);
-    boolean delete(int id, boolean confirmation);
+    boolean delete(int id);
 }

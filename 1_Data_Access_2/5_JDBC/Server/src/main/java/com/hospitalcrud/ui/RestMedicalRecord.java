@@ -1,8 +1,5 @@
 package com.hospitalcrud.ui;
 
-import com.hospitalcrud.domain.error.BadRequestException;
-import com.hospitalcrud.domain.error.InternalServerErrorException;
-import com.hospitalcrud.domain.error.NotFoundException;
 import com.hospitalcrud.domain.model.MedRecordUI;
 import com.hospitalcrud.service.MedRecordService;
 import org.springframework.http.HttpStatus;
@@ -42,47 +39,5 @@ public class RestMedicalRecord {
     @GetMapping
     public List<MedRecordUI> getRecordsFromPatientID(@PathVariable int patientId)  {
         return medRecordService.getMedRecords(patientId);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // todo Exception handling en el mismo controlador
-    @ExceptionHandler(BadRequestException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ResponseBody
-    public String handleBadRequest(BadRequestException e) {
-        return e.getMessage();
-    }
-
-    @ExceptionHandler(NotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ResponseBody
-    public String handleNotFound(NotFoundException e) {
-        return e.getMessage();
-    }
-
-    @ExceptionHandler(InternalServerErrorException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ResponseBody
-    public String handleInternalServerError(InternalServerErrorException e) {
-        return e.getMessage();
     }
 }
