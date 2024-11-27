@@ -4,7 +4,6 @@ import com.hospitalcrud.dao.repository.spring.MedRecordRepository;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import com.hospitalcrud.domain.model.MedRecordUI;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class MedRecordService {
         this.medicationService = medicationService;
     }
 
-    @Transactional
+    //@Transactional
     public int add(MedRecordUI medRecordUI) {
         List<String> medications = medRecordUI.getMedications();
         //add medications as well if everything is ok
@@ -31,7 +30,8 @@ public class MedRecordService {
 
     public void update(MedRecordUI medRecordUI) {
         dao.update(medRecordUI.toMedRecord());
-        //update medications as well, everything is ok at this point, there would hav been an exception if not
+
+        //update medications as well, everything is ok at this point, there would have been an exception if not
         medicationService.update(medRecordUI.getMedications(), medRecordUI.getId());
     }
 
@@ -50,7 +50,6 @@ public class MedRecordService {
         return dao.get(patientId).isEmpty();
     }
 
-    //no need for this one to be transactional, it is already called in a transactional method and only there
     public void deleteByPatientId(int patientId) {
         dao.getListOfMedRecordsIdsFromPatient(patientId).forEach(id -> {
             medicationService.delete(id);

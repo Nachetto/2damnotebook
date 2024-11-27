@@ -20,6 +20,13 @@ public class Patient {
         this.birthDate = dob;
         this.phone = phone;
     }
+    public Patient(int id, String name, LocalDate dob, String phone, Credential credential) {
+        this.id = id;
+        this.name = name;
+        this.birthDate = dob;
+        this.phone = phone;
+        this.credential = credential;
+    }
 
     @Override
     public String toString() {

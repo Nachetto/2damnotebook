@@ -1,37 +1,56 @@
 package com.hospitalcrud.dao.repository.spring;
 
+import com.hospitalcrud.common.Constants;
 import com.hospitalcrud.dao.model.Medication;
-import com.hospitalcrud.dao.model.rowmappers.MedicationRowMapper;
 import com.hospitalcrud.dao.repository.MedicationDAO;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Profile;
-import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
-@Profile("spring")
+@Profile("JDBC")
 @Log4j2
 public class MedicationRepository implements MedicationDAO {
+    private final DBConnection db;
 
-    private final JdbcClient jdbcClient;
-
-    public MedicationRepository(JdbcClient jdbcClient) {
-        this.jdbcClient = jdbcClient;
+    public MedicationRepository(DBConnection db) {
+        this.db = db;
     }
 
+    @Override
+    public List<Medication> get(int medRecordId) {// GET BY RECORD ID
+        try(Connection con = db.getHikariDataSource().getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(Constants.GET_BY_RECORDID)) {
+            preparedStatement.setInt(1, medRecordId);
+            ResultSet rs = preparedStatement.executeQuery();
+            List<Medication> medications = new ArrayList<>();
+            while (rs.next()) {
+                medications.add(new Medication(
+                        rs.getInt("prescription_id"),
+                        rs.getString("medication_name"),
+                        rs.getInt("record_id")
+                ));
+            }
+            return medications;
+        } catch (Exception e) {
+            throw new InternalServerErrorException("Error while getting medications for record with id: " + medRecordId + ", cause: " + e.getMessage());
+        }
+    }
 
     @Override
     public int save(Medication m) {
-        try {
-            String sql = "INSERT INTO prescribed_medications (record_id, medication_name, dosage) VALUES (?,?,null)";
-            return jdbcClient.sql(sql)
-                    .param(1, m.getMedRecordId())
-                    .param(2, m.getMedicationName())
-                    .update();
+        try (Connection con = db.getHikariDataSource().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(Constants.SAVE_MEDICATION)) {
+            preparedStatement.setInt(1, m.getMedRecordId());
+            preparedStatement.setString(2, m.getMedicationName());
+            return preparedStatement.executeUpdate();
         } catch (Exception e) {
             throw new InternalServerErrorException(e.getMessage());
         }
@@ -39,12 +58,13 @@ public class MedicationRepository implements MedicationDAO {
 
     @Override
     public void update(Medication m) {
-        try {
-            String sql = "UPDATE prescribed_medications SET medication_name = ? WHERE prescription_id = ?";
-            jdbcClient.sql(sql)
-                    .param(1, m.getMedicationName())
-                    .param(2, m.getId())
-                    .update();
+        try(Connection con = db.getHikariDataSource().getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(Constants.UPDATE_MEDICATION)) {
+            preparedStatement.setString(1, m.getMedicationName());
+            preparedStatement.setInt(2, m.getId());
+            if (preparedStatement.executeUpdate() == 0) {
+                throw new InternalServerErrorException("Error while updating medication with id: " + m.getId());
+            }
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }
@@ -52,38 +72,12 @@ public class MedicationRepository implements MedicationDAO {
 
     @Override
     public boolean delete(int id) {
-        try {
-            String sql = "DELETE FROM prescribed_medications WHERE record_id = ?";
-            return jdbcClient.sql(sql)
-                    .param(1, id)
-                    .update() > 0;
+        try(Connection con = db.getHikariDataSource().getConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(Constants.DELETE_MEDICATION)) {
+            preparedStatement.setInt(1, id);
+            return preparedStatement.executeUpdate() > 0;
         } catch (Exception e) {
             throw new InternalServerErrorException("Error while deleting all medications from the record, cause: " + e.getMessage());
-        }
-    }
-
-    @Override
-    public List<Medication> get(int medRecordId) {
-        try {
-            return jdbcClient.sql("SELECT * FROM prescribed_medications WHERE record_id = ?")
-                    .param(1, medRecordId)
-                    .query(new MedicationRowMapper()).list();
-        } catch (Exception e) {
-            throw new InternalServerErrorException("Error while getting medications for record with id: " + medRecordId + ", cause: " + e.getMessage());
-        }
-    }
-
-    public Medication getById(int id) {
-        try {
-            Optional<Medication> optionalMedication = jdbcClient.sql("SELECT * FROM prescribed_medications WHERE prescription_id = ?")
-                    .param(1, id)
-                    .query(new MedicationRowMapper())
-                    .optional();
-
-            return optionalMedication.orElse(null);
-        } catch (Exception e) {
-            log.error("Error fetching medication with id: {}", id, e);
-            return null;
         }
     }
 
@@ -95,5 +89,4 @@ public class MedicationRepository implements MedicationDAO {
     public List<Medication> getAll() {
         return List.of();
     }
-
 }

@@ -22,6 +22,10 @@ public class PatientUI {
         return new Patient(id, name, birthDate, phone);
     }
 
+    public Patient toPatientWithCredentials() {
+        return new Patient(id, name, birthDate, phone, new Credential(userName, password, id));
+    }
+
     public Credential toCredential(int idGenerated) {
         return new Credential(userName, password, idGenerated);
     }

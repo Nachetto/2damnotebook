@@ -2,57 +2,52 @@ package com.hospitalcrud.dao.repository.spring;
 
 import com.hospitalcrud.common.Constants;
 import com.hospitalcrud.dao.model.MedRecord;
-import com.hospitalcrud.dao.model.rowmappers.MedRecordRowMapper;
 import com.hospitalcrud.dao.repository.MedRecordDAO;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Profile;
-import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
-@Profile("spring")
+@Profile("JDBC")
 @Log4j2
 public class MedRecordRepository implements MedRecordDAO {
+    private final DBConnection db;
 
-    private final JdbcClient jdbcClient;
-    public MedRecordRepository(JdbcClient jdbcClient) {
-        this.jdbcClient = jdbcClient;
+    public MedRecordRepository(DBConnection db) {
+        this.db = db;
     }
 
+
     @Override
-    public List<MedRecord> get(int patientId) {
-        try {
-            return jdbcClient.sql(Constants.GET_MED_RECORDS_BY_PATIENT_ID)
-                    .param(1, patientId)
-                    .query(new MedRecordRowMapper()).list();
+    public List<MedRecord> get(int patientId) { // MEDICAL RECORDS FROM PATIENT ID
+        try (Connection con = db.getHikariDataSource().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(Constants.GET_MED_RECORDS_BY_PATIENT_ID)) {
+            preparedStatement.setInt(1, patientId);
+            ResultSet rs = preparedStatement.executeQuery();
+            return medicalRecordsFromDatabase(rs);
         } catch (Exception e) {
             log.error("Error fetching medical records for patient ID: {}", patientId, e);
             throw new InternalServerErrorException("Error fetching medical records for patient ID: " + patientId + " - " + e.getMessage());
         }
     }
 
+    /*
+
+     */
     @Override
     public int save(MedRecord medRecord) {
-        try {
-            String sql = Constants.INSERT_MED_RECORD;
-            String sql2 = "SELECT record_id FROM medical_records WHERE patient_id = ? AND doctor_id = ? AND diagnosis = ? AND admission_date = ?";
-            jdbcClient.sql(sql)
-                    .param(1, medRecord.getIdPatient())
-                    .param(2, medRecord.getIdDoctor())
-                    .param(3, medRecord.getDiagnosis())
-                    .param(4, medRecord.getDate())
-                    .update();
-            return jdbcClient.sql(sql2)
-                    .param(1, medRecord.getIdPatient())
-                    .param(2, medRecord.getIdDoctor())
-                    .param(3, medRecord.getDiagnosis())
-                    .param(4, medRecord.getDate())
-                    .query((rs, rowNum) -> rs.getInt("record_id"))
-                    .single();
+        try (Connection con = db.getHikariDataSource().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(Constants.INSERT_MED_RECORD)) {
+            preparedStatement.setInt(1, medRecord.getIdPatient());
+            preparedStatement.setInt(2, medRecord.getIdDoctor());
+            preparedStatement.setString(3, medRecord.getDiagnosis());
+            preparedStatement.setDate(4, Date.valueOf(medRecord.getDate()));
+            return preparedStatement.executeUpdate();
         } catch (Exception e) {
             log.error("Error saving medical record", e);
             return -1;
@@ -61,15 +56,16 @@ public class MedRecordRepository implements MedRecordDAO {
 
     @Override
     public void update(MedRecord medRecord) {
-        try {
-            String sql = Constants.UPDATE_MED_RECORD;
-            jdbcClient.sql(sql)
-                    .param(1, medRecord.getIdPatient())
-                    .param(2, medRecord.getIdDoctor())
-                    .param(3, medRecord.getDiagnosis())
-                    .param(4, medRecord.getDate())
-                    .param(5, medRecord.getId())
-                    .update();
+        try (Connection con = db.getHikariDataSource().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(Constants.UPDATE_MED_RECORD)) {
+            preparedStatement.setInt(1, medRecord.getIdPatient());
+            preparedStatement.setInt(2, medRecord.getIdDoctor());
+            preparedStatement.setString(3, medRecord.getDiagnosis());
+            preparedStatement.setDate(4, Date.valueOf(medRecord.getDate()));
+            preparedStatement.setInt(5, medRecord.getId());
+            if (preparedStatement.executeUpdate() == 0) {
+                throw new InternalServerErrorException("Error updating medical record with id: " + medRecord.getId());
+            }
         } catch (Exception e) {
             log.error("Error updating medical record with id: {}", medRecord.getId(), e);
         }
@@ -77,13 +73,10 @@ public class MedRecordRepository implements MedRecordDAO {
 
     @Override
     public boolean delete(int id) {
-        try {
-
-
-            String sql = Constants.DELETE_MED_RECORD;
-            return jdbcClient.sql(sql)
-                    .param(1, id)
-                    .update() > 0;
+        try (Connection con = db.getHikariDataSource().getConnection();
+             PreparedStatement preparedStatement = con.prepareStatement(Constants.DELETE_MED_RECORD)) {
+            preparedStatement.setInt(1, id);
+            return preparedStatement.executeUpdate() > 0;
         } catch (Exception e) {
             throw new InternalServerErrorException("Error deleting medical record with id: " + id + " - " + e.getMessage());
         }
@@ -91,38 +84,47 @@ public class MedRecordRepository implements MedRecordDAO {
 
     @Override
     public List<MedRecord> getAll() {
-        try {
-            return jdbcClient.sql(Constants.GET_ALL_MED_RECORDS)
-                    .query(new MedRecordRowMapper()).list();
+        try (Connection con = db.getHikariDataSource().getConnection();
+             Statement stmt = con.createStatement()) {
+            ResultSet rs = stmt.executeQuery(Constants.GET_ALL_MED_RECORDS);
+            return medicalRecordsFromDatabase(rs);
         } catch (Exception e) {
             log.error("Error fetching all medical records", e);
             throw new InternalServerErrorException("Error fetching all medical records: " + e.getMessage());
         }
+
     }
 
-    public MedRecord getById(int id) {
-        try {
-            Optional<MedRecord> optionalMedRecord = jdbcClient.sql("SELECT * FROM medical_records WHERE record_id = ?")
-                    .param(1, id)
-                    .query(new MedRecordRowMapper())
-                    .optional(); // Devuelve un Optional
-
-            return optionalMedRecord.orElse(null);
-        } catch (Exception e) {
-            log.error("Error fetching medical record with id: {}", id, e);
-            return null;
+    private List<MedRecord> medicalRecordsFromDatabase(ResultSet rs) throws SQLException {
+        List<MedRecord> medRecords = new ArrayList<>();
+        while (rs.next()) {
+            medRecords.add(new MedRecord(
+                    rs.getInt("record_id"),
+                    rs.getInt("patient_id"),
+                    rs.getInt("doctor_id"),
+                    rs.getString("diagnosis"),
+                    rs.getDate("admission_date").toLocalDate()
+            ));
         }
+        return medRecords;
     }
+
 
     public List<Integer> getListOfMedRecordsIdsFromPatient(int patientId) {
-        try {
-            return jdbcClient.sql("SELECT record_id FROM medical_records WHERE patient_id = ?")
-                    .param(1, patientId)
-                    .query((rs, rowNum) -> rs.getInt("record_id"))
-                    .list();
+        try (Connection con = db.getHikariDataSource().getConnection();
+             Statement stmt = con.createStatement();
+             PreparedStatement preparedStatement = con.prepareStatement("SELECT record_id FROM medical_records WHERE patient_id = ?")) {
+            preparedStatement.setInt(1, patientId);
+            ResultSet rs = preparedStatement.executeQuery();
+            List<Integer> recordIds = new ArrayList<>();
+            while (rs.next()) {
+                recordIds.add(rs.getInt("record_id"));
+            }
+            return recordIds;
         } catch (Exception e) {
             log.error("Error fetching medical records for patient ID: {}", patientId, e);
             return List.of(); // Return an empty list in case of an error
         }
     }
 }
+
