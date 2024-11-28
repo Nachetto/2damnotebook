@@ -3,7 +3,6 @@ package com.hospitalcrud.service;
 import com.hospitalcrud.dao.model.Doctor;
 import com.hospitalcrud.dao.repository.DoctorDAO;
 import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 

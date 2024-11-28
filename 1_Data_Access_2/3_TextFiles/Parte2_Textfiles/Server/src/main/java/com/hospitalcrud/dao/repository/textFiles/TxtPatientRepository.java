@@ -5,7 +5,6 @@ import com.hospitalcrud.dao.mappers.PatientRowMapper;
 import com.hospitalcrud.dao.model.Patient;
 import com.hospitalcrud.dao.repository.PatientDAO;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
-
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
@@ -25,19 +24,23 @@ import static java.nio.file.StandardOpenOption.APPEND;
 @Repository
 @Profile("txt")
 public class TxtPatientRepository implements PatientDAO {
-
     private final Configuration config;
     private final PatientRowMapper rowMapper;
-
     public TxtPatientRepository(PatientRowMapper rowMapper) {
         this.config = Configuration.getInstance();
         this.rowMapper = rowMapper;
     }
 
+    // Metodo que usa el rowmapper
+    private Patient mapToPatient(String line) {
+        return rowMapper.mapRow(line);
+    }
+
+    // Metodo que lee el archivo de pacientes
     private List<String> readFile() {
         List<String> lines = new ArrayList<>();
-        Path filePath = Paths.get(config.getPathPatients());
-
+        Path filePath = Paths.get(config.getPathPatients()); // Este path esta en la configuracion
+        // Se lee con bufferedReader en este caso porque es mas eficiente para archivos grandes
         try (BufferedReader reader = Files.newBufferedReader(filePath)) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -48,11 +51,6 @@ public class TxtPatientRepository implements PatientDAO {
         }
         return lines;
     }
-
-    private Patient mapToPatient(String line) {
-        return rowMapper.mapRow(line);
-    }
-
 
     @Override
     public List<Patient> getAll() {

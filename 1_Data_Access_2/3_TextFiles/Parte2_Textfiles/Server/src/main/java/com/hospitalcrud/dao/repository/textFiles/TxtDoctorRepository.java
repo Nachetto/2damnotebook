@@ -5,7 +5,6 @@ import com.hospitalcrud.dao.mappers.DoctorRowMapper;
 import com.hospitalcrud.dao.model.Doctor;
 import com.hospitalcrud.dao.repository.DoctorDAO;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
-
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
@@ -38,26 +37,23 @@ public class TxtDoctorRepository implements DoctorDAO {
         }
     }
 
+    @Override
+    public List<Doctor> getAll() {
+        List<String> lines = readFile();//devuelve una lista de strings que se la paso al rowmapper
+        return parseDoctors(lines);
+    }
     private List<String> readFile() {
-        try {
-            return Files.readAllLines(Paths.get(config.getPathDoctors()));
+        try { // Se lee con Files.readAllLines porque es mas sencillo y es un archivo pequeño, si fuera grande se usaria bufferedReader
+            return Files.readAllLines(Paths.get(config.getPathDoctors())); // java.nio.file.Files;
         } catch (IOException e) {
             throw new InternalServerErrorException("Error leyendo el archivo: " + e.getMessage());
         }
     }
-
-    private List<Doctor> parseDoctors(List<String> lines) {
+    //private final DoctorRowMapper rowMapper;
+    private List<Doctor> parseDoctors(List<String> lines) { // Mas de lo mismo, se usa el rowmapper para parsear las lineas
         return lines.stream()
                 .map(rowMapper::mapRow)
-                .collect(Collectors.toList());
-    }
-
-
-    @Override
-    public List<Doctor> getAll() {
-        List<String> lines = readFile();
-
-        return parseDoctors(lines);
+                .toList();
     }
 
 

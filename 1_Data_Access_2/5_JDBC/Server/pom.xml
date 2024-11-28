@@ -10,7 +10,7 @@
     </parent><groupId>com.hospitalcrud</groupId><version>0.0.1-SNAPSHOT</version><name>demo</name><artifactId>demo</artifactId><description>demo</description>
 
     <properties>
-        <java.version>17</java.version>
+        <java.version>22</java.version>
     </properties>
 
     <dependencies>
