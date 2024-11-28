@@ -61,11 +61,11 @@ public class TxtDoctorRepository implements DoctorDAO {
     public int save(Doctor d) {
         int nextIdDoctor= Integer.parseInt(config.getNextIdDoctor());
 
-        Path file = Paths.get(config.getPathDoctors());
-        if (!file.toFile().exists()) {
+        Path filePath = Paths.get(config.getPathDoctors());
+        if (!filePath.toFile().exists()) {
             throw new InternalServerErrorException("Error saving doctor");
         } else {
-            try (BufferedWriter bw = Files.newBufferedWriter(file, APPEND)) {
+            try (BufferedWriter bw = Files.newBufferedWriter(filePath, APPEND /*Para no cargarte lo anterior*/)) {
                 bw.write(new Doctor(nextIdDoctor,d.getName(), d.getSpecialty()).toString());
                 bw.newLine();
                 config.setNextIdDoctor(String.valueOf(nextIdDoctor+1));
