@@ -13,13 +13,13 @@ import lombok.*;
 @Builder
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Medication {
-    @XmlTransient // This annotation is used to exclude a field from the XML representation.
+    @XmlTransient // Para que no tenga en cuenta esto en el XML.
     private int id;
 
     @XmlElement(name = "medication")
     private String medicationName;
 
-    @XmlTransient
+    @XmlTransient //Tampoco lo tiene en cuenta en el XML.
     private int medRecordId;
 }
 

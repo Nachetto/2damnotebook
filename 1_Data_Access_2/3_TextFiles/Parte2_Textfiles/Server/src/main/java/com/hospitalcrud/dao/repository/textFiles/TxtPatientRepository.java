@@ -98,11 +98,12 @@ public class TxtPatientRepository implements PatientDAO {
                             return line;
                         }
                     })
-                    .collect(Collectors.toList());
+                    .toList();
+
         } catch (IOException e) {
             throw new InternalServerErrorException("Error reading the patient file " + e);
         }
-
+        //Guardar los cambios, sobreescribiendo lo que ya estaba
         try {
             Files.write(filePath, newLines, StandardOpenOption.TRUNCATE_EXISTING);
         } catch (IOException e) {
@@ -115,15 +116,13 @@ public class TxtPatientRepository implements PatientDAO {
     public boolean delete(int patientId, boolean confirmation) {
         List<Patient> patients = getAll();
         Path filePath = Paths.get(config.getPathPatients());
-
-        try {
-            List<String> newLines = new ArrayList<>();
+        try (BufferedWriter writer = Files.newBufferedWriter(filePath, StandardOpenOption.TRUNCATE_EXISTING)) {
             for (Patient patient : patients) {
                 if (patient.getId() != patientId) {
-                    newLines.add(patient.toString());
+                    writer.write(patient.toString());
+                    writer.newLine();
                 }
             }
-            Files.write(filePath, newLines);
             return true;
         } catch (IOException e) {
             throw new InternalServerErrorException("Error deleting the patient " + e);

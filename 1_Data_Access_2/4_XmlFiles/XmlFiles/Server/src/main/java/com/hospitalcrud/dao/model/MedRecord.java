@@ -27,7 +27,6 @@ public class MedRecord {
     private LocalDate date;
     private List<Medication> medications;
 
-
     public MedRecordUI toMedRecordUI() {
         return new MedRecordUI(id, idPatient, idDoctor, diagnosis, date.toString(),
                 medications.stream().map(m -> m.getMedicationName()).toList());
