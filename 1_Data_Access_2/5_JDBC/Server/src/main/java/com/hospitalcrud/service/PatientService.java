@@ -1,8 +1,8 @@
 package com.hospitalcrud.service;
 
 import com.hospitalcrud.dao.model.Patient;
-import com.hospitalcrud.dao.repository.spring.CredentialRepository;
-import com.hospitalcrud.dao.repository.spring.PatientRepository;
+import com.hospitalcrud.dao.repository.jdbc.CredentialRepository;
+import com.hospitalcrud.dao.repository.jdbc.PatientRepository;
 import com.hospitalcrud.domain.error.MedicalRecordException;
 import com.hospitalcrud.domain.error.UsernameDuplicatedException;
 import com.hospitalcrud.domain.model.MedRecordUI;

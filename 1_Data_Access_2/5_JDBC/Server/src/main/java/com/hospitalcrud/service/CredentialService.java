@@ -1,6 +1,6 @@
 package com.hospitalcrud.service;
 
-import com.hospitalcrud.dao.repository.spring.CredentialRepository;
+import com.hospitalcrud.dao.repository.jdbc.CredentialRepository;
 import org.springframework.stereotype.Service;
 
 @Service

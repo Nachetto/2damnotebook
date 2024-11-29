@@ -22,7 +22,6 @@ import java.util.List;
 @Profile("xml")
 public class MedRecordRepository implements MedRecordDAO {
     private final Configuration config;
-
     public MedRecordRepository() {
         this.config = Configuration.getInstance();
     }
@@ -44,7 +43,7 @@ public class MedRecordRepository implements MedRecordDAO {
         List<MedRecord> medRecords = readXML();
         int id = Integer.parseInt(config.getNextIdMedRecord());
         m.setId(id);
-        medRecords.add(m);
+        medRecords.add(m);//lo añades al final con el ultimo id
         writeXML(medRecords);
         if (medRecords.stream().anyMatch(medRecord -> medRecord.getId() == id)) {
             config.setNextIdMedRecord(String.valueOf(id + 1));
@@ -60,7 +59,7 @@ public class MedRecordRepository implements MedRecordDAO {
             List<MedRecord> updatedMedRecords = readXML().stream()
                     .map(medRecord -> {
                         if (medRecord.getId() == m.getId()) {
-                            return m;
+                            return m;//si es el mismo, guardo el nuevo
                         }
                         return medRecord;
                     })
@@ -69,8 +68,6 @@ public class MedRecordRepository implements MedRecordDAO {
         } catch (Exception e) {
             throw new InternalServerErrorException("Error updating the medical record: " + e.getMessage());
         }
-
-
     }
 
     @Override
@@ -90,16 +87,17 @@ public class MedRecordRepository implements MedRecordDAO {
             throw new InternalServerErrorException("Error leyendo el archivo: " + file.getName());
         }
         try {
+            // El contexto en el que le pasas el root element
             JAXBContext context = JAXBContext.newInstance(MedRecordsXML.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-
+            // Desde la raíz, te metes en el elemento que quieres
             return ((MedRecordsXML) unmarshaller.unmarshal(file)).getMedicalRecords();
-
         } catch (JAXBException e) {
             throw new InternalServerErrorException("Error while reading the xml, see more details:\n" +
                     e.getMessage());
         }
     }
+
 
     private boolean writeXML(List<MedRecord> records) {
         try {
@@ -107,6 +105,7 @@ public class MedRecordRepository implements MedRecordDAO {
             JAXBContext jaxbContext = JAXBContext.newInstance(MedRecordsXML.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            //Pasas el objeto que quieres escribir a root element
             MedRecordsXML medRecordsXML = new MedRecordsXML(records);
             marshaller.marshal(medRecordsXML, file);
             return true;

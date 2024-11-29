@@ -1,4 +1,4 @@
-package com.hospitalcrud.dao.repository.spring;
+package com.hospitalcrud.dao.repository.jdbc;
 
 import com.hospitalcrud.common.Constants;
 import com.hospitalcrud.dao.model.Patient;
@@ -29,7 +29,7 @@ public class PatientRepository implements PatientDAO {
              Statement stmt = con.createStatement()) {
             ResultSet rs = stmt.executeQuery(Constants.GET_ALL_PATIENTS);
             List<Patient> patients = new ArrayList<>();
-            while (rs.next()) {
+            while (rs.next()) {//esto se puede hacer con el mapper pero yo lo hago a pelo
                 patients.add(new Patient(
                         rs.getInt("patient_id"),
                         rs.getString("name"),
@@ -95,13 +95,14 @@ public class PatientRepository implements PatientDAO {
     public void update(Patient patient) {
         try (Connection con = db.getHikariDataSource().getConnection();
              Statement stmt = con.createStatement();
+             //"UPDATE patients SET name = ?, date_of_birth = ?, phone = ? WHERE patient_id = ?"
              PreparedStatement preparedStatement = con.prepareStatement(Constants.UPDATE_PATIENT)) {
             preparedStatement.setString(1, patient.getName());
             preparedStatement.setDate(2, Date.valueOf(patient.getBirthDate()));
             preparedStatement.setString(3, patient.getPhone());
             preparedStatement.setInt(4, patient.getId());
             if (preparedStatement.executeUpdate() == 0) {
-                throw new InternalServerErrorException("Error updating patient with id: " + patient.getId());
+                throw new InternalServerErrorException("Error updating patient with id:"+patient.getId());
             }
         } catch (Exception e) {
             log.error("Error updating patient with id: {}", patient.getId(), e);
@@ -112,19 +113,15 @@ public class PatientRepository implements PatientDAO {
     public boolean delete(int id, boolean confirmation) {
         try (Connection con = db.getHikariDataSource().getConnection();
              PreparedStatement preparedStatement1 = con.prepareStatement(Constants.DELETE_APPOINTMENTS);
-
              PreparedStatement preparedStatement2 = con.prepareStatement(Constants.DELETE_PAYMENT);
-
              Statement getAllRecordIdsStmt = con.createStatement();
              PreparedStatement preparedStatement3 = con.prepareStatement(Constants.DELETE_MEDICATION);
-
              PreparedStatement preparedStatement4 = con.prepareStatement(Constants.DELETE_PATIENT_MED_RECORDS);
-
              PreparedStatement preparedStatement5 = con.prepareStatement(Constants.DELETE_CREDENTIAL);
-
              PreparedStatement preparedStatement6 = con.prepareStatement(Constants.DELETE_PATIENT)
         ) {
-            //delete appointments, payments, medications of the medical record, medical records, credentials and finally patient in a transaction
+            //delete appointments, payments, medications of the medical record, medical records,
+            // credentials and finally patient in a transaction
             try {
                 con.setAutoCommit(false); // Start a transaction
                 preparedStatement1.setInt(1, id);

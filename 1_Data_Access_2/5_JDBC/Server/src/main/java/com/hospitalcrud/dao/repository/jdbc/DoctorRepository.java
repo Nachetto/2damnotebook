@@ -1,4 +1,4 @@
-package com.hospitalcrud.dao.repository.spring;
+package com.hospitalcrud.dao.repository.jdbc;
 
 import com.hospitalcrud.common.Constants;
 import com.hospitalcrud.dao.model.Doctor;
