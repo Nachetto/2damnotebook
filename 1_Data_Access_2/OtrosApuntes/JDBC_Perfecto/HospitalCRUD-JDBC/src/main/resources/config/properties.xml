@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>XML file</comment>
+    <entry key="pathMedicalRecords">data/medicalRecords.xml</entry>
+    <entry key="nextID">0</entry>
+    <!-- >
+    <entry key="dbUrl">jdbc:mysql://localhost:3306/hospitalDB</entry>
+    <!-->
+    <entry key="dbUrl">jdbc:mysql://dam2.mysql.iesquevedo.es:3335/jorge_novillo_hospital</entry>
+    <entry key="user_name">root</entry>
+    <entry key="password">quevedo2dam</entry>
+    <entry key="driver">com.mysql.cj.jdbc.Driver</entry>
+</properties>

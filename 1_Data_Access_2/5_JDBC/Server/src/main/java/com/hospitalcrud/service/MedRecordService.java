@@ -1,6 +1,6 @@
 package com.hospitalcrud.service;
 
-import com.hospitalcrud.dao.repository.spring.MedRecordRepository;
+import com.hospitalcrud.dao.repository.jdbc.MedRecordRepository;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import com.hospitalcrud.domain.model.MedRecordUI;
 import org.springframework.stereotype.Service;
