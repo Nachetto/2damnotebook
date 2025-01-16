@@ -23,7 +23,6 @@ import java.util.List;
                 query = "select patientId from MedicalRecord group by patientId order by count(patientId) desc limit 1"),
 })
 public class MedicalRecord {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

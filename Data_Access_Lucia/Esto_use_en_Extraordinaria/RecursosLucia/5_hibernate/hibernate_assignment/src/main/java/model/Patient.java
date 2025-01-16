@@ -25,7 +25,6 @@ import java.time.LocalDate;
                 query = "select p.name, count(pm.id) from MedicalRecord mr join Patient p on mr.patientId = p.id join mr.prescribedMedication pm group by p.id, p.name"),
 })
 public class Patient {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

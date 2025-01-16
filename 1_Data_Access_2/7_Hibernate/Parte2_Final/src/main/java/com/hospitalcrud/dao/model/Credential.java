@@ -24,11 +24,11 @@ public class Credential {
     private String username;
     @Column(name = "password")
     private String password;
-    @Column(name = "patient_id")
-    private Integer patientId;
     @Column(name = "doctor_id")
     private Integer doctorId;
-
+    @OneToOne
+    @JoinColumn(name = "patient_id", referencedColumnName = "id")
+    private Patient patient;
 
     public Credential(String username, String password, int patientId) {
         this.username = username;

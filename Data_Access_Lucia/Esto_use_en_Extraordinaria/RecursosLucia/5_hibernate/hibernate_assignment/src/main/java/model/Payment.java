@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "payments")
 public class Payment {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -20,4 +19,5 @@ public class Payment {
     private String paymentDate;
     @Column(name = "id_patient")
     private int patientId;
+
 }

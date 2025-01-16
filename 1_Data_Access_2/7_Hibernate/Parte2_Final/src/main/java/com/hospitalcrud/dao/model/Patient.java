@@ -29,7 +29,7 @@ public class Patient {
     @Column
     private String phone;
 
-    @Transient //ignore
+    @OneToOne(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY, mappedBy = "patient")
     private Credential credential;
 
     public Patient(int id, String name, LocalDate dob, String phone) {
