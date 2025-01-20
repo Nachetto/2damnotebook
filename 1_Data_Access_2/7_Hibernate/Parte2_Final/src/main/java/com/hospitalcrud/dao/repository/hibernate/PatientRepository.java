@@ -43,16 +43,71 @@ public class PatientRepository implements PatientDAO {
 
     @Override
     public int save(Patient m) {
-        return 0;
+        int result = 0;
+        try {
+            em = jpautil.getEntityManager();
+            em.getTransaction().begin();
+            em.persist(m);
+            em.getTransaction().commit();
+            result = m.getId();
+        }catch (Exception e) {
+            log.error("Error saving patient", e);
+            em.getTransaction().rollback();
+        }
+        finally {
+            if (em != null) em.close();
+        }
+        return result;
     }
 
     @Override
     public void update(Patient m) {
-
+        try {
+            em = jpautil.getEntityManager();
+            em.getTransaction().begin();
+            em.merge(m);
+            em.getTransaction().commit();
+        }catch (Exception e) {
+            log.error("Error updating patient", e);
+            em.getTransaction().rollback();
+        }
+        finally {
+            if (em != null) em.close();
+        }
     }
 
     @Override
     public boolean delete(int id, boolean confirmation) {
+        try {
+            em = jpautil.getEntityManager();
+            em.getTransaction().begin();
+            Patient m = em.find(Patient.class, id);
+            if (m != null) {
+                if (confirmation) {
+                    em.remove(m);
+                    em.getTransaction().commit();
+                    return true;
+                }
+            }
+        }catch (Exception e) {
+            log.error("Error deleting patient", e);
+            em.getTransaction().rollback();
+        }
+        finally {
+            if (em != null) em.close();
+        }
         return false;
+    }
+
+
+    public Patient getById(int id) {
+        Patient patient;
+        em = jpautil.getEntityManager();
+        try {
+            patient = em.find(Patient.class, id);
+        } finally {
+            if (em != null) em.close();
+        }
+        return patient;
     }
 }

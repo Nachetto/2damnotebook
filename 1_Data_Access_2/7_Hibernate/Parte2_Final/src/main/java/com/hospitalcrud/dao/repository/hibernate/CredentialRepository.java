@@ -71,16 +71,18 @@ public class CredentialRepository implements CredentialDAO {
 
     @Override
     public int save(Credential c) {
-        return 0;
-    }
+        //not used here
 
-    @Override
-    public void update(Credential c) {
+        return 0;}
 
-    }
 
     @Override
     public boolean delete(int id) {
         return false;
+    }
+
+
+    @Override
+    public void update(Credential c) {
     }
 }

@@ -28,8 +28,7 @@ public class Patient {
     private LocalDate birthDate;
     @Column
     private String phone;
-
-    @OneToOne(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY, mappedBy = "patient")
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY, mappedBy = "patient")
     private Credential credential;
 
     public Patient(int id, String name, LocalDate dob, String phone) {

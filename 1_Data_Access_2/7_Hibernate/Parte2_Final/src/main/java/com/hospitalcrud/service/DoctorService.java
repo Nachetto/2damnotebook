@@ -17,4 +17,9 @@ public class DoctorService {
     public List<Doctor> getDoctors() {
         return dao.getAll();
     }
+
+
+    public Doctor getDoctor(int doctorId) {
+        return dao.getById(doctorId);
+    }
 }

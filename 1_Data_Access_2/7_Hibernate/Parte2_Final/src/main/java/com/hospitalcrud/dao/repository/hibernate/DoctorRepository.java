@@ -40,13 +40,24 @@ public class DoctorRepository implements DoctorDAO {
     }
 
     @Override
+    public Doctor getById(int idDoctor) {
+        Doctor doctor;
+        try {
+            em = jpautil.getEntityManager();
+            doctor = em.find(Doctor.class, idDoctor);
+        } finally {
+            if (em != null) em.close();
+        }
+        return doctor;
+    }
+
+    @Override
     public int save(Doctor m) {
         return 0;
     }
 
     @Override
     public void update(Doctor m) {
-
     }
 
     @Override

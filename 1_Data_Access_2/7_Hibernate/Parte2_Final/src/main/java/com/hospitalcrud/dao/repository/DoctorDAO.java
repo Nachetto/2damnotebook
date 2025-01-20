@@ -10,5 +10,6 @@ public interface DoctorDAO {
     int save(Doctor m);
     void update(Doctor m);
     boolean delete(int id, boolean confirmation);
+    Doctor getById(int idDoctor);
 }
 

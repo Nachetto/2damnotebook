@@ -19,7 +19,7 @@ public class PatientUI {
     private String password;
 
     public Patient toPatient() {
-        return new Patient(id, name, birthDate, phone);
+        return new Patient(id, name, birthDate, phone, new Credential(userName, password, id));
     }
 
     public Credential toCredential(int idGenerated) {
