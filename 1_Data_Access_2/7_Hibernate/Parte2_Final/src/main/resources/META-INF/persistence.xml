@@ -4,8 +4,12 @@
              version="2.0">
 
     <persistence-unit name="unit3.hibernate">
-        <class>org.example.hibernatemedcentercrud.dao.model.Patient</class>
-        <class>org.example.hibernatemedcentercrud.dao.model.Credential</class>
+        <class>com.hospitalcrud.dao.model.Patient</class>
+        <class>com.hospitalcrud.dao.model.Credential</class>
+        <class>com.hospitalcrud.dao.model.Doctor</class>
+        <class>com.hospitalcrud.dao.model.Medication</class>
+        <class>com.hospitalcrud.dao.model.MedRecord</class>
+        <class>com.hospitalcrud.dao.model.Payment</class>
 
         <!-- <class>org.example.hibernatemedcentercrud.dao.model.Doctor</class>
         <class>org.example.hibernatemedcentercrud.dao.model.Medication</class>
@@ -14,10 +18,10 @@
 -->
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Hospital"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hospital"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
             <property name="jakarta.persistence.jdbc.user" value="root"/>
-            <property name="jakarta.persistence.jdbc.password" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="1234"/>
         </properties>
 
     </persistence-unit>
