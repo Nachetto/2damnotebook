@@ -37,6 +37,23 @@ public class CredentialRepository implements CredentialDAO {
         }
     }
 
+//    public boolean login(String username, String password) {
+//        List<Credential> list;
+//        try {
+//            em = jpautil.getEntityManager();
+//            list = em.createNamedQuery("Credential.login", Credential.class)
+//                    .setParameter("username", username)
+//                    .setParameter("password", password)
+//                    .getResultList();
+//        }catch (Exception e) {
+//            log.error("Error during login for username: {}", username, e);
+//            return false;
+//        } finally {
+//            if (em != null) em.close();
+//        }
+//        return !list.isEmpty();
+//    }
+
     public boolean login(String username, String password) {
         List<Credential> list;
         try {
@@ -45,13 +62,13 @@ public class CredentialRepository implements CredentialDAO {
                     .setParameter("username", username)
                     .setParameter("password", password)
                     .getResultList();
-        }catch (Exception e) {
+            return !list.isEmpty();
+        } catch (Exception e) {
             log.error("Error during login for username: {}", username, e);
             return false;
         } finally {
             if (em != null) em.close();
         }
-        return !list.isEmpty();
     }
 
     @Override

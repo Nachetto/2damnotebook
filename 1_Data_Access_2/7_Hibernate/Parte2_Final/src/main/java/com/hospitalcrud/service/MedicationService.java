@@ -9,11 +9,9 @@ import java.util.List;
 @Service
 public class MedicationService {
     private final MedicationDAO dao;
-    private final MedRecordService medRecordService;
 
-    public MedicationService(MedicationDAO dao, MedRecordService medRecordService) {
+    public MedicationService(MedicationDAO dao) {
         this.dao = dao;
-        this.medRecordService = medRecordService;
     }
 
     public List<String> getMedications(int id) {//get medications for a medRecord

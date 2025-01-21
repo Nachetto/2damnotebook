@@ -15,18 +15,18 @@ import java.time.format.DateTimeFormatter;
 @Entity
 @Table(name = "patients")
 @NamedQueries({
-    @NamedQuery(name = "Patient.getAll", query = "FROM Patient ")
+    @NamedQuery(name = "Patient.getAll", query = "FROM Patient p")
 })
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "patient_id")
+    @Column(name = "patient_id", nullable = false)
     private int id;
     @Column
     private String name;
-    @Column(name = "date_of_birth")
+    @Column(name = "date_of_birth", nullable = false)
     private LocalDate birthDate;
-    @Column
+    @Column(nullable = false)
     private String phone;
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY, mappedBy = "patient")
     private Credential credential;

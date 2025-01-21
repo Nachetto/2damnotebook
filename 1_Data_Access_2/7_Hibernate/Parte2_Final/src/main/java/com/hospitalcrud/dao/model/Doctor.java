@@ -26,6 +26,9 @@ public class Doctor {
     private String specialty;
     @Column(name = "phone")
     private String phone;
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY, mappedBy = "doctor")
+    private Credential credential;
+
 
     public Doctor(int id, String name, String specialty) {
         this.id = id;

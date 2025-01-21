@@ -20,8 +20,8 @@ public class PatientRepository implements PatientDAO {
     private final JPAUtil jpautil;
     private EntityManager em;
 
-    public PatientRepository(JPAUtil jpautil, JPAUtil jpautil1) {
-        this.jpautil = jpautil1;
+    public PatientRepository(JPAUtil jpautil) {
+        this.jpautil = jpautil;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class PatientRepository implements PatientDAO {
                     .getResultList();
         }catch (Exception e) {
             log.error("Error getting all patients", e);
-            return null;
+            return List.of();
         }
         finally {
             if (em != null) em.close();
