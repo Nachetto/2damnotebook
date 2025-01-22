@@ -4,12 +4,12 @@
              version="2.0">
 
     <persistence-unit name="unit3.hibernate">
-        <class>ignacio.llorente.nachoHibernateConSpring.dao.model.Patient</class>
-        <class>ignacio.llorente.nachoHibernateConSpring.dao.model.Credential</class>
-        <class>ignacio.llorente.nachoHibernateConSpring.dao.model.Doctor</class>
-        <class>ignacio.llorente.nachoHibernateConSpring.dao.model.Medication</class>
-        <class>ignacio.llorente.nachoHibernateConSpring.dao.model.MedRecord</class>
-        <class>ignacio.llorente.nachoHibernateConSpring.dao.model.Payment</class>
+        <class>org.example.nachoHibernateConSpring.dao.model.Patient</class>
+        <class>org.example.nachoHibernateConSpring.dao.model.Credential</class>
+        <class>org.example.nachoHibernateConSpring.dao.model.Doctor</class>
+        <class>org.example.nachoHibernateConSpring.dao.model.Medication</class>
+        <class>org.example.nachoHibernateConSpring.dao.model.MedRecord</class>
+        <class>org.example.nachoHibernateConSpring.dao.model.Payment</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hospital"/>

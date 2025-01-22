@@ -8,7 +8,7 @@
         <version>3.4.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>ignacio.llorente</groupId>
+    <groupId>org.example</groupId>
     <artifactId>nachoHibernateConSpring</artifactId>
     <version>21-1-base</version>
     <name>nachoHibernateConSpring</name>
