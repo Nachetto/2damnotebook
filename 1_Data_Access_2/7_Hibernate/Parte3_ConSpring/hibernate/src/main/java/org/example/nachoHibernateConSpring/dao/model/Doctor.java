@@ -12,9 +12,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 @Table(name = "doctors")
-@NamedQueries({
-        @NamedQuery(name = "Doctor.getAll", query = "FROM Doctor")
-})
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -9,7 +9,5 @@ import java.util.List;
 
 @Repository
 public interface DoctorDAO  extends JpaRepository<Doctor, Integer> {
-    List<Doctor> findByUsername(String username);
-    List<Doctor> findByUsernameAndPassword(String username, String password);
 }
 

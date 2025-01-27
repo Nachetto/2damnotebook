@@ -10,11 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "user_login")
-@NamedQueries({
-        @NamedQuery(name = "Credential.login", query = "select c FROM Credential c where c.username = :username and c.password = :password"),
-        @NamedQuery(name = "Credential.validate_username", query = "SELECT COUNT(c) FROM Credential c WHERE c.username = :username"),
-        @NamedQuery(name = "Credential.getAll", query = "FROM Credential c")
-})
 public class Credential {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

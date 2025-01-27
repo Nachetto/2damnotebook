@@ -12,9 +12,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Entity
 @Table(name = "patient_payments")
-@NamedQueries({
-        @NamedQuery(name = "Payment.getAll", query = "FROM Payment ")
-})
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

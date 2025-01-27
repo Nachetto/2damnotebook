@@ -14,9 +14,6 @@ import java.time.format.DateTimeFormatter;
 @NoArgsConstructor
 @Entity
 @Table(name = "patients")
-@NamedQueries({
-    @NamedQuery(name = "Patient.getAll", query = "FROM Patient p")
-})
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

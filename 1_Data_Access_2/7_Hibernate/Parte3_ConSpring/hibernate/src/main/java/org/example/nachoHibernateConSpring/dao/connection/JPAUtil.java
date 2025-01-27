@@ -7,7 +7,6 @@ import jakarta.persistence.Persistence;
 import org.springframework.stereotype.Component;
 
 @Singleton
-@Component
 public class JPAUtil {
 
     private EntityManagerFactory emf;

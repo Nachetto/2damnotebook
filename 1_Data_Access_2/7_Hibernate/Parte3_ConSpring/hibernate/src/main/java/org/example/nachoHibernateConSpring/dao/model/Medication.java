@@ -10,10 +10,6 @@ import lombok.*;
 @Data
 @Entity
 @Table(name = "prescribed_medications")
-@NamedQueries({
-        @NamedQuery(name = "Medication.getAll", query = "FROM Medication"),
-        @NamedQuery(name = "Medication.getMedicationByRecordId", query = "FROM Medication WHERE medRecord.id = :record_id")
-})
 public class Medication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

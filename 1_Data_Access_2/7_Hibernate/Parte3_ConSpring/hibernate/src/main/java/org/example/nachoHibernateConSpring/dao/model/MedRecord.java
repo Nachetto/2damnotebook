@@ -15,10 +15,6 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "medical_records")
-@NamedQueries({
-        @NamedQuery(name = "MedRecord.getAll", query = "FROM MedRecord m"),
-        @NamedQuery(name = "MedRecord.get", query = "FROM MedRecord m WHERE m.patient.id = :patientId")
-})
 public class MedRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
