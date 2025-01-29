@@ -38,6 +38,7 @@ public class MedRecordService {
         MedRecord savedMedRecord = dao.save(medRecord);
         return savedMedRecord.getId();
     }
+
     @Transactional
     public void update(MedRecordUI medRecordUI) {
         MedRecord existingMedRecord = dao.findById(medRecordUI.getId())

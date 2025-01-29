@@ -27,7 +27,7 @@ public class CredentialService {
         if (creds == null) {
             return "Invalid username";
         }
-        if (!username.equals(creds.getUsername()) && !password.equals(creds.getPassword())) {
+        if (!username.equals(creds.getUsername()) || !password.equals(creds.getPassword())) {
             return "Invalid password";
         }
         return "Valid";
