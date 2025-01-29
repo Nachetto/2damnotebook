@@ -1,9 +1,9 @@
 package org.example.nachoHibernateConSpring.domain.model;
 
-import org.example.nachoHibernateConSpring.dao.model.Credential;
-import org.example.nachoHibernateConSpring.dao.model.Patient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.example.nachoHibernateConSpring.dao.model.Credential;
+import org.example.nachoHibernateConSpring.dao.model.Patient;
 
 import java.time.LocalDate;
 

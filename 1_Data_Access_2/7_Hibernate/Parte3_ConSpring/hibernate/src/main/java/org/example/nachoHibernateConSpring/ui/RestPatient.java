@@ -1,6 +1,5 @@
 package org.example.nachoHibernateConSpring.ui;
 
-import org.example.nachoHibernateConSpring.domain.error.MedicalRecordException;
 import org.example.nachoHibernateConSpring.domain.model.MedRecordUI;
 import org.example.nachoHibernateConSpring.domain.model.PatientUI;
 import org.example.nachoHibernateConSpring.service.MedRecordService;
@@ -50,9 +49,6 @@ public class RestPatient {
     @RequestMapping("/{patientId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean deletePatient(@PathVariable int patientId, @RequestParam boolean confirm) {
-        if (!confirm && !medRecordService.checkPatientMedRecords(patientId)) {
-            throw new MedicalRecordException("Patient has medical records, cannot delete.");
-        }
         return patientService.delete(patientId, confirm);
     }
 }

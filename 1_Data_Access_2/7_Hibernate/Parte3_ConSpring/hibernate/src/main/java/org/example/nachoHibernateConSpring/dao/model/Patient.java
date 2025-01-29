@@ -1,10 +1,10 @@
 package org.example.nachoHibernateConSpring.dao.model;
 
-import org.example.nachoHibernateConSpring.domain.model.PatientUI;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.nachoHibernateConSpring.domain.model.PatientUI;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

@@ -1,10 +1,10 @@
 package org.example.nachoHibernateConSpring.domain.model;
 
+import lombok.*;
 import org.example.nachoHibernateConSpring.dao.model.MedRecord;
 import org.example.nachoHibernateConSpring.dao.model.Medication;
 import org.example.nachoHibernateConSpring.service.DoctorService;
 import org.example.nachoHibernateConSpring.service.PatientService;
-import lombok.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

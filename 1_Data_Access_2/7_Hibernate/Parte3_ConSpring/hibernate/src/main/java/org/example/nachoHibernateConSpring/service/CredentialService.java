@@ -1,7 +1,9 @@
 package org.example.nachoHibernateConSpring.service;
 
+import org.example.nachoHibernateConSpring.dao.model.Credential;
 import org.example.nachoHibernateConSpring.dao.repository.CredentialDAO;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class CredentialService {
@@ -10,21 +12,22 @@ public class CredentialService {
     public CredentialService(CredentialDAO dao) {
         this.dao = dao;
     }
-    public boolean isValidUsername(String username) {
-        return dao.findByUsername(username).size() == 1;
+    public Credential isValidUsername(String username) {
+        if (dao.findByUsername(username).isEmpty()) {
+            return null;
+        }
+        return dao.findByUsername(username).get(0);
     }
 
-    public boolean isPasswordCorrect(String username, String password) {
-        return dao.findByUsernameAndPassword(username, password).size() == 1;
-    }
     public String validateCredentials(String username, String password) {
         if (username == null || password == null || username.isEmpty() || password.isEmpty()) {
             return "Invalid username or password";
         }
-        if (!isValidUsername(username)) {
+        Credential creds = isValidUsername(username);
+        if (creds == null) {
             return "Invalid username";
         }
-        if (!isPasswordCorrect(username, password)) {
+        if (!username.equals(creds.getUsername()) && !password.equals(creds.getPassword())) {
             return "Invalid password";
         }
         return "Valid";

@@ -1,8 +1,8 @@
 package org.example.nachoHibernateConSpring.dao.model;
 
-import org.example.nachoHibernateConSpring.domain.model.MedRecordUI;
 import jakarta.persistence.*;
 import lombok.*;
+import org.example.nachoHibernateConSpring.domain.model.MedRecordUI;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
