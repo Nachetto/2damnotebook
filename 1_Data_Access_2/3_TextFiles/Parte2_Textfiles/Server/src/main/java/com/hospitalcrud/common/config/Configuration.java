@@ -1,5 +1,7 @@
 package com.hospitalcrud.common.config;
 
+import com.google.gson.Gson;
+
 import com.hospitalcrud.common.Constants;
 import jakarta.inject.Singleton;
 import lombok.Getter;
@@ -15,6 +17,7 @@ import java.util.Properties;
 @Log4j2
 public class Configuration {
     private static Configuration instance=null;
+    private Gson gson;
 
     private String pathPatients;
     private String pathDoctors;
