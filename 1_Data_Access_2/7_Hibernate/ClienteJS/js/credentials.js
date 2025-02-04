@@ -26,6 +26,10 @@ body: JSON.stringify(cred) // Convertir datos a JSON y enviar en el cuerpo de la
 })
 .then(response => {
 // Manejar la respuesta
+    if (response.status === 400) {
+        return response.text().then(eMessage => {
+            alert(eMessage);
+        })}
 if (response.ok) {
     // Si la respuesta HTTP fue exitosa, leemos el cuerpo de la respuesta
     return response.text(); // Leemos el cuerpo de la respuesta

@@ -8,6 +8,7 @@ import org.example.nachoHibernateConSpring.service.PatientService;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -27,8 +28,7 @@ public class MedRecordUI {
     public MedRecord toMedRecord(PatientService patientService, DoctorService doctorService) {
         DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
         LocalDate datee = LocalDate.parse(this.date, formatter);
-        //create the medications
-        List<Medication> medicationsFinal = null;
+        List<Medication> medicationsFinal = new ArrayList<>();
         medications.forEach(medication -> {
             Medication med = new Medication();
             med.setMedicationName(medication);

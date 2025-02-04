@@ -1,22 +1,16 @@
 package org.example.nachoHibernateConSpring.dao.model;
 
-import jakarta.ejb.Singleton;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Singleton
 @Data
+@NoArgsConstructor
 public class Session {
-    private String type;
-    private int typeID;
+    private String userType;
+    private int userId;
 
-    public Session(int id, String type, int userId) {
-        this.type = type;
-        this.typeID = typeID;
-        //TODO cuando se llama al constructor, este carga sus datos en el json que se guarda en local
-
-    }
-
-    public Session() {
-
+    public Session(int userId, String userType) {
+        this.userId = userId;
+        this.userType = userType;
     }
 }

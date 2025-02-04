@@ -1,6 +1,7 @@
 package org.example.nachoHibernateConSpring.service;
 
 import org.example.nachoHibernateConSpring.dao.model.Credential;
+import org.example.nachoHibernateConSpring.dao.model.Session;
 import org.example.nachoHibernateConSpring.dao.repository.CredentialDAO;
 import org.example.nachoHibernateConSpring.dao.repository.SessionDao;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ public class CredentialService {
         this.dao = dao;
         this.sessionDao = sessionDao;
     }
+
     public Credential isValidUsername(String username) {
         if (dao.findByUsername(username).isEmpty()) {
             return null;
@@ -33,10 +35,33 @@ public class CredentialService {
         if (!username.equals(creds.getUsername()) || !password.equals(creds.getPassword())) {
             return "Invalid password";
         }
-        //TODO aqui inicializas el objeto de sesion y le asignas el tipo de usuario y  el id, no es el id de las credentials sino del patient o el user
-        sessionDao.save(creds);
-        //here i call dao directly, because i only do this once so there is no need to create a method in service
+
+        String userType = determineUserType(creds);
+        int userId = determineUserId(creds);
+
+        Session session = new Session(userId, userType);
+        sessionDao.save(session); // save JSON
 
         return "Valid";
+    }
+
+    private String determineUserType(Credential credential) {
+        if (credential.getPatient() == null && credential.getDoctor() == null) {
+            return "admin";
+        } else if (credential.getPatient() != null) {
+            return "patient";
+        } else {
+            return "doctor";
+        }
+    }
+
+    private int determineUserId(Credential credential) {
+        if (credential.getPatient() != null) {
+            return credential.getPatient().getId();
+        } else if (credential.getDoctor() != null) {
+            return credential.getDoctor().getId();
+        } else {
+            return 0; // admin id, i wont need it
+        }
     }
 }

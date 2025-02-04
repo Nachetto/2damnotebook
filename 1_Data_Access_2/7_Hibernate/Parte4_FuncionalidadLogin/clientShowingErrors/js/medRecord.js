@@ -5,8 +5,12 @@ function getInfo(button) {
     var patientName = row.querySelector('td:nth-child(2)').innerText.trim(); // Obtiene el nombre del estudiante
 
     // Realiza una solicitud Fetch al servidor para obtener los medRecords del alumno
-    fetch(`http://localhost:8080/patients/${patientId}/medRecords`)
+    fetch(`http://127.0.0.1:8080/patients/${patientId}/medRecords`)
     .then(response => {
+        if (response.status === 400) {
+            return response.text().then(eMessage => {
+                 alert(eMessage);
+            })}
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -46,10 +50,11 @@ function getInfo(button) {
 // DELETE MEDRECORD
 function deleteApp(button) {
     var row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
     var appId = row.querySelector('td:first-child').innerText.trim(); // Obtiene el contenido del primer <td> de la fila
 
     // Delete the patient from the server
-    fetch(`http://localhost:8080/patients/medRecords/${appId}`, {
+    fetch(`http://127.0.0.1:8080/patients/medRecords/${appId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -57,9 +62,12 @@ function deleteApp(button) {
     })
         .then(response => {
             if (response.ok) {
-                row.parentNode.removeChild(row);
                 console.log('medRecord deleted successfully');
-            } else{
+            }  else           if (response.status === 400) {
+                return response.text().then(eMessage => {
+                    let resp = alert(eMessage);
+                })}
+            else{
                 throw new Error('Network response was not ok');
             }
         })
@@ -94,7 +102,7 @@ function updateMedRecord(event) {
     };
 
     // Send a fetch request to update the medRecord on the server
-    fetch('http://localhost:8080/patients/medRecords', {
+    fetch('http://127.0.0.1:8080/patients/medRecords', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -219,7 +227,7 @@ function addMedRecord(event) {
     };
 
     // Send a fetch request to add the patient to the server
-    fetch("http://localhost:8080/patients/medRecords", {
+    fetch("http://127.0.0.1:8080/patients/medRecords", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -228,9 +236,12 @@ function addMedRecord(event) {
     })
 
     .then(response => {
-        if (!response.ok) {
+        if (response.status === 400) {
+            return response.text().then(eMessage => {
+                let resp = alert(eMessage);
+            })} if (!response.ok) {
             throw new Error('Network response was not ok');
-        }
+        }          
         return response.json();
     })
         .then(data => {
@@ -267,8 +278,12 @@ function showAddMedRecordModalW(event) {
 //fillDoctorCombo: callback es una función que se llama desde esta funcion, para asegurarnos que ha cargado el combo antes
 function fillDoctorCombo(combo, callback) {
 
-    fetch('http://localhost:8080/doctors')
+    fetch('http://127.0.0.1:8080/doctors')
     .then(response => {
+        if (response.status === 400) {
+            return response.text().then(eMessage => {
+                alert(eMessage);
+            })}
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

@@ -15,14 +15,11 @@ public class MedicationService {
         this.dao = dao;
     }
 
-    public List<String> getMedications(int id) { // get medications for a medRecord
+    public List<String> getMedications(int id) {
         return dao.findAllById(Collections.singleton(id)).stream().map(Medication::getMedicationName).toList();
     }
 
     public void delete(int medRecordId) {
-        // delete payments as well
         dao.deleteById(medRecordId);
     }
-
-    // not implemented for this exercise, created on client
 }

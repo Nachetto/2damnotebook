@@ -3,6 +3,10 @@
 function getAllpatients() {
     fetch("http://127.0.0.1:8080/patients")
     .then(response => {
+        if (response.status === 400) {
+            return response.text().then(eMessage => {
+                alert(eMessage);
+            })}
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -52,7 +56,10 @@ function deletePatient(button) {
                     document.getElementById("infoContainer").innerHTML = ""; 
                     return;
                 }
-
+                if (response.status === 400) {
+                    return response.text().then(eMessage => {
+                        let resp = alert(eMessage);
+                    })}
                 if (!response.ok) {
                     // Si la respuesta no es ok, manejar el error
                     if (response.status === 409) {
@@ -71,7 +78,7 @@ function deletePatient(button) {
                                 throw new Error('User cancelled operation');
                             }
                         });
-                    } else {
+                    }   else {
                         // Otro tipo de error
                         throw new Error('Network response was not ok');
                     }
@@ -135,7 +142,10 @@ function addPatient(event) {
                         // El usuario canceló, lanzar un error
                         throw new Error('User cancelled operation');
                     }
-            }                
+            }              if (response.status === 400) {
+            return response.text().then(eMessage => {
+                let resp = alert(eMessage);
+            })}
         
         return response.json();
     })
@@ -185,12 +195,15 @@ function updatePatient(event) {
         },
         body: JSON.stringify(patient)
     })
-    .then(response => {
+    .then(response => {if (response.status === 400) {
+        return response.text().then(eMessage => {
+            alert(eMessage);
+        })}
         if (response.ok) {  //successful
             $('#updatepatientModal').modal('hide');
             //Modify patient in HTML table
             modifyPatientHTMLtable(patient);
-        }else throw new Error('Network response was not ok');        
+        }       else throw new Error('Network response was not ok');
     })
         .catch(error => {
             console.error('Error updating patient:', error);

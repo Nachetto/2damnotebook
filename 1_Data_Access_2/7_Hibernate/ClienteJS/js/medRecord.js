@@ -7,6 +7,10 @@ function getInfo(button) {
     // Realiza una solicitud Fetch al servidor para obtener los medRecords del alumno
     fetch(`http://127.0.0.1:8080/patients/${patientId}/medRecords`)
     .then(response => {
+        if (response.status === 400) {
+            return response.text().then(eMessage => {
+                 alert(eMessage);
+            })}
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -59,7 +63,11 @@ function deleteApp(button) {
         .then(response => {
             if (response.ok) {
                 console.log('medRecord deleted successfully');
-            } else{
+            }  else           if (response.status === 400) {
+                return response.text().then(eMessage => {
+                    let resp = alert(eMessage);
+                })}
+            else{
                 throw new Error('Network response was not ok');
             }
         })
@@ -228,9 +236,12 @@ function addMedRecord(event) {
     })
 
     .then(response => {
-        if (!response.ok) {
+        if (response.status === 400) {
+            return response.text().then(eMessage => {
+                let resp = alert(eMessage);
+            })} if (!response.ok) {
             throw new Error('Network response was not ok');
-        }
+        }          
         return response.json();
     })
         .then(data => {
@@ -269,6 +280,10 @@ function fillDoctorCombo(combo, callback) {
 
     fetch('http://127.0.0.1:8080/doctors')
     .then(response => {
+        if (response.status === 400) {
+            return response.text().then(eMessage => {
+                alert(eMessage);
+            })}
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

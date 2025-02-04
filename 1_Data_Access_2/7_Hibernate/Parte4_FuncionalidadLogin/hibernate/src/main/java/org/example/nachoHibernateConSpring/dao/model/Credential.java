@@ -22,6 +22,9 @@ public class Credential {
     @OneToOne
     @JoinColumn(name = "patient_id", referencedColumnName = "patient_id")
     private Patient patient;
+    @OneToOne
+    @JoinColumn(name = "doctor_id", referencedColumnName = "doctor_id")
+    private Doctor doctor;
 
 
     public Credential(String userName, String password, int id){

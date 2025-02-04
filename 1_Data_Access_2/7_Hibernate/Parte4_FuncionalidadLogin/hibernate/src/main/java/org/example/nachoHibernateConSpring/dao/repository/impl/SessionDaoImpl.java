@@ -1,38 +1,50 @@
 package org.example.nachoHibernateConSpring.dao.repository.impl;
+import com.google.gson.Gson;
 import org.example.nachoHibernateConSpring.common.config.Configuration;
-import org.example.nachoHibernateConSpring.dao.model.Credential;
 import org.example.nachoHibernateConSpring.dao.model.Session;
 import org.example.nachoHibernateConSpring.dao.repository.SessionDao;
-import com.google.gson.Gson;
+import org.example.nachoHibernateConSpring.domain.error.InternalServerErrorException;
+import org.springframework.stereotype.Repository;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+@Repository
 public class SessionDaoImpl implements SessionDao {
+
     private final String pathSession;
-    private Gson gson = new Gson();
-    private Session session;
-
+    private final Gson gson;
     private final Configuration config;
-
 
     public SessionDaoImpl(Configuration config) {
         this.config = config;
+        gson = new Gson();
         this.pathSession = config.getPathSession();
     }
 
     @Override
-    public int save(Credential credential) {
-        //todo save into a json file saving the
-
+    public int save(Session session) {
+        try (FileWriter writer = new FileWriter(pathSession)) {
+            gson.toJson(session, writer);
+            return 1;
+        } catch (Exception e) {
+            throw new InternalServerErrorException("Error saving session:  "+  e);
+        }
     }
 
     @Override
     public Session load() {
-        //todo load the session from the json file
-
-        //if the patient id is null and the doctor id is null, then the type is admin
-
-        //if the patient id is not null and the doctor id is null, then the type is patient
-
-        //if the patient id is null and the doctor id is not null, then the type is doctor
-
+        try {
+            if (!Files.exists(Paths.get(pathSession))) {
+                return null; // no session saved
+            }
+            try (FileReader reader = new FileReader(pathSession)) {
+                return gson.fromJson(reader, Session.class);
+            }
+        } catch (Exception e) {
+            throw new InternalServerErrorException("Error loading session: "+e);
+        }
     }
 }
