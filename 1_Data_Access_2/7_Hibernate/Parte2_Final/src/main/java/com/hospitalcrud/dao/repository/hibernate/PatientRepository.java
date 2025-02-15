@@ -1,113 +1,79 @@
 package com.hospitalcrud.dao.repository.hibernate;
 
-
-import com.hospitalcrud.dao.connection.JPAUtil;
-import com.hospitalcrud.dao.model.Credential;
+import com.google.gson.Gson;
+import com.hospitalcrud.dao.connection.MongoDbConnection;
 import com.hospitalcrud.dao.model.Patient;
-import com.hospitalcrud.dao.repository.CredentialDAO;
 import com.hospitalcrud.dao.repository.PatientDAO;
-import jakarta.persistence.EntityManager;
-import lombok.extern.log4j.Log4j2;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
+import org.bson.Document;
+import org.bson.conversions.Bson;
+import org.bson.types.ObjectId;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-@Profile("hibernate")
-@Log4j2
+@Profile("mongodb")
 public class PatientRepository implements PatientDAO {
-    private final JPAUtil jpautil;
-    private EntityManager em;
 
-    public PatientRepository(JPAUtil jpautil) {
-        this.jpautil = jpautil;
+    private final MongoCollection<Document> collection;
+    private final Gson gson;
+
+    public PatientRepository() {
+        this.collection = MongoDbConnection.getDatabase()
+                .getCollection("patients");
+        this.gson = new Gson();
     }
 
     @Override
     public List<Patient> getAll() {
-        List<Patient> list;
-        try {
-            em = jpautil.getEntityManager();
-            list = em.createNamedQuery("Patient.getAll", Patient.class)
-                    .getResultList();
-        }catch (Exception e) {
-            log.error("Error getting all patients", e);
-            return List.of();
+        List<Patient> patients = new ArrayList<>();
+        for (Document doc : collection.find()) {
+            Patient patient = gson.fromJson(doc.toJson(), Patient.class);
+            patient.setId(doc.getObjectId("_id"));
+            patients.add(patient);
         }
-        finally {
-            if (em != null) em.close();
-        }
-        return list;
+        return patients;
     }
 
     @Override
-    public int save(Patient m) {
-        int result = 0;
-        try {
-            em = jpautil.getEntityManager();
-            em.getTransaction().begin();
-            em.persist(m);
-            em.getTransaction().commit();
-            result = m.getId();
-        }catch (Exception e) {
-            log.error("Error saving patient", e);
-            em.getTransaction().rollback();
-        }
-        finally {
-            if (em != null) em.close();
-        }
-        return result;
+    public int save(Patient patient) {
+        Document document = Document.parse(gson.toJson(patient));
+        document.remove("_id"); // MongoDB generará el ObjectId
+        collection.insertOne(document);
+        return 1; // Puedes ajustar esto si necesitas retornar un ID específico
     }
 
     @Override
-    public void update(Patient m) {
-        try {
-            em = jpautil.getEntityManager();
-            em.getTransaction().begin();
-            em.merge(m);
-            em.getTransaction().commit();
-        }catch (Exception e) {
-            log.error("Error updating patient", e);
-            em.getTransaction().rollback();
-        }
-        finally {
-            if (em != null) em.close();
-        }
+    public void update(Patient patient) {
+        Bson filter = Filters.eq("_id", patient.getId());
+        Document updateFields = Document.parse(gson.toJson(patient));
+        updateFields.remove("_id"); // Evita actualizar el ID
+        collection.replaceOne(filter, updateFields);
     }
 
     @Override
     public boolean delete(int id, boolean confirmation) {
-        try {
-            em = jpautil.getEntityManager();
-            em.getTransaction().begin();
-            Patient m = em.find(Patient.class, id);
-            if (m != null) {
-                if (confirmation) {
-                    em.remove(m);
-                    em.getTransaction().commit();
-                    return true;
-                }
-            }
-        }catch (Exception e) {
-            log.error("Error deleting patient", e);
-            em.getTransaction().rollback();
-        }
-        finally {
-            if (em != null) em.close();
-        }
-        return false;
+        if (!confirmation) return false;
+
+        // Aquí necesitarías convertir el int a ObjectId si es necesario
+        // Por ejemplo, usando un IdMapper o similar
+        Bson filter = Filters.eq("_id", new ObjectId(String.valueOf(id)));
+        return collection.deleteOne(filter).getDeletedCount() > 0;
     }
 
 
     public Patient getById(int id) {
-        Patient patient;
-        em = jpautil.getEntityManager();
-        try {
-            patient = em.find(Patient.class, id);
-        } finally {
-            if (em != null) em.close();
+        Bson filter = Filters.eq("_id", new ObjectId(String.valueOf(id)));
+        Document doc = collection.find(filter).first();
+        if (doc != null) {
+            Patient patient = gson.fromJson(doc.toJson(), Patient.class);
+            patient.setId(doc.getObjectId("_id"));
+            return patient;
         }
-        return patient;
+        return null;
     }
 }
