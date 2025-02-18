@@ -1,38 +1,19 @@
 package com.hospitalcrud.dao.model;
 
+import com.google.gson.annotations.SerializedName;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Entity
-@Table(name = "doctors")
-@NamedQueries({
-        @NamedQuery(name = "Doctor.getAll", query = "FROM Doctor")
-})
 public class Doctor {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "doctor_id")
-    private int id;
-    @Column(name = "name")
+    @SerializedName("_id")
+    private ObjectId id;
     private String name;
-    @Column(name = "specialization")
-    private String specialty;
-    @Column(name = "phone")
-    private String phone;
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY, mappedBy = "doctor")
-    private Credential credential;
-
-
-    public Doctor(int id, String name, String specialty) {
-        this.id = id;
-        this.name = name;
-        this.specialty = specialty;
-    }
 }

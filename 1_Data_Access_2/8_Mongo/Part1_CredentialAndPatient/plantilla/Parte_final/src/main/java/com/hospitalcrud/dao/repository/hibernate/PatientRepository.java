@@ -1,112 +1,130 @@
 package com.hospitalcrud.dao.repository.hibernate;
 
 
+import com.google.gson.Gson;
 import com.hospitalcrud.dao.connection.JPAUtil;
+import com.hospitalcrud.dao.connection.MongoDbConnection;
 import com.hospitalcrud.dao.model.Credential;
 import com.hospitalcrud.dao.model.Patient;
 import com.hospitalcrud.dao.repository.CredentialDAO;
 import com.hospitalcrud.dao.repository.PatientDAO;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import jakarta.persistence.EntityManager;
+import lombok.Data;
 import lombok.extern.log4j.Log4j2;
+import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Repository
-@Profile("hibernate")
-@Log4j2
-public class PatientRepository implements PatientDAO {
-    private final JPAUtil jpautil;
-    private EntityManager em;
+import static com.mongodb.client.model.Filters.eq;
 
-    public PatientRepository(JPAUtil jpautil) {
-        this.jpautil = jpautil;
-    }
+@Repository
+@Profile("mongodb")
+@Log4j2
+@Data
+public class PatientRepository implements PatientDAO {
+    private static final String COLLECTION_NAME = "Patient";
 
     @Override
     public List<Patient> getAll() {
-        List<Patient> list;
         try {
-            em = jpautil.getEntityManager();
-            list = em.createNamedQuery("Patient.getAll", Patient.class)
-                    .getResultList();
-        }catch (Exception e) {
-            log.error("Error getting all patients", e);
-            return List.of();
-        }
-        finally {
-            if (em != null) em.close();
-        }
-        return list;
-    }
+            MongoDatabase database = MongoDbConnection.getDatabase();
+            MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
 
-    @Override
-    public int save(Patient m) {
-        int result = 0;
-        try {
-            em = jpautil.getEntityManager();
-            em.getTransaction().begin();
-            em.persist(m);
-            em.getTransaction().commit();
-            result = m.getId();
-        }catch (Exception e) {
-            log.error("Error saving patient", e);
-            em.getTransaction().rollback();
-        }
-        finally {
-            if (em != null) em.close();
-        }
-        return result;
-    }
-
-    @Override
-    public void update(Patient m) {
-        try {
-            em = jpautil.getEntityManager();
-            em.getTransaction().begin();
-            em.merge(m);
-            em.getTransaction().commit();
-        }catch (Exception e) {
-            log.error("Error updating patient", e);
-            em.getTransaction().rollback();
-        }
-        finally {
-            if (em != null) em.close();
-        }
-    }
-
-    @Override
-    public boolean delete(int id, boolean confirmation) {
-        try {
-            em = jpautil.getEntityManager();
-            em.getTransaction().begin();
-            Patient m = em.find(Patient.class, id);
-            if (m != null) {
-                if (confirmation) {
-                    em.remove(m);
-                    em.getTransaction().commit();
-                    return true;
-                }
+            List<Patient> patients = new ArrayList<>();
+            for (Document doc : collection.find()) {
+                Gson gson = new Gson();
+                Patient patient = gson.fromJson(doc.toJson(), Patient.class);
+                patient.setId(doc.getObjectId("_id"));
+                patients.add(patient);
             }
-        }catch (Exception e) {
-            log.error("Error deleting patient", e);
-            em.getTransaction().rollback();
+            return patients;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            MongoDbConnection.close();
         }
-        finally {
-            if (em != null) em.close();
-        }
-        return false;
     }
 
-
-    public Patient getById(int id) {
-        Patient patient;
-        em = jpautil.getEntityManager();
+    @Override
+    public int save(Patient patient) {
         try {
-            patient = em.find(Patient.class, id);
+            MongoDatabase database = MongoDbConnection.getDatabase();
+            MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
+
+            Document document = Document.parse(new Gson().toJson(patient));
+
+            document.remove("_id");
+            collection.insertOne(document);
+            return document.getObjectId("_id").getTimestamp();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
         } finally {
-            if (em != null) em.close();
+            MongoDbConnection.close();
+        }
+    }
+
+    @Override
+    public void update(Patient patient) {
+        try {
+            MongoDatabase database = MongoDbConnection.getDatabase();
+            MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
+
+            Document updateFields = new Document()
+                    .append("name", patient.getName())
+                    .append("birthDate", patient.getBirthDate().toString())
+                    .append("phone", patient.getPhone());
+
+            collection.updateOne(
+                    eq("_id", patient.getId()),
+                    new Document("$set", updateFields)
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            MongoDbConnection.close();
+        }
+    }
+
+    @Override
+    public int delete(ObjectId id, boolean confirmation) {
+        int deletedCount = 0;
+        try {
+            MongoDatabase database = MongoDbConnection.getDatabase();
+            MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
+            deletedCount = (int) collection.deleteOne(eq("_id", id)).getDeletedCount();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            MongoDbConnection.close();
+        }
+        return deletedCount;
+    }
+
+    public Patient getById(ObjectId id) {
+        Patient patient = null;
+        try {
+            MongoDatabase database = MongoDbConnection.getDatabase();
+            MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
+
+            Document doc = collection.find(eq("_id", id)).first();
+            if (doc != null) {
+                patient = new Gson().fromJson(doc.toJson(), Patient.class);
+                patient.setId(doc.getObjectId("_id"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            MongoDbConnection.close();
         }
         return patient;
     }
