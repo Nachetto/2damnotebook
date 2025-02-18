@@ -17,6 +17,12 @@ public class Configuration {
     private static Configuration instance=null;
     private Properties properties;
 
+    private String pathPatients;
+    private String pathDoctors;
+    private String pathMedicalRecords;
+    private String nextIdDoctor;
+    private String nextIdPatient;
+    private String nextIdMedRecord;
     private String pathDbUrl  ;
     private String pathDbUser ;
     private String pathDbPassword ;
@@ -27,7 +33,12 @@ public class Configuration {
             properties = new Properties();
             properties.loadFromXML(Objects.requireNonNull(Configuration.class.getClassLoader().getResourceAsStream(Constants.CONFIG_FILE_PATH_XML)));
 
-
+            this.pathPatients = properties.getProperty(Constants.PATH_PATIENTS);
+            this.pathDoctors = properties.getProperty(Constants.PATH_DOCTORS);
+            this.pathMedicalRecords = properties.getProperty(Constants.PATH_MEDICAL_RECORDS);
+            this.nextIdDoctor = properties.getProperty(Constants.NEXT_ID_DOCTOR);
+            this.nextIdPatient = properties.getProperty(Constants.NEXT_ID_PATIENT);
+            this.nextIdMedRecord = properties.getProperty(Constants.NEXT_ID_MED_RECORD);
             this.pathDbUrl = properties.getProperty(Constants.PATH_DB_URL);
             this.pathDbUser = properties.getProperty(Constants.PATH_DB_USER);
             this.pathDbPassword = properties.getProperty(Constants.PATH_DB_PASSWORD);
@@ -42,6 +53,21 @@ public class Configuration {
             instance = new Configuration();
         }
         return instance;
+    }
+
+    public void setNextIdDoctor(String nextIdDoctor) {
+        this.nextIdDoctor = nextIdDoctor;
+        updateProperties(Constants.NEXT_ID_DOCTOR, nextIdDoctor);
+    }
+
+    public void setNextIdPatient(String nextIdPatient) {
+        this.nextIdPatient = nextIdPatient;
+        updateProperties(Constants.NEXT_ID_PATIENT, nextIdPatient);
+    }
+
+    public void setNextIdMedRecord(String nextIdMedRecord) {
+        this.nextIdMedRecord = nextIdMedRecord;
+        updateProperties(Constants.NEXT_ID_MED_RECORD, nextIdMedRecord);
     }
 
     private void updateProperties(String key, String value) {

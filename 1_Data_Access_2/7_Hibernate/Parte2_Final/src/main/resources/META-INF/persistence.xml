@@ -7,6 +7,8 @@
         <class>com.hospitalcrud.dao.model.Patient</class>
         <class>com.hospitalcrud.dao.model.Credential</class>
         <class>com.hospitalcrud.dao.model.Doctor</class>
+        <class>com.hospitalcrud.dao.model.Medication</class>
+        <class>com.hospitalcrud.dao.model.MedRecord</class>
         <class>com.hospitalcrud.dao.model.Payment</class>
 
         <!-- <class>org.example.hibernatemedcentercrud.dao.model.Doctor</class>

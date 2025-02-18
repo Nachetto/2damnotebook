@@ -10,7 +10,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Entity
 @Table(name = "appointments")
+@NamedQueries({
+        @NamedQuery(name = "Appointment.getAll", query = "FROM Appointment ")
+})
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

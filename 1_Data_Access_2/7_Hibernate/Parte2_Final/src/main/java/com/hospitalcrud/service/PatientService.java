@@ -4,22 +4,19 @@ import com.hospitalcrud.dao.model.Patient;
 import com.hospitalcrud.dao.repository.hibernate.CredentialRepository;
 import com.hospitalcrud.dao.repository.hibernate.PatientRepository;
 import com.hospitalcrud.domain.error.MedicalRecordException;
+import com.hospitalcrud.domain.error.NotFoundException;
 import com.hospitalcrud.domain.error.UsernameDuplicatedException;
+import com.hospitalcrud.domain.model.MedRecordUI;
 import com.hospitalcrud.domain.model.PatientUI;
-import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class PatientService {
     private final PatientRepository dao;
     private  final CredentialRepository credentialDAO;
-    private static final Map<Integer, ObjectId> idMapperList = new ConcurrentHashMap<>();
 
     public PatientService(PatientRepository dao, CredentialRepository credentialDAO, CredentialService credentialService) {
         this.dao = dao;
@@ -27,15 +24,9 @@ public class PatientService {
     }
 
     public List<PatientUI> getPatients() {
-        List<Patient> patients = dao.getAll();
-        AtomicInteger i = new AtomicInteger();
-        List<PatientUI> finalPatients = new ArrayList<>();
-        patients.forEach(p -> {
-            int id = i.incrementAndGet();
-            finalPatients.add(new PatientUI(id,p.getName(),p.getBirthDate(),p.getPhone(),0,null,null));
-            idMapperList.put(id, p.getId());
-        });
-        return finalPatients;
+        return dao.getAll()
+                .stream()
+                .map(Patient::toPatientUI).toList();
     }
 
     public int addPatient(PatientUI patientUI) {
@@ -43,7 +34,7 @@ public class PatientService {
         if (credentialDAO.validateUsername(patientUI.getUserName()))
             throw new UsernameDuplicatedException("Username duplicated, it already exists");
 
-        int patientId = dao.save(patientUI.toPatient(idMapperList.get(patientUI.getId())));
+        int patientId = dao.save(patientUI.toPatient());
 
         if (patientId!=1) {
             throw new MedicalRecordException("Unexpected error saving patient, no pawtient was saved, rolling back...");
@@ -52,10 +43,14 @@ public class PatientService {
     }
 
     public void updatePatient(PatientUI patientUI) {
-        dao.update(patientUI.toPatient(idMapperList.get(patientUI.getId())));
+        dao.update(patientUI.toPatient());
     }
 
     public boolean delete(int patientId, boolean confirm) {
+        //this way of making it makes it  so that it will always call all those deletes even after checking if there are records, but it is ok, it is a small amount of data
+//        if (!confirm && !medRecordService.checkPatientMedRecords(patientId)) {
+//                throw new MedicalRecordException("Patient has medical records, cannot delete.");
+//        }
         return dao.delete(patientId, confirm);
     }
 
