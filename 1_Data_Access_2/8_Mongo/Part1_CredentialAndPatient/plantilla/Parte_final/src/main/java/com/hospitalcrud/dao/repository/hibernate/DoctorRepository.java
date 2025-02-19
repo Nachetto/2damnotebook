@@ -1,52 +1,69 @@
 package com.hospitalcrud.dao.repository.hibernate;
 
 
-import com.hospitalcrud.dao.connection.JPAUtil;
+import com.google.gson.Gson;
+import com.hospitalcrud.dao.connection.MongoDbConnection;
 import com.hospitalcrud.dao.model.Doctor;
 import com.hospitalcrud.dao.repository.DoctorDAO;
-import jakarta.persistence.EntityManager;
+import com.hospitalcrud.dao.util.GsonCreator;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import lombok.extern.log4j.Log4j2;
+import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-@Profile("hibernate")
+@Profile("mongodb")
 @Log4j2
 public class DoctorRepository implements DoctorDAO {
-    private final JPAUtil jpautil;
-    private EntityManager em;
-
-    public DoctorRepository(JPAUtil jpautil) {
-        this.jpautil = jpautil;
-    }
+    private static final String COLLECTION_NAME = "Doctor";
 
     @Override
     public List<Doctor> getAll() {
-        List<Doctor> list;
+        List<Doctor> doctors = new ArrayList<>();
         try {
-            em = jpautil.getEntityManager();
-            list = em.createNamedQuery("Doctor.getAll", Doctor.class)
-                    .getResultList();
-        }catch (Exception e) {
+            MongoDatabase database = MongoDbConnection.getDatabase();
+            MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
+
+            for (Document doc : collection.find()) {
+                Gson gson = GsonCreator.createGson();
+                Doctor doctor = gson.fromJson(doc.toJson(), Doctor.class);
+                doctor.setId(doc.getObjectId("_id"));
+                doctors.add(doctor);
+            }
+
+        } catch (Exception e) {
             log.error("Error getting all doctors", e);
-            return List.of();
+        } finally {
+            MongoDbConnection.close();
         }
-        finally {
-            if (em != null) em.close();
-        }
-        return list;
+        return doctors;
     }
 
     @Override
-    public Doctor getById(int idDoctor) {
-        Doctor doctor;
+    public Doctor get(ObjectId idDoctor) {
+        Doctor doctor = null;
         try {
-            em = jpautil.getEntityManager();
-            doctor = em.find(Doctor.class, idDoctor);
+            MongoDatabase database = MongoDbConnection.getDatabase();
+            MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
+
+            Document query = new Document("_id", idDoctor);
+            Document doc = collection.find(query).first();
+
+            if (doc != null) {
+                Gson gson = GsonCreator.createGson();
+                doctor = gson.fromJson(doc.toJson(), Doctor.class);
+                doctor.setId(doc.getObjectId("_id"));
+            }
+        } catch (Exception e) {
+            log.error("Error getting doctor by id: {}", idDoctor, e);
         } finally {
-            if (em != null) em.close();
+            MongoDbConnection.close();
         }
         return doctor;
     }
@@ -55,11 +72,9 @@ public class DoctorRepository implements DoctorDAO {
     public int save(Doctor m) {
         return 0;
     }
-
     @Override
-    public void update(Doctor m) {
-    }
-
+    public void update(Doctor m) {//not implemented
+         }
     @Override
     public boolean delete(int id, boolean confirmation) {
         return false;

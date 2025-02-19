@@ -1,20 +1,20 @@
 package com.hospitalcrud.domain.model;
 
-import com.hospitalcrud.dao.model.Credential;
 import com.hospitalcrud.dao.model.Patient;
 import com.hospitalcrud.dao.model.Payment;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class PatientUI {
-    private int id; // ID mapeado a int
+    private int id;
     private String name;
     private LocalDate birthDate;
     private String phone;

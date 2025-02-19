@@ -1,7 +1,7 @@
 package com.hospitalcrud.dao.model;
 
 import com.google.gson.annotations.SerializedName;
-import jakarta.persistence.*;
+import com.hospitalcrud.domain.model.DoctorUI;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -16,4 +16,8 @@ public class Doctor {
     @SerializedName("_id")
     private ObjectId id;
     private String name;
+
+    public DoctorUI toDoctorUI(int id) {
+        return new DoctorUI(id, name);
+    }
 }

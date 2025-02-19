@@ -1,86 +1,98 @@
 package com.hospitalcrud.dao.repository.hibernate;
 
 
-import com.hospitalcrud.dao.connection.JPAUtil;
+import com.google.gson.Gson;
+import com.hospitalcrud.dao.connection.MongoDbConnection;
 import com.hospitalcrud.dao.model.Credential;
 import com.hospitalcrud.dao.repository.CredentialDAO;
-import jakarta.persistence.EntityManager;
+import com.hospitalcrud.dao.util.GsonCreator;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
+import org.bson.Document;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Repository
-@Profile("hibernate")
+@Profile("mongodb")
 @Log4j2
 @Data
+@Repository
 public class CredentialRepository implements CredentialDAO {
     private static final String COLLECTION_NAME = "Credential";
 
-
     public boolean validateUsername(String username) {
-        EntityManager em = jpautil.getEntityManager();
         try {
-            Long count = em.createNamedQuery("Credential.validate_username", Long.class) // Cant be an integer :(
-                    .setParameter("username", username)
-                    .getSingleResult();
+            MongoDatabase database = MongoDbConnection.getDatabase();
+            MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
+
+            Document query = new Document("username", username);
+            long count = collection.countDocuments(query);
+
             return count > 0;
         } catch (Exception e) {
             log.error("Error validating username: {}", username, e);
             return false;
         } finally {
-            if (em != null) em.close();
+            MongoDbConnection.close();
         }
     }
 
     public boolean login(String username, String password) {
-        List<Credential> list;
         try {
-            em = jpautil.getEntityManager();
-            list = em.createNamedQuery("Credential.login", Credential.class)
-                    .setParameter("username", username)
-                    .setParameter("password", password)
-                    .getResultList();
-            return !list.isEmpty();
+            MongoDatabase database = MongoDbConnection.getDatabase();
+            MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
+
+            Document query = new Document("username", username).append("password", password);
+            long count = collection.countDocuments(query);
+
+            return count > 0;
         } catch (Exception e) {
             log.error("Error during login for username: {}", username, e);
             return false;
         } finally {
-            if (em != null) em.close();
+            MongoDbConnection.close();
         }
     }
 
     @Override
     public List<Credential> getAll() {
-        List<Credential> list;
+        List<Credential> credentials = new ArrayList<>();
         try {
-            em = jpautil.getEntityManager();
-            list = em.createNamedQuery("Credential.getAll", Credential.class).getResultList();
-        }catch (Exception e) {
+            MongoDatabase database = MongoDbConnection.getDatabase();
+            MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
+
+            for (Document doc : collection.find()) {
+                Gson gson = GsonCreator.createGson();
+                Credential credential = gson.fromJson(doc.toJson(), Credential.class);
+                credential.setId(doc.getObjectId("_id"));
+                credentials.add(credential);
+            }
+
+        } catch (Exception e) {
             log.error("Error getting all credentials", e);
-            list = List.of();
-        }finally {
-            if (em != null) em.close();
+        } finally {
+            MongoDbConnection.close();
         }
-        return list;
+        return credentials;
     }
+
+
 
     @Override
     public int save(Credential c) {
         //not used here
-
         return 0;}
-
-
     @Override
     public boolean delete(int id) {
+        //not used here
         return false;
     }
-
-
     @Override
     public void update(Credential c) {
+        //not used here
     }
 }

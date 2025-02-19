@@ -92,7 +92,7 @@ function updateMedRecord(event) {
         idDoctor: medRecordIdDoctor,
         medications: selectedMeds
     };
-
+    console.log(JSON.stringify(medRecord));
     // Send a fetch request to update the medRecord on the server
     fetch('http://127.0.0.1:8080/patients/medRecords', {
         method: 'PUT',
@@ -266,14 +266,13 @@ function showAddMedRecordModalW(event) {
 
 //fillDoctorCombo: callback es una función que se llama desde esta funcion, para asegurarnos que ha cargado el combo antes
 function fillDoctorCombo(combo, callback) {
-
     fetch('http://127.0.0.1:8080/doctors')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             // Obtener la combobox de profesores
             let doctorSelect = document.getElementById(combo);
@@ -288,10 +287,10 @@ function fillDoctorCombo(combo, callback) {
                 option.textContent = doctor.name;
                 doctorSelect.appendChild(option);
             });
-            callback();
+            // Llamar a la función de callback después de llenar el combo
+            if (callback) callback();
         })
         .catch(error => console.error('Error when fetching doctors:', error));
-
 }
 
 function fillMedicationsCombo(combo) {

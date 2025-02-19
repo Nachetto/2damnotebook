@@ -1,12 +1,12 @@
 package com.hospitalcrud.service;
 
 import com.hospitalcrud.dao.model.MedRecord;
+import com.hospitalcrud.dao.model.Medication;
 import com.hospitalcrud.dao.repository.hibernate.MedRecordRepository;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import com.hospitalcrud.domain.model.MedRecordUI;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,47 +17,87 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Service
 public class MedRecordService {
     private final MedRecordRepository dao;
-    private final MedicationService medicationService;
     private final PatientService patientService;
     private final DoctorService doctorService;
-    private static final Map<Integer, ObjectId> idMapperList = new ConcurrentHashMap<>();
+    private static  Map<Integer, ObjectId> idMapperList ;
 
-    public MedRecordService(MedRecordRepository dao, MedicationService medicationService, PatientService patientService, DoctorService doctorService) {
+    public MedRecordService(MedRecordRepository dao, PatientService patientService, DoctorService doctorService) {
         this.dao = dao;
-        this.medicationService = medicationService;
         this.patientService = patientService;
         this.doctorService = doctorService;
+        idMapperList = new ConcurrentHashMap<>();
     }
 
     public List<MedRecordUI> getMedRecords(int patientId) {
-        List<MedRecord> medRecords = dao.get(patientId);
-        AtomicInteger i = new AtomicInteger();
+        ObjectId patientObjectId = patientService.getPatientObjectId(patientId);
+        List<MedRecord> medRecords = dao.get(patientObjectId);
+
         List<MedRecordUI> finalMedRecords = new ArrayList<>();
-        medRecords.forEach(m -> {
+        idMapperList.clear();
+
+        AtomicInteger i = new AtomicInteger();
+
+        medRecords.forEach(medRecord -> {
             int id = i.incrementAndGet();
-            finalMedRecords.add(new MedRecordUI(id, m.getMedications(), m.getDoctorId(), m.getDate(), m.getDiagnosis()));
-            idMapperList.put(id, m.getId());
+
+            int doctorId;
+            try {
+                doctorId = doctorService.getDoctorId(medRecord.getDoctorId());
+            } catch (IllegalArgumentException e) {
+                doctorId = doctorService.saveDoctorObject(medRecord.getDoctorId());
+            }
+
+            String date;
+            try {
+                date = medRecord.getDate().toString();
+            } catch (NullPointerException e) {
+                date = "";
+            }
+
+            List<String> medications = medRecord.getMedications().stream()
+                    .map(Medication::getName).toList();
+
+            MedRecordUI ui = new MedRecordUI(
+                    id,
+                    medRecord.getDiagnosis(),
+                    date,
+                    patientId,
+                    doctorId,
+                    medications
+            );
+            finalMedRecords.add(ui);
+            idMapperList.put(id, medRecord.getId());
         });
         return finalMedRecords;
     }
 
+    public ObjectId getMedRecordObjectId(int id) {
+        ObjectId  objectId = idMapperList.get(id);
+        if (objectId == null) {
+            throw new IllegalArgumentException("Invalid Medical Record ID");
+        }
+        return objectId;
+    }
+
     public int add(MedRecordUI medRecordUI) {
         //add medications as well if everything is ok
-        return  dao.save(medRecordUI.toMedRecord(patientService, doctorService, new ObjectId()));
+        MedRecord medRecord = medRecordUI.toMedRecord(patientService, doctorService, new ObjectId());
+        medRecord.setDoctorId(doctorService.getDoctorObjectId(medRecordUI.getIdDoctor()));
+        medRecord.setPatientId(patientService.getPatientObjectId(medRecordUI.getIdPatient()));
+        return  dao.save(medRecord);
     }
 
     public void update(MedRecordUI medRecordUI) {
-        dao.update(medRecordUI.toMedRecord(patientService, doctorService));
+        dao.update(medRecordUI.toMedRecord(patientService, doctorService, getMedRecordObjectId(medRecordUI.getId())));
     }
 
     public void delete(int medRecordId) {
-        medicationService.delete(medRecordId);
-        if (!dao.delete(medRecordId)) {
+        if (!dao.delete(getMedRecordObjectId(medRecordId))) {
             throw new InternalServerErrorException("Error deleting med record");
         }
     }
 
     public boolean checkPatientMedRecords(int patientId) {
-        return dao.get(patientId).isEmpty();
+        return dao.get(patientService.getPatientObjectId(patientId)).isEmpty();
     }
 }

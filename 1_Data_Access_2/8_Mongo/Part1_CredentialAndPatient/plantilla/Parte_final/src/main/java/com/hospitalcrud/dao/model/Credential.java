@@ -1,7 +1,6 @@
 package com.hospitalcrud.dao.model;
 
 import com.google.gson.annotations.SerializedName;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,5 +16,4 @@ public class Credential {
     private String password;
     private ObjectId patientId;
     private ObjectId doctorId;
-
 }

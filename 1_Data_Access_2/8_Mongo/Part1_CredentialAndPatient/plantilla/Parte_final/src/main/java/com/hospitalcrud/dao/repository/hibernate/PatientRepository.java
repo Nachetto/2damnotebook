@@ -2,17 +2,12 @@ package com.hospitalcrud.dao.repository.hibernate;
 
 
 import com.google.gson.Gson;
-import com.hospitalcrud.dao.connection.JPAUtil;
 import com.hospitalcrud.dao.connection.MongoDbConnection;
-import com.hospitalcrud.dao.model.Credential;
 import com.hospitalcrud.dao.model.Patient;
-import com.hospitalcrud.dao.repository.CredentialDAO;
 import com.hospitalcrud.dao.repository.PatientDAO;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
+import com.hospitalcrud.dao.util.GsonCreator;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import jakarta.persistence.EntityManager;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.bson.Document;
@@ -37,10 +32,9 @@ public class PatientRepository implements PatientDAO {
         try {
             MongoDatabase database = MongoDbConnection.getDatabase();
             MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
-
             List<Patient> patients = new ArrayList<>();
             for (Document doc : collection.find()) {
-                Gson gson = new Gson();
+                Gson gson = GsonCreator.createGson();
                 Patient patient = gson.fromJson(doc.toJson(), Patient.class);
                 patient.setId(doc.getObjectId("_id"));
                 patients.add(patient);
@@ -59,12 +53,12 @@ public class PatientRepository implements PatientDAO {
         try {
             MongoDatabase database = MongoDbConnection.getDatabase();
             MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
-
-            Document document = Document.parse(new Gson().toJson(patient));
+            Gson gson = GsonCreator.createGson();
+            Document document = Document.parse(gson.toJson(patient));
 
             document.remove("_id");
             collection.insertOne(document);
-            return document.getObjectId("_id").getTimestamp();
+            return 1;
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
@@ -78,7 +72,6 @@ public class PatientRepository implements PatientDAO {
         try {
             MongoDatabase database = MongoDbConnection.getDatabase();
             MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
-
             Document updateFields = new Document()
                     .append("name", patient.getName())
                     .append("birthDate", patient.getBirthDate().toString())
@@ -115,10 +108,10 @@ public class PatientRepository implements PatientDAO {
         try {
             MongoDatabase database = MongoDbConnection.getDatabase();
             MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
-
+            Gson gson = GsonCreator.createGson();
             Document doc = collection.find(eq("_id", id)).first();
             if (doc != null) {
-                patient = new Gson().fromJson(doc.toJson(), Patient.class);
+                patient = gson.fromJson(doc.toJson(), Patient.class);
                 patient.setId(doc.getObjectId("_id"));
             }
         } catch (Exception e) {

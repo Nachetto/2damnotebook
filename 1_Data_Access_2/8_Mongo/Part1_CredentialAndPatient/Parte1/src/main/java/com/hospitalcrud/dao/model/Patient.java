@@ -1,8 +1,6 @@
 package com.hospitalcrud.dao.model;
 
 import com.google.gson.annotations.SerializedName;
-import com.hospitalcrud.domain.model.PatientUI;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

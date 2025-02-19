@@ -1,7 +1,6 @@
 package com.hospitalcrud.dao.model;
 
 import com.google.gson.annotations.SerializedName;
-import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;

@@ -1,6 +1,7 @@
 package com.hospitalcrud.service;
 
 import com.hospitalcrud.dao.model.Patient;
+import com.hospitalcrud.dao.model.Payment;
 import com.hospitalcrud.dao.repository.hibernate.CredentialRepository;
 import com.hospitalcrud.dao.repository.hibernate.PatientRepository;
 import com.hospitalcrud.domain.error.MedicalRecordException;
@@ -19,11 +20,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class PatientService {
     private final PatientRepository dao;
     private  final CredentialRepository credentialDAO;
-    private static final Map<Integer, ObjectId> idMapperList = new ConcurrentHashMap<>();
+    private static Map<Integer, ObjectId> idMapperList ;
 
-    public PatientService(PatientRepository dao, CredentialRepository credentialDAO, CredentialService credentialService) {
+    public PatientService(PatientRepository dao, CredentialRepository credentialDAO) {
         this.dao = dao;
         this.credentialDAO = credentialDAO;
+        idMapperList = new ConcurrentHashMap<>();
     }
 
     public List<PatientUI> getPatients() {
@@ -32,10 +34,21 @@ public class PatientService {
         List<PatientUI> finalPatients = new ArrayList<>();
         patients.forEach(p -> {
             int id = i.incrementAndGet();
-            finalPatients.add(new PatientUI(id,p.getName(),p.getBirthDate(),p.getPhone(),0,null,null));
+            finalPatients.add(new PatientUI(
+                    id,
+                    p.getName(),
+                    p.getBirthDate(),
+                    p.getPhone(),
+                    totalPatientAmmountPaid(p),
+                    null,
+                    null));
             idMapperList.put(id, p.getId());
         });
         return finalPatients;
+    }
+
+    private int totalPatientAmmountPaid(Patient patients) {
+        return patients.getPayments().stream().mapToInt(Payment::getAmount).sum();
     }
 
     public int addPatient(PatientUI patientUI) {
@@ -49,24 +62,29 @@ public class PatientService {
     }
 
     public void updatePatient(PatientUI patientUI) {
-        dao.update(patientUI.toPatient(idMapperList.get(patientUI.getId())));
+        ObjectId objectId = getPatientObjectId(patientUI.getId());
+        dao.update(patientUI.toPatient(objectId));
     }
 
     public boolean delete(int patientId, boolean confirm) {
-        ObjectId objectId = idMapperList.get(patientId);
-        if (objectId == null) {
-            throw new IllegalArgumentException("Invalid patient ID");
-        }
+        ObjectId objectId = getPatientObjectId(patientId);
         int deletedCount = dao.delete(objectId, confirm);
         return deletedCount > 0;
     }
 
-    public Patient getById(int id) {
-        ObjectId objectId = idMapperList.get(id);
-        if (objectId == null) {
-            throw new IllegalArgumentException("Invalid patient ID");
-        }
+    public Patient getById(int patientId) {
+        ObjectId objectId = getPatientObjectId(patientId);
         return dao.getById(objectId);
     }
 
+
+
+    public ObjectId getPatientObjectId(int patientId) {
+        System.out.printf(idMapperList.toString());
+        ObjectId objectId = idMapperList.get(patientId);
+        if (objectId == null) {
+            throw new IllegalArgumentException("Invalid patient ID");
+        }
+        return objectId;
+    }
 }

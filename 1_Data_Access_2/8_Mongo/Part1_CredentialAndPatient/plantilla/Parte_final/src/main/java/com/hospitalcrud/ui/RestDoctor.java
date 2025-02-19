@@ -1,6 +1,6 @@
 package com.hospitalcrud.ui;
 
-import com.hospitalcrud.dao.model.Doctor;
+import com.hospitalcrud.domain.model.DoctorUI;
 import com.hospitalcrud.service.DoctorService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +23,7 @@ public class RestDoctor {
     }
 
     @GetMapping
-    public List<Doctor> getDoctors() {
+    public List<DoctorUI> getDoctors() {
         return doctorService.getDoctors();
     }
 }

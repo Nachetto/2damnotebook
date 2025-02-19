@@ -1,9 +1,6 @@
 package com.hospitalcrud.dao.model;
 
 import com.google.gson.annotations.SerializedName;
-import com.hospitalcrud.domain.model.MedRecordUI;
-import com.hospitalcrud.service.MedicationService;
-import jakarta.persistence.*;
 import lombok.*;
 import org.bson.types.ObjectId;
 

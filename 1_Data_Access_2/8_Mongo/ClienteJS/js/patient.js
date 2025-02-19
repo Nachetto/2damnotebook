@@ -110,6 +110,7 @@ function addPatient(event) {
         password: patientPwd
     };
 
+    console.log(JSON.stringify(patient));
     // Send a fetch request to add the patient to the server
     fetch("http://127.0.0.1:8080/patients", {
         method: 'POST',
