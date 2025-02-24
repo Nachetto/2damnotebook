@@ -13,7 +13,7 @@ import static com.mongodb.client.model.Accumulators.*;
 import static com.mongodb.client.model.Aggregates.*;
 import static com.mongodb.client.model.Filters.eq;
 
-public class ExerciseA {
+public class Exercise1 {
         public static void main(String[] args) {
             MongoClient mongo = MongoClients.create("mongodb://informatica.iesquevedo.es:2323");
             MongoDatabase db = mongo.getDatabase("IgnacioLlorente_hospital");
@@ -32,6 +32,17 @@ public class ExerciseA {
                     sort(new Document("totalPaid", -1)),
                     limit(1)
             )).into(new ArrayList<>()).forEach(System.out::println);
+
+            // c. Get the medRecords of a given patient, showing the name of the patient and the total payment
+            System.out.println("MedRecords for patient 1:");
+            patients.aggregate(
+                    Arrays.asList(
+                            match(eq("patient", "1")),
+                            lookup("Patient", "patient", "_id", "patientInfo"),
+                            unwind("$patientInfo"),
+                            project(new Document("patientName", "$patientInfo.name").append("totalPayment", "$patientInfo.payments.amount"))
+                    )
+            ).into(new ArrayList<>()).forEach(System.out::println);
 
             // d. Get the number of medications of each medRecord
             MongoCollection<Document> medRecords = db.getCollection("MedRecord");
