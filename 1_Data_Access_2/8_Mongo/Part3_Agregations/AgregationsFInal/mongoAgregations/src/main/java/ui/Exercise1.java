@@ -51,6 +51,7 @@ public class Exercise1 {
             )).into(new ArrayList<>()).forEach(System.out::println);
 
             // e. Get the name of the patients who have been prescribed Ibuprofen
+            System.out.println("Patients prescribed Ibuprofen:");
             medRecords.aggregate(Arrays.asList(
                     unwind("$medications"),
                     match(eq("medications.name", "Ibuprofen")),
