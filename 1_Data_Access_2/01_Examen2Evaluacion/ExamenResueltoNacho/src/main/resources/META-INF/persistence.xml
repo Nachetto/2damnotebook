@@ -7,25 +7,25 @@
 
 <persistence-unit name="hibernate">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>com.hospital_jpa.dao.model.hibernateModel.AnimalHibernate</class>
-        <class>com.hospital_jpa.dao.model.hibernateModel.AnimalVisitsHibernate</class>
-        <class>com.hospital_jpa.dao.model.hibernateModel.HabitatHibernate</class>
-        <class>com.hospital_jpa.dao.model.hibernateModel.VisitorHibernate</class>
+        <class>com.exam.dao.model.hibernateModel.AnimalHibernate</class>
+        <class>com.exam.dao.model.hibernateModel.AnimalVisitsHibernate</class>
+        <class>com.exam.dao.model.hibernateModel.HabitatHibernate</class>
+        <class>com.exam.dao.model.hibernateModel.VisitorHibernate</class>
 
 
 
 
-        <class>com.hospital_jpa.dao.model.hibernateModel.old.BattleHibernate</class>
-        <class>com.hospital_jpa.dao.model.hibernateModel.old.FactionHibernate</class>
-        <class>com.hospital_jpa.dao.model.hibernateModel.old.WeaponHibernate</class>
-        <class>com.hospital_jpa.dao.model.hibernateModel.old.WeaponsFactionHibernate</class>
-        <class>com.hospital_jpa.dao.model.hibernateModel.old.SaleHibernate</class>
-        <class>com.hospital_jpa.dao.model.hibernateModel.old.SpyHibernate</class>
+        <class>com.exam.dao.model.hibernateModel.old.BattleHibernate</class>
+        <class>com.exam.dao.model.hibernateModel.old.FactionHibernate</class>
+        <class>com.exam.dao.model.hibernateModel.old.WeaponHibernate</class>
+        <class>com.exam.dao.model.hibernateModel.old.WeaponsFactionHibernate</class>
+        <class>com.exam.dao.model.hibernateModel.old.SaleHibernate</class>
+        <class>com.exam.dao.model.hibernateModel.old.SpyHibernate</class>
 
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/IgnacioLLorente_SecondTerm"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/IgnacioLlorente_SecondTerm"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
             <property name="jakarta.persistence.jdbc.user" value="root"/>
             <property name="jakarta.persistence.jdbc.password" value="1234"/>
