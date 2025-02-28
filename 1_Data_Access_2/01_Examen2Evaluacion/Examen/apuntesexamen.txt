@@ -1,0 +1,40 @@
+en mongo el 3 no tienes que añadir un nuevo documento, sino actualizar el que ya existe
+
+tengo que, a partir del nombre de la savana, sacar el id de la savana,
+a partir del nombre, sacar el id de Charlie
+a partir del id de la savana, sacar el animal
+hacer el add con los todos los datos
+ una vez tengo ese id, sacar los animales que tienen ese id
+
+ANIMAL
+Animal_ID
+Name
+Species
+Age
+Habitat_ID
+
+HABITAT
+Habitat_ID
+Name
+Type
+
+VISITOR
+Visitor_ID
+Name
+Email
+Tickets
+
+ANIMAL_VISITS
+id int autoincremented primarykey
+Animal_ID
+Visitor_ID
+Visit_date (DATE)
+
+
+MONGO
+ANIMALVISITS
+date (Date)
+animals (List<Animal>):
+	name
+	description
+visitor (Visitor)

@@ -1,0 +1,35 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+                 https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+
+
+<persistence-unit name="hibernate">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.hospital_jpa.dao.model.hibernateModel.AnimalHibernate</class>
+        <class>com.hospital_jpa.dao.model.hibernateModel.AnimalVisitsHibernate</class>
+        <class>com.hospital_jpa.dao.model.hibernateModel.HabitatHibernate</class>
+        <class>com.hospital_jpa.dao.model.hibernateModel.VisitorHibernate</class>
+
+
+
+
+        <class>com.hospital_jpa.dao.model.hibernateModel.old.BattleHibernate</class>
+        <class>com.hospital_jpa.dao.model.hibernateModel.old.FactionHibernate</class>
+        <class>com.hospital_jpa.dao.model.hibernateModel.old.WeaponHibernate</class>
+        <class>com.hospital_jpa.dao.model.hibernateModel.old.WeaponsFactionHibernate</class>
+        <class>com.hospital_jpa.dao.model.hibernateModel.old.SaleHibernate</class>
+        <class>com.hospital_jpa.dao.model.hibernateModel.old.SpyHibernate</class>
+
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/IgnacioLLorente_SecondTerm"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="1234"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

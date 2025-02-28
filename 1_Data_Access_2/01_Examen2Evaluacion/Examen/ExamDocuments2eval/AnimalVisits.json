@@ -1,0 +1,63 @@
+[
+    {
+      "date": "2025-02-13",
+      "animals": [
+        {
+          "name": "Leo",
+          "description": "Lion."
+        },
+		    {
+          "name": "Ellie",
+          "description": "Elephant"
+        }
+      ],
+      "visitor": {
+        "name": "Alice Smith",
+        "numTickets": 2
+      }
+    },
+    {
+      "date": "2025-02-15",
+      "animals": [
+        {
+          "name": "Ellie",
+          "description": "Elephant"
+        }
+      ],
+      "visitor": {
+        "name": "Bob Brown",
+        "numTickets": 4
+      }
+    },
+    {
+      "date": "2025-02-15",
+      "animals": [
+        {
+          "name": "Ellie",
+          "description": "Elephant"
+        }
+      ],
+      "visitor": {
+        "name": "Charlie Green",
+        "numTickets": 1
+      }
+    },
+    {
+      "date": "2025-02-16",
+      "animals": [
+        {
+          "name": "Bella",
+          "description": "Parrot"
+        },
+		    {
+          "name": "Leo",
+          "description": "Lion"
+        }
+      ],
+      "visitor": {
+        "name": "Alice Smith",
+        "numTickets": 2
+      }
+    }
+  ]
+
