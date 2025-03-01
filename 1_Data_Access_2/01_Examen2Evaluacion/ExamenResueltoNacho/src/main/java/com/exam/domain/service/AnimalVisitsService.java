@@ -34,10 +34,8 @@ public class AnimalVisitsService {
     public void registerVisit(String visitorName, String habitatName){
         //get the visitor id from the name
         int visitorID = visitorService.get(visitorName);
-        //get the habitat id from the name
-        int habitatID = habitatService.get(habitatName);
         //get the animal id from the habitat id
-        AnimalHibernate animalID = animalService.get(habitatID);
+        AnimalHibernate animalID = animalService.get(habitatName);
         //add the visit with the animal id, visitor id and todays date
         hibRepo.add(visitorID,animalID, Date.from(Instant.now()));
     }
@@ -71,6 +69,8 @@ public class AnimalVisitsService {
         }
         return visitsMongo;
     }
+
+    //meter una nueva visita para
 
     public void saveVisits(){
         List<AnimalVisitsHibernate> hibernateList = getAll();

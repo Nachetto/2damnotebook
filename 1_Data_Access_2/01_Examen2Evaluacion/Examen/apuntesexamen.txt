@@ -1,5 +1,7 @@
 en mongo el 3 no tienes que añadir un nuevo documento, sino actualizar el que ya existe
 
+Tengo que hacer un add de una nueva AnivalVisit a partir de el primer animal que viva en una "Savannah", y el que visita se llama "Charlie", entonces necesito sacar el id de Charlie desde su nombre, sacar el id del habitat desde "Savannah", y con ese id, sacar el primer AnimalHibernate que tenga el habitat.
+
 tengo que, a partir del nombre de la savana, sacar el id de la savana,
 a partir del nombre, sacar el id de Charlie
 a partir del id de la savana, sacar el animal

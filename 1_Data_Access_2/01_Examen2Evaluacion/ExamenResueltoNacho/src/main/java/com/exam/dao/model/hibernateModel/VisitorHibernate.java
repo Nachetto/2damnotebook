@@ -18,7 +18,7 @@ import lombok.Setter;
         @NamedQuery(name = "VisitorHibernate.findByName", query = "select v.id from VisitorHibernate v where v.name = :name"),
         @NamedQuery(name = "VisitorHibernate.findById", query = "select v from VisitorHibernate v where v.id = :id")
 })
-public class VisitorHibernate extends AnimalVisitsHibernate {
+public class VisitorHibernate {
     @Id
     @Column(name = "Visitor_ID", nullable = false, length = 200)
     private int id;

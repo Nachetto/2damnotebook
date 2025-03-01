@@ -14,12 +14,11 @@ public class AnimalRepository {
         this.jpaUtil = jpaUtil;
     }
 
-    public AnimalHibernate get(int habitatID) {
+    public AnimalHibernate get(String name) {
         AnimalHibernate finalAnimal = null;
         try (EntityManager em = jpaUtil.getEntityManager()) {
-            finalAnimal = em.createNamedQuery("AnimalHibernate.findByHabitat_HabitatID", AnimalHibernate.class)
-                    .setParameter("habitatID", habitatID)
-                    .getSingleResult();
+            finalAnimal = em.createNamedQuery("AnimalHibernate.findByHabitat_Habitat", AnimalHibernate.class)
+                    .setParameter("name", name).getResultList().getFirst();
         } catch (PersistenceException e) {
             e.printStackTrace();
         }

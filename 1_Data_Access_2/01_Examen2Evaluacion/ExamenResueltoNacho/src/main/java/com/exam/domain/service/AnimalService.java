@@ -11,7 +11,7 @@ public class AnimalService {
         this.repository = repository;
     }
 
-    public AnimalHibernate get(int habitatID) {
-        return repository.get(habitatID);
+    public AnimalHibernate get(String name) {
+        return repository.get(name);
     }
 }

@@ -15,10 +15,11 @@ import lombok.Setter;
 @Entity
 @Table(name = "Animals", schema = "IgnacioLlorente_SecondTerm")
 @NamedQueries({
-        @NamedQuery(name = "AnimalHibernate.findByHabitat_HabitatID", query = "select a from AnimalHibernate a where a.habitat.habitatID = :habitatID")
+        @NamedQuery(name = "AnimalHibernate.findByHabitat_Habitat", query = "select a from AnimalHibernate a where a.habitat.name = :name")
 })
-public class AnimalHibernate extends HabitatHibernate {
+public class AnimalHibernate {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Animal_ID", nullable = false, length = 200)
     private int id;
 

@@ -11,7 +11,8 @@ public class Exercise3 {
         final SeContainer container = initializer.initialize();
 
         AnimalVisitsService service = container.select(AnimalVisitsService.class).get();
-        service.saveVisits();
+        service.saveVisits(); //guarda las visitas desde hibernate hasta mongo
+
 
     }
 }

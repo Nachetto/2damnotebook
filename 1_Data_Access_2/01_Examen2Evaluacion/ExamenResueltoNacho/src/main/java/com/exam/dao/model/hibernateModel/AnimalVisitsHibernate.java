@@ -20,7 +20,8 @@ import java.util.Date;
 })
 public class AnimalVisitsHibernate {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id", nullable = false, length = 200)
     private int id;
 
     @NotNull

@@ -11,7 +11,7 @@ public class Exercise1 {
         final SeContainer container = initializer.initialize();
 
         AnimalVisitsService service = container.select(AnimalVisitsService.class).get();
-        service.registerVisit("Charlie", "Savannah");
+        service.registerVisit("Charlie Green", "Savannah");
 
     }
 }

@@ -25,16 +25,24 @@ public class AnimalVisitsRepository {
     public void add(int visitorID, AnimalHibernate animalID, Date from) {
         AnimalVisitsHibernate visitToAdd= new AnimalVisitsHibernate(visitorID,animalID,from);
         EntityTransaction tx = null;
-        try (EntityManager em = jpaUtil.getEntityManager()) {
+        EntityManager em = null;
+        try {
+            em = jpaUtil.getEntityManager();
             tx = em.getTransaction();
             tx.begin();
-            em.persist(visitToAdd);
+            em.merge(visitToAdd);
             tx.commit();
         } catch (ConstraintViolationException e) {
-            tx.rollback();
+            if (tx != null && tx.isActive()) tx.rollback();
+            e.printStackTrace();
         } catch (Exception e) {
             assert tx != null;
             if (tx.isActive()) tx.rollback();
+            e.printStackTrace();
+        }finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
         }
     }
 

@@ -19,6 +19,7 @@ import lombok.Setter;
 })
 public class HabitatHibernate {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Habitat_ID", nullable = false, length = 200)
     private int habitatID;
 
