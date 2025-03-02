@@ -1,5 +1,0 @@
-
-―
-java:S6548"A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(±νι
-Q	java:S125"<This block of commented-out lines of code should be removed.(Ε΅ε
-@	java:S106"+Replace this use of System.out by a logger.(Ε¦

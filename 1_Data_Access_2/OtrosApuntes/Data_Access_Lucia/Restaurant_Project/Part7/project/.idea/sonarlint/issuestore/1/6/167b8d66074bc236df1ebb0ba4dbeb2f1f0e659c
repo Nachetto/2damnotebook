@@ -1,6 +1,0 @@
-
-m	java:S116"XRename this field "order_item_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù¹‰¯
-h	java:S116"SRename this field "order_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù¹‰¯
-l	java:S116"WRename this field "menu_item_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù¹‰¯
-[
-java:S1659"EDeclare "order_id" and all following declarations on a separate line.(ù¹‰¯

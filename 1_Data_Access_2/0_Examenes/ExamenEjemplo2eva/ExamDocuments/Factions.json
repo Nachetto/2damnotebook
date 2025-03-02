@@ -1,0 +1,62 @@
+{
+  "factions": [
+    {
+      "name": "Bounty hunter’s guild",
+      "contact": "Mr. Torn",
+      "planet": "Mustafar",
+      "numberCS": 2,
+      "dateLastPurchase": "1607-09-15"
+    },
+    {
+      "name": "Empire",
+      "contact": "Mrs. Sanz",
+      "planet": "Hoth",
+      "numberCS": 5,
+      "dateLastPurchase": "1591-01-19",
+      "weapons": [
+        {
+          "name": "DH-17 blaster pistol",
+          "price": 6000
+        },
+        {
+          "name": "Java ionization blaster",
+          "price": 7500
+        }
+      ]
+    },
+    {
+      "name": "New order",
+      "contact": "Mr. Santos",
+      "planet": "Geonosis",
+      "numberCS": 3,
+      "dateLastPurchase": "1627-11-21",
+      "weapons": [
+        {
+          "name": "Bowcaster",
+          "price": 2500
+        }
+      ]
+    },
+    {
+      "name": "Rebels",
+      "contact": "Mrs Thomas",
+      "planet": "Mygeeto",
+      "numberCS": 7,
+      "dateLastPurchase": "1525-03-02",
+      "weapons": [
+        {
+          "name": "Heavy blaster pistol",
+          "price": 4000
+        },
+        {
+          "name": "Blaster rifle",
+          "price": 2900
+        },
+        {
+          "name": "E-Web repeating blaster",
+          "price": 8500
+        }
+      ]
+    }
+  ]
+}
