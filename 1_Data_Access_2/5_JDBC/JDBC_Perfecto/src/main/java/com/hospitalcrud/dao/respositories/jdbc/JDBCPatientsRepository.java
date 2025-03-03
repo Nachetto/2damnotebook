@@ -49,16 +49,15 @@ public class JDBCPatientsRepository implements PatientRepository {
              PreparedStatement insertPatient = con.prepareStatement(SQLQueries.INSERT_PATIENT, Statement.RETURN_GENERATED_KEYS);
              PreparedStatement insertCredential = con.prepareStatement(SQLQueries.INSERT_CREDENTIAL)
         ) {
-            try {con.setAutoCommit(false);
+            try {con.setAutoCommit(false);//starting transaction
                 setPatientValues(patient, insertPatient).executeUpdate();
                 ResultSet rs = insertPatient.getGeneratedKeys();
                 rs.next();
-                //(username,password,patient_id,doctor_id)
-                insertCredential.setString(1, patient.getCredential().getUserName());
-                insertCredential.setString(2, patient.getCredential().getPassword());
-                //el patientid esta en la posicion 1 del ResultSet por llamar a getGeneratedKeys():
-                insertCredential.setInt(3, rs.getInt(1));
-                insertCredential.setNull(4, 0);
+                //el patientid esta en la posicion 1 del ResultSet por llamar a getGeneratedKeys() y a rs.next():
+                insertCredential.setInt(3, rs.getInt(1));//patient_id
+                insertCredential.setNull(4, 0);//doctor_id
+                insertCredential.setString(1, patient.getCredential().getUserName());//username
+                insertCredential.setString(2, patient.getCredential().getPassword());//password
                 insertCredential.executeUpdate();
                 con.commit();
                 patient.setId(rs.getInt(1));
@@ -107,7 +106,7 @@ public class JDBCPatientsRepository implements PatientRepository {
         ) {
             try {
                 con.setAutoCommit(false);
-                if (confirmation) {
+                if (confirmation) {//already checked it has asociated stuff and confirmed that wants to delete it
                     deletePrescribedMedications.setInt(1, patientId);
                     deletePrescribedMedications.executeUpdate();
 
@@ -139,6 +138,33 @@ public class JDBCPatientsRepository implements PatientRepository {
         }
         return result == 1;
     }
+
+    public boolean deleteExample(int patientId) {
+        int result = 0;
+        try (Connection con = pool.getConnection();
+             PreparedStatement deleteCredential = con.prepareStatement(SQLQueries.DELETE_CREDENTIAL);
+             PreparedStatement deletePatient = con.prepareStatement(SQLQueries.DELETE_PATIENT);
+        ) {
+            try {con.setAutoCommit(false); //inicio transaccion
+                deleteCredential.setInt(1, patientId);
+                deleteCredential.executeUpdate(); //elimino primero la relaccion 1:1 asociada
+                deletePatient.setInt(1, patientId);
+                result = deletePatient.executeUpdate();//elimino el bueno ahora sí
+                con.commit();
+            } catch (SQLIntegrityConstraintViolationException e) {
+                con.rollback();
+                logger.log(Level.SEVERE,e.getMessage(),e);
+                throw new FOREIGN_KEY_ERROR();//error que dice que tiene mas cosas asociadas
+            } catch (SQLException e) {
+                con.rollback();
+                logger.log(Level.SEVERE,e.getMessage(),e);
+            }
+        } catch (SQLException sqle) {
+            logger.log(Level.SEVERE,sqle.getMessage(),sqle);
+        }
+        return result == 1;
+    }
+
 
 
 }
