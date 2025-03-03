@@ -4,6 +4,7 @@ import com.hospitalcrud.dao.configuration.XMLConfiguration;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import jakarta.annotation.PreDestroy;
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
@@ -12,8 +13,8 @@ import javax.sql.DataSource;
 
 @Component
 public class DBConnectionPool {
-    private XMLConfiguration configuration;
-    private DataSource hikariDataSource;
+    private final XMLConfiguration configuration;
+    private final DataSource hikariDataSource;
 
     public DBConnectionPool() {
         this.configuration = XMLConfiguration.getInstance();

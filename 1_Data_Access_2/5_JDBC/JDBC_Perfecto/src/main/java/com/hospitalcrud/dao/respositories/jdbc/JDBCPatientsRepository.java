@@ -33,7 +33,7 @@ public class JDBCPatientsRepository implements PatientRepository {
     @Override
     public List<Patient> getAll() {
         try (Connection con = pool.getConnection();
-             Statement getPatients = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+             Statement getPatients = con.createStatement();
         ) {
             ResultSet resultSet = getPatients.executeQuery(SQLQueries.GET_ALL_PATIENTS);
             return patientsMapper.readRS(resultSet);
@@ -81,11 +81,17 @@ public class JDBCPatientsRepository implements PatientRepository {
         try (Connection con = pool.getConnection();
              PreparedStatement preparedStatement = con.prepareStatement(SQLQueries.UPDATE_PATIENT)
         ) {
-            preparedStatement.setInt(4, patient.getId());
             setPatientValues(patient, preparedStatement).executeUpdate();
         } catch (SQLException sqle) {
             logger.log(Level.SEVERE,sqle.getMessage(),sqle);
         }
+    }
+    private PreparedStatement setPatientValues(Patient patient, PreparedStatement preparedStatement) throws SQLException {
+        preparedStatement.setString(1, patient.getName());
+        preparedStatement.setDate(2, Date.valueOf(patient.getBirthDate()));
+        preparedStatement.setString(3, patient.getPhone());
+        preparedStatement.setInt(4, patient.getId());
+        return preparedStatement;
     }
 
     @Override
@@ -104,15 +110,19 @@ public class JDBCPatientsRepository implements PatientRepository {
                 if (confirmation) {
                     deletePrescribedMedications.setInt(1, patientId);
                     deletePrescribedMedications.executeUpdate();
+
                     deleteMedicalRecords.setInt(1, patientId);
                     deleteMedicalRecords.executeUpdate();
+
                     deletePatientPayments.setInt(1, patientId);
                     deletePatientPayments.executeUpdate();
+
                     deletePatientAppointments.setInt(1,patientId);
-                    deletePatientPayments.executeUpdate();
+                    deletePatientAppointments.executeUpdate();
                 }
                 deleteCredential.setInt(1, patientId);
                 deleteCredential.executeUpdate();
+
                 deletePatient.setInt(1, patientId);
                 result = deletePatient.executeUpdate();
                 con.commit();
@@ -130,10 +140,5 @@ public class JDBCPatientsRepository implements PatientRepository {
         return result == 1;
     }
 
-    private PreparedStatement setPatientValues(Patient patient, PreparedStatement preparedStatement) throws SQLException {
-        preparedStatement.setString(1, patient.getName());
-        preparedStatement.setDate(2, Date.valueOf(patient.getBirthDate()));
-        preparedStatement.setString(3, patient.getPhone());
-        return preparedStatement;
-    }
+
 }
