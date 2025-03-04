@@ -50,7 +50,11 @@ public class DaoPatientImpl implements dao.DaoPatient {
             JdbcTemplate jdbcTemplate = new JdbcTemplate(pool.getDataSource());
             int patientId = patient.getId();
 
-            List<Patient> patients = jdbcTemplate.query(QueryStrings.GET_PATIENT_BY_ID, BeanPropertyRowMapper.newInstance(Patient.class), patientId);
+            List<Patient> patients = jdbcTemplate.query(
+                        QueryStrings.GET_PATIENT_BY_ID,
+                        BeanPropertyRowMapper.newInstance(Patient.class),
+                        patientId
+            );
             return Either.right(patients);
 
         } catch (Exception e) {

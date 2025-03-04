@@ -18,8 +18,8 @@ public class CredentialRepository implements CredentialDAO {
 
     public static final String CHECK_USERNAME = "SELECT * FROM user_login WHERE username = ?";
     private final CredentialRowMapper credentialRowMapper;
-
     private final JdbcClient jdbcClient;
+
     public CredentialRepository(JdbcClient jdbcClient, CredentialRowMapper credentialRowMapper) {
         this.credentialRowMapper = credentialRowMapper;
         this.jdbcClient = jdbcClient;

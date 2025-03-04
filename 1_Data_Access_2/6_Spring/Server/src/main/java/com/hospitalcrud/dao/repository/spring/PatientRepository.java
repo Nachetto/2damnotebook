@@ -8,6 +8,8 @@ import com.hospitalcrud.domain.error.InternalServerErrorException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.simple.JdbcClient;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
@@ -39,27 +41,23 @@ public class PatientRepository implements PatientDAO {
     @Override
     public int save(Patient patient) {
         try {
-            String sql = Constants.INSERT_PATIENT;
-            String retreiveId = "SELECT patient_id FROM patients WHERE name = ? AND date_of_birth = ? AND phone = ?";
+
+            //SE PONE RETURNING AL FINAL DE LA CONSULTA PARA QUE TE DEVUELVA EL ID EN UNA SOLA LLAMADA
+            String sql = "INSERT INTO patients (name, date_of_birth, phone) VALUES (?, ?, ?) RETURNING patient_id";
+            KeyHolder keyHolder = new GeneratedKeyHolder();
+
             jdbcClient.sql(sql)
-                    .param("name", patient.getName())
-                    .param("birthdate", Date.valueOf(patient.getBirthDate()))
-                    .param("phone", patient.getPhone())
-                    .update(); // Devuelve el número de filas afectadas
-            return jdbcClient.sql(retreiveId)
-                    .param( patient.getName())
-                    .param( Date.valueOf(patient.getBirthDate()))
-                    .param( patient.getPhone())
-                    .query(rs -> {
-                        rs.next();
-                        return rs.getInt("patient_idz");
-                    });
+                    .param(patient.getName())
+                    .param(Date.valueOf(patient.getBirthDate()))
+                    .param(patient.getPhone())
+                    .update(keyHolder); // Assigns the generated key to the keyHolder
+
+            return keyHolder.getKey().intValue(); // Retrieve the generated key
         } catch (Exception e) {
             log.error("Error saving patient", e);
-            return -1; // Retorna -1 si ocurre un error
+            return -1; // Return -1 if an error occurs
         }
     }
-
 
     @Override
     public void update(Patient patient) {
