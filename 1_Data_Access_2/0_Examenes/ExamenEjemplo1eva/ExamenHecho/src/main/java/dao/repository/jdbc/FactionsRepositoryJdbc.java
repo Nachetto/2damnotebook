@@ -5,7 +5,7 @@ import dao.repository.FactionsRepository;
 import dao.model.Faction;
 import dao.model.FactionsXML;
 import dao.model.Weapon;
-import dao.util.jdbc.DBConnectionPool;
+import dao.util.DBConnectionPool;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;

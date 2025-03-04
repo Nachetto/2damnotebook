@@ -7,12 +7,17 @@ import com.hospitalcrud.dao.repository.PatientDAO;
 import com.hospitalcrud.domain.error.InternalServerErrorException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Profile;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -20,9 +25,11 @@ import java.util.List;
 @Log4j2
 public class PatientRepository implements PatientDAO {
     private final JdbcClient jdbcClient;
+    private final JdbcTemplate jdbcTemplate;
 
-    public PatientRepository(JdbcClient jdbcClient) {
+    public PatientRepository(JdbcClient jdbcClient, JdbcTemplate jdbcTemplate) {
         this.jdbcClient = jdbcClient;
+        this.jdbcTemplate = jdbcTemplate;
     }
 
 
@@ -38,24 +45,29 @@ public class PatientRepository implements PatientDAO {
         }
     }
 
+
     @Override
     public int save(Patient patient) {
         try {
-
-            //SE PONE RETURNING AL FINAL DE LA CONSULTA PARA QUE TE DEVUELVA EL ID EN UNA SOLA LLAMADA
-            String sql = "INSERT INTO patients (name, date_of_birth, phone) VALUES (?, ?, ?) RETURNING patient_id";
+            String sql = Constants.INSERT_PATIENT;
             KeyHolder keyHolder = new GeneratedKeyHolder();
+            PreparedStatement ps = connection.prepareStatement(sql, new String[]{"patient_id"});
 
-            jdbcClient.sql(sql)
-                    .param(patient.getName())
-                    .param(Date.valueOf(patient.getBirthDate()))
-                    .param(patient.getPhone())
-                    .update(keyHolder); // Assigns the generated key to the keyHolder
+            jdbcTemplate.update(new PreparedStatementCreator() {
+                @Override
+                public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+                    PreparedStatement ps = connection.prepareStatement(sql, new String[]{"patient_id"});
+                    ps.setString(1, patient.getName());
+                    ps.setDate(2, Date.valueOf(patient.getBirthDate()));
+                    ps.setString(3, patient.getPhone());
+                    return ps;
+                }
+            }, keyHolder);
 
-            return keyHolder.getKey().intValue(); // Retrieve the generated key
+            return keyHolder.getKey().intValue();
         } catch (Exception e) {
             log.error("Error saving patient", e);
-            return -1; // Return -1 if an error occurs
+            return -1; // Retorna -1 si ocurre un error
         }
     }
 

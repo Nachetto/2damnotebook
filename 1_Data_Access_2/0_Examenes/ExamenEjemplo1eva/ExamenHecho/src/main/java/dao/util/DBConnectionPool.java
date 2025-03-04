@@ -1,4 +1,4 @@
-package dao.util.jdbc;
+package dao.util;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -45,6 +45,12 @@ public class DBConnectionPool {
 
         return con;
     }
+
+    public DataSource getDataSource() {
+        return hikariDataSource;
+    }
+
+
 
     @PreDestroy
     public void closePool() {
