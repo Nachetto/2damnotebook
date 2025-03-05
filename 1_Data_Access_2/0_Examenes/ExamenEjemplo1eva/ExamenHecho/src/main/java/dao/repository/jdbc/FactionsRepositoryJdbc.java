@@ -32,7 +32,7 @@ public class FactionsRepositoryJdbc implements FactionsRepository {
     }
 
     @Override
-    public Faction get(int id) {
+    public Faction get(String name) {
         return null;
     }
 

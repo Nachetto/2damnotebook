@@ -15,6 +15,5 @@ public class Exercise3 {
         service.saveVisits(); //guarda las visitas desde hibernate hasta mongo
         //para nemo, el dia que fue visitado meterle un update a la visiita y añadirle un nuevo animal
         service.updateNewAnimalToVisit(service.getVisitFromAnimalName("Nemo"), new AnimalMongo("Deer", "Forest"));
-
     }
 }

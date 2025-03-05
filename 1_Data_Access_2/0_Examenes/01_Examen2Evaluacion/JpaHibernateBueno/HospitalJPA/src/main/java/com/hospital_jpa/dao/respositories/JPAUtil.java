@@ -15,7 +15,7 @@ public class JPAUtil {
     }
 
     private EntityManagerFactory getEmf() {
-        return Persistence.createEntityManagerFactory(Constantes.PERSISTANCE_UNIT);
+        return Persistence.createEntityManagerFactory("hibernate");
     }
 
     public EntityManager getEntityManager() {

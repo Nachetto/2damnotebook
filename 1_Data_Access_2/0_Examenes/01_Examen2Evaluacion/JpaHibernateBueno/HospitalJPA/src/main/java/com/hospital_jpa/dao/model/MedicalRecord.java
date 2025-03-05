@@ -31,7 +31,10 @@ public class MedicalRecord {
     private String diagnosis;
     @Column(name = "admission_date")
     private LocalDate date;
-    @OneToMany(mappedBy = "medicalRecord", cascade = {CascadeType.REMOVE, CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+
+    @OneToMany(mappedBy = "medicalRecord",
+            cascade = {CascadeType.REMOVE, CascadeType.PERSIST, CascadeType.MERGE},
+            fetch = FetchType.LAZY)
     private List<Medication> medications;
 
     public MedicalRecord(Patient patient, int idDoctor, String diagnosis, LocalDate date, List<Medication> medications) {

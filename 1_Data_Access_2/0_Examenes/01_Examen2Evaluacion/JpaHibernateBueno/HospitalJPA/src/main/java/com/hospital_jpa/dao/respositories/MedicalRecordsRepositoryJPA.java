@@ -37,6 +37,7 @@ public class MedicalRecordsRepositoryJPA implements com.hospital_jpa.dao.interfa
         return medicalRecords;
     }
 
+
     @Override
     public void delete(MedicalRecord medicalRecord) {
         EntityTransaction tx = null;
@@ -76,7 +77,7 @@ public class MedicalRecordsRepositoryJPA implements com.hospital_jpa.dao.interfa
         try (EntityManager em = jpaUtil.getEntityManager()) {
             tx = em.getTransaction();
             tx.begin();
-            em.createNamedQuery("deletePrescribedMedications")
+            em.createNamedQuery("deletePrescribedMedications", MedicalRecord.class)
                     .setParameter("record_id", medicalRecord.getId())
                     .executeUpdate();
             em.merge(medicalRecord);
