@@ -83,7 +83,7 @@ public class PatientRepository implements com.hospital_jpa.dao.interfaces.Patien
             MongoCollection<Document> medicalRecord = db.getCollection(Constants.MEDICAL_RECORDS);
             if (!confirmation) {
                 if (medicalRecord.find(eq(com.hospital_jpa.common.Constants.PATIENT, patientId)).first() != null) {
-                    throw new FOREIGN_KEY_ERROR();
+                    throw new FOREIGN_KEY_ERROR();//hay medrecords asociados, throweo yo la exception
                 }
             }
             else {

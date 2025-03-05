@@ -79,10 +79,10 @@ public class MedicalRecordsRepository implements com.hospital_jpa.dao.interfaces
             MongoCollection<Document> medicalRecords = db.getCollection(Constants.MEDICAL_RECORDS);
             Document filter = new Document(com.hospital_jpa.common.Constants.ID, medicalRecord.getId());
             Bson updates = Updates.combine(
-                   Updates.set(com.hospital_jpa.common.Constants.DATE,medicalRecord.getDate().toString()),
-                   Updates.set(com.hospital_jpa.common.Constants.DIAGNOSIS,medicalRecord.getDiagnosis()),
-                   Updates.set(com.hospital_jpa.common.Constants.DOCTOR,medicalRecord.getDoctor()),
-                   Updates.set(com.hospital_jpa.common.Constants.MEDICATIONS,medicalRecord.getMedications())
+                   Updates.set("date",medicalRecord.getDate().toString()),
+                   Updates.set("diagnosis",medicalRecord.getDiagnosis()),
+                   Updates.set("doctor",medicalRecord.getDoctor()),
+                   Updates.set("medications",medicalRecord.getMedications())
             );
             medicalRecords.updateOne(filter, updates);
         }
