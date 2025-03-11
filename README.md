@@ -51,6 +51,6 @@ This repo serves as a **timeline of my learning journey**, showing how my skills
 
 If you're also on a **2DAM journey**, feel free to explore, learn, and contribute!  
 
-📧 Contact: [Your Email or Social Media]  
+📧 Contact: nachete@mail.com 
 
 🚀 **"Survive 2DAM, and you can survive anything!"**  
