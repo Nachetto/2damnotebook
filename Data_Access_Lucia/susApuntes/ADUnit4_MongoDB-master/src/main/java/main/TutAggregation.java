@@ -29,7 +29,7 @@ import static com.mongodb.client.model.Filters.eq;
 public class TutAggregation {
 
     public static void main(String[] args) {
-        MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.iesquevedo.es:2323");
+        MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.wompwomp.com:2323");
 
         MongoDatabase db = mongo.getDatabase("lucia");
         MongoCollection<Document> col = db.getCollection("zipcodes");

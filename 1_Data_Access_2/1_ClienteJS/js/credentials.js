@@ -17,7 +17,7 @@ password: p
 };
 
 // Realizar la solicitud POST
-fetch("https://informatica.iesquevedo.es/marcas/login", {
+fetch("https://informatica.wompwomp.com/marcas/login", {
 method: 'POST',
 headers: {
     'Content-Type': 'application/json'

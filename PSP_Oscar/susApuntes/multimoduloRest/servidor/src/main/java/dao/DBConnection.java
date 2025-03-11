@@ -29,7 +29,7 @@ public class DBConnection {
 //        Class.forName("com.mysql.cj.jdbc.Driver");
 //
 //        connection = DriverManager.getConnection(
-//                "jdbc:mysql://dam2.mysql.iesquevedo.es:3335/netflisssss",
+//                "jdbc:mysql://dam2.mysql.wompwomp.com:3335/netflisssss",
 //                Configuration.getInstance().getUser(),
 //                Configuration.getInstance().getPassword());
 

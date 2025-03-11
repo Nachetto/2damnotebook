@@ -31,7 +31,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     public Either<String, List<Customer>> getAll() {
-        try (Connection myConnection = DriverManager.getConnection("jdbc:mysql://dam2.mysql.iesquevedo.es: 3335/ignacioLlorente_restaurant", "root", "quevedo2dam");
+        try (Connection myConnection = DriverManager.getConnection("jdbc:mysql://dam2.mysql.wompwomp.com: 3335/ignacioLlorente_restaurant", "root", "quevedo2dam");
              Statement stmt = myConnection.createStatement();
              PreparedStatement preparedStatement = myConnection.prepareStatement(SQLConstants.SELECT_CREDS_FROM_CUSTOMER_QUERY)) {
             ResultSet rs = stmt.executeQuery(SQLConstants.SELECT_CUSTOMERS_QUERY);

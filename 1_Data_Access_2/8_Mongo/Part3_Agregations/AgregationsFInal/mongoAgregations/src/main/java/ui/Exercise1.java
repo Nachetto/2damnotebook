@@ -15,7 +15,7 @@ import static com.mongodb.client.model.Filters.eq;
 
 public class Exercise1 {
         public static void main(String[] args) {
-            MongoClient mongo = MongoClients.create("mongodb://informatica.iesquevedo.es:2323");
+            MongoClient mongo = MongoClients.create("mongodb://informatica.wompwomp.com:2323");
             MongoDatabase db = mongo.getDatabase("IgnacioLlorente_hospital");
 
             // a. Get the oldest patient

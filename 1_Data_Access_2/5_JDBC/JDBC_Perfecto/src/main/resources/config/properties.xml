@@ -7,7 +7,7 @@
     <!-- >
     <entry key="dbUrl">jdbc:mysql://localhost:3306/hospitalDB</entry>
     <!-->
-    <entry key="dbUrl">jdbc:mysql://dam2.mysql.iesquevedo.es:3335/jorge_novillo_hospital</entry>
+    <entry key="dbUrl">jdbc:mysql://dam2.mysql.wompwomp.com:3335/jorge_novillo_hospital</entry>
     <entry key="user_name">root</entry>
     <entry key="password">quevedo2dam</entry>
     <entry key="driver">com.mysql.cj.jdbc.Driver</entry>

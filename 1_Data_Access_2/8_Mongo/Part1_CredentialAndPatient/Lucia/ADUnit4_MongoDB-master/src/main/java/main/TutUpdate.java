@@ -21,7 +21,7 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 public class TutUpdate {
 
   public static void main(String[] args) {
-//    MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.iesquevedo.es:2323");
+//    MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.wompwomp.com:2323");
 //
 //    MongoDatabase db = mongo.getDatabase("lucia");
 //    CodecRegistry pojoCodecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
@@ -29,7 +29,7 @@ public class TutUpdate {
 //
 //    MongoCollection<Supplier> est = db.getCollection("coffeeSupplier", Supplier.class)
 //            .withCodecRegistry(pojoCodecRegistry);
-    try (MongoClient mongo = MongoClients.create("mongodb://informatica.iesquevedo.es:2323")) {
+    try (MongoClient mongo = MongoClients.create("mongodb://informatica.wompwomp.com:2323")) {
       MongoDatabase db = mongo.getDatabase("luciasanmiguel_coffeecompany");
       MongoCollection<Document> est = db.getCollection("suppliers");
 

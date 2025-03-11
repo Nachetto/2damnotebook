@@ -269,7 +269,7 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "http://informatica.iesquevedo.es:2326/IgnacioLlorente_RestaurantRest-OscarApruebame/api",
+			"value": "http://informatica.wompwomp.com:2326/IgnacioLlorente_RestaurantRest-OscarApruebame/api",
 			"type": "string"
 		},
 		{

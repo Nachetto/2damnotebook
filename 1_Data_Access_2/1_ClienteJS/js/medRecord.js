@@ -5,7 +5,7 @@ function getInfo(button) {
     var patientName = row.querySelector('td:nth-child(2)').innerText.trim(); // Obtiene el nombre del estudiante
 
     // Realiza una solicitud Fetch al servidor para obtener los medRecords del alumno
-    fetch(`https://informatica.iesquevedo.es/marcas/patients/${patientId}/medRecords`)
+    fetch(`https://informatica.wompwomp.com/marcas/patients/${patientId}/medRecords`)
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -50,7 +50,7 @@ function deleteApp(button) {
     var appId = row.querySelector('td:first-child').innerText.trim(); // Obtiene el contenido del primer <td> de la fila
 
     // Delete the patient from the server
-    fetch(`https://informatica.iesquevedo.es/marcas/patients/medRecords/${appId}`, {
+    fetch(`https://informatica.wompwomp.com/marcas/patients/medRecords/${appId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ function updateMedRecord(event) {
     };
 
     // Send a fetch request to update the medRecord on the server
-    fetch('https://informatica.iesquevedo.es/marcas/patients/medRecords', {
+    fetch('https://informatica.wompwomp.com/marcas/patients/medRecords', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -220,7 +220,7 @@ function addMedRecord(event) {
     };
 
     // Send a fetch request to add the patient to the server
-    fetch("https://informatica.iesquevedo.es/marcas/patients/medRecords", {
+    fetch("https://informatica.wompwomp.com/marcas/patients/medRecords", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -268,7 +268,7 @@ function showAddMedRecordModalW(event) {
 //fillDoctorCombo: callback es una función que se llama desde esta funcion, para asegurarnos que ha cargado el combo antes
 function fillDoctorCombo(combo, callback) {
 
-    fetch('https://informatica.iesquevedo.es/marcas/doctors')
+    fetch('https://informatica.wompwomp.com/marcas/doctors')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');

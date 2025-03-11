@@ -8,7 +8,7 @@ public class MongoDbConnection {
     private static MongoClient mongoClient;
     private static MongoDatabase database;
 
-    private static final String CONNECTION_STRING = "mongodb://informatica.iesquevedo.es:2323";
+    private static final String CONNECTION_STRING = "mongodb://informatica.wompwomp.com:2323";
     private static final String DB_NAME = "IgnacioLlorente_hospital";
 
     private MongoDbConnection() {}

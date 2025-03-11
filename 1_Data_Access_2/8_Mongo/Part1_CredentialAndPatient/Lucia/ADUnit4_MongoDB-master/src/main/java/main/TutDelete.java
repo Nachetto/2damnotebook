@@ -23,7 +23,7 @@ public class TutDelete {
 
     public static void main(String[] args) {
 
-        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.iesquevedo.es:2323")) {
+        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.wompwomp.com:2323")) {
             MongoDatabase db = mongo.getDatabase("luciasanmiguel_coffeecompany");
             MongoCollection<Document> est = db.getCollection("suppliers");
 

@@ -37,7 +37,7 @@ public class ServicesDaoMongo {
 
     public Either<GymError, GymServices> get(String name) {
         Either<GymError, GymServices> result = null;
-        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.iesquevedo.es:2323")) {
+        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.wompwomp.com:2323")) {
             MongoDatabase db = mongo.getDatabase("luciasanmiguel_gym");
             MongoCollection<Document> services = db.getCollection("services");
 

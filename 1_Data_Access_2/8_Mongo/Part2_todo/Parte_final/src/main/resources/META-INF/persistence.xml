@@ -11,7 +11,7 @@
         <properties>
             <property name="hibernate.ogm.datastore.provider" value="mongodb"/>
             <property name="hibernate.ogm.datastore.database" value="IgnacioLlorente_hospital"/>
-            <property name="hibernate.ogm.datastore.host" value="informatica.iesquevedo.es"/>
+            <property name="hibernate.ogm.datastore.host" value="informatica.wompwomp.com"/>
             <property name="hibernate.ogm.datastore.port" value="2323"/>
         </properties>
     </persistence-unit>

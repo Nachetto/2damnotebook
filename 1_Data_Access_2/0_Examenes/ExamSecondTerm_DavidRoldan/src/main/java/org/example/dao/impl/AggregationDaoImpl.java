@@ -25,7 +25,7 @@ public class AggregationDaoImpl implements AggregationDAO {
     @Override
     public Either<GymError, String> exA() {
         Either<GymError, String> result;
-        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.iesquevedo.es:2323")) {
+        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.wompwomp.com:2323")) {
             MongoDatabase db = mongo.getDatabase("luciasanmiguel_gym");
             MongoCollection<Document> subscriptions = db.getCollection("subscriptions");
 
@@ -58,7 +58,7 @@ public class AggregationDaoImpl implements AggregationDAO {
     @Override
     public Either<GymError, String> exB() {
         Either<GymError, String> result;
-        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.iesquevedo.es:2323")) {
+        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.wompwomp.com:2323")) {
             MongoDatabase db = mongo.getDatabase("luciasanmiguel_gym");
             MongoCollection<Document> subscriptions = db.getCollection("subscriptions");
 
@@ -93,7 +93,7 @@ public class AggregationDaoImpl implements AggregationDAO {
     @Override
     public Either<GymError, String> exC() {
         Either<GymError, String> result;
-        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.iesquevedo.es:2323")) {
+        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.wompwomp.com:2323")) {
             MongoDatabase db = mongo.getDatabase("luciasanmiguel_gym");
             MongoCollection<Document> subscriptions = db.getCollection("subscriptions");
 

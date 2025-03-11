@@ -24,7 +24,7 @@ public class dTutorialRead {
 
 //Get suppliers
 //  First option: Get suppliers from document and print data (no mapping)
-//        try (MongoClient mongo = MongoClients.create("mongodb://informatica.iesquevedo.es:2323")) {
+//        try (MongoClient mongo = MongoClients.create("mongodb://informatica.wompwomp.com:2323")) {
 //
 //            MongoDatabase db = mongo.getDatabase("luciasanmiguel_coffeecompany");
 //
@@ -35,7 +35,7 @@ public class dTutorialRead {
 //        }
 //
 ////  Second option: Get suppliers from document and store it into a Supplier list with a Converter class
-//        try (MongoClient mongo = MongoClients.create("mongodb://informatica.iesquevedo.es:2323")) {
+//        try (MongoClient mongo = MongoClients.create("mongodb://informatica.wompwomp.com:2323")) {
 //
 //            MongoDatabase db = mongo.getDatabase("luciasanmiguel_coffeecompany");
 //
@@ -47,7 +47,7 @@ public class dTutorialRead {
 //        }
 //
 //  Third option: Get suppliers from document and store it into a Supplier list with CodecRegistry
-//        try (MongoClient mongo = MongoClients.create("mongodb://informatica.iesquevedo.es:2323")) {
+//        try (MongoClient mongo = MongoClients.create("mongodb://informatica.wompwomp.com:2323")) {
 //            MongoDatabase db = mongo.getDatabase("luciasanmiguel_coffeecompany");
 //            System.out.println("Get suppliers with CodecRegistry");
 //            CodecRegistry pojoCodecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
@@ -62,7 +62,7 @@ public class dTutorialRead {
 //        }
 
 // Fourth option: Get suppliers from document and store it into a Supplier list with Gson
-//        try (MongoClient mongo = MongoClients.create("mongodb://informatica.iesquevedo.es:2323")) {
+//        try (MongoClient mongo = MongoClients.create("mongodb://informatica.wompwomp.com:2323")) {
 //            MongoDatabase db = mongo.getDatabase("luciasanmiguel_coffeecompany");
 //            MongoCollection<Document> est = db.getCollection("suppliers");
 //            List<Supplier> suppliersList = new ArrayList<>();
@@ -74,7 +74,7 @@ public class dTutorialRead {
 //        }
 
 // Get all coffees
-//        try (MongoClient mongo = MongoClients.create("mongodb://informatica.iesquevedo.es:2323")) {
+//        try (MongoClient mongo = MongoClients.create("mongodb://informatica.wompwomp.com:2323")) {
 //            MongoDatabase db = mongo.getDatabase("luciasanmiguel_coffeecompany");
 //            MongoCollection<Document> est = db.getCollection("suppliers");
 //            List<Coffee> coffeesList = new ArrayList<>();

@@ -38,7 +38,7 @@ public class SubscriptionsDaoMongo {
 
     public Either<GymError, GymSubscriptions> get(String name) {
         Either<GymError, GymSubscriptions> result = null;
-        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.iesquevedo.es:2323")) {
+        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.wompwomp.com:2323")) {
             MongoDatabase db = mongo.getDatabase("luciasanmiguel_gym");
             MongoCollection<Document> subscriptions = db.getCollection("subscriptions");
 
@@ -73,7 +73,7 @@ public class SubscriptionsDaoMongo {
 
     public Either<GymError, Integer> save(GymSubscriptions gymSubscriptions){
         Either<GymError, Integer> result = null;
-        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.iesquevedo.es:2323")) {
+        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.wompwomp.com:2323")) {
             MongoDatabase db = mongo.getDatabase("luciasanmiguel_gym");
             MongoCollection<Document> subscriptions = db.getCollection("GymSubscriptionsBackup");
 
@@ -91,7 +91,7 @@ public class SubscriptionsDaoMongo {
 
     public Either<GymError, Integer> update(GymSubscriptions gymSubscriptions){
         Either<GymError, Integer> result = null;
-        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.iesquevedo.es:2323")) {
+        try (MongoClient mongo = MongoClients.create("mongodb://dam2.tomcat.wompwomp.com:2323")) {
             MongoDatabase db = mongo.getDatabase("luciasanmiguel_gym");
             MongoCollection<Document> subscriptions = db.getCollection("subscriptions");
 

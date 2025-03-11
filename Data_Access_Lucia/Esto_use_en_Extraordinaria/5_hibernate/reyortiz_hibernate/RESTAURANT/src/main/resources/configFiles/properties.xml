@@ -3,7 +3,7 @@
 <properties>
     <comment>XML file</comment>
     <entry key="xmlOrdersPath">src/main/resources/xml/orders.xml</entry>
-    <entry key="sqlUrl">jdbc:mysql://dam2.mysql.iesquevedo.es:3335/reymortiz_restaurant</entry>
+    <entry key="sqlUrl">jdbc:mysql://dam2.mysql.wompwomp.com:3335/reymortiz_restaurant</entry>
     <entry key="sqlUser">root</entry>
     <entry key="sqlPassword">quevedo2dam</entry>
     <entry key="driver">com.mysql.cj.jdbc.Driver</entry>
